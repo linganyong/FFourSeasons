@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum ChangePassworkType : Int {
+    case PayPasswork = 1
+    case LaunchPasswork = 2
+}
+
 class ChangePayPassworkViewController: UIViewController,UITextFieldDelegate {
     var rightBarItem:UIBarButtonItem!
     
@@ -19,6 +24,7 @@ class ChangePayPassworkViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var verificationCodeView: UIView!
     @IBOutlet weak var passworkView: UIView!
     @IBOutlet weak var passworkAgainView: UIView!
+    var type:ChangePassworkType = ChangePassworkType.PayPasswork
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "设置修改支付密码"
@@ -51,6 +57,22 @@ class ChangePayPassworkViewController: UIViewController,UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    @IBAction func codeAction(_ sender: Any) {
+        if !LGYTool.isMobileNumber(mobileNum: phoneTF.text!){
+            //            viewController?.alertView(_title: "提示", _message: "请输入正确的手机号码!", _bText: "确定")
+            LGYToastView.show(message: "请输入正确的手机号码!")
+            return
+        }
+        LGYAFNetworking.lgyPost(urlString: APIAddress.sms_verificationCode, parameters: ["phone":phoneTF.text!], progress: nil) { (object,isError) in
+            if !isError{
+                let model = Model_sms_verificationCode.yy_model(withJSON: object)
+                if let msg = model?.msg {
+                    LGYToastView.show(message: msg)
+                }
+            }
+        }
     }
     
     //MARK:监听控制输入
@@ -126,28 +148,40 @@ class ChangePayPassworkViewController: UIViewController,UITextFieldDelegate {
             return
         }
         weak var vc = self
-        LGYAFNetworking.lgyPost(urlString: APIAddress.api_alterPayPw, parameters: ["token":Model_user_information.getToken(),"phone":phoneTF.text!,"code":codeTF.text!,"password":passworkTF.text!], progress: nil) { (object, isError) in
-            if isError{
-                return
-            }
-            let model = Model_user_information.yy_model(withJSON: object)
-            if model != nil {
-                if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
-                    if model?.msg == nil{
-                        model?.msg = "修改成功"
-                    }
-                    _ = LGYToastView.show(message: (model?.msg!)!, timeInterval: 0.5, block: {
-                        vc?.navigationController?.popViewController(animated: true)
-                    })
-                }else{
-                    if model?.msg != nil{
-                        LGYToastView.show(message: model!.msg!)
-                    }
+        if type == .PayPasswork{
+            LGYAFNetworking.lgyPost(urlString: APIAddress.api_alterPayPw, parameters: ["token":Model_user_information.getToken(),"phone":phoneTF.text!,"code":codeTF.text!,"password":passworkTF.text!], progress: nil) { (object, isError) in
+                if isError{
+                    return
                 }
-                
-                
+                let model = Model_user_information.yy_model(withJSON: object)
+                vc?.isFinish(model: model)
             }
-            
+        }
+        if type == .LaunchPasswork{
+            LGYAFNetworking.lgyPost(urlString: APIAddress.api_alterPw, parameters: ["token":Model_user_information.getToken(),"phone":phoneTF.text!,"code":codeTF.text!,"password":passworkTF.text!], progress: nil) { (object, isError) in
+                if isError{
+                    return
+                }
+                let model = Model_user_information.yy_model(withJSON: object)
+                vc?.isFinish(model: model)
+            }
+        }
+    }
+    
+    func isFinish(model:Model_user_information?){
+        if model != nil {
+            if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                if model?.msg == nil{
+                    model?.msg = "修改成功"
+                }
+                _ = LGYToastView.show(message: (model?.msg!)!, timeInterval: 0.5, block: {
+                    self.navigationController?.popViewController(animated: true)
+                })
+            }else{
+                if model?.msg != nil{
+                    LGYToastView.show(message: model!.msg!)
+                }
+            }
         }
     }
     

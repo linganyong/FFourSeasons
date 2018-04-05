@@ -71,6 +71,9 @@
                                 <state key="normal" title="获取验证码">
                                     <color key="titleColor" red="0.1647058824" green="0.78823529410000004" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="codeAction:" destination="dMZ-vf-Smx" eventType="touchUpInside" id="Yty-oC-9SK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OlE-Bh-Icm">
                                 <rect key="frame" x="8" y="9.5" width="90" height="21"/>

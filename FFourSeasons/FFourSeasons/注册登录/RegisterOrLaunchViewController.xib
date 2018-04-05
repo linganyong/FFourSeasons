@@ -58,19 +58,34 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n8D-qf-kec">
-                                <rect key="frame" x="8" y="108.5" width="224" height="83.5"/>
+                                <rect key="frame" x="8" y="108.5" width="162" height="83.5"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YME-Tg-fcF">
+                                <rect key="frame" x="170" y="108.5" width="62" height="83.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="62" id="ggc-UT-juo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="忘记密码">
+                                    <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="forgetPasswordAction:" destination="61n-8i-Bzu" eventType="touchUpInside" id="ZdG-R3-Foz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QXg-QI-1dn" firstAttribute="leading" secondItem="Wel-Ha-4Vz" secondAttribute="leading" constant="8.5" id="1Rr-fB-grE"/>
+                            <constraint firstItem="YME-Tg-fcF" firstAttribute="top" secondItem="n8D-qf-kec" secondAttribute="top" id="1VP-x0-sUM"/>
                             <constraint firstItem="8Rj-gi-8Hc" firstAttribute="top" secondItem="lIl-7p-DTk" secondAttribute="top" id="35P-1d-ZD3"/>
-                            <constraint firstItem="lIl-7p-DTk" firstAttribute="trailing" secondItem="n8D-qf-kec" secondAttribute="trailing" constant="8" id="3qx-Aj-2Du"/>
+                            <constraint firstItem="lIl-7p-DTk" firstAttribute="trailing" secondItem="n8D-qf-kec" secondAttribute="trailing" constant="70" id="3qx-Aj-2Du"/>
                             <constraint firstAttribute="trailing" secondItem="QXg-QI-1dn" secondAttribute="trailing" id="5zg-0x-1TI"/>
-                            <constraint firstItem="n8D-qf-kec" firstAttribute="height" secondItem="OsI-KC-Xmc" secondAttribute="height" id="633-Gh-PnB"/>
+                            <constraint firstItem="YME-Tg-fcF" firstAttribute="bottom" secondItem="n8D-qf-kec" secondAttribute="bottom" id="H8H-Ht-4va"/>
+                            <constraint firstItem="n8D-qf-kec" firstAttribute="height" secondItem="OsI-KC-Xmc" secondAttribute="height" id="MAk-LO-SRk"/>
                             <constraint firstItem="lIl-7p-DTk" firstAttribute="trailing" secondItem="OsI-KC-Xmc" secondAttribute="trailing" constant="8" id="PNO-P7-5h3"/>
                             <constraint firstItem="OsI-KC-Xmc" firstAttribute="leading" secondItem="lIl-7p-DTk" secondAttribute="leading" constant="8" id="TSo-th-LfE"/>
                             <constraint firstItem="OsI-KC-Xmc" firstAttribute="top" secondItem="Wel-Ha-4Vz" secondAttribute="top" constant="8" id="bKd-FW-8tj"/>
@@ -81,6 +96,7 @@
                             <constraint firstItem="lIl-7p-DTk" firstAttribute="bottom" secondItem="n8D-qf-kec" secondAttribute="bottom" constant="8" id="pji-K8-h2v"/>
                             <constraint firstItem="8Rj-gi-8Hc" firstAttribute="leading" secondItem="lIl-7p-DTk" secondAttribute="leading" id="vkx-BA-LFU"/>
                             <constraint firstItem="8Rj-gi-8Hc" firstAttribute="bottom" secondItem="lIl-7p-DTk" secondAttribute="bottom" id="xcS-mD-EgL"/>
+                            <constraint firstItem="YME-Tg-fcF" firstAttribute="trailing" secondItem="OsI-KC-Xmc" secondAttribute="trailing" id="zxP-9z-g6C"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lIl-7p-DTk"/>
                         <userDefinedRuntimeAttributes>
@@ -96,7 +112,7 @@
                         </connections>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GoZ-st-eDT" customClass="RegisterView" customModule="FFourSeasons" customModuleProvider="target">
-                        <rect key="frame" x="38" y="183.5" width="300" height="170"/>
+                        <rect key="frame" x="38" y="183" width="300" height="170"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mcT-cD-2Oe">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="170"/>

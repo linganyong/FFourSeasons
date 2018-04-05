@@ -30,8 +30,51 @@ class ChangeUserPassworkViewController: UIViewController,UITextFieldDelegate {
     
     //MARK:导航栏右边按钮响应事件
     @objc func rightBarAction() ->Void{
+//        if (codeTF.text?.count)!  < 4 || (codeTF.text?.count)! < 4{
+//            LGYToastView.show(message: "请输入手机接收到的信息信息！")
+//            return
+//        }
+//        if !LGYTool.isMobileNumber(mobileNum: phoneTF.text){
+//            LGYToastView.show(message: "手机号码不正确！")
+//            return
+//        }
+        if oldPassworkTF.text == nil   {
+            LGYToastView.show(message: "旧密码不能为空！")
+            return
+        }
+        if newPassworkTF.text == nil   {
+            LGYToastView.show(message: "新密码不能为空！")
+            return
+        }
         
-        alertView(_title: "提示", _message: "weoo", _bText: "sjosos")
+        if newPassworkTF.text != newPassworkAgainTF.text{
+            LGYToastView.show(message: "两次输入的密码输入不相同！")
+            return
+        }
+        weak var vc = self
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_alterUserPw, parameters: ["token":Model_user_information.getToken(),"newPw":newPassworkAgainTF.text!,"oldPw":oldPassworkTF.text!], progress: nil) { (object, isError) in
+            if isError{
+                return
+            }
+            let model = Model_user_information.yy_model(withJSON: object)
+            if model != nil {
+                if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                    if model?.msg == nil{
+                        model?.msg = "修改成功"
+                    }
+                    _ = LGYToastView.show(message: (model?.msg!)!, timeInterval: 0.5, block: {
+                        vc?.navigationController?.popViewController(animated: true)
+                    })
+                }else{
+                    if model?.msg != nil{
+                        LGYToastView.show(message: model!.msg!)
+                    }
+                }
+                
+                
+            }
+            
+        }
     }
     
     func viewLayerShadow() -> Void {
@@ -74,6 +117,8 @@ class ChangeUserPassworkViewController: UIViewController,UITextFieldDelegate {
 //        }
         return true
     }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

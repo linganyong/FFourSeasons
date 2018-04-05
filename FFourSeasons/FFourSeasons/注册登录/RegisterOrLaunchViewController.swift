@@ -137,11 +137,17 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
         launchView.alpha = 1
         launchView.backgroundColor = UIColor.black
         launchOrRegisterButton.setTitle("登录", for: .normal)
-        
         self.view.layoutIfNeeded();
-        
     }
     
+    @IBAction func forgetPasswordAction(_ sender: UIButton) {
+        let vc = Bundle.main.loadNibNamed("ChangePayPassworkViewController", owner: nil, options: nil)?.first as! ChangePayPassworkViewController
+        let na = UINavigationController(rootViewController: vc)
+        vc.type = .LaunchPasswork
+        self.present(na, animated: true) {
+            
+        }
+    }
     //MARK:把原来保存的账号密码取出来展示，同事修改保存的值
     func setPassworkDataScoure() -> Void {
         let passwordItem = KeychainConfiguration.get(forKey: userDefaultsKey)
