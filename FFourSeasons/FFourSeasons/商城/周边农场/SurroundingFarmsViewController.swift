@@ -9,16 +9,19 @@
 import UIKit
 
 
-class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttributedLabelDelegate,CLLocationManagerDelegate {
+class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttributedLabelDelegate,CLLocationManagerDelegate,DetailsViewDelegate {
     
     @IBOutlet weak var myLocationBtn: UIButton!
-    var mapZoomLevel = 13.5
+    var mapZoomLevel = 10.5
     ///初始化地图
     let mapView = MAMapView()
     let locationManager = CLLocationManager()
     var userAnnotation = MAPointAnnotation()
     let tool = LGYMapMangerTool() //启动导航
-    
+    let backView = UIView()
+    let textLabel = TYAttributedLabel()
+    var listFarm = Array<Farm>() //其他农场列表
+    var firstFarm:Farm? //推荐农场
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "人人庄园"
@@ -36,37 +39,52 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         mapView.setZoomLevel(mapZoomLevel, animated: true)
         view.insertSubview(mapView, at: 0)
         mapView.delegate = self
+        AMapServices.shared().enableHTTPS = true
         
         ///如果您需要进入地图就显示定位小蓝点，则需要下面两行代码
         mapView.isShowsUserLocation = true
         mapView.userTrackingMode = .follow;
     }
     
-    //MARK:设置地图上面浮动文字
+    //MARK:设置地图上面的View
     func setTextViewText() ->Void{
         let backViewWidth = view.frame.width - 32
-        let backView = UIView(frame: CGRect(x: 16, y: 0, width: backViewWidth, height: 0))
+        backView.frame = CGRect(x: 16, y: 0, width: backViewWidth, height: 0)
         backView.backgroundColor = UIColor.white
         backView.LGyCornerRadius = 10
         LGYTool.viewLayerShadow(view: backView)
         self.view.addSubview(backView)
-        let label = TYAttributedLabel(frame: CGRect(x: 20, y: 12, width: backViewWidth - 40, height: 0))
-        label.delegate = self
-        let text = "夏至刚过，位于韶关的翁源的三华李是应节的，果搭肉厚，无渣核小，清甜爽口，促进血红蛋白再生的奇效。<立即前往>"
-        label.text = text
-        label.font = UIFont.systemFont(ofSize: 9)
         
+        textLabel.delegate = self
+        backView.addSubview(textLabel)
+        backView.layoutSubviews()
+        backView.snp.makeConstraints { (make) in
+            make.top.equalTo(view.snp.top).offset(84)
+            make.right.equalTo(view.snp.right).offset(-8)
+            make.left.equalTo(view.snp.left).offset(8)
+        }
+        textLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(backView.snp.top).offset(8)
+            make.right.equalTo(backView.snp.right).offset(-8)
+            make.left.equalTo(backView.snp.left).offset(8)
+            make.bottom.equalTo(backView.snp.bottom).offset(-8)
+            make.height.greaterThanOrEqualTo(30)
+        }
+        
+    }
+    
+    //MARK:设置地图上面浮动文字
+    func setTextLabelText(text:String) -> Void {
+        let text = "\(text)<立即前往>"
+        textLabel.text = text
+        textLabel.font = UIFont.systemFont(ofSize: 9)
         let linkStorage = TYLinkTextStorage()
         linkStorage.range = text.lgyNSRange(range: text.range(of: "<立即前往>"))!
         linkStorage.underLineStyle = .init(rawValue: 0)
         linkStorage.textColor = UIColor(red: 187/255.0, green: 187/255.0, blue: 187/255.0, alpha: 1)
-        label.addTextStorage(linkStorage)
-        label.sizeToFit()
-        
-        backView.addSubview(label)
-        backView.layoutSubviews()
-        
-        backView.frame = CGRect(x: 16, y: 80, width: backViewWidth, height: label.frame.size.height + 24)
+        textLabel.addTextStorage(linkStorage)
+        textLabel.sizeToFit()
+//        backView.frame = CGRect(x: 16, y: 80, width: backViewWidth, height: textLabel.frame.size.height + 24)
     }
     
     
@@ -93,21 +111,38 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
             if annotationView == nil {
                 annotationView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: pointReuseIndentifier)
             }
-           
-            annotationView?.image = UIImage(named: "农场图标.png")
+            if annotation.lgyTag < 0{
+                
+                
+            }else if annotation.lgyTag < 10000 && annotation.lgyTag >= 0{
+                let farm = listFarm[annotation.lgyTag]
+                if farm.imgs != nil{
+                  _ = UIImage.image(fromURL: farm.imgs, placeholder: UIImage.init(), shouldCacheImage: true, closure: { [weak annotationView](image) in
+                        annotationView?.image = image
+                        annotationView?.reloadInputViews()
+                    })
+                }
+            }else if annotation.lgyTag == 10000{
+                
+            }
+            annotationView?.lgyTag = annotation.lgyTag
             return annotationView
         }
         return nil
     }
 
     func mapView(_ mapView: MAMapView!, didSelect view: MAAnnotationView!) {
-        weak var vc = self
-        if view != nil{
-            DetailsView.show {
-               
-               
-            }
+        if view.lgyTag < 0{
+            
+            
+        }else if view.lgyTag < 10000 && view.lgyTag >= 0{
+            let farm = listFarm[view.lgyTag]
+            loadGoodData(sid: farm._id, description: farm.shop_introduce, title: farm.shop_name)
+        }else if view.lgyTag == 10000{
+            
         }
+        view.setSelected(false, animated: false)
+        
     }
     
     //MARK:开始定位
@@ -118,14 +153,10 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         locationManager.desiredAccuracy = CLLocationAccuracy.init(kCLLocationAccuracyBest)
         locationManager.distanceFilter = 300.0 //每隔100米更新一次
         locationManager.delegate = self
-        //        if CLLocationManager.locationServicesEnabled(){
-        //            LGYAlertViewSimple.show(title: "开启定位功能开启失败，请到：设置 > 人人庄园 中添加权限", buttonStr: "确定")
-        //
-        //        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        mapView.removeAnnotation(self.userAnnotation)
+//        mapView.removeAnnotation(self.userAnnotation)
         let location = locations.last!
         let clGeoCoder = CLGeocoder()
         let cl = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
@@ -141,7 +172,6 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         }
         
         mapView.addAnnotation(self.userAnnotation)
-        
     }
     
     
@@ -150,8 +180,65 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     func loadDataScoure() -> Void {
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_getFarm, parameters: ["token":Model_user_information.getToken()], progress: nil) { [weak self](object, isError) in
             if let weakSelf = self {
-//                    let model = Model_api_.
+                let model = Model_api_farm.yy_model(withJSON: object as Any)
+                weakSelf.setData(model: model)
             }
+        }
+    }
+    
+    //MARK:获取周边农场
+    func loadGoodData(sid:Int,description:String,title:String) -> Void {
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_getGoods, parameters: ["sid":"\(sid)","token":Model_user_information.getToken()], progress: nil) { [weak self](object, isError) in
+            if let weakSelf = self {
+                let model = Model_api_getGoods.yy_model(withJSON: object as Any)
+                if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                    if let list = model?.goodsList.list{
+                       let view =  DetailsView.show(array: list, superView: weakSelf.view, delegate: weakSelf)
+                        view.descriptionLabel.text = description
+                        view.titleLabel.text = title
+                    }
+                }
+            }
+        }
+    }
+    
+    //MARK: DetailsViewDelegate pro 获取周边农场产品图片点击回调
+    func detailsView(view: DetailsView, farmGoods: FarmGoods) {
+        let na = Bundle.main.loadNibNamed("ProductSaleDetailsViewController", owner: nil, options: nil)![0] as! ProductSaleDetailsViewController
+        na.addContentProductSaleInformaiton(product: nil,productId:farmGoods._id)
+        self.navigationController?.pushViewController(na, animated: true)
+    }
+    
+    func setData(model:Model_api_farm?)->Void{
+        if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+            backView.isHidden = false
+            if let farm = model?.farm{
+                firstFarm = farm
+                setTextLabelText(text: farm.recommendation!)
+//                let cl = CLLocation(latitude: farm.lat, longitude: farm.lng)
+//                let annotation = MAPointAnnotation()
+//                annotation.coordinate = cl.coordinate
+//                annotation.lgyTag = 10000
+//                mapView.addAnnotation(annotation)
+            }
+            listFarm.removeAll()
+            if let farms = model?.farms{
+                var count = 0
+                for item in farms{
+                    if item != nil{
+                        listFarm.append(item)
+                        let cl = CLLocation(latitude: item.lat, longitude: item.lng)
+                        let annotation = MAPointAnnotation()
+                        annotation.lgyTag = count
+                        annotation.coordinate = cl.coordinate
+                        mapView.addAnnotation(annotation)
+                        
+                        count += 1
+                    }
+                }
+            }
+        }else{
+            backView.isHidden = true
         }
     }
     
@@ -160,10 +247,8 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     }
     
     func attributedLabel(_ attributedLabel: TYAttributedLabel!, textStorageClicked textStorage: TYTextStorageProtocol!, at point: CGPoint) {
-   
-        
-        tool.getInstalledMapApp(endLocation: self.userAnnotation.coordinate, viewController: self)
-        
+        let cl = CLLocation(latitude: firstFarm!.lat, longitude: firstFarm!.lng)
+        tool.getInstalledMapApp(endLocation: cl.coordinate, viewController: self)
     }
     
     override func didReceiveMemoryWarning() {

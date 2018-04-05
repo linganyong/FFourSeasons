@@ -177,4 +177,5 @@ class APIAddress: NSObject {
      获取周边农场产品信息
      */
     static let api_getGoods = String(format: "%@/api/getGoods", arguments: [api_domainName()])
+    
 }

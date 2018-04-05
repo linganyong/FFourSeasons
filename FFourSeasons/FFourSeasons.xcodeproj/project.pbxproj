@@ -138,6 +138,11 @@
 		9C58AADB20510C1000594011 /* 按钮背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C58AADA20510C1000594011 /* 按钮背景.png */; };
 		9C58AADE20511B8200594011 /* CustomerServiceApplyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58AADC20511B8200594011 /* CustomerServiceApplyResultViewController.swift */; };
 		9C58AADF20511B8200594011 /* CustomerServiceApplyResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C58AADD20511B8200594011 /* CustomerServiceApplyResultViewController.xib */; };
+		9C5CBF0F207661350078F17B /* Lin+MAPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CBF0E207661350078F17B /* Lin+MAPointAnnotation.swift */; };
+		9C5CBF1120766D7C0078F17B /* Lin+MAAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CBF1020766D7C0078F17B /* Lin+MAAnnotationView.swift */; };
+		9C5CBF16207677FE0078F17B /* Model_api_getGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CBF15207677FE0078F17B /* Model_api_getGoods.m */; };
+		9C5CBF19207678E20078F17B /* FarmGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CBF18207678E20078F17B /* FarmGoodsList.m */; };
+		9C5CBF1C207679370078F17B /* FarmGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CBF1B207679370078F17B /* FarmGoods.m */; };
 		9C6044502074F8A100FA7F1A /* 可用余额3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C60444F2074F8A100FA7F1A /* 可用余额3x.png */; };
 		9C77C3AE2027F1FF008B49E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77C3AD2027F1FF008B49E2 /* AppDelegate.swift */; };
 		9C77C3B02027F1FF008B49E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77C3AF2027F1FF008B49E2 /* ViewController.swift */; };
@@ -602,6 +607,14 @@
 		9C58AADA20510C1000594011 /* 按钮背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按钮背景.png"; sourceTree = "<group>"; };
 		9C58AADC20511B8200594011 /* CustomerServiceApplyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerServiceApplyResultViewController.swift; sourceTree = "<group>"; };
 		9C58AADD20511B8200594011 /* CustomerServiceApplyResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceApplyResultViewController.xib; sourceTree = "<group>"; };
+		9C5CBF0E207661350078F17B /* Lin+MAPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lin+MAPointAnnotation.swift"; sourceTree = "<group>"; };
+		9C5CBF1020766D7C0078F17B /* Lin+MAAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lin+MAAnnotationView.swift"; sourceTree = "<group>"; };
+		9C5CBF14207677FE0078F17B /* Model_api_getGoods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_getGoods.h; sourceTree = "<group>"; };
+		9C5CBF15207677FE0078F17B /* Model_api_getGoods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model_api_getGoods.m; sourceTree = "<group>"; };
+		9C5CBF17207678E20078F17B /* FarmGoodsList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmGoodsList.h; sourceTree = "<group>"; };
+		9C5CBF18207678E20078F17B /* FarmGoodsList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarmGoodsList.m; sourceTree = "<group>"; };
+		9C5CBF1A207679370078F17B /* FarmGoods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmGoods.h; sourceTree = "<group>"; };
+		9C5CBF1B207679370078F17B /* FarmGoods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarmGoods.m; sourceTree = "<group>"; };
 		9C60444F2074F8A100FA7F1A /* 可用余额3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "可用余额3x.png"; sourceTree = "<group>"; };
 		9C77C3AA2027F1FF008B49E2 /* FFourSeasons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFourSeasons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C77C3AD2027F1FF008B49E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -1435,6 +1448,8 @@
 				9C77C40B2027F96D008B49E2 /* 钥匙串保存数据 */,
 				9C77C4112027F96D008B49E2 /* Bugly */,
 				9C77C4142027F96D008B49E2 /* LCycleView */,
+				9C5CBF0E207661350078F17B /* Lin+MAPointAnnotation.swift */,
+				9C5CBF1020766D7C0078F17B /* Lin+MAAnnotationView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1861,6 +1876,12 @@
 				9CFD5555207111A90028B1A4 /* Model_api_integralShop.m */,
 				9CFCDD072076317400ECBA48 /* Model_api_farm.h */,
 				9CFCDD082076317400ECBA48 /* Model_api_farm.m */,
+				9C5CBF14207677FE0078F17B /* Model_api_getGoods.h */,
+				9C5CBF15207677FE0078F17B /* Model_api_getGoods.m */,
+				9C5CBF17207678E20078F17B /* FarmGoodsList.h */,
+				9C5CBF18207678E20078F17B /* FarmGoodsList.m */,
+				9C5CBF1A207679370078F17B /* FarmGoods.h */,
+				9C5CBF1B207679370078F17B /* FarmGoods.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2694,11 +2715,13 @@
 				9CA32D322046AC3000FD5DFC /* BindingPhoneViewController.swift in Sources */,
 				9C3CB1692068E1A8001DA039 /* ShareView.swift in Sources */,
 				9CABC3F9202EDD1F00C1EE38 /* AllClassCollectionViewCell.swift in Sources */,
+				9C5CBF1120766D7C0078F17B /* Lin+MAAnnotationView.swift in Sources */,
 				9C77C42C2027F96D008B49E2 /* LinTabBarController.swift in Sources */,
 				9CA32D402046CD8900FD5DFC /* CallPhoneView.swift in Sources */,
 				9C0DB9C1206BA0F100F9085D /* Spec.m in Sources */,
 				9CBB507C204921A50018A43B /* PersonCollectionViewCell.swift in Sources */,
 				9C46BA1520454B2B00646A81 /* AddAddressViewController.swift in Sources */,
+				9C5CBF16207677FE0078F17B /* Model_api_getGoods.m in Sources */,
 				9CBB508B20492F2E0018A43B /* SetViewController.swift in Sources */,
 				9CBB50762049034D0018A43B /* PaymentCodeViewController.swift in Sources */,
 				9C77C41E2027F96D008B49E2 /* PYSearchSuggestionViewController.m in Sources */,
@@ -2710,6 +2733,7 @@
 				9C77C42B2027F96D008B49E2 /* Lin+UIButton.swift in Sources */,
 				9C77C3B02027F1FF008B49E2 /* ViewController.swift in Sources */,
 				9C9616CD205140D900D0EB7D /* LGYAlertViewPayment.swift in Sources */,
+				9C5CBF1C207679370078F17B /* FarmGoods.m in Sources */,
 				9CC79B47202D9C0000C43E08 /* LaunchView.swift in Sources */,
 				9CC9D19B204FCAC100AED4CD /* BindingGoodFriendsViewController.swift in Sources */,
 				9C9616D5205614C300D0EB7D /* LGYAFNetworking.swift in Sources */,
@@ -2784,6 +2808,7 @@
 				9C77C41B2027F96D008B49E2 /* LGYPageView.swift in Sources */,
 				9CD6212D204F960A003CD6C4 /* VipLaunchViewController.swift in Sources */,
 				9CFD554220707E080028B1A4 /* Model_api_about.m in Sources */,
+				9C5CBF19207678E20078F17B /* FarmGoodsList.m in Sources */,
 				9C0DB9DC206DE3DA00F9085D /* Model_api_cartList.m in Sources */,
 				9C2C54852029478D00B67BBE /* APPGuideView.swift in Sources */,
 				9C77C42F2027F96D008B49E2 /* LCycleView.swift in Sources */,
@@ -2803,6 +2828,7 @@
 				9CEFBB03205FAE1F006A6625 /* AddOrSelectDefaultView.swift in Sources */,
 				9CBD4810206B872F005C3EB0 /* Spec_json.m in Sources */,
 				9C46BA2320455A6B00646A81 /* EverydayFreshTableViewCell.swift in Sources */,
+				9C5CBF0F207661350078F17B /* Lin+MAPointAnnotation.swift in Sources */,
 				9C58AACD204FEEB200594011 /* AllCommentsTableViewCell.swift in Sources */,
 				9CA32D4A2047938D00FD5DFC /* BranchShopViewController.swift in Sources */,
 				9C00BFA5202E959600E77EA0 /* LGYMarkPageView.swift in Sources */,

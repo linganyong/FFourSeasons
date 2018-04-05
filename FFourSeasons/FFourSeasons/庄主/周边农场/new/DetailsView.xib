@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,8 +16,12 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6k-g8-2Ki">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
-                    <rect key="frame" x="12" y="218" width="351" height="231"/>
+                    <rect key="frame" x="12" y="118" width="351" height="431.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="三化庄园" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlU-Df-1g6">
                             <rect key="frame" x="20" y="24" width="311" height="21"/>
@@ -29,10 +32,10 @@
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广东省那个时候的狮子地址5号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ful-T5-BR8">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广东省那个时候的狮子地址5号" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ful-T5-BR8">
                             <rect key="frame" x="20" y="53" width="311" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="21" id="kSR-oG-ZIP"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="kSR-oG-ZIP"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="8"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -48,10 +51,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="uo1-pa-p0X">
-                            <rect key="frame" x="20" y="111" width="311" height="100.5"/>
+                            <rect key="frame" x="20" y="111" width="311" height="301"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="uo1-pa-p0X" secondAttribute="height" multiplier="3:1" constant="10" id="me1-mX-RNh"/>
+                                <constraint firstAttribute="height" constant="301" id="MEV-IC-r8s"/>
                             </constraints>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pgB-gK-ipz">
                                 <size key="itemSize" width="50" height="50"/>
@@ -90,13 +93,21 @@
                 <constraint firstItem="iN0-l3-epB" firstAttribute="centerX" secondItem="0k4-kK-UfU" secondAttribute="centerX" id="WV0-ex-GuA"/>
                 <constraint firstItem="iN0-l3-epB" firstAttribute="leading" secondItem="eLW-Fc-0zB" secondAttribute="leading" constant="12" id="X6h-AO-Voc"/>
                 <constraint firstItem="eLW-Fc-0zB" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="12" id="aRq-Oe-ARD"/>
+                <constraint firstItem="b6k-g8-2Ki" firstAttribute="leading" secondItem="eLW-Fc-0zB" secondAttribute="leading" id="kdy-Th-PJe"/>
                 <constraint firstItem="iN0-l3-epB" firstAttribute="centerY" secondItem="0k4-kK-UfU" secondAttribute="centerY" id="n1T-jd-3Cs"/>
+                <constraint firstItem="eLW-Fc-0zB" firstAttribute="trailing" secondItem="b6k-g8-2Ki" secondAttribute="trailing" id="out-aA-CYc"/>
+                <constraint firstItem="b6k-g8-2Ki" firstAttribute="top" secondItem="eLW-Fc-0zB" secondAttribute="top" id="vtf-dp-gEy"/>
+                <constraint firstItem="eLW-Fc-0zB" firstAttribute="bottom" secondItem="b6k-g8-2Ki" secondAttribute="bottom" id="yL9-4L-lhS"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="eLW-Fc-0zB"/>
             <connections>
+                <outlet property="backView" destination="b6k-g8-2Ki" id="DDC-A0-hb9"/>
                 <outlet property="collectionView" destination="uo1-pa-p0X" id="y99-5F-zFM"/>
+                <outlet property="collectionViewHeightLC" destination="MEV-IC-r8s" id="Hf3-Vg-yrz"/>
+                <outlet property="descriptionLabel" destination="ful-T5-BR8" id="EqE-Ti-V3k"/>
+                <outlet property="titleLabel" destination="GlU-Df-1g6" id="f7I-TZ-Bwk"/>
             </connections>
-            <point key="canvasLocation" x="-186" y="17"/>
+            <point key="canvasLocation" x="-186.5" y="16.5"/>
         </view>
     </objects>
 </document>

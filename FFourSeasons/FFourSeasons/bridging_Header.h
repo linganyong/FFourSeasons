@@ -56,5 +56,8 @@
 #import "Model_api_integralShop.h"
 #import "Farm.h"
 #import "Model_api_farm.h"
+#import "Model_api_getGoods.h"
+#import "FarmGoods.h"
+#import "FarmGoodsList.h"
 
 #endif /* bridging_Header_h */
