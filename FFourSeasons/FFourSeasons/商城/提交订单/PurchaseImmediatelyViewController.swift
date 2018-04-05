@@ -11,7 +11,6 @@ import UIKit
 class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,AddressViewControllerDelegate,UITextFieldDelegate {
    
 
-   
     var dataScoure:Array<CartList>?
     var defaultAddress:Addresses?
     @IBOutlet weak var payMoneyLabel: UILabel!
@@ -31,6 +30,7 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
     @IBOutlet weak var tableView: UITableView!
     
     var orderString = ""
+    var totalPrice = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +44,7 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
 
     func textField()->Void{
         faPiaoTF.delegate = self
-        liuYanTF.delegate = self
-    }
+        liuYanTF.delegate = self    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -100,24 +99,18 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
             return
         }
         
-        var orderMoney = ""
-//        for orderItem in dataScoure! {
-//            orderMoney = orderItem.mon
-//        }
+        var liuyan = ""
+        if let liuyuanMsg = liuYanTF.text {
+            liuyan = liuyuanMsg
+        }
         
-        //以下为拼装订单字符串
-//        var orderString = ""
-//        for orderItem in dataScoure! {
-//            orderString = orderString + "\(orderItem.item_id):\(orderItem.count);"
-//        }
-//        if orderString != "" {
-//           let end = orderString.index(orderString.endIndex, offsetBy: -1)
-////           orderString = orderString.substring(to: end) 已过期
-//            orderString = String(orderString[..<end])
-//        }
         let vc = Bundle.main.loadNibNamed("OrderPaymentViewController", owner: nil, options: nil)?.first as! OrderPaymentViewController
         vc.orderString = orderString
-        vc.addressID = defaultAddress?._id
+        if let addressID = defaultAddress?._id {
+           vc.addressID = addressID
+        }
+        vc.liuyan = liuyan
+        vc.totalPrice = totalPrice
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -138,6 +131,7 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
             tableView.reloadData()
             totalFreightLabel.text =  String.init(format: "￥%@",(model?.totalFreight)!)
             payMoneyLabel.text = String.init(format: "￥%@", (model?.payMoney)!)
+            self.totalPrice = model!.payMoney!
         }
     }
     

@@ -54,5 +54,7 @@
 #import "IntegralList.h"
 #import "Model_api_signInList.h"
 #import "Model_api_integralShop.h"
+#import "Model_api_orderPay.h"
+#import "Model_api_pay.h"
 
 #endif /* bridging_Header_h */
