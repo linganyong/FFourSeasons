@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="92" id="KGk-i7-Jjw" customClass="LGYPickerImageTableViewCell" customModule="FFourSeasons" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="91.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LRP-CR-Pwg">
+                        <rect key="frame" x="16" y="11" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="LRP-CR-Pwg" secondAttribute="height" id="QPH-Tm-sM2"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQ3-0A-xXS">
+                        <rect key="frame" x="94" y="11" width="42" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="Gol-ax-FBr"/>
+                            <constraint firstAttribute="height" constant="21" id="xWM-px-qCw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6m-nY-8Y0">
+                        <rect key="frame" x="94" y="32" width="21.5" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="5rZ-JS-FrQ"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="21.5" id="856-Jh-0KC"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpJ-HG-6aJ">
+                        <rect key="frame" x="94" y="60" width="42" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="VeR-72-DHK"/>
+                            <constraint firstAttribute="height" constant="21" id="hH8-oB-Dxp"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="x6m-nY-8Y0" firstAttribute="leading" secondItem="LRP-CR-Pwg" secondAttribute="trailing" constant="8" id="GoU-aY-sYP"/>
+                    <constraint firstItem="x6m-nY-8Y0" firstAttribute="leading" secondItem="XQ3-0A-xXS" secondAttribute="leading" id="Ket-Aa-mPm"/>
+                    <constraint firstItem="LRP-CR-Pwg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="RST-hF-0eP"/>
+                    <constraint firstItem="FpJ-HG-6aJ" firstAttribute="leading" secondItem="XQ3-0A-xXS" secondAttribute="leading" id="Skq-JA-HON"/>
+                    <constraint firstItem="LRP-CR-Pwg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="UCD-39-lOd"/>
+                    <constraint firstItem="XQ3-0A-xXS" firstAttribute="leading" secondItem="LRP-CR-Pwg" secondAttribute="trailing" constant="8" id="UzH-bM-kSC"/>
+                    <constraint firstItem="x6m-nY-8Y0" firstAttribute="top" secondItem="XQ3-0A-xXS" secondAttribute="bottom" id="WZ8-UE-u3n"/>
+                    <constraint firstItem="FpJ-HG-6aJ" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="lgV-cJ-wdz"/>
+                    <constraint firstItem="LRP-CR-Pwg" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="mJ8-d9-sxm"/>
+                    <constraint firstItem="XQ3-0A-xXS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="p1Y-YA-BkC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="prictureCountLabel" destination="FpJ-HG-6aJ" id="Gt5-QZ-Dhm"/>
+                <outlet property="prictureImageView" destination="LRP-CR-Pwg" id="QP4-xb-R0s"/>
+                <outlet property="pricturePathLabel" destination="x6m-nY-8Y0" id="44r-99-ADg"/>
+                <outlet property="prictureTitleLabel" destination="XQ3-0A-xXS" id="m2J-5P-sEN"/>
+            </connections>
+            <point key="canvasLocation" x="68" y="83"/>
+        </tableViewCell>
+    </objects>
+</document>

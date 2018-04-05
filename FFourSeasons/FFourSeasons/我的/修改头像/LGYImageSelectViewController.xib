@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="ZZB-Kw-wkB" customClass="LGYImageSelectViewController" customModule="FFourSeasons" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="jhb-SJ-CWW">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="AGn-0u-7b8">
+                        <rect key="frame" x="5" y="0.0" width="365" height="667"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vTC-c8-h74">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJT-sa-YQi">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <color key="backgroundColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="Rzx-Xf-2PM"/>
+                        </constraints>
+                    </view>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VjM-nD-UTF">
+                        <rect key="frame" x="0.0" y="615" width="343" height="0.0"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" id="nhd-4e-mEc"/>
+                        </constraints>
+                    </tableView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bon-Jd-iho">
+                        <rect key="frame" x="8" y="623" width="60" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="E2j-sM-Jcj"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="z0j-rk-Zkb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="所有图片">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="menuAcition:" destination="ZZB-Kw-wkB" eventType="touchUpInside" id="f0J-yJ-N1B"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页卡片左上角圆3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="zLH-q1-4l1">
+                        <rect key="frame" x="76" y="640" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="8Pk-q1-dcp"/>
+                            <constraint firstAttribute="width" constant="10" id="IvG-Sc-QVk"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="9Rl-3b-J2U" firstAttribute="bottom" secondItem="Bon-Jd-iho" secondAttribute="bottom" id="HPr-S9-poB"/>
+                    <constraint firstItem="VjM-nD-UTF" firstAttribute="leading" secondItem="9Rl-3b-J2U" secondAttribute="leading" id="SBC-wm-aqn"/>
+                    <constraint firstItem="Bon-Jd-iho" firstAttribute="leading" secondItem="9Rl-3b-J2U" secondAttribute="leading" constant="8" id="Tn7-DU-CGD"/>
+                    <constraint firstItem="hJT-sa-YQi" firstAttribute="trailing" secondItem="9Rl-3b-J2U" secondAttribute="trailing" id="ZQW-pV-KRg"/>
+                    <constraint firstItem="hJT-sa-YQi" firstAttribute="top" secondItem="VjM-nD-UTF" secondAttribute="bottom" constant="8" id="eGg-xi-rnY"/>
+                    <constraint firstItem="AGn-0u-7b8" firstAttribute="bottom" secondItem="9Rl-3b-J2U" secondAttribute="bottom" id="eYz-SY-bMG"/>
+                    <constraint firstItem="AGn-0u-7b8" firstAttribute="leading" secondItem="9Rl-3b-J2U" secondAttribute="leading" constant="5" id="it1-ao-jjY"/>
+                    <constraint firstItem="hJT-sa-YQi" firstAttribute="bottom" secondItem="9Rl-3b-J2U" secondAttribute="bottom" id="jBO-Tv-nQy"/>
+                    <constraint firstItem="hJT-sa-YQi" firstAttribute="leading" secondItem="9Rl-3b-J2U" secondAttribute="leading" id="jeE-4W-X7E"/>
+                    <constraint firstItem="AGn-0u-7b8" firstAttribute="trailing" secondItem="9Rl-3b-J2U" secondAttribute="trailing" constant="-5" id="jqf-zl-mrd"/>
+                    <constraint firstItem="9Rl-3b-J2U" firstAttribute="trailing" secondItem="VjM-nD-UTF" secondAttribute="trailing" constant="32" id="k3b-uM-7Tt"/>
+                    <constraint firstItem="Bon-Jd-iho" firstAttribute="centerY" secondItem="zLH-q1-4l1" secondAttribute="centerY" id="l1z-Dr-pAx"/>
+                    <constraint firstItem="zLH-q1-4l1" firstAttribute="leading" secondItem="Bon-Jd-iho" secondAttribute="trailing" constant="8" id="r04-PX-2Sq"/>
+                    <constraint firstItem="AGn-0u-7b8" firstAttribute="top" secondItem="jhb-SJ-CWW" secondAttribute="top" id="vVa-Sv-yua"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="9Rl-3b-J2U"/>
+            </view>
+            <connections>
+                <outlet property="collectionView" destination="AGn-0u-7b8" id="H8b-O0-PUJ"/>
+                <outlet property="menuButton" destination="Bon-Jd-iho" id="P4e-VN-O7j"/>
+                <outlet property="tableView" destination="VjM-nD-UTF" id="c5C-7o-57c"/>
+                <outlet property="tableViewHeightLC" destination="nhd-4e-mEc" id="OBh-8Y-4Ba"/>
+            </connections>
+            <point key="canvasLocation" x="145.5" y="85.5"/>
+        </viewController>
+    </objects>
+    <resources>
+        <image name="首页卡片左上角圆3x.png" width="30" height="30"/>
+    </resources>
+</document>

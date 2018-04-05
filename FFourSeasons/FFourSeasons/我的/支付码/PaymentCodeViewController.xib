@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="rF6-HV-lvI" customClass="PaymentCodeViewController" customModule="FFourSeasons" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="CQw-SH-LFt">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="底板拷贝3x.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0H9-Rt-H6R">
+                        <rect key="frame" x="70.5" y="36" width="233" height="104.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="104.5" id="8KA-C6-3z2"/>
+                            <constraint firstAttribute="width" constant="233" id="T5I-7F-fww"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人人庄园黄金会员卡" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0L-QL-74w">
+                        <rect key="frame" x="132.5" y="55" width="110.5" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="ROs-h4-2Or"/>
+                            <constraint firstAttribute="height" constant="13" id="kDF-Bc-FVL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="1" green="0.65490196079999996" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="会员ID：13532461679" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPV-JO-Kuk">
+                        <rect key="frame" x="143.5" y="74" width="87.5" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="48h-Jv-AgW"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="Fnz-yU-SQh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卡积分：5000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQc-ED-egw">
+                        <rect key="frame" x="138.5" y="98.5" width="98" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="DiJ-8H-xxs"/>
+                            <constraint firstAttribute="height" constant="16" id="L4z-61-RR9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="u833.png" translatesAutoresizingMaskIntoConstraints="NO" id="bSq-Va-uTo">
+                        <rect key="frame" x="90.5" y="170.5" width="193" height="193"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="bSq-Va-uTo" secondAttribute="height" id="kd8-Rg-WrF"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="u835.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="eFc-gz-e1o">
+                        <rect key="frame" x="60.5" y="383.5" width="253" height="74.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="eFc-gz-e1o" secondAttribute="height" multiplier="3:1" constant="30" id="NXo-BT-3uB"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234567890" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eue-hI-2et">
+                        <rect key="frame" x="60" y="450" width="254" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="u0L-QL-74w" firstAttribute="top" secondItem="0H9-Rt-H6R" secondAttribute="top" constant="19" id="BON-Br-BXw"/>
+                    <constraint firstItem="Eue-hI-2et" firstAttribute="trailing" secondItem="eFc-gz-e1o" secondAttribute="trailing" id="GUN-Sb-x6o"/>
+                    <constraint firstItem="bSq-Va-uTo" firstAttribute="top" secondItem="0H9-Rt-H6R" secondAttribute="bottom" constant="30" id="HLb-Ie-VMn"/>
+                    <constraint firstItem="u0L-QL-74w" firstAttribute="centerX" secondItem="0H9-Rt-H6R" secondAttribute="centerX" id="Iax-Gd-dZh"/>
+                    <constraint firstItem="0H9-Rt-H6R" firstAttribute="top" secondItem="wdU-Ec-oMe" secondAttribute="top" constant="16" id="MNI-mS-0IX"/>
+                    <constraint firstItem="aQc-ED-egw" firstAttribute="bottom" secondItem="0H9-Rt-H6R" secondAttribute="bottom" constant="-26" id="Wu5-Zg-O1k"/>
+                    <constraint firstItem="0H9-Rt-H6R" firstAttribute="centerX" secondItem="CQw-SH-LFt" secondAttribute="centerX" id="X7P-Yw-hma"/>
+                    <constraint firstItem="Eue-hI-2et" firstAttribute="top" secondItem="eFc-gz-e1o" secondAttribute="bottom" constant="-8" id="dQs-Ay-d5g"/>
+                    <constraint firstItem="bSq-Va-uTo" firstAttribute="trailing" secondItem="0H9-Rt-H6R" secondAttribute="trailing" constant="-20" id="dnR-Wk-yZi"/>
+                    <constraint firstItem="YPV-JO-Kuk" firstAttribute="centerX" secondItem="0H9-Rt-H6R" secondAttribute="centerX" id="naL-Fo-Gq6"/>
+                    <constraint firstItem="eFc-gz-e1o" firstAttribute="leading" secondItem="bSq-Va-uTo" secondAttribute="leading" constant="-30" id="o6n-Hz-YOn"/>
+                    <constraint firstItem="bSq-Va-uTo" firstAttribute="leading" secondItem="0H9-Rt-H6R" secondAttribute="leading" constant="20" id="oMz-n0-2hR"/>
+                    <constraint firstItem="eFc-gz-e1o" firstAttribute="trailing" secondItem="bSq-Va-uTo" secondAttribute="trailing" constant="30" id="pmn-ub-G6U"/>
+                    <constraint firstItem="aQc-ED-egw" firstAttribute="centerX" secondItem="0H9-Rt-H6R" secondAttribute="centerX" id="qKF-lg-GKi"/>
+                    <constraint firstItem="Eue-hI-2et" firstAttribute="leading" secondItem="eFc-gz-e1o" secondAttribute="leading" id="qir-AZ-Hb7"/>
+                    <constraint firstItem="eFc-gz-e1o" firstAttribute="top" secondItem="bSq-Va-uTo" secondAttribute="bottom" constant="20" id="rWL-eR-1Wp"/>
+                    <constraint firstItem="YPV-JO-Kuk" firstAttribute="top" secondItem="u0L-QL-74w" secondAttribute="bottom" constant="6" id="zk9-rW-Nc0"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="wdU-Ec-oMe"/>
+            </view>
+            <connections>
+                <outlet property="ScannerImageView" destination="bSq-Va-uTo" id="2e1-pw-zXz"/>
+                <outlet property="generateCodeImageView" destination="eFc-gz-e1o" id="ql2-vI-V9G"/>
+            </connections>
+            <point key="canvasLocation" x="117" y="-133"/>
+        </viewController>
+    </objects>
+    <resources>
+        <image name="u833.png" width="121" height="121"/>
+        <image name="u835.jpg" width="1003" height="300"/>
+        <image name="底板拷贝3x.png" width="699" height="314"/>
+    </resources>
+</document>

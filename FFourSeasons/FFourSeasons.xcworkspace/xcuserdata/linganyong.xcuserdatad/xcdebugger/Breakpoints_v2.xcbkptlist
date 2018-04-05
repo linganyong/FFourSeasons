@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FFourSeasons/&#x6211;&#x7684;/&#x610f;&#x89c1;&#x7bb1;/OpinionViewController.swift"
+            timestampString = "544284626.790153"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "loadDataScoure()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FFourSeasons/&#x6211;&#x7684;/&#x4e2a;&#x4eba;&#x8d44;&#x6599;/PersioninformationViewController.swift"
+            timestampString = "544284626.790236"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "lgyImageSelectViewController(viewController:image:imagePath:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FFourSeasons.PersioninformationViewController.lgyImageSelectViewController(viewController: FFourSeasons.LGYImageSelectViewController, image: __ObjC.UIImage, imagePath: Swift.String) -&gt; ()"
+                  moduleName = "FFourSeasons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/linganyong/Desktop/%E9%A1%B9%E7%9B%AE/%E6%81%92%E7%84%B6%E5%9B%9B%E5%AD%A3/FFourSeasons/FFourSeasons/%E6%88%91%E7%9A%84/%E4%B8%AA%E4%BA%BA%E8%B5%84%E6%96%99/PersioninformationViewController.swift"
+                  timestampString = "544541134.521306"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "337">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;, Swift.Bool) -&gt; () in FFourSeasons.PersioninformationViewController.lgyImageSelectViewController(viewController: FFourSeasons.LGYImageSelectViewController, image: __ObjC.UIImage, imagePath: Swift.String) -&gt; ()"
+                  moduleName = "FFourSeasons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/linganyong/Desktop/%E9%A1%B9%E7%9B%AE/%E6%81%92%E7%84%B6%E5%9B%9B%E5%AD%A3/FFourSeasons/FFourSeasons/%E6%88%91%E7%9A%84/%E4%B8%AA%E4%BA%BA%E8%B5%84%E6%96%99/PersioninformationViewController.swift"
+                  timestampString = "544541134.526032"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "57">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FFourSeasons/Base/NetWorking/LGYAFNetworking.swift"
+            timestampString = "544513428.285681"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "lgyPushImage(urlString:parameters:array:progress:responseBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FFourSeasons/Web/WebViewController.swift"
+            timestampString = "544541134.0392981"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "aboutDataScoure(model:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

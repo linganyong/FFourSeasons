@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="n97-ZD-Sml" customClass="MemberAnalysisViewController" customModule="FFourSeasons" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="sMh-i3-NKJ">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONZ-nb-V9j">
+                        <rect key="frame" x="24" y="40" width="327" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Mbf-hf-xa8"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="亲爱的用户，恒然四季会员等级并非横然不变有1年有效期的。会员等级到期后：">
+                                <attributes>
+                                    <color key="NSColor" red="0.1647058824" green="0.78823529410000004" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgk-zH-a6Z">
+                        <rect key="frame" x="24" y="84" width="327" height="46"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Int-Kz-a9A"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment>
+                                <string key="content">1.您的累积积分会自动清零，并开始计算新的有效期的累积积分。</string>
+                                <attributes>
+                                    <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="9" name="PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="4" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="2.新的会员等级将根据现有效期内的累积积分产生，若累计积分未达到现有等级对应的积分数（如下），等级会降级。">
+                                <attributes>
+                                    <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="9" name="PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNi-ze-tcR">
+                        <rect key="frame" x="24" y="288" width="327" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="jHJ-qe-Mwk"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="为了保障您的账号等级不受影响，请您晶块进行等级升级或保级。贴心客服已经为您准备了操作攻略，祝你升级成功！">
+                                <attributes>
+                                    <color key="NSColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="9" name=".PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwH-43-Jyn">
+                        <rect key="frame" x="24" y="329" width="327" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="pgV-J8-2T6"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="用户可以通过官方销售渠道购买会员卡">
+                                <attributes>
+                                    <color key="NSColor" red="0.1647058824" green="0.78823529410000004" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="会员表拷贝3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="ouf-js-dlk">
+                        <rect key="frame" x="20" y="145" width="335" height="128"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ouf-js-dlk" secondAttribute="height" multiplier="1005:384" id="7o5-ru-coh"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="PG5-V4-Z5E" firstAttribute="trailing" secondItem="ouf-js-dlk" secondAttribute="trailing" constant="20" id="3dJ-pp-uvV"/>
+                    <constraint firstItem="ouf-js-dlk" firstAttribute="top" secondItem="rgk-zH-a6Z" secondAttribute="bottom" constant="15" id="8mL-Qu-UJk"/>
+                    <constraint firstItem="PG5-V4-Z5E" firstAttribute="trailing" secondItem="cNi-ze-tcR" secondAttribute="trailing" constant="24" id="9Sl-Xj-xey"/>
+                    <constraint firstItem="rgk-zH-a6Z" firstAttribute="leading" secondItem="ONZ-nb-V9j" secondAttribute="leading" id="AY0-FP-HaU"/>
+                    <constraint firstItem="rgk-zH-a6Z" firstAttribute="trailing" secondItem="ONZ-nb-V9j" secondAttribute="trailing" id="FbC-eL-BHZ"/>
+                    <constraint firstItem="RwH-43-Jyn" firstAttribute="top" secondItem="cNi-ze-tcR" secondAttribute="bottom" constant="20" id="VY8-sb-SYy"/>
+                    <constraint firstItem="PG5-V4-Z5E" firstAttribute="trailing" secondItem="ONZ-nb-V9j" secondAttribute="trailing" constant="24" id="Xbh-Yf-WOf"/>
+                    <constraint firstItem="cNi-ze-tcR" firstAttribute="top" secondItem="ouf-js-dlk" secondAttribute="bottom" constant="15" id="bbp-YL-zOn"/>
+                    <constraint firstItem="ouf-js-dlk" firstAttribute="leading" secondItem="PG5-V4-Z5E" secondAttribute="leading" constant="20" id="bdi-Rq-pbb"/>
+                    <constraint firstItem="RwH-43-Jyn" firstAttribute="leading" secondItem="PG5-V4-Z5E" secondAttribute="leading" constant="24" id="bva-Je-rk1"/>
+                    <constraint firstItem="PG5-V4-Z5E" firstAttribute="trailing" secondItem="RwH-43-Jyn" secondAttribute="trailing" constant="24" id="qvV-g1-oMP"/>
+                    <constraint firstItem="cNi-ze-tcR" firstAttribute="leading" secondItem="PG5-V4-Z5E" secondAttribute="leading" constant="24" id="uU8-ko-ZvX"/>
+                    <constraint firstItem="ONZ-nb-V9j" firstAttribute="leading" secondItem="PG5-V4-Z5E" secondAttribute="leading" constant="24" id="wbG-gT-oxf"/>
+                    <constraint firstItem="rgk-zH-a6Z" firstAttribute="top" secondItem="ONZ-nb-V9j" secondAttribute="bottom" constant="12" id="wtr-WP-YQ9"/>
+                    <constraint firstItem="ONZ-nb-V9j" firstAttribute="top" secondItem="PG5-V4-Z5E" secondAttribute="top" constant="20" id="xj7-UG-hKP"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="PG5-V4-Z5E"/>
+            </view>
+            <point key="canvasLocation" x="83.5" y="114.5"/>
+        </viewController>
+    </objects>
+    <resources>
+        <image name="会员表拷贝3x.png" width="1005" height="384"/>
+    </resources>
+</document>

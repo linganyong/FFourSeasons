@@ -1,0 +1,20 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+target 'FFourSeasons' do
+
+pod 'TYAttributedLabel', '~> 2.6.2'
+#pod 'AMap3DMap' #3D地图SDK #
+pod 'AMap2DMap' #2D地图SDK (2D和3D不能同时使用) 
+pod 'AMapSearch' #搜索功能
+pod 'WechatOpenSDK'
+pod 'AFNetworking', '~> 3.0'
+pod 'Bugly'
+pod 'SnapKit', '~> 4.0.0' 
+pod 'LCRefresh', '~> 0.1.16'
+pod "BaiduMapKit"
+pod "SDWebImage"
+pod 'HMQRCodeScanner'
+pod 'JSONModel'
+pod 'YYModel'
+end

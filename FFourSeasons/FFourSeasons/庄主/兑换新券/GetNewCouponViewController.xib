@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="urX-OW-71L" customClass="GetNewCouponViewController" customModule="FFourSeasons" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="hO9-dE-WRG">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入兑换码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vc1-if-yHJ">
+                        <rect key="frame" x="32" y="40" width="61.5" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="IPt-Kp-9WD"/>
+                            <constraint firstAttribute="height" constant="13" id="nko-2W-4Mp"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOG-XH-qNM">
+                        <rect key="frame" x="32" y="68" width="311" height="40"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邀请码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oZE-gE-j1R">
+                                <rect key="frame" x="8" y="8" width="295" height="24"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="oZE-gE-j1R" firstAttribute="leading" secondItem="mOG-XH-qNM" secondAttribute="leading" constant="8" id="0Hc-iD-vDl"/>
+                            <constraint firstAttribute="height" constant="40" id="X6h-N1-DnJ"/>
+                            <constraint firstItem="oZE-gE-j1R" firstAttribute="top" secondItem="mOG-XH-qNM" secondAttribute="top" constant="8" id="fk3-2R-zY6"/>
+                            <constraint firstAttribute="trailing" secondItem="oZE-gE-j1R" secondAttribute="trailing" constant="8" id="lGp-vH-he2"/>
+                            <constraint firstAttribute="bottom" secondItem="oZE-gE-j1R" secondAttribute="bottom" constant="8" id="ty3-lb-975"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="LGyCornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="vc1-if-yHJ" firstAttribute="leading" secondItem="uSm-N2-eMW" secondAttribute="leading" constant="32" id="4dj-d0-KPT"/>
+                    <constraint firstItem="vc1-if-yHJ" firstAttribute="top" secondItem="uSm-N2-eMW" secondAttribute="top" constant="20" id="b7F-mt-48n"/>
+                    <constraint firstItem="uSm-N2-eMW" firstAttribute="trailing" secondItem="mOG-XH-qNM" secondAttribute="trailing" constant="32" id="lRI-io-eiy"/>
+                    <constraint firstItem="mOG-XH-qNM" firstAttribute="leading" secondItem="uSm-N2-eMW" secondAttribute="leading" constant="32" id="mAr-xd-L9T"/>
+                    <constraint firstItem="mOG-XH-qNM" firstAttribute="top" secondItem="vc1-if-yHJ" secondAttribute="bottom" constant="15" id="sgb-BO-YxG"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="uSm-N2-eMW"/>
+            </view>
+            <connections>
+                <outlet property="textField" destination="oZE-gE-j1R" id="pBb-ns-m20"/>
+            </connections>
+            <point key="canvasLocation" x="90.5" y="209.5"/>
+        </viewController>
+    </objects>
+</document>

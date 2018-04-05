@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="KGk-i7-Jjw" customClass="CouponTableViewCell" customModule="FFourSeasons" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="699" height="74"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="699" height="73.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="优惠券背景3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="I55-w5-aYQ">
+                        <rect key="frame" x="12" y="10" width="675" height="61.5"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6EE-4s-Om0">
+                        <rect key="frame" x="36" y="22.5" width="18.5" height="8"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="8" id="4rj-nP-7nJ"/>
+                            <constraint firstAttribute="height" constant="8" id="GUa-PE-2hD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yuf-hP-Paa">
+                        <rect key="frame" x="53" y="22.5" width="55.5" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="BaR-mC-0jV"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="cYc-AM-4l3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="满100元用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ca2-iE-9GI">
+                        <rect key="frame" x="116.5" y="38.5" width="42" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="LWu-rr-P0e"/>
+                            <constraint firstAttribute="height" constant="21" id="sP1-NT-tQn"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有效期到：2018-08-20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COa-6I-7QA">
+                        <rect key="frame" x="529" y="30" width="131" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="5ye-CH-XtD"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="ZUD-4N-rJp"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="COa-6I-7QA" firstAttribute="centerY" secondItem="I55-w5-aYQ" secondAttribute="centerY" id="2zi-LZ-jC7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="COa-6I-7QA" secondAttribute="trailing" constant="19" id="9IJ-nn-uhA"/>
+                    <constraint firstItem="I55-w5-aYQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Ffy-vO-zfv"/>
+                    <constraint firstItem="Yuf-hP-Paa" firstAttribute="centerY" secondItem="I55-w5-aYQ" secondAttribute="centerY" id="Fzq-JC-eki"/>
+                    <constraint firstItem="6EE-4s-Om0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="RQv-gG-K60"/>
+                    <constraint firstItem="Yuf-hP-Paa" firstAttribute="top" secondItem="6EE-4s-Om0" secondAttribute="top" id="ZvA-Uv-kgd"/>
+                    <constraint firstItem="ca2-iE-9GI" firstAttribute="leading" secondItem="Yuf-hP-Paa" secondAttribute="trailing" constant="8" id="gcz-t6-XIr"/>
+                    <constraint firstItem="Yuf-hP-Paa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="33" id="lvd-uX-HH6"/>
+                    <constraint firstAttribute="trailing" secondItem="I55-w5-aYQ" secondAttribute="trailing" constant="12" id="q37-ez-qN1"/>
+                    <constraint firstItem="I55-w5-aYQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="qdu-lP-xko"/>
+                    <constraint firstItem="ca2-iE-9GI" firstAttribute="centerY" secondItem="I55-w5-aYQ" secondAttribute="centerY" constant="8" id="w4h-De-dpK"/>
+                    <constraint firstAttribute="bottom" secondItem="I55-w5-aYQ" secondAttribute="bottom" constant="2" id="zLU-7K-UIK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="222.5" y="114"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="优惠券背景3x.png" width="1077" height="249"/>
+    </resources>
+</document>

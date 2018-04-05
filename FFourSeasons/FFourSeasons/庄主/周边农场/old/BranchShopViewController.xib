@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="Shw-gH-aMn" customClass="BranchShopViewController" customModule="FFourSeasons" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="1wP-XX-SYt">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A7w-Bw-gDe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tableView>
+                </subviews>
+                <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="A7w-Bw-gDe" firstAttribute="trailing" secondItem="M1D-zu-xTU" secondAttribute="trailing" id="2m8-AO-399"/>
+                    <constraint firstItem="A7w-Bw-gDe" firstAttribute="bottom" secondItem="M1D-zu-xTU" secondAttribute="bottom" id="B8F-hw-q0j"/>
+                    <constraint firstItem="A7w-Bw-gDe" firstAttribute="leading" secondItem="M1D-zu-xTU" secondAttribute="leading" id="JYh-PA-5jm"/>
+                    <constraint firstItem="A7w-Bw-gDe" firstAttribute="top" secondItem="1wP-XX-SYt" secondAttribute="top" id="nw1-md-QwA"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="M1D-zu-xTU"/>
+            </view>
+            <connections>
+                <outlet property="tableView" destination="A7w-Bw-gDe" id="dhK-cA-Obh"/>
+            </connections>
+            <point key="canvasLocation" x="-12.5" y="-145.5"/>
+        </viewController>
+    </objects>
+</document>
