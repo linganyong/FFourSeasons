@@ -71,7 +71,11 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
         let cell = tableView.dequeueReusableCell(withIdentifier: "PurchaseImmediatelyTableViewCell", for: indexPath) as! PurchaseImmediatelyTableViewCell
         cell.selectionStyle = .none
         let item = dataScoure![indexPath.row]
-        cell.setDataScoure(name: item.name, priceStr: String.init(format: "￥%D", item.price), countStr: String.init(format: "%D", item.count))
+        if item.goods_type == 0{
+            cell.setDataScoure(name: item.name, priceStr: String.init(format: "￥%D", item.price), countStr: String.init(format: "%D", item.count))
+        }else{
+            cell.setDataScoure(name: item.name, priceStr: String.init(format: "%D 积分", item.price), countStr: String.init(format: "%D", item.count))
+        }
         return cell
     }
     

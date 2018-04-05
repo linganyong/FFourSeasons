@@ -54,5 +54,7 @@
 #import "IntegralList.h"
 #import "Model_api_signInList.h"
 #import "Model_api_integralShop.h"
+#import "Farm.h"
+#import "Model_api_farm.h"
 
 #endif /* bridging_Header_h */

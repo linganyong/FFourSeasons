@@ -26,7 +26,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.view.layoutIfNeeded()
         setStyle()
         setTableView()
-//        changeAppStartUpImage()
         navigationBarAddLeftButton(_imageName: "定位2x.png", _title: "广州", target: self, action: #selector(loaction),tag: 1000)
         print(row1Height,"  ",(UIScreen.main.bounds.size.width-32.0)/(4*2.5))
         rightBarItem = navigationBarAddRightItem(_imageName: "扫码.png", target: self, action: #selector(rightBarAction))
@@ -95,8 +94,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         luckDrawButton.imageView?.contentMode = .scaleAspectFit
         luckDrawButton.backgroundColor = UIColor.white
          luckDrawButton.isHidden = true
-//        luckDrawButton.LGYShadowColor = UIColor(red: 123/255.0, green: 123/255.0, blue: 123/255.0, alpha: 1)
-
     }
     
 
@@ -144,7 +141,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             headerView.tag = 10001
             cell.addSubview(headerView)
             headerView.delegate = self
-//            headerView?.setup(array: ["scroller_1.jpg","scroller_2.jpg","scroller_3.jpg","scroller_4.jpg"])
         }else
             if indexPath.row == 1 { //横向菜单栏设置
                 var view = cell.viewWithTag(10002)

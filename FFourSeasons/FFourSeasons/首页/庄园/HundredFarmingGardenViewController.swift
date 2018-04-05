@@ -30,6 +30,7 @@ class HundredFarmingGardenViewController: UIViewController,UITableViewDelegate,U
         self.title = "庄园"
         navigationItemBack(title: "    ")
         setBackgroundColor()
+        
     }
     
  
@@ -44,8 +45,7 @@ class HundredFarmingGardenViewController: UIViewController,UITableViewDelegate,U
 
     //MARK:我的收成点击响应
     @IBAction func myHarvestAction(_ sender: Any) {
-        let vc = MyHarvestViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+         _ = LGYAlertViewSimple.show(title: "功能即将上线！", buttonStr: "确定")
     }
     
     //MARK:充值升级点击响应
@@ -66,9 +66,7 @@ class HundredFarmingGardenViewController: UIViewController,UITableViewDelegate,U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        showMessageView.isHidden = true
-        
-        return 5
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,6 +75,8 @@ class HundredFarmingGardenViewController: UIViewController,UITableViewDelegate,U
         cell.setDataScoure(imageUrl: "https://img13.360buyimg.com/n1/s160x160_jfs/t16288/180/1610373802/424365/94d94a/5a5708bfN8e93b650.jpg", line1Str: "车厘子", line2Str: "配送中", line3Str: String.init(format: "x%d箱", 200))
         return cell
     }
+ 
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

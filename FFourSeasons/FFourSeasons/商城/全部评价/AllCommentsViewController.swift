@@ -20,7 +20,7 @@ class AllCommentsViewController: UIViewController,UITableViewDelegate,UITableVie
         navigationItemBack(title: "")
         addEmptyView(frame: nil)
     }
-
+    
     func  setTableView() -> Void {
         tableView.delegate = self
         tableView.dataSource = self
@@ -34,7 +34,6 @@ class AllCommentsViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//         let size = LGYTool.stringSize(string: string, font: _buttonTextFont, maxSize: CGSize(width: 1000, height: 21))
         return 120;
     }
     
@@ -45,20 +44,15 @@ class AllCommentsViewController: UIViewController,UITableViewDelegate,UITableVie
         return cell
     }
     
+     func loadComment(gId:String,pageNumber:String){
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_commentList, parameters: ["gId":gId,"pageNumber":pageNumber,"token":Model_user_information.getToken()], progress: nil) { (object, isError) in
+            
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

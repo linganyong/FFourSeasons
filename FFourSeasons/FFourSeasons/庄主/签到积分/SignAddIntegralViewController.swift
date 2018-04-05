@@ -24,7 +24,7 @@ class SignAddIntegralViewController: UIViewController,UITableViewDelegate,UITabl
     @IBOutlet weak var menuBackView: UIView!
     let dataScoure = ["全部","支出","收入"]
     @IBOutlet weak var pageView: LGYPageView!
-    let forkey = "hua经9存e@qq.com"
+    let forkey = "hua经9存eqq.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,25 +44,22 @@ class SignAddIntegralViewController: UIViewController,UITableViewDelegate,UITabl
         let dateForm = DateFormatter()
         dateForm.dateFormat = "yyyyMMdd"
         let dateStr = dateForm.string(from: Date.init())
-        
         let str = UserDefaults.standard.string(forKey: forkey)
         //判断UserDefaults中是否已经存在
         if(str == nil){
-            animationButtonView.isHidden = true
-            intgralLabel.alpha = 1
+            animationButtonView.isHidden = false
+            intgralLabel.alpha = 0
             intgralLabel.text = String.init(format: "0")
-            integralDesLabel.alpha = 1
-            return
+            integralDesLabel.alpha = 0
         }else{
             if (str?.contains(dateStr))!{
                 animationButtonView.isHidden = true
                 intgralLabel.alpha = 1
-                intgralLabel.text = String.init(format: "0")
+                intgralLabel.text = String.init(format: "%D",(PersonViewController.infornation?.integral)!)
                 integralDesLabel.alpha = 1
-                return
             }
         }
-       
+//        UserDefaults.standard.set(dateForm, forKey: forkey)
     }
 
     

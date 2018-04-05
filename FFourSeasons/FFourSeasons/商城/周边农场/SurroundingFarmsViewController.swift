@@ -27,18 +27,12 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         navigationItemBack(title: nil)
         startLocationManager()
         LGYTool.viewLayerShadowShadowOffsetHeight(view: myLocationBtn)
+        loadDataScoure()
     }
     
     //MARK:设置地图
     func addMapView() ->Void{
         mapView.frame = CGRect(x: 0, y: 60, width: view.bounds.size.width, height: view.bounds.size.height - 60)
-//        //指南针
-//        mapView.showsCompass = true
-//        mapView.compassOrigin = CGPoint(x: 10, y: 10)
-//        //地图比例尺寸
-//        mapView.showsScale = true
-//        mapView.scaleOrigin = CGPoint(x: 10, y: 10)
-        
         mapView.setZoomLevel(mapZoomLevel, animated: true)
         view.insertSubview(mapView, at: 0)
         mapView.delegate = self
@@ -56,7 +50,6 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         backView.LGyCornerRadius = 10
         LGYTool.viewLayerShadow(view: backView)
         self.view.addSubview(backView)
-        
         let label = TYAttributedLabel(frame: CGRect(x: 20, y: 12, width: backViewWidth - 40, height: 0))
         label.delegate = self
         let text = "夏至刚过，位于韶关的翁源的三华李是应节的，果搭肉厚，无渣核小，清甜爽口，促进血红蛋白再生的奇效。<立即前往>"
@@ -144,12 +137,22 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
                 var city = addressDic?["City"] as? String
                 let subLocality = addressDic?["SubLocality"] as? String
                 let street = addressDic?["Street"] as? String
-               
             }
         }
         
         mapView.addAnnotation(self.userAnnotation)
         
+    }
+    
+    
+    
+    //MARK:获取周边农场
+    func loadDataScoure() -> Void {
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_getFarm, parameters: ["token":Model_user_information.getToken()], progress: nil) { [weak self](object, isError) in
+            if let weakSelf = self {
+//                    let model = Model_api_.
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

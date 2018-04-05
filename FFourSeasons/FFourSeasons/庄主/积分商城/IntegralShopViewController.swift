@@ -49,13 +49,18 @@ class IntegralShopViewController: UIViewController,UITableViewDataSource,UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IntegralShopTableViewCell", for: indexPath) as! IntegralShopTableViewCell
         cell.selectionStyle = .none
-        cell.buttonRight.tag = indexPath.row + 1000
-        cell.buttonRight.addTarget(self, action: #selector(cellButtonAction(btn:)), for: .touchUpInside)
         let good = tableView.lgyDataScoure[indexPath.row] as! Goods
         cell.setDataScoure(item: good, delegate: self)
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! IntegralShopTableViewCell
+        let na = Bundle.main.loadNibNamed("ProductSaleDetailsViewController", owner: nil, options: nil)![0] as! ProductSaleDetailsViewController
+        na.addContentProductSaleInformaiton(product:cell.model!, productId: (cell.model?._id)!)
+        self.navigationController?.pushViewController(na, animated: true)
     }
     
     func integralShopTableViewCellButtonAction(cell: IntegralShopTableViewCell) {

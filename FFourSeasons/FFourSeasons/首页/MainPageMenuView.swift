@@ -27,9 +27,6 @@ class MainPageMenuView: UIView {
     //MARK:积分支付响应
     @IBAction func menuAction2(_ sender: Any) {
         _ = LGYAlertViewSimple.show(title: "功能即将上线！", buttonStr: "确定")
-//        let vc = Bundle.main.loadNibNamed("PaymentCodeViewController", owner: nil, options: nil)?.first as! PaymentCodeViewController
-//        viewController?.navigationController?.pushViewController(vc, animated: true)
-//        viewController?.tabBarController?.tabBar.isHidden = true
     }
     
     //MARK:周边农场

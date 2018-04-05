@@ -317,6 +317,9 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     }
     //MARK:买家评论点击响应
     @objc func commentViewAction() -> Void {
+        let vc = Bundle.main.loadNibNamed("AllCommentsViewController", owner: nil, options: nil)?.first as! AllCommentsViewController
+        vc.loadComment(gId: String.init(format: "%D", (productInformation?._id)!), pageNumber: "1")
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -353,6 +356,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         item.item_url = productInformation?.small_icon
         item.count = Int(selectCountText)!
         item.name = productInformation?.title
+        item.goods_type = (productInformation?.goods_type)!
         vc.dataScoure = [item]
         vc.loadAddOrder(orderStr: String.init(format: "%D:%@", selectSpec,selectCountText))
         self.navigationController?.pushViewController(vc, animated: true)
