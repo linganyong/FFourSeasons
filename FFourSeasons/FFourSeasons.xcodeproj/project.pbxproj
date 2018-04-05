@@ -12,6 +12,9 @@
 		9978F213207688920031CAE3 /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9978F20F207688920031CAE3 /* BRPickerView.bundle */; };
 		9978F214207688920031CAE3 /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9978F211207688920031CAE3 /* BRAddressPickerView.m */; };
 		9978F217207689DE0031CAE3 /* BRBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9978F215207689DE0031CAE3 /* BRBaseView.m */; };
+		9978F22A207698850031CAE3 /* Model_api_orderPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9978F227207698850031CAE3 /* Model_api_orderPay.m */; };
+		9978F22B207698850031CAE3 /* Model_api_pay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9978F228207698850031CAE3 /* Model_api_pay.m */; };
+		9978F22C207698850031CAE3 /* OrderPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9978F229207698850031CAE3 /* OrderPay.m */; };
 		9C00BFA5202E959600E77EA0 /* LGYMarkPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C00BFA4202E959600E77EA0 /* LGYMarkPageView.swift */; };
 		9C00BFA8202EB74F00E77EA0 /* MarkProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C00BFA6202EB74E00E77EA0 /* MarkProductTableViewCell.xib */; };
 		9C00BFA9202EB74F00E77EA0 /* MarkProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C00BFA7202EB74F00E77EA0 /* MarkProductTableViewCell.swift */; };
@@ -477,6 +480,12 @@
 		9978F211207688920031CAE3 /* BRAddressPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressPickerView.m; sourceTree = "<group>"; };
 		9978F215207689DE0031CAE3 /* BRBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseView.m; sourceTree = "<group>"; };
 		9978F216207689DE0031CAE3 /* BRBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBaseView.h; sourceTree = "<group>"; };
+		9978F224207698840031CAE3 /* Model_api_orderPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model_api_orderPay.h; sourceTree = "<group>"; };
+		9978F225207698840031CAE3 /* Model_api_pay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model_api_pay.h; sourceTree = "<group>"; };
+		9978F226207698850031CAE3 /* OrderPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderPay.h; sourceTree = "<group>"; };
+		9978F227207698850031CAE3 /* Model_api_orderPay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_api_orderPay.m; sourceTree = "<group>"; };
+		9978F228207698850031CAE3 /* Model_api_pay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_api_pay.m; sourceTree = "<group>"; };
+		9978F229207698850031CAE3 /* OrderPay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderPay.m; sourceTree = "<group>"; };
 		9C00BFA4202E959600E77EA0 /* LGYMarkPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGYMarkPageView.swift; sourceTree = "<group>"; };
 		9C00BFA6202EB74E00E77EA0 /* MarkProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkProductTableViewCell.xib; sourceTree = "<group>"; };
 		9C00BFA7202EB74F00E77EA0 /* MarkProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkProductTableViewCell.swift; sourceTree = "<group>"; };
@@ -1848,6 +1857,12 @@
 		9C9616D82056583100D0EB7D /* model */ = {
 			isa = PBXGroup;
 			children = (
+				9978F224207698840031CAE3 /* Model_api_orderPay.h */,
+				9978F227207698850031CAE3 /* Model_api_orderPay.m */,
+				9978F225207698840031CAE3 /* Model_api_pay.h */,
+				9978F228207698850031CAE3 /* Model_api_pay.m */,
+				9978F226207698850031CAE3 /* OrderPay.h */,
+				9978F229207698850031CAE3 /* OrderPay.m */,
 				9C0DB9E0206E0F6800F9085D /* Addresses.h */,
 				9C0DB9DF206E0F6800F9085D /* Addresses.m */,
 				9C0DB9C0206BA0F100F9085D /* Goods.h */,
@@ -2752,6 +2767,7 @@
 				9C5CBF16207677FE0078F17B /* Model_api_getGoods.m in Sources */,
 				9CBB508B20492F2E0018A43B /* SetViewController.swift in Sources */,
 				9CBB50762049034D0018A43B /* PaymentCodeViewController.swift in Sources */,
+				9978F22A207698850031CAE3 /* Model_api_orderPay.m in Sources */,
 				9C77C41E2027F96D008B49E2 /* PYSearchSuggestionViewController.m in Sources */,
 				9C0DB9C4206BA0F100F9085D /* ItemList.m in Sources */,
 				9C9616BF20512A1100D0EB7D /* OrderPaymentViewController.swift in Sources */,
@@ -2760,6 +2776,7 @@
 				9C941147205A5D6D002A29F9 /* LGY+MAAnnotation.swift in Sources */,
 				9C77C42B2027F96D008B49E2 /* Lin+UIButton.swift in Sources */,
 				9C77C3B02027F1FF008B49E2 /* ViewController.swift in Sources */,
+				9978F22B207698850031CAE3 /* Model_api_pay.m in Sources */,
 				9C9616CD205140D900D0EB7D /* LGYAlertViewPayment.swift in Sources */,
 				9C5CBF1C207679370078F17B /* FarmGoods.m in Sources */,
 				9CC79B47202D9C0000C43E08 /* LaunchView.swift in Sources */,
@@ -2805,6 +2822,7 @@
 				9CA32D392046C2A700FD5DFC /* LGYLineSelectView.swift in Sources */,
 				9C46BA272045625600646A81 /* MyOrderViewController.swift in Sources */,
 				9C10BD792044F164004AAFE3 /* PurchaseImmediatelyViewController.swift in Sources */,
+				9978F22C207698850031CAE3 /* OrderPay.m in Sources */,
 				9CBD4804206B2E63005C3EB0 /* CateList.m in Sources */,
 				9CD36AE6205681660075732C /* APIConnect.swift in Sources */,
 				9CA32D5B2047A19400FD5DFC /* SignAddIntegralTableViewCell.swift in Sources */,

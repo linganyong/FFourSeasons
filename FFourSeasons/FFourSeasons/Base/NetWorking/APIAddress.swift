@@ -11,7 +11,7 @@ import UIKit
 class APIAddress: NSObject {
     private class func api_domainName()->String{
 //        return "http://rrmanor.com"
-        return "http://192.168.1.24:8080"
+        return "http://123.207.168.146"
     }
     
     /*
