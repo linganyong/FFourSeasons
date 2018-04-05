@@ -23,9 +23,13 @@ class OrderPaymentViewController: UIViewController{
     @IBOutlet weak var playSelect3ImageView: UIImageView!
     
     //订单字符串
-    var orderString : String?
+    var orderString : String = ""
     //地址ID
-    var addressID : Int?
+    var addressID : Int = 0
+    //留言
+    var liuyan : String = ""
+    //总价
+    var totalPrice : String = ""
     
     //支付类型，默认为积分支付
     var payType : PayType = PayType.Point
@@ -50,12 +54,15 @@ class OrderPaymentViewController: UIViewController{
         let str = selectedImageName
         switch sender.LGYLabelKey {
         case "1"?:
+            payType = PayType.Alipay
             playSelect1ImageView.image = UIImage.init(named: str)
             break
         case "2"?:
+            payType = PayType.WeiXin
             playSelect2ImageView.image = UIImage.init(named: str)
             break
         case "3"?:
+            payType = PayType.Point
             playSelect3ImageView.image = UIImage.init(named: str)
             break
         default:
@@ -85,9 +92,76 @@ class OrderPaymentViewController: UIViewController{
 //    }
     
     @IBAction func paymentAction(_ sender: UIButton) {
-        let view =  LGYAlertViewPayment.show(title: "支付订单 ￥128.00")
-        view.callBlock = {(text) ->Void in
-            
+        if payType == PayType.Point {
+            let view =  LGYAlertViewPayment.show(title: "支付订单 ￥\(totalPrice)")
+            view.callBlock = {[weak self](text) ->Void in
+                if let weakSelf = self {
+                   weakSelf.getOrderAction(password: text)
+                }
+            }
+        }else if payType == PayType.Alipay {
+            getOrderAction()
+        }else {
+            LGYToastView.show(message: "微信支付暂无开发,请选择其它开发方式")
+        }
+    }
+    
+    private func getOrderAction(password : String? = nil) {
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_addOrderPay, parameters: ["token":Model_user_information.getToken(),
+             "itemIds":self.orderString,
+             "addressId":self.addressID,
+             "msg":self.liuyan], progress: nil) { [weak self] (object, isError) in
+            if let weakSelf = self {
+                if !isError {
+                    let model = Model_api_orderPay.yy_model(withJSON: object as Any)
+                    if let errMsg = model?.msg {
+                        if !(LGYAFNetworking.isNetWorkSuccess(str: model?.code)) {
+                            LGYToastView.show(message: errMsg)
+                            return
+                        }
+                    }
+                    if let order_no = model?.orderPay.out_trade_no as? String {
+                        weakSelf.toPay(outTradeNo: order_no, payPw: password)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func toPay(outTradeNo : String,payPw : String? = nil) {
+        var parmeter = [
+            "token": Model_user_information.getToken(),
+            "type" : "\(payType.rawValue)",
+            "outTradeNo" : outTradeNo]
+        if payPw != nil {
+            parmeter["payPw"] = payPw
+        }
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_toPay, parameters:parmeter , progress: nil) { [weak self] (object, isError) in
+            if let weakSelf = self {
+                if !isError {
+                    let model = Model_api_pay.yy_model(withJSON: object as Any)
+                    if let errMsg = model?.msg {
+                        if !(LGYAFNetworking.isNetWorkSuccess(str: model?.code)) {
+                            LGYToastView.show(message: errMsg)
+                            return
+                        }
+                    }
+                    if let payString = model?.pay {
+                        if weakSelf.payType == PayType.Alipay {
+                            //支付宝支付
+                            AlipaySDK.defaultService().payOrder(payString, fromScheme: "ffourSeasons", callback: { (result) in
+                                //这个是H5支付的回调
+                                
+                            })
+                        }else if weakSelf.payType == PayType.WeiXin {
+                            //微信支付
+                        }else {
+                            //积分支付
+                        }
+                    }
+                   
+                }
+            }
         }
     }
     

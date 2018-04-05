@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>始终允许访问位置信息</string>
 	<key>CFBundleDisplayName</key>
 	<string>人人庄园</string>
 	<key>CFBundleExecutable</key>
@@ -45,7 +43,7 @@
 			<string>alipay</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>ssdd</string>
+				<string>ffourSeasons</string>
 			</array>
 		</dict>
 	</array>
@@ -70,6 +68,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>应用需要用到照相功能</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>始终允许访问位置信息</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>应用需要用到获取相册功能</string>
 	<key>UILaunchStoryboardName</key>

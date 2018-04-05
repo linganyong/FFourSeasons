@@ -63,4 +63,8 @@
 //import view
 #import "BRAddressPickerView.h"
 
+#import "Model_api_orderPay.h"
+#import "Model_api_pay.h"
+
+
 #endif /* bridging_Header_h */
