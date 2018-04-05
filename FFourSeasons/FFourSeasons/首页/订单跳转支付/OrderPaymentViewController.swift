@@ -7,28 +7,47 @@
 //
 
 import UIKit
+enum PayType : Int {
+    case Alipay = 2
+    case WeiXin = 1
+    case Point  = 3
+}
 
 class OrderPaymentViewController: UIViewController{
+    
+    let selectedImageName = "选中3x.png"
+    let unSelectedImageName = "椭圆3x.png"
     
     @IBOutlet weak var playSelect1ImageView: UIImageView!
     @IBOutlet weak var playSelect2ImageView: UIImageView!
     @IBOutlet weak var playSelect3ImageView: UIImageView!
     
+    //订单字符串
+    var orderString : String?
+    //地址ID
+    var addressID : Int?
+    
+    //支付类型，默认为积分支付
+    var payType : PayType = PayType.Point
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "支付"
+        self.initPayType()
         setBackgroundColor()
         navigationItemBack(title: nil)
     }
     
-    
-    
-    
+    private func initPayType() {
+        payType = PayType.Point
+        playSelect3ImageView.image = UIImage.init(named: selectedImageName)
+    }
+
     @IBAction func playSelectAction(_ sender: UIButton) {
-        playSelect1ImageView.image = UIImage.init(named: "椭圆3x.png")
-        playSelect2ImageView.image = UIImage.init(named: "椭圆3x.png")
-        playSelect3ImageView.image = UIImage.init(named: "椭圆3x.png")
-        let str = "选中3x.png"
+        playSelect1ImageView.image = UIImage.init(named: unSelectedImageName)
+        playSelect2ImageView.image = UIImage.init(named: unSelectedImageName)
+        playSelect3ImageView.image = UIImage.init(named: unSelectedImageName)
+        let str = selectedImageName
         switch sender.LGYLabelKey {
         case "1"?:
             playSelect1ImageView.image = UIImage.init(named: str)
@@ -68,7 +87,7 @@ class OrderPaymentViewController: UIViewController{
     @IBAction func paymentAction(_ sender: UIButton) {
         let view =  LGYAlertViewPayment.show(title: "支付订单 ￥128.00")
         view.callBlock = {(text) ->Void in
-            self.alertView(_title: "add", _message: text, _bText: "00")
+            
         }
     }
     

@@ -99,8 +99,9 @@ class ShopCarTableViewCell: UITableViewCell,CAAnimationDelegate,UITextFieldDeleg
         if item == nil{
             return
         }
-        model = item;
-        setDataScoure(tableView: tableView, buttonTag: buttonTag, imageUrl: model!.item_url, productName:model!.name, price: String(format: "￥%.2lf",model!.price), imageSelected: imageSelected, cellIndexPath: cellIndexPath, isEdit: isEdit)
+        model = item
+        let price = "￥\(model!.price!)"
+        setDataScoure(tableView: tableView, buttonTag: buttonTag, imageUrl: model!.item_url, productName:model!.name, price: price, imageSelected: imageSelected, cellIndexPath: cellIndexPath, isEdit: isEdit)
     }
     
 

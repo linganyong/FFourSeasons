@@ -159,7 +159,7 @@ class APIAddress: NSObject {
     static let api_getFarm = String(format: "%@/api/getFarm", arguments: [api_domainName()])
     
     /*
-     签到列表 
+      签到列表
      */
     static let api_signInList = String(format: "%@/api/signInList", arguments: [api_domainName()])
     
@@ -169,9 +169,7 @@ class APIAddress: NSObject {
     static let api_alterPayPw = String(format: "%@/api/alterPayPw", arguments: [api_domainName()])
     
      /*
-    修改支付密码
+     修改支付密码
     */
     static let api_commentList = String(format: "%@/api/commentList", arguments: [api_domainName()])
-    
-    
 }

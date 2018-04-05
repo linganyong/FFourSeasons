@@ -30,6 +30,7 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
     @IBOutlet weak var tableViewHeightLC: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     
+    var orderString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +72,7 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
         let cell = tableView.dequeueReusableCell(withIdentifier: "PurchaseImmediatelyTableViewCell", for: indexPath) as! PurchaseImmediatelyTableViewCell
         cell.selectionStyle = .none
         let item = dataScoure![indexPath.row]
-        cell.setDataScoure(name: item.name, priceStr: String.init(format: "￥%D", item.price), countStr: String.init(format: "%D", item.count))
+        cell.setDataScoure(name: item.name, priceStr: item.price, countStr: "\(item.count)")
         return cell
     }
     
@@ -93,11 +94,35 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
             LGYToastView.show(message: "请填写收货联系信息！")
             return
         }
+        
+        if dataScoure == nil {
+             LGYToastView.show(message: "请先选择商品！")
+            return
+        }
+        
+        var orderMoney = ""
+//        for orderItem in dataScoure! {
+//            orderMoney = orderItem.mon
+//        }
+        
+        //以下为拼装订单字符串
+//        var orderString = ""
+//        for orderItem in dataScoure! {
+//            orderString = orderString + "\(orderItem.item_id):\(orderItem.count);"
+//        }
+//        if orderString != "" {
+//           let end = orderString.index(orderString.endIndex, offsetBy: -1)
+////           orderString = orderString.substring(to: end) 已过期
+//            orderString = String(orderString[..<end])
+//        }
         let vc = Bundle.main.loadNibNamed("OrderPaymentViewController", owner: nil, options: nil)?.first as! OrderPaymentViewController
+        vc.orderString = orderString
+        vc.addressID = defaultAddress?._id
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func loadAddOrder(orderStr:String){
+        self.orderString = orderStr
         weak var vc = self
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_addOrder, parameters: ["token":Model_user_information.getToken(),"itemIds":orderStr], progress: nil) { (object, isError) in
             let model = Model_api_addOrder.yy_model(withJSON: object)
@@ -146,32 +171,47 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
         }
     }
 
-    //MARK:加载数据
+    //MARK:获取地址信息
     func loadAddressList() ->Void {
-        weak var vc = self
-        LGYAFNetworking.lgyPost(urlString: APIAddress.api_addressList, parameters: ["token":Model_user_information.getToken()], progress: nil) { (object, isError) in
-            if !isError {
-                let model = Model_api_addressList.yy_model(withJSON: object as Any)
-                if model == nil || vc == nil || !LGYAFNetworking.isNetWorkSuccess(str: model?.code){
-                    LGYToastView.show(message: (model?.msg)!)
-                    return
-                }
-                for item in (model?.addresses)!{
-                    let address = item as Addresses
-                    if address.state == 1{
-                        vc?.setAddress(item: address)
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_addressList, parameters: ["token":Model_user_information.getToken()], progress: nil) { [weak self] (object, isError) in
+            if let weakSelf = self {
+                if !isError {
+                    weakSelf.removeEmptyView()
+                    let model = Model_api_addressList.yy_model(withJSON: object as Any)
+                    if let errMsg = model?.msg {
+                        if !(LGYAFNetworking.isNetWorkSuccess(str: model?.code)) {
+                            LGYToastView.show(message: errMsg)
+                            return
+                        }
+                    }
+                    if let addresses = model?.addresses {
+                        for item in addresses {
+                            if item.state == 1 {
+                                weakSelf.setAddress(item: item)
+                            }
+                        }
+                    }
+                    if weakSelf.defaultAddress == nil {
+                        weakSelf.setAddress(item: nil)
                     }
                 }
             }
         }
     }
     
-    private func setAddress(item:Addresses) -> Void {
-        defaultAddress = item
-        removeEmptyView()
-        contactNameLabel.text = "收货人：" + defaultAddress!.name
-        contactPhonelabel.text = defaultAddress?.phone
-        contactAddressLabel.text = "地址：" + defaultAddress!.located.replacingOccurrences(of: "/", with: "") + defaultAddress!.address
+    private func setAddress(item:Addresses?) -> Void {
+        if item != nil {
+            defaultAddress = item
+            removeEmptyView()
+            contactNameLabel.text = "收货人：" + defaultAddress!.name
+            contactPhonelabel.text = defaultAddress?.phone
+            contactAddressLabel.text = "地址：" + defaultAddress!.located.replacingOccurrences(of: "/", with: "") + defaultAddress!.address
+        }else {
+            contactNameLabel.text = "收货人：暂无"
+            contactAddressLabel.text = "地址：暂无"
+            contactPhonelabel.text = "电话：暂无"
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

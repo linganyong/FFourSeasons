@@ -349,7 +349,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         }
         let vc = PurchaseImmediatelyViewController()
         var item = CartList()
-        item.price = Int(Double((productInformation?.price)!)!)
+        item.price = productInformation!.price
         item.item_url = productInformation?.small_icon
         item.count = Int(selectCountText)!
         item.name = productInformation?.title
