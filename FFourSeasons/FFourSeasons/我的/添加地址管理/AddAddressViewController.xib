@@ -120,6 +120,12 @@
                                     <constraint firstAttribute="width" constant="22" id="LOm-1o-SWH"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3Z-BP-sUe" userLabel="选择地区">
+                                <rect key="frame" x="0.0" y="0.0" width="351" height="40"/>
+                                <connections>
+                                    <action selector="addAddressAction:" destination="u35-c6-qSD" eventType="touchUpInside" id="d3s-LO-oUr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -130,8 +136,12 @@
                             <constraint firstItem="7hA-Rq-m0z" firstAttribute="leading" secondItem="3ND-Rx-zEc" secondAttribute="trailing" constant="8" id="DVv-Og-qjg"/>
                             <constraint firstAttribute="trailing" secondItem="piS-rW-Lib" secondAttribute="trailing" constant="12" id="FsB-35-fLb"/>
                             <constraint firstItem="piS-rW-Lib" firstAttribute="centerY" secondItem="3ND-Rx-zEc" secondAttribute="centerY" id="Goo-LX-3jf"/>
+                            <constraint firstItem="S3Z-BP-sUe" firstAttribute="leading" secondItem="x78-XH-QaC" secondAttribute="leading" id="MFV-p4-ezD"/>
                             <constraint firstItem="7hA-Rq-m0z" firstAttribute="centerY" secondItem="3ND-Rx-zEc" secondAttribute="centerY" id="QPq-fC-UsR"/>
                             <constraint firstItem="3ND-Rx-zEc" firstAttribute="top" secondItem="x78-XH-QaC" secondAttribute="top" constant="9" id="V6j-at-xOj"/>
+                            <constraint firstItem="S3Z-BP-sUe" firstAttribute="top" secondItem="x78-XH-QaC" secondAttribute="top" id="dtO-Dh-TlR"/>
+                            <constraint firstAttribute="bottom" secondItem="S3Z-BP-sUe" secondAttribute="bottom" id="mIJ-9f-ZOk"/>
+                            <constraint firstAttribute="trailing" secondItem="S3Z-BP-sUe" secondAttribute="trailing" id="rgP-rF-Oxy"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="LGyCornerRadius">

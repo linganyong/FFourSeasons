@@ -57,4 +57,7 @@
 #import "Farm.h"
 #import "Model_api_farm.h"
 
+//import view
+#import "BRAddressPickerView.h"
+
 #endif /* bridging_Header_h */
