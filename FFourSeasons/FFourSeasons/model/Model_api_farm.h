@@ -11,6 +11,6 @@
 @interface Model_api_farm : NSObject
 @property (nonatomic, retain) NSString * code;
 @property (nonatomic, retain) NSString * msg;
-@property (nonatomic, retain) farm * farm;
-@property (nonatomic, retain) NSArray<farms *> * farms;
+@property (nonatomic, retain) Farm * farm;
+@property (nonatomic, retain) NSArray<Farm *> * farms;
 @end

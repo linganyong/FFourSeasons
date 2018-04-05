@@ -83,6 +83,9 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RR-jp-Cwf">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                            <connections>
+                                <action selector="contactAction:" destination="-1" eventType="touchUpInside" id="JIC-QE-P2B"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -339,6 +342,9 @@
                             <state key="normal" title="提交订单">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="submitOrderAction:" destination="-1" eventType="touchUpInside" id="a55-98-LW7"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥128.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4k-O3-D60">
                             <rect key="frame" x="151" y="15" width="66" height="21"/>

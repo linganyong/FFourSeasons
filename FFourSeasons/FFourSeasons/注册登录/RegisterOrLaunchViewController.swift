@@ -213,8 +213,8 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationCenterLaunch), object: false)
                        
                     }
-                    if model != nil && model!.msg == nil {
-                        LGYToastView.show(message: (model?.msg)!)
+                    if let errmsg = model?.msg {
+                        LGYToastView.show(message: errmsg)
                     }
                 }
         }

@@ -54,7 +54,9 @@ class ShopCarTableViewCell: UITableViewCell,CAAnimationDelegate,UITextFieldDeleg
         if (keyPath == "text"){
             let newStr = change![NSKeyValueChangeKey.newKey] as! String
             let oldStr = change![NSKeyValueChangeKey.oldKey] as! String
-            delegate?.shopCarTableViewCell(newCount: Int(newStr)!, oldCount: Int(oldStr)!, price: Float((priceLabel.text?.replacingOccurrences(of: "￥", with: ""))!)!, ndexPath: indexPath, isSelect: isImageSelected)
+            if oldStr.contains("￥"){
+                delegate?.shopCarTableViewCell(newCount: Int(newStr)!, oldCount: Int(oldStr)!, price: Float((priceLabel.text?.replacingOccurrences(of: "￥", with: ""))!)!, ndexPath: indexPath, isSelect: isImageSelected)
+            }
         }
     }
    
@@ -72,7 +74,9 @@ class ShopCarTableViewCell: UITableViewCell,CAAnimationDelegate,UITextFieldDeleg
         }else{
             isSelectImageView.image = nil
         }
-        delegate?.shopCarTableViewCell(cell: self, indexPath: indexPath, isSelect: isImageSelected)
+        if self.priceLabel.text!.contains("￥"){
+            delegate?.shopCarTableViewCell(cell: self, indexPath: indexPath, isSelect: isImageSelected)
+        }
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -99,8 +103,12 @@ class ShopCarTableViewCell: UITableViewCell,CAAnimationDelegate,UITextFieldDeleg
         if item == nil{
             return
         }
-        model = item;
-        setDataScoure(tableView: tableView, buttonTag: buttonTag, imageUrl: model!.item_url, productName:model!.name, price: String(format: "￥%.2lf",model!.price), imageSelected: imageSelected, cellIndexPath: cellIndexPath, isEdit: isEdit)
+        model = item
+        var price = "￥\(model!.price!)"
+        if item?.goods_type == 1{
+            price = "\(model!.price!) 积分"
+        }
+        setDataScoure(tableView: tableView, buttonTag: buttonTag, imageUrl: model!.item_url, productName:model!.name, price: price, imageSelected: imageSelected, cellIndexPath: cellIndexPath, isEdit: isEdit)
     }
     
 
@@ -130,12 +138,16 @@ class ShopCarTableViewCell: UITableViewCell,CAAnimationDelegate,UITextFieldDeleg
         }else{
             isSelectImageView.image = nil
         }
-        delegate?.shopCarTableViewCell(cell: self, indexPath: indexPath, isSelect: isImageSelected)
+        if self.priceLabel.text!.contains("￥"){
+            delegate?.shopCarTableViewCell(cell: self, indexPath: indexPath, isSelect: isImageSelected)
+        }
     }
 
     
     @IBAction func delegateAction(_ sender: UIButton) {
-        self.delegate?.shopCarTableViewCellTapDeleteAction(cell: self, indexPath: indexPath, isSelect: isImageSelected)
+        if self.priceLabel.text!.contains("￥"){
+            self.delegate?.shopCarTableViewCellTapDeleteAction(cell: self, indexPath: indexPath, isSelect: isImageSelected)
+        }
     }
     
     
@@ -167,7 +179,9 @@ class ShopCarTableViewCell: UITableViewCell,CAAnimationDelegate,UITextFieldDeleg
         //删除动画进行时重写设置是否选中状态
         isSelectImageView.image = nil
         isImageSelected = false
-         delegate?.shopCarTableViewCell(cell: self, indexPath: indexPath, isSelect: isImageSelected)
+        if self.priceLabel.text!.contains("￥"){
+            delegate?.shopCarTableViewCell(cell: self, indexPath: indexPath, isSelect: isImageSelected)
+        }
     }
     
     //MARK:做旋转动画
