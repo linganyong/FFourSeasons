@@ -60,4 +60,7 @@
 #import "FarmGoods.h"
 #import "FarmGoodsList.h"
 
+//import view
+#import "BRAddressPickerView.h"
+
 #endif /* bridging_Header_h */

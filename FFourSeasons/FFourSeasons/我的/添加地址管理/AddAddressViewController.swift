@@ -222,5 +222,19 @@ class AddAddressViewController: UIViewController,UITextFieldDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func addAddressAction(_ sender: Any) {
+        var defaultSelArr : [String] = self.address1TF.text!.components(separatedBy: "/")
+        if defaultSelArr.count <= 0 {
+            defaultSelArr = [""]
+        }
+        BRAddressPickerView.showAddressPicker(withShowType: .area, defaultSelected: defaultSelArr, isAutoSelect: true, themeColor: nil, resultBlock: { (proviceModel, cityModel, areaModel) in
+            self.address1TF.text = proviceModel!.name + "/" + cityModel!.name + "/" + areaModel!.name
+        }) {
+            //取消
+            
+        }
+    }
+    
 
 }

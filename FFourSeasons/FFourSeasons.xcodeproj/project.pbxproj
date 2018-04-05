@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3586F4B60446AAD7E03FBB6F /* Pods_FFourSeasons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF103BC693391E94F59DA51 /* Pods_FFourSeasons.framework */; };
+		9978F212207688920031CAE3 /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9978F20D207688920031CAE3 /* BRAddressModel.m */; };
+		9978F213207688920031CAE3 /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9978F20F207688920031CAE3 /* BRPickerView.bundle */; };
+		9978F214207688920031CAE3 /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9978F211207688920031CAE3 /* BRAddressPickerView.m */; };
+		9978F217207689DE0031CAE3 /* BRBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9978F215207689DE0031CAE3 /* BRBaseView.m */; };
 		9C00BFA5202E959600E77EA0 /* LGYMarkPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C00BFA4202E959600E77EA0 /* LGYMarkPageView.swift */; };
 		9C00BFA8202EB74F00E77EA0 /* MarkProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C00BFA6202EB74E00E77EA0 /* MarkProductTableViewCell.xib */; };
 		9C00BFA9202EB74F00E77EA0 /* MarkProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C00BFA7202EB74F00E77EA0 /* MarkProductTableViewCell.swift */; };
@@ -466,6 +470,13 @@
 		28FD9373A4C21A8D707E3640 /* Pods-FFourSeasons.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FFourSeasons.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FFourSeasons/Pods-FFourSeasons.debug.xcconfig"; sourceTree = "<group>"; };
 		69532BE4DCD79F0AA928AAD2 /* Pods-FFourSeasons.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FFourSeasons.release.xcconfig"; path = "Pods/Target Support Files/Pods-FFourSeasons/Pods-FFourSeasons.release.xcconfig"; sourceTree = "<group>"; };
 		6EF103BC693391E94F59DA51 /* Pods_FFourSeasons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FFourSeasons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9978F20D207688920031CAE3 /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
+		9978F20E207688920031CAE3 /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
+		9978F20F207688920031CAE3 /* BRPickerView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BRPickerView.bundle; sourceTree = "<group>"; };
+		9978F210207688920031CAE3 /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
+		9978F211207688920031CAE3 /* BRAddressPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressPickerView.m; sourceTree = "<group>"; };
+		9978F215207689DE0031CAE3 /* BRBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseView.m; sourceTree = "<group>"; };
+		9978F216207689DE0031CAE3 /* BRBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBaseView.h; sourceTree = "<group>"; };
 		9C00BFA4202E959600E77EA0 /* LGYMarkPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGYMarkPageView.swift; sourceTree = "<group>"; };
 		9C00BFA6202EB74E00E77EA0 /* MarkProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkProductTableViewCell.xib; sourceTree = "<group>"; };
 		9C00BFA7202EB74F00E77EA0 /* MarkProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkProductTableViewCell.swift; sourceTree = "<group>"; };
@@ -1024,6 +1035,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9978F20C207688920031CAE3 /* AddressPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				9978F216207689DE0031CAE3 /* BRBaseView.h */,
+				9978F215207689DE0031CAE3 /* BRBaseView.m */,
+				9978F20D207688920031CAE3 /* BRAddressModel.m */,
+				9978F20E207688920031CAE3 /* BRAddressPickerView.h */,
+				9978F20F207688920031CAE3 /* BRPickerView.bundle */,
+				9978F210207688920031CAE3 /* BRAddressModel.h */,
+				9978F211207688920031CAE3 /* BRAddressPickerView.m */,
+			);
+			path = AddressPickerView;
+			sourceTree = "<group>";
+		};
 		9C00BFAA202EBE3700E77EA0 /* 商城 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1421,6 +1446,7 @@
 		9C77C3EA2027F96D008B49E2 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				9978F20C207688920031CAE3 /* AddressPickerView */,
 				9CBD4808206B4668005C3EB0 /* LGYTableView */,
 				9C3CB1672068E182001DA039 /* Share */,
 				9C3CB15F2068D3FA001DA039 /* Alipay */,
@@ -2450,6 +2476,7 @@
 				9C77C4E82027FEC1008B49E2 /* 商城3x.png in Resources */,
 				9C77C5012027FEC1008B49E2 /* 1181d42c9ae176da7a0697cc5e2b1dcc70ebac1917a7b-ZsTZXq_fw658.jpg in Resources */,
 				9C77C3B52027F1FF008B49E2 /* Assets.xcassets in Resources */,
+				9978F213207688920031CAE3 /* BRPickerView.bundle in Resources */,
 				9C77C4E42027FEC1008B49E2 /* 矩形5.png in Resources */,
 				9C77C4E02027FEC1008B49E2 /* 矩形1拷贝@2x.png in Resources */,
 				9C77C51B2027FEC1008B49E2 /* 344ed11c4bdb6a16665bba36f3d057747dd595db3ba9d-2sAiGj.jpg in Resources */,
@@ -2702,6 +2729,7 @@
 				9C77C41D2027F96D008B49E2 /* PYSearchViewController.m in Sources */,
 				9C77C52920280042008B49E2 /* FarmerViewController.swift in Sources */,
 				9CBB50AF20494AFF0018A43B /* ShopCarViewController.swift in Sources */,
+				9978F217207689DE0031CAE3 /* BRBaseView.m in Sources */,
 				9C3129932060FE36006E6102 /* LGYEmptyBackgroundView.swift in Sources */,
 				9CBB50A6204943BD0018A43B /* AboutUsViewController.swift in Sources */,
 				9C10BD8920450CAF004AAFE3 /* AddressTableViewCell.swift in Sources */,
@@ -2792,6 +2820,7 @@
 				9C0DB9D0206CD09C00F9085D /* Model_user_information.m in Sources */,
 				9CFD5550207105280028B1A4 /* IntegralList.m in Sources */,
 				9C58AAC9204FEE5400594011 /* AllCommentsViewController.swift in Sources */,
+				9978F212207688920031CAE3 /* BRAddressModel.m in Sources */,
 				9CFD55532071055A0028B1A4 /* IntegralItem.m in Sources */,
 				9CFD554A207102340028B1A4 /* Model_api_signIn.m in Sources */,
 				9CFD554D207104730028B1A4 /* Model_api_signInList.m in Sources */,
@@ -2832,6 +2861,7 @@
 				9C58AACD204FEEB200594011 /* AllCommentsTableViewCell.swift in Sources */,
 				9CA32D4A2047938D00FD5DFC /* BranchShopViewController.swift in Sources */,
 				9C00BFA5202E959600E77EA0 /* LGYMarkPageView.swift in Sources */,
+				9978F214207688920031CAE3 /* BRAddressPickerView.m in Sources */,
 				9C9064912061FA63006158AC /* LGYMaxCollectionViewFlowLayout.swift in Sources */,
 				9C9616D02051550B00D0EB7D /* MainPageMenuView.swift in Sources */,
 				9CFCDD06207630F700ECBA48 /* Farm.m in Sources */,
