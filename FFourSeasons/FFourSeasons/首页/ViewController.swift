@@ -11,8 +11,8 @@ import CoreLocation
 import LCRefresh
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate,LCycleViewDelegate {
-    var rightBarItem:UIBarButtonItem?
-    let locationManager = CLLocationManager()
+    var rightBarItem: UIBarButtonItem?
+    var locationManager : CLLocationManager?
     let row1Height = CGFloat(70+28)
     var headerView:LCycleView = LCycleView()
     
@@ -20,13 +20,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
     var cycledataScoure = Array<Shufflings>()
     
+    var leftLocationButton : UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         setStyle()
         setTableView()
-        navigationBarAddLeftButton(_imageName: "定位2x.png", _title: "广州", target: self, action: #selector(loaction),tag: 1000)
+        leftLocationButton(_imageName: "定位2x.png", _title: "请先定位", target: self, action: #selector(loaction))
         print(row1Height,"  ",(UIScreen.main.bounds.size.width-32.0)/(4*2.5))
         rightBarItem = navigationBarAddRightItem(_imageName: "扫码.png", target: self, action: #selector(rightBarAction))
         startLocationManager()
@@ -79,7 +80,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //MARK:定位
     @objc func loaction() -> Void {
-        alertView(_title: "提示", _message: "功能未开启！", _bText: "我知道了")
+        startLocationManager()
     }
     
     
@@ -210,11 +211,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-         self.tabBarController?.tabBar.isHidden = false
-        self.navigationController?.navigationBar.viewWithTag(1000)?.isHidden = false
-        locationManager.startUpdatingLocation()
+        self.tabBarController?.tabBar.isHidden = false
         self.navigationItem.rightBarButtonItems = [rightBarItem!]
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -222,43 +220,61 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.viewWithTag(1000)?.isHidden = true
-         locationManager.stopUpdatingLocation()
         self.navigationItem.rightBarButtonItems = nil
     }
     
     //MARK:开始定位
     func startLocationManager() -> Void {
-        if locationManager.delegate != nil{
+        
+        if self.locationManager != nil {
             return
         }
-
-        locationManager.desiredAccuracy = CLLocationAccuracy.init(kCLLocationAccuracyBest)
-        locationManager.distanceFilter = 300.0 //每隔100米更新一次
-        locationManager.delegate = self
-
+        
+        self.locationManager = CLLocationManager()
+        
+        self.locationManager?.requestWhenInUseAuthorization()
+        self.locationManager?.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager?.delegate = self
+            locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager?.startUpdatingLocation()
+        }else {
+            //提示打开定位
+            LGYToastView.show(message: "请先打开定位")
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        getAddressStringFromLocation(location: locations.last!)
+        getCityName(location: manager.location!)
+        self.locationManager?.stopUpdatingLocation()
+        self.locationManager = nil
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        LGYToastView.show(message: "定位失败，稍后再试")
+        self.locationManager?.stopUpdatingLocation()
+        self.locationManager = nil
     }
     
     //MARK:反向地理编码
-    func getAddressStringFromLocation(location:CLLocation) -> Void {
-        let clGeoCoder = CLGeocoder()
-        let cl = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        clGeoCoder.reverseGeocodeLocation(cl) { (placemarks, error) in
-            for placeMark: CLPlacemark in placemarks! {
-                let addressDic = placeMark.addressDictionary
-                let state = addressDic?["State"] as? String
-                var city = addressDic?["City"] as? String
-                let subLocality = addressDic?["SubLocality"] as? String
-                let street = addressDic?["Street"] as? String
-                print("所在城市====\(state) \(city) \(subLocality) \(street)")
+    private func getCityName(location : CLLocation) {
+        let geoCoder = CLGeocoder()
+        geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            var cityName = ""
+            if let placemark = placemarks?.first {
+                if let city = placemark.locality {
+                    cityName = city
+                }else {
+                    cityName = placemark.administrativeArea!
+                }
+                self.leftLocationButton?.setTitle(cityName, for: UIControlState.normal)
+            }else if error != nil {
+               LGYToastView.show(message: "获取定位地址失败，稍后再试")
             }
         }
     }
-    
+
     
     func pushToLaunch(){
         let vc = Bundle.main.loadNibNamed("RegisterOrLaunchViewController", owner: nil, options: nil)?.first as! RegisterOrLaunchViewController
@@ -322,6 +338,25 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     deinit {
        NotificationCenter.default.removeObserver(self)
+    }
+    
+    
+    //MARK：左边导航
+    func leftLocationButton(_imageName:String,_title:String,target:Any?, action: Selector?) -> Void {
+        let leftLocationView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 120, height: 44))
+        self.leftLocationButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+        let locationImageView = UIImageView.init(frame: CGRect(x:0, y: (self.leftLocationButton!.frame.size.height - 15)/2, width: 15, height: 15))
+        locationImageView.image = UIImage.init(named: _imageName)
+        if action != nil{
+            leftLocationView.addGestureRecognizer(UITapGestureRecognizer.init(target: target, action: action))
+        }
+        self.leftLocationButton!.setTitle(_title, for: .normal)
+        self.leftLocationButton!.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        
+        leftLocationView.addSubview(self.leftLocationButton!)
+        leftLocationView.addSubview(locationImageView)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: leftLocationView)
     }
     
 }
