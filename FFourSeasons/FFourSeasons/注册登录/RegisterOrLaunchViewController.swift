@@ -86,6 +86,8 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        launchView.setLineView()
+        registerView.setLineView()
         if isNeedRootPage {
             addRootPage()
         }

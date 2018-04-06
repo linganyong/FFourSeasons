@@ -141,8 +141,9 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         }else if view.lgyTag == 10000{
             
         }
-        view.setSelected(false, animated: false)
         
+        mapView.selectedAnnotations.removeAll()
+//        mapView.deselectAnnotation(view, animated: false)
     }
     
     //MARK:开始定位

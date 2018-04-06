@@ -86,13 +86,10 @@ extension UIViewController {
     }
     
     @objc func popViewController()->Void{
-        if self.navigationController == nil{
             self.navigationController?.popViewController(animated: true)
-        }else{
             self.dismiss(animated: true, completion: {
                 
             })
-        }
     }
     
     //MARK:添加左边导航button

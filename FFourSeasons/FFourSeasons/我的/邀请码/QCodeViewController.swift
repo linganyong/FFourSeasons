@@ -54,7 +54,7 @@ class QCodeViewController: UIViewController,ShareViewDelegate {
     @IBAction func sharpeAction(_ sender: UIButton) {
         if shapeView == nil {
             shapeView = ShareView.initShareView(titleArray: ["微信"], imageArray: ["微信3x.png"])
-            UIApplication.shared.keyWindow?.addSubview(shapeView!)
+            shapeView?.frame = (UIApplication.shared.keyWindow?.bounds)!
             shapeView?.delegate = self
         }
         shapeView?.show()

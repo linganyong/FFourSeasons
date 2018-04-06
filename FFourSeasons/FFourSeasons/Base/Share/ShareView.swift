@@ -14,6 +14,7 @@ protocol ShareViewDelegate {
 
 class ShareView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
 
+    @IBOutlet weak var maginBottomLC: NSLayoutConstraint!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
 //        @IBOutlet weak var collectionViewLC: NSLayoutConstraint!
@@ -29,6 +30,7 @@ class ShareView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
             let view = Bundle.main.loadNibNamed("ShareView", owner: nil, options: nil)?.first as! ShareView
             LGYTool.viewLayerShadowShadowOffsetHeight(view: view.backView)
             view.setCollectionView(titleArray: titleArray, imageArray: imageArray)
+            
             return view
         }
         
@@ -62,24 +64,25 @@ class ShareView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         }
         
         func show() {
-             self.frame = CGRect(x: 0, y: UIScreen.main.bounds.size.height, width: self.frame.size.width, height: UIScreen.main.bounds.size.height)
+            UIApplication.shared.keyWindow?.addSubview(self)
+            maginBottomLC.constant = -200
+             self.layoutIfNeeded()
             //MARK:设置导航栏取消按钮
             UIView.animate(withDuration: 0.5, animations: {
-                self.frame = CGRect(x: 0, y: -22, width: self.frame.size.width, height: UIScreen.main.bounds.size.height)
-                self.collectionView.reloadData()
+                self.maginBottomLC.constant = 150
+                self.layoutIfNeeded()
             }) { (finish) in
                 
             }
-            
         }
         
        @objc  func cancle(){
             //MARK:设置导航栏取消按钮
             UIView.animate(withDuration: 0.5, animations: {
-                self.frame = CGRect(x: 0, y: UIScreen.main.bounds.size.height, width: self.frame.size.width, height: UIScreen.main.bounds.size.height)
-                
+                self.maginBottomLC.constant = -200
+                self.layoutIfNeeded()
             }) { (finish) in
-                
+                self.removeFromSuperview()
             }
         }
         

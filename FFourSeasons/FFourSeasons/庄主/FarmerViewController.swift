@@ -97,7 +97,7 @@ class FarmerViewController: UIViewController {
         }
         //周边农场
         if (sender.LGYLabelKey?.elementsEqual("3"))!{
-            let vc = Bundle.main.loadNibNamed("BranchShopViewController", owner: nil, options: nil)?.first as! BranchShopViewController
+            let vc = Bundle.main.loadNibNamed("SurroundingFarmsViewController", owner: nil, options: nil)?.first as! SurroundingFarmsViewController
             self.navigationController?.pushViewController(vc, animated: true)
             self.tabBarController?.tabBar.isHidden = true
         }

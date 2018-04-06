@@ -41,7 +41,8 @@
                         </constraints>
                         <attributedString key="attributedText">
                             <fragment>
-                                <string key="content">1.您的累积积分会自动清零，并开始计算新的有效期的累积积分。</string>
+                                <string key="content">1.您的累积积分会自动清零，并开始计算新的有效期的累积积分。
+</string>
                                 <attributes>
                                     <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <font key="NSFont" size="9" name="PingFangSC-Regular"/>
@@ -90,7 +91,7 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="会员表拷贝3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="ouf-js-dlk">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="会员表拷贝3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="ouf-js-dlk">
                         <rect key="frame" x="20" y="145" width="335" height="128"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ouf-js-dlk" secondAttribute="height" multiplier="1005:384" id="7o5-ru-coh"/>

@@ -38,6 +38,7 @@ class LGYPageView: UIView,UIScrollViewDelegate {
         }else{
             _headerView.isHidden = false
             _headerView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: _headerHeight)
+            _headerView.showsVerticalScrollIndicator = false
             headerButtonAdd()
             _contentView.frame = CGRect(x: 0, y:_headerView.frame.size.height, width: self.bounds.size.width, height: self.frame.size.height - _headerHeight);
         }
@@ -132,7 +133,10 @@ class LGYPageView: UIView,UIScrollViewDelegate {
             //横向移动
             let x = scrollView.contentOffset.x*(_headerView.contentSize.width/scrollView.contentSize.width)
             _headerLineView.frame = CGRect(x: x+(_headerButtonWidth - _headerLineViewWidht)/2, y: _headerLineView.frame.origin.y, width:  _headerLineView.frame.size.width, height:  _headerLineView.frame.size.height)
-//            let scale = scrollView.contentOffset.x.truncatingRemainder(dividingBy: scrollView.frame.size.width)
+            if scrollView == _contentView && _headerView.contentSize.width > _headerView.frame.width+1{
+                let scale = (scrollView.contentSize.width-scrollView.frame.width)/(_headerView.contentSize.width - _headerView.frame.width)
+                _headerView.contentOffset.x = scrollView.contentOffset.x/scale
+            }
 //            if scale == 0.0{
                 _selectIndex = Int( (scrollView.contentOffset.x+scrollView.frame.size.width/2)/scrollView.frame.size.width)
                 if _oldSelectIndex != _selectIndex{

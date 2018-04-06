@@ -40,6 +40,7 @@ class DetailsView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     func setCollectionView() -> Void {
         if collectionView.delegate == nil {
             backView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancle)))
+            self.layoutIfNeeded()
             layout.itemSize = CGSize(width: (collectionView.frame.size.width-20)/3, height: (collectionView.frame.size.width-20)/3)
             layout.minimumInteritemSpacing = 10
             collectionView.delegate = self

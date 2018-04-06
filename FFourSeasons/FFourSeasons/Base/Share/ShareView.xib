@@ -49,6 +49,7 @@
             <connections>
                 <outlet property="backView" destination="9f0-aS-D5i" id="3wF-R0-iPI"/>
                 <outlet property="collectionView" destination="lJ1-dW-zxX" id="cJx-i9-Un3"/>
+                <outlet property="maginBottomLC" destination="RQ6-qw-OVq" id="Y3I-U9-2f3"/>
             </connections>
             <point key="canvasLocation" x="111.5" y="114.5"/>
         </view>
