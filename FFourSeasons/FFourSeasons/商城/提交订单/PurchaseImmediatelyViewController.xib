@@ -346,8 +346,8 @@
                                 <action selector="submitOrderAction:" destination="-1" eventType="touchUpInside" id="a55-98-LW7"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥128.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4k-O3-D60">
-                            <rect key="frame" x="151" y="15" width="66" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4k-O3-D60">
+                            <rect key="frame" x="168" y="15" width="49" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="MrJ-ac-Pfi"/>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="Skx-jY-KKs"/>
@@ -357,7 +357,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06d-qn-TBO">
-                            <rect key="frame" x="105" y="15" width="46" height="21"/>
+                            <rect key="frame" x="122" y="15" width="46" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="46" id="hyw-C8-7hJ"/>
                                 <constraint firstAttribute="height" constant="21" id="jHS-dz-n7o"/>

@@ -29,11 +29,17 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     
     @IBOutlet weak var titleTableView: UITableView!
     @IBOutlet weak var productTableView: UITableView!
+//    var productDataScoure = Array<>
     
     @IBOutlet weak var productTableViewLC: NSLayoutConstraint!
     @IBOutlet weak var titleTableViewLC: NSLayoutConstraint!
+    var orderDetail:OrderList?
     
-    
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var yunFeiLabel: UILabel!
+    @IBOutlet weak var telLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -41,10 +47,8 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         setTitleTableView()
         self.title = "订单详情"
         navigationItemBack(title: nil)
-       
         setProductTableView()
         setTitleTableView()
-//       setBackgroundColor()
     }
     
     //MARK:设置viewController的类型
@@ -87,9 +91,27 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             button3.isHidden = true
             evaluationView.isHidden = false
             break
-        default:
-            break
         }
+    }
+    
+    
+    func setText(){
+        if orderDetail != nil{
+            nameLabel.text = "姓名:\(orderDetail!.receive_name!)"
+            telLabel.text = "电话:\(orderDetail!.receive_phone!)"
+            addressLabel.text = "地址:\(orderDetail!.receive_address!)"
+            yunFeiLabel.text = "￥\(orderDetail?.pay_way)"
+            priceLabel.text = "￥\(orderDetail!.price!)"
+            
+           
+        }else{
+            nameLabel.text = ""
+            telLabel.text = ""
+            addressLabel.text = ""
+            yunFeiLabel.text = "￥0"
+            priceLabel.text = "￥0"
+        }
+        
     }
 
     

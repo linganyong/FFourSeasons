@@ -59,6 +59,11 @@
 #import "Model_api_getGoods.h"
 #import "FarmGoods.h"
 #import "FarmGoodsList.h"
+#import "OrderPage.h"
+#import "OrderDetails.h"
+#import "OrderList.h"
+#import "Model_api_orderList.h"
+
 
 //import view
 #import "BRAddressPickerView.h"

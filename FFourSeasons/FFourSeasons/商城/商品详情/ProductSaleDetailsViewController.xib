@@ -62,10 +62,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广州" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOW-sm-fME">
-                                        <rect key="frame" x="307" y="43.5" width="20" height="21"/>
+                                        <rect key="frame" x="308.5" y="43.5" width="18.5" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="VGg-dF-Hh0"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="t8J-C6-6Y4"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="t8J-C6-6Y4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -92,7 +92,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="累计销售21345笔" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ess-Hr-WjU">
-                                        <rect key="frame" x="217.5" y="44" width="73.5" height="21"/>
+                                        <rect key="frame" x="218.5" y="44" width="73.5" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="0Zw-ZI-oft"/>
                                             <constraint firstAttribute="height" constant="21" id="gb2-VQ-6ce"/>

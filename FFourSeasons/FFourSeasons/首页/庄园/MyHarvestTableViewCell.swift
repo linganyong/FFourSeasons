@@ -13,7 +13,7 @@ protocol MyHarvestTableViewCellDelegate {
 }
 
 class MyHarvestTableViewCell: UITableViewCell {
- 
+    var modelOrder:OrderList?
     @IBOutlet weak var maginLeftLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var maginTopLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var maginBottomLayoutConstraint: NSLayoutConstraint!
@@ -66,6 +66,21 @@ class MyHarvestTableViewCell: UITableViewCell {
         line1Label.text = model?.title
         line2Label.text = model?.profile
         line3Label.text = String.init(format: "x%@", (model?.price)!)
+    }
+    
+    func setModelOrder(item:OrderList,delegate:MyHarvestTableViewCellDelegate?) -> Void {
+        modelOrder = item
+        myDelegate = delegate
+        if  let details = item.detail?.first{
+            if let imageUrl = details.small_icon{
+                productImageView.lGYImageFromURL(imageUrl: imageUrl, placeholderImageName: "loading.jpg")
+            }else{
+                productImageView.image = nil
+            }
+            line1Label.text = details.title
+            line2Label.text = details.detail
+            line3Label.text = "￥\(details.total_price!)"
+        }
     }
     
     func buttonTitle(leftStr:String?,rightStr:String?) -> Void {

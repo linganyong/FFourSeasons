@@ -27,8 +27,8 @@ class LGYAFNetworking: NSObject {
     
     func addLoadingView() -> Void {
         view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        let vc = UIViewController.currentViewController()
-        vc?.view.addSubview(view)
+        let vc = UIApplication.shared.keyWindow
+        vc?.addSubview(view)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeLoadingView)))
         view.backgroundColor = UIColor.clear
         let imgWidth = 100.0

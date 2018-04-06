@@ -11,7 +11,7 @@ import UIKit
 class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource{
     
     var goods_detailArray:Array<String>?
-    var goods_detailImageHeight = Array<CGFloat>()
+    var goods_detailImageHeight:[Int : CGFloat] = [:]
     var rightBarItem:UIBarButtonItem!
     var productInformation:Goods?
     var productModel:Model_api_goodsDetail?
@@ -48,6 +48,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     var isCollection = 1 //1 表示未收藏，2表示已经收藏
     var selectSpec = 0 //选择的规格
     var selectCountText = "1"
+    var selectSpecPrice = "0.00"
     let specView = Bundle.main.loadNibNamed("LGYSelectCollectionView", owner: nil, options: nil)?.first as! LGYSelectCollectionView
     
     override func viewDidLoad() {
@@ -146,6 +147,10 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     //MARK:设置图片详情
     func setDetails() -> Void {
+        if (goods_detailArray?.count)! > 0{
+            productDetailTableViewLC.constant = 100
+        }
+        productDetailTableView.rowHeight = 100
         productDetailTableView.bounces = false
         productDetailTableView.delegate = self
         productDetailTableView.dataSource = self
@@ -159,12 +164,12 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        addImageUrl(imageUrl: goods_detailArray![indexPath.row], cell: cell,indexPaht: indexPath)
+        addImageUrl(imageUrl: goods_detailArray![indexPath.row], cell: cell,indexPath: indexPath)
         return cell;
     }
     
     //MARK:设置图片详情cell图片
-    func addImageUrl(imageUrl:String,cell:UITableViewCell,indexPaht:IndexPath) -> Void {
+    func addImageUrl(imageUrl:String,cell:UITableViewCell,indexPath:IndexPath) -> Void {
         var imgView = cell.viewWithTag(1000) as? UIImageView
         if imgView == nil{
             imgView = UIImageView()
@@ -186,7 +191,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
                 }
                 let scale = image!.size.width/image!.size.height
                 let height = cell.frame.size.width/scale
-                vc?.goods_detailImageHeight.insert(height, at: indexPaht.row)
+                vc?.goods_detailImageHeight[indexPath.row] = height
                 vc?.productDetailTableView.reloadData()
             })
         }else{
@@ -196,11 +201,11 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row >= goods_detailImageHeight.count{
-            goods_detailImageHeight.append(120)
-        }
         productDetailTableViewLC.constant = tableView.contentSize.height
-        return goods_detailImageHeight[indexPath.row]
+        if let s = goods_detailImageHeight[indexPath.row]{
+            return s
+        }
+        return 1
     }
     
     //MARK:设置头部滚动
@@ -226,8 +231,9 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     func setDataScoure(object:Any?) -> Void {
         productModel = Model_api_goodsDetail.yy_model(withJSON: object)
-        if productInformation == nil { //只进入一次
-            addContentProductSaleInformaiton(product:productModel?.goods,productId: 0)
+        if let good = productModel?.goods{
+            productInformation = good
+             addContentProductSaleInformaiton(product:productModel?.goods,productId: 0)
         }
     }
     
@@ -268,6 +274,11 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         specView.callBlock = {(text,array) ->Void in
             vc?.selectSpec = 0
             vc?.selectCountText = text
+            if vc?.productInformation?.goods_type == 0{
+                vc?.productPriceLabel.text = String(format: "￥%@", (vc?.productInformation?.price)!)
+            }else{
+                vc?.productPriceLabel.text = String(format: "%@积分", (vc?.productInformation?.price)!)
+            }
             vc?.specificationDeal(text: text, array: array!)
             vc?.specView.removeFromSuperview()
         }
@@ -302,8 +313,11 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
                     }
                     if flag{
                         selectSpec = (item?._id)!
-                        //TODO
-                        print(str)
+                        if productInformation?.goods_type == 0{
+                            productPriceLabel.text = "￥\((item?.price)!)"
+                        }else{
+                            productPriceLabel.text = "\((item?.price)!)积分"
+                        }
                     }
                     
                 }

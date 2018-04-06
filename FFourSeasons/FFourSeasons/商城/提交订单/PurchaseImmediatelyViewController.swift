@@ -38,8 +38,8 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
         self.title = "提交订单"
         setTableView()
         loadAddressList()
-        addEmptyView(frame: nil)
         textField()
+        addEmptyView(frame: nil)
     }
 
     func textField()->Void{
@@ -115,6 +115,7 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
         }
         vc.liuyan = liuyan
         vc.totalPrice = totalPrice
+        vc.getOrderAction()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -129,6 +130,7 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
     
     //MARK:根据请求数据绘图
     func setData(model:Model_api_addOrder?){
+        removeEmptyView()
         if model != nil && LGYAFNetworking.isNetWorkSuccess(str: model?.code){
             let array = model!.list
             dataScoure = array
@@ -174,7 +176,6 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_addressList, parameters: ["token":Model_user_information.getToken()], progress: nil) { [weak self] (object, isError) in
             if let weakSelf = self {
                 if !isError {
-                    weakSelf.removeEmptyView()
                     let model = Model_api_addressList.yy_model(withJSON: object as Any)
                     if let errMsg = model?.msg {
                         if !(LGYAFNetworking.isNetWorkSuccess(str: model?.code)) {
@@ -200,7 +201,6 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
     private func setAddress(item:Addresses?) -> Void {
         if item != nil {
             defaultAddress = item
-            removeEmptyView()
             contactNameLabel.text = "收货人：" + defaultAddress!.name
             contactPhonelabel.text = defaultAddress?.phone
             contactAddressLabel.text = "地址：" + defaultAddress!.located.replacingOccurrences(of: "/", with: "") + defaultAddress!.address

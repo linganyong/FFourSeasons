@@ -9,7 +9,7 @@
 import UIKit
 import LCRefresh
 
-class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MyHarvestTableViewCellDelegate{
     let pageView = LGYPageView()
     
     
@@ -30,7 +30,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
         pageView.headerBtnStyle(defaultTextColor: UIColor.init(red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1), selectTextColor: UIColor.init(red: 42/255.0, green: 201/255.0, blue: 140/255.0, alpha: 1), headerBtnWidth: self.view.frame.size.width/6, headerLineHeight: 1,textFront: 12)
          pageView.setLineViewWidth(width: 40)
         weak var vc = self
-        for i in 0...5{
+        for i in 0...7{
             let tb = pageView.pageViewtableView(index: i)
             tb?.delegate = self
             tb?.rowHeight = self.view.frame.size.width/4+16
@@ -42,7 +42,34 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
             if tb?.lgyDataScoure == nil{
                 tb?.lgyDataScoure = Array<String>()
                 tb?.lgyPageIndex = 1
-                tb?.lgyTypeKey = "1"
+                switch i{
+                case 0:
+                    tb?.lgyTypeKey = "-1" //全部
+                    break
+                case 1:
+                    tb?.lgyTypeKey = "0" //未付款
+                    break
+                case 2:
+                    tb?.lgyTypeKey = "2" //付款成功
+                    break
+                case 3: //
+                    tb?.lgyTypeKey = "3" //待收货
+                    break
+                case 4: //
+                    tb?.lgyTypeKey = "4" //待评价
+                    break
+                case 5: //
+                    tb?.lgyTypeKey = "5" //售后
+                    break
+                case 6: //
+                    tb?.lgyTypeKey = "1" //取消订单
+                    break
+                case 7: //
+                    tb?.lgyTypeKey = "6" //已完成
+                    break
+                default:
+                    break
+                }
                 vc?.loadDataScoure(tableView: tb!)
                 tb?.refreshHeader = LCRefreshHeader.init(refreshBlock: {
                     tb?.lgyPageIndex = 1
@@ -69,41 +96,50 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.maginLeftLayoutConstraint.constant = self.view.frame.size.width/12-8
         cell.maginTopLayoutConstraint.constant = self.view.frame.size.width/12
         cell.maginBottomLayoutConstraint.constant = 8
-        cell.setDataScoure(imageUrl: "https://img13.360buyimg.com/n1/s160x160_jfs/t16288/180/1610373802/424365/94d94a/5a5708bfN8e93b650.jpg", line1Str: "车厘子", line2Str: "配送中", line3Str: String.init(format: "x%d箱", 200))
-//        cell.set
+        if let item = tableView.lgyDataScoure[indexPath.row] as? OrderList{
+            cell.setModelOrder(item: item, delegate: self)
+        }
         return cell
     }
     
+    func myHarvestTableViewCell(cell: MyHarvestTableViewCell, actionKey: String) {
+        
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch tableView.tag {
-        case 2005: //售后
-            let vc = Bundle.main.loadNibNamed("CustomerServiceApplyResultViewController", owner: nil, options: nil)?.first as! CustomerServiceApplyResultViewController
-            self.navigationController?.pushViewController(vc, animated: true)
-            break
-        default:
+        let cell = tableView.cellForRow(at: indexPath) as! MyHarvestTableViewCell
             let vc = Bundle.main.loadNibNamed("OrderDetailsViewController", owner: nil, options: nil)?.first as! OrderDetailsViewController
-            switch tableView.tag{
-            case 2000: //全部
-                break
-                vc.setOrderType(orderType: .TransactionCompletion)
-            case 2001: //待付款
+            switch tableView.lgyTypeKey!{
+            case "0": //未付款
                 vc.setOrderType(orderType:.WaitForPayment)
                 break
-            case 2002: //待发货
+            case "1": //取消订单
+                vc.setOrderType(orderType: .TransactionCosure)
+                break
+            case "2": //付款成功
                 vc.setOrderType(orderType:.WaitForPayment)
                 break
-            case 2003: //待收货
+            case "3": //待收货
                 vc.setOrderType(orderType:.WaitForReceipt)
                 break
-            case 2004: //待评价
+            case "4": //待评价
                 vc.setOrderType(orderType:.WaitForEvaluation)
+                break
+            case "5": //售后
+                let vc = Bundle.main.loadNibNamed("CustomerServiceApplyResultViewController", owner: nil, options: nil)?.first as! CustomerServiceApplyResultViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+                break
+            case "6":  //已完成
+                vc.setOrderType(orderType: .TransactionCompletion)
                 break
             default:
                 break
             }
+            vc.orderDetail = cell.modelOrder
             self.navigationController?.pushViewController(vc, animated: true)
-            break
-        }
+       
        
     }
     
@@ -113,31 +149,27 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_orderList, parameters: ["type":(tb?.lgyTypeKey)!
             ,"pageNumber":String.init(format: "%D", (tb?.lgyPageIndex)!)
             ,"token":Model_user_information.getToken()], progress: nil) { (object, isError) in
-                if isError{
-                    return
+                if !isError{
+                    let model = Model_api_orderList.yy_model(withJSON: object as Any)
+                    if let list =  model?.page?.list {
+                        if tb?.lgyPageIndex == 1{
+                            tb?.lgyDataScoure.removeAll();
+                        }
+                        for item in list {
+                            tb?.lgyDataScoure.append(item)
+                        }
+                        tb?.reloadData();
+                    }
                 }
-                let model = Model_api_findGoodsByCateId.yy_model(withJSON: object as Any)
-                if model?.cateList != nil {
-                    if tb?.lgyPageIndex == 1{
-                        tb?.lgyDataScoure.removeAll();
-                    }
-                    for item in (model?.goodsList.list)!{
-                        tb?.lgyDataScoure.append(item)
-                        
-                    }
-                    tb?.reloadData();
-                    if (tb?.isHeaderRefreshing())! {
-                        tb?.endHeaderRefreshing()
-                    }
-                    
-                    if (tb?.isFooterRefreshing())! {
-                        tb?.endFooterRefreshing()
-                        
-                    }
-                    tb?.setDataLoadover()
-                    tb?.resetDataLoad()
-                    
+                
+                if (tb?.isHeaderRefreshing())! {
+                    tb?.endHeaderRefreshing()
                 }
+                if (tb?.isFooterRefreshing())! {
+                    tb?.endFooterRefreshing()
+                }
+                tb?.setDataLoadover()
+                tb?.resetDataLoad()
         }
     }
     

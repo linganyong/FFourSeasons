@@ -17,7 +17,7 @@ class OrderPaymentViewController: UIViewController{
     
     let selectedImageName = "选中3x.png"
     let unSelectedImageName = "椭圆3x.png"
-    
+    var outTradeNo = ""
     @IBOutlet weak var playSelect1ImageView: UIImageView!
     @IBOutlet weak var playSelect2ImageView: UIImageView!
     @IBOutlet weak var playSelect3ImageView: UIImageView!
@@ -40,6 +40,7 @@ class OrderPaymentViewController: UIViewController{
         self.initPayType()
         setBackgroundColor()
         navigationItemBack(title: nil)
+        addEmptyView(frame: nil)
     }
     
     private func initPayType() {
@@ -96,17 +97,17 @@ class OrderPaymentViewController: UIViewController{
             let view =  LGYAlertViewPayment.show(title: "支付订单 ￥\(totalPrice)")
             view.callBlock = {[weak self](text) ->Void in
                 if let weakSelf = self {
-                   weakSelf.getOrderAction(password: text)
+                   weakSelf.toPay(outTradeNo: weakSelf.outTradeNo, payPw: text)
                 }
             }
         }else if payType == PayType.Alipay {
-            getOrderAction()
+            toPay(outTradeNo: outTradeNo, payPw: nil)
         }else {
             LGYToastView.show(message: "微信支付暂无开发,请选择其它开发方式")
         }
     }
     
-    private func getOrderAction(password : String? = nil) {
+     func getOrderAction() {
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_addOrderPay, parameters: ["token":Model_user_information.getToken(),
              "itemIds":self.orderString,
              "addressId":self.addressID,
@@ -121,8 +122,11 @@ class OrderPaymentViewController: UIViewController{
                         }
                     }
                     if let order_no = model?.orderPay.out_trade_no as? String {
-                        weakSelf.toPay(outTradeNo: order_no, payPw: password)
+                         weakSelf.removeEmptyView()
+                        weakSelf.outTradeNo = order_no
                     }
+                   
+                    
                 }
             }
         }

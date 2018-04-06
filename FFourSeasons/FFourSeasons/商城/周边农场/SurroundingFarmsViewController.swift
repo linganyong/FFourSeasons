@@ -84,6 +84,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         linkStorage.textColor = UIColor(red: 187/255.0, green: 187/255.0, blue: 187/255.0, alpha: 1)
         textLabel.addTextStorage(linkStorage)
         textLabel.sizeToFit()
+        backView.layoutIfNeeded()
 //        backView.frame = CGRect(x: 16, y: 80, width: backViewWidth, height: textLabel.frame.size.height + 24)
     }
     
@@ -103,6 +104,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         }
         
     }
+    //MARK:修改大头标
     func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
         
         if (annotation.isKind(of: MAPointAnnotation.classForCoder())) {
@@ -131,6 +133,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         return nil
     }
 
+    //MARK:点击大头标响应
     func mapView(_ mapView: MAMapView!, didSelect view: MAAnnotationView!) {
         if view.lgyTag < 0{
             
@@ -142,8 +145,6 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
             
         }
         
-        mapView.selectedAnnotations.removeAll()
-//        mapView.deselectAnnotation(view, animated: false)
     }
     
     //MARK:开始定位
@@ -210,6 +211,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         self.navigationController?.pushViewController(na, animated: true)
     }
     
+    //插入大图标
     func setData(model:Model_api_farm?)->Void{
         if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
             backView.isHidden = false
@@ -225,7 +227,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
             listFarm.removeAll()
             if let farms = model?.farms{
                 var count = 0
-                for item in farms{
+                for item in farms{ //插入大图标
                     if item != nil{
                         listFarm.append(item)
                         let cl = CLLocation(latitude: item.lat, longitude: item.lng)
@@ -249,7 +251,8 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     
     func attributedLabel(_ attributedLabel: TYAttributedLabel!, textStorageClicked textStorage: TYTextStorageProtocol!, at point: CGPoint) {
         let cl = CLLocation(latitude: firstFarm!.lat, longitude: firstFarm!.lng)
-        tool.getInstalledMapApp(endLocation: cl.coordinate, viewController: self)
+        tool.endLocation = cl.coordinate
+        tool.mapNavigation(vController: self)
     }
     
     override func didReceiveMemoryWarning() {
