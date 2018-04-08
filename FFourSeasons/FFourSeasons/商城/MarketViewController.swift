@@ -197,18 +197,15 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
         let cell = tableView.cellForRow(at: indexPath) as! MarkProductTableViewCell
         let na = Bundle.main.loadNibNamed("ProductSaleDetailsViewController", owner: nil, options: nil)![0] as! ProductSaleDetailsViewController
         na.addContentProductSaleInformaiton(product:cell.model!, productId: (cell.model?._id)!)
         self.navigationController?.pushViewController(na, animated: true)
         self.tabBarController?.tabBar.isHidden = true
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       
         addView()
         setNavigationBarStyle(type:.Default)
         self.tabBarController?.tabBar.isHidden = false

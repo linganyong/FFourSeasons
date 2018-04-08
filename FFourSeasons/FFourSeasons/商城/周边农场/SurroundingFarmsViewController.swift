@@ -121,7 +121,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
                 if farm.imgs != nil{
                     _ = UIImage.image(fromURL: farm.imgs, placeholder: UIImage.init(named: "农场图标.png")!, shouldCacheImage: true, closure: { [weak annotationView](image) in
                         if image != nil {
-                            annotationView?.image = image
+                            annotationView?.image = image?.reSizeImage(reSize: CGSize(width: 30, height: 30))
                             annotationView?.reloadInputViews()
                         }
                     })

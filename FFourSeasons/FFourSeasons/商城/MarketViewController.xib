@@ -33,7 +33,7 @@
                             <constraint firstAttribute="width" constant="50" id="hW3-Df-0F0"/>
                             <constraint firstAttribute="height" constant="50" id="tBf-6M-jQm"/>
                         </constraints>
-                        <state key="normal" image="购物车黑色.png"/>
+                        <state key="normal" image="购物车.png"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="LGyCornerRadius">
                                 <real key="value" value="25"/>
@@ -58,6 +58,6 @@
         </viewController>
     </objects>
     <resources>
-        <image name="购物车黑色.png" width="25" height="25"/>
+        <image name="购物车.png" width="28" height="28"/>
     </resources>
 </document>

@@ -21,7 +21,6 @@ let orderComplete = "6" //已完成
 class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MyHarvestTableViewCellDelegate{
     let pageView = LGYPageView()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -149,16 +148,12 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         orderString += ";\(item.g_id):\(item.count)"
                     }
                 }
-//                let vc = Bundle.main.loadNibNamed("OrderPaymentViewController", owner: nil, options: nil)?.first as! OrderPaymentViewController
-//                vc.orderString = orderString
-//                if let addressID = defaultAddress?._id {
-//                    vc.addressID = addressID
-//                }
-//                vc.liuyan = liuyan
-//                vc.totalPrice = totalPrice
-//                vc.getOrderAction()
-//                self.navigationController?.pushViewController(vc, animated: true)
-                break
+                if let no = cell.modelOrder?.out_trade_no{
+                    let vc = Bundle.main.loadNibNamed("OrderPaymentViewController", owner: nil, options: nil)?.first as! OrderPaymentViewController
+                    vc.outTradeNo = no
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+               
             }
             break
         case "取消订单":

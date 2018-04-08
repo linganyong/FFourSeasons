@@ -26,8 +26,11 @@ class LGYAFNetworking: NSObject {
     }
     
     func addLoadingView() -> Void {
-        view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+       
+        
         let vc = UIApplication.shared.keyWindow
+        vc?.layoutIfNeeded()
+        view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         vc?.addSubview(view)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeLoadingView)))
         view.backgroundColor = UIColor.clear
@@ -42,6 +45,7 @@ class LGYAFNetworking: NSObject {
     }
     
     func addLoadingView(viewSuper:UIView) -> Void {
+        viewSuper.layoutIfNeeded()
         view.frame = CGRect(x: 0, y: -22, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         viewSuper.addSubview(view)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeLoadingView)))

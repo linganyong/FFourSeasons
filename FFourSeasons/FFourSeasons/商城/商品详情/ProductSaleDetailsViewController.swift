@@ -268,7 +268,6 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     //MARK:选择规格点击响应
     @objc func specificationsViewAction() -> Void {
-        
         specView.frame = UIScreen.main.bounds
         weak var vc = self;
         specView.callBlock = {(text,array) ->Void in

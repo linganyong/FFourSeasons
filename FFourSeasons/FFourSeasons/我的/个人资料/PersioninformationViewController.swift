@@ -54,7 +54,7 @@ UINavigationControllerDelegate,LGYImageSelectViewControllerDelegate {
     func setInformation() -> Void {
         infornation = PersonViewController.infornation
         if infornation != nil {
-            noLabel.text = String.init(format: "ID %D", PersonViewController.infornation!._id)
+            noLabel.text = "ID \(PersonViewController.infornation!.phone!)"
             if infornation?.head_url != nil{
                 persionImageView.imageFromURL((infornation?.head_url)!, placeholder: UIImage.init(named: "loading.jpg")!)
             }

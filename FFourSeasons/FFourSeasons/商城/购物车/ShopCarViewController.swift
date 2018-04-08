@@ -28,7 +28,7 @@ class ShopCarViewController: UIViewController,UITableViewDataSource,UITableViewD
     @IBOutlet weak var productCountLabel: UILabel!
     let emptyBackgroundView = LGYEmptyBackgroundView.loadViewFromNib(message: "空空的购物车，赶快去挑一件吧")
     @IBOutlet weak var productPriceLabel: UILabel!
-    let loadingView = LGYAFNetworking()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,6 @@ class ShopCarViewController: UIViewController,UITableViewDataSource,UITableViewD
         navigationItemBack(title: "")
         rightBarItem = navigationBarAddRightItem(_imageName: "加.png", target: self, action: #selector(rightBarAction))
         loadDataScoure()
-        loadingView.addLoadingView(viewSuper: view!)
         
     }
     
@@ -250,7 +249,6 @@ class ShopCarViewController: UIViewController,UITableViewDataSource,UITableViewD
                 vc?.dataScoure.removeAllObjects()
                 vc?.dataScoure.addObjects(from: (model?.cartList)!)
                 tb?.reloadData()
-                vc?.loadingView.removeLoadingView()
             }
         })
     }

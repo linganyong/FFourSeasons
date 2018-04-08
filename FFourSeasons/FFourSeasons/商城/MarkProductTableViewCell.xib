@@ -28,28 +28,28 @@
                         <rect key="frame" x="16" y="8" width="435" height="113.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x7W-Ao-Tpn">
-                                <rect key="frame" x="20" y="8" width="111.5" height="97.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="129.5" height="113.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="x7W-Ao-Tpn" secondAttribute="height" multiplier="237:208" id="TRw-EM-Tfd"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xDI-v8-xtk">
-                                <rect key="frame" x="131.5" y="0.0" width="303.5" height="113.5"/>
+                                <rect key="frame" x="129.5" y="0.0" width="305.5" height="113.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学季推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Kul-Sl-grB">
-                                        <rect key="frame" x="20" y="14.5" width="283.5" height="16.5"/>
+                                        <rect key="frame" x="20" y="0.0" width="285.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="万紫千红万人订单" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8Fg-3U-inI">
-                                        <rect key="frame" x="20" y="42" width="283.5" height="14"/>
+                                        <rect key="frame" x="20" y="26.5" width="285.5" height="16.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥ 50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIa-Ra-geE">
-                                        <rect key="frame" x="20" y="83" width="283.5" height="17"/>
+                                        <rect key="frame" x="20" y="90.5" width="285.5" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="viO-ed-Eji"/>
                                         </constraints>
@@ -58,7 +58,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDu-dC-rkd">
-                                        <rect key="frame" x="223.5" y="81.5" width="60" height="20"/>
+                                        <rect key="frame" x="225.5" y="89" width="60" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="gbC-3b-FXP"/>
@@ -75,13 +75,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="新品3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="tJm-tp-GXN">
-                                        <rect key="frame" x="240.5" y="0.0" width="23" height="34.5"/>
+                                        <rect key="frame" x="242.5" y="0.0" width="23" height="34.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tJm-tp-GXN" secondAttribute="height" multiplier="51:75" id="ic1-Nv-bbi"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmo-y9-GUk">
-                                        <rect key="frame" x="242" y="6.5" width="20" height="20.5"/>
+                                        <rect key="frame" x="244" y="6.5" width="20" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="UkT-O3-4pe"/>
                                             <constraint firstAttribute="width" constant="20" id="kF8-AS-weU"/>
@@ -112,11 +112,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="x7W-Ao-Tpn" secondAttribute="bottom" constant="8" id="AZx-dz-KDm"/>
-                            <constraint firstItem="x7W-Ao-Tpn" firstAttribute="top" secondItem="Vqg-uS-ROW" secondAttribute="top" constant="8" id="Rvg-VI-dnH"/>
+                            <constraint firstAttribute="bottom" secondItem="x7W-Ao-Tpn" secondAttribute="bottom" id="AZx-dz-KDm"/>
+                            <constraint firstItem="x7W-Ao-Tpn" firstAttribute="top" secondItem="Vqg-uS-ROW" secondAttribute="top" id="Rvg-VI-dnH"/>
                             <constraint firstItem="xDI-v8-xtk" firstAttribute="top" secondItem="Vqg-uS-ROW" secondAttribute="top" id="TTu-XA-F1X"/>
                             <constraint firstAttribute="bottom" secondItem="xDI-v8-xtk" secondAttribute="bottom" id="eRT-8c-u0H"/>
-                            <constraint firstItem="x7W-Ao-Tpn" firstAttribute="leading" secondItem="Vqg-uS-ROW" secondAttribute="leading" constant="20" id="ebg-Op-VxI"/>
+                            <constraint firstItem="x7W-Ao-Tpn" firstAttribute="leading" secondItem="Vqg-uS-ROW" secondAttribute="leading" id="ebg-Op-VxI"/>
                             <constraint firstItem="xDI-v8-xtk" firstAttribute="leading" secondItem="x7W-Ao-Tpn" secondAttribute="trailing" id="gPJ-bY-fvh"/>
                             <constraint firstItem="Kul-Sl-grB" firstAttribute="height" secondItem="x7W-Ao-Tpn" secondAttribute="height" multiplier="1:6" id="lzI-JF-62S"/>
                             <constraint firstItem="UIa-Ra-geE" firstAttribute="bottom" secondItem="x7W-Ao-Tpn" secondAttribute="bottom" multiplier="0.95" id="o2I-wY-bh9"/>

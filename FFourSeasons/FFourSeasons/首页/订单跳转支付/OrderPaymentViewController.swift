@@ -41,6 +41,7 @@ class OrderPaymentViewController: UIViewController{
         setBackgroundColor()
         navigationItemBack(title: nil)
         addEmptyView(frame: nil)
+        
     }
     
     private func initPayType() {
@@ -125,8 +126,6 @@ class OrderPaymentViewController: UIViewController{
                          weakSelf.removeEmptyView()
                         weakSelf.outTradeNo = order_no
                     }
-                   
-                    
                 }
             }
         }

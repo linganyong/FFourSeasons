@@ -204,11 +204,11 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
                 break
             }
         }
-        telLabel.text = String.init(format: "%D", model._id)
-        let str = "(人人庄园"
+        telLabel.text = "\(model.phone!)"
+        let str = "("
         switch model.grade {
         case 0:
-            vipNumberLabel.text = str + "会员)"
+            vipNumberLabel.text = str + "普通会员)"
             break
         case 1:
             vipNumberLabel.text = str + "黄金会员)"
