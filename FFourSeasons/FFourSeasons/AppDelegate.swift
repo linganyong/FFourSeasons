@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
         AMapServices.shared().apiKey = "32551cbf411055ca9114325c28655c3a" //高德地图 正式
         WXApi.registerApp("wxcf5e70f7ba0877fe")//微信接入 正式
         
-        
         return true
     }
     
@@ -56,6 +55,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
    
     //MARK:微信、QQ分享，重写方法
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        //支付宝回调
+        //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
+//        let result: Bool = UMSocialManager.default.handleOpen(url, options: options)
+//        if !result {
+            // 其他如支付等SDK的回调
+            if (url.host == "safepay") {
+                //跳转支付宝钱包进行支付，处理支付结果
+                AlipaySDK.defaultService().processOrder(withPaymentResult: url, standbyCallback: {(_ resultDic: [AnyHashable: Any]?) -> Void in
+                    print(resultDic)
+                   
+                })
+            }
+//        }
         //QQ分享
         //[TencentOAuth HandleOpenURL:url];
         //QQApiInterface.handleOpen(url, delegate: self)
@@ -161,6 +173,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         
     }
+    
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+      
+            // 其他如支付等SDK的回调
+            if (url.host == "safepay") {
+                //跳转支付宝钱包进行支付，处理支付结果
+                AlipaySDK.defaultService().processOrder(withPaymentResult: url, standbyCallback: {(_ resultDic: [AnyHashable: Any]?) -> Void in
+                    print("result = \(resultDic!)")
+                })
+            }
+        
+        return true
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        if (url.host == "safepay") {
+            //跳转支付宝钱包进行支付，处理支付结果
+            AlipaySDK.defaultService().processOrder(withPaymentResult: url, standbyCallback: {(_ resultDic: [AnyHashable: Any]?) -> Void in
+                print("result = \(resultDic!)")
+            })
+        }
+        return true
+    }
+    
+  
+    
+    
 
 }
 

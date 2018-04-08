@@ -10,6 +10,9 @@ import UIKit
 
 class FarmerViewController: UIViewController {
 
+    @IBOutlet weak var desLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var vipNumberLabel: UILabel!
     @IBOutlet weak var menuBackView: UIView!
     
     @IBOutlet weak var line1BackView: UIView!
@@ -24,7 +27,17 @@ class FarmerViewController: UIViewController {
 //        navigationItemBack(title: "    ")
          viewLayerShadow()
         setBackgroundColor()
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: PersonViewControllerLoadDataScoure), object: nil)
+        setText()
     }
+    
+    @objc func notificationCenter(notification:Notification)->Void{
+        let flag = notification.object as! Bool
+        if flag{
+                setText()
+        }
+    }
+    
     
     func viewLayerShadow() -> Void {
         LGYTool.viewLayerShadow(view: menuBackView)
@@ -138,6 +151,50 @@ class FarmerViewController: UIViewController {
             break
         }
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    
+    func  setText(){
+        let dateForm = DateFormatter()
+        dateForm.dateFormat = "yyyy-MM-dd"
+        let dateStr = dateForm.string(from: Date.init())
+        if let model = PersonViewController.infornation{
+            var integal = 1000
+            var netVip = "普通会员"
+            switch model.grade {
+            case 0:
+                netVip  =  "黄金会员"
+                vipNumberLabel.text = "普通会员"
+                integal = 1000
+                break
+            case 1:
+                 netVip  = "铂金会员"
+                vipNumberLabel.text = "黄金会员"
+                 integal = 2500
+                break
+            case 2:
+                 netVip  = "砖石会员"
+                vipNumberLabel.text = "铂金会员"
+                 integal = 5000
+                break
+            case 3:
+                 netVip  = "顶级会员"
+                vipNumberLabel.text = "砖石会员"
+                integal = 12600
+                break
+            case 4:
+                vipNumberLabel.text = "顶级会员"
+                break
+            default:
+                break
+            }
+            dateLabel.text = "\(dateStr) \(model.integral)点 "
+            desLabel.text = "(再获取\(integal - model.integral)点积分升级\(netVip))"
+        }else{
+            vipNumberLabel.text = "会员"
+            dateLabel.text = "\(dateStr) 0点"
+            desLabel.text = "(再获取\(0)点积分升级会员)"
+        }
     }
     
 }

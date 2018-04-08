@@ -104,7 +104,7 @@ class SearchProductViewController: UIViewController,UITextFieldDelegate,UITableV
             search = ""
         }
         //MARK:加载产品分类信息
-        LGYAFNetworking.lgyPost(urlString: APIAddress.api_findGoodsByCateId, parameters: ["pageNumber":String(format: "%D", (tableView?.lgyPageIndex)!),"cateId":"0","title":search,"token":Model_user_information.getToken()], progress: nil,cacheName:nil) { (object,isError) in
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_searchGoods, parameters: ["pageNumber":String(format: "%D", (tableView?.lgyPageIndex)!),"key":search!,"token":Model_user_information.getToken()], progress: nil,cacheName:nil) { (object,isError) in
             if !isError{
                 let model = Model_api_findGoodsByCateId.yy_model(withJSON: object as Any)
                 if model?.cateList != nil {
@@ -113,11 +113,8 @@ class SearchProductViewController: UIViewController,UITextFieldDelegate,UITableV
                     }
                     for item in (model?.goodsList.list)!{
                         tb?.lgyDataScoure.append(item)
-                        
                     }
                     tb?.reloadData();
-                    
-                    
                 }
             }
             

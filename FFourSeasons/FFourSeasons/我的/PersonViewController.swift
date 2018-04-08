@@ -8,6 +8,9 @@
 
 import UIKit
 
+let PersonViewControllerLoadDataScoure = "PersonViewControllerLoadDataScoure"
+let PersonViewControllerNeedLoadDataScoure = "PersonViewControllerNeedLoadDataScoure"
+
 class PersonViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     public static var infornation:Model_api_profile?
     @IBOutlet weak var walletLabel: UILabel!
@@ -38,6 +41,7 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
         setBackgroundColor()
         setBackgroundColor()
         needLaunch()
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: PersonViewControllerNeedLoadDataScoure), object: nil)
     }
     
     //MARK:判断是否需要登录
@@ -192,6 +196,7 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
     
     func setDataScoure(model:Model_api_profile) -> Void {
         PersonViewController.infornation = model
+         NotificationCenter.default.post(name: NSNotification.Name(rawValue: PersonViewControllerLoadDataScoure), object: true)
         if model.head_url != nil{
             persionImageView.imageFromURL(model.head_url, placeholder: UIImage.init(named: "loading.jpg")!)
         }else{

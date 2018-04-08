@@ -71,7 +71,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         if isCollection == 2{
             str = "已经收藏.png"
         }
-        rightBarItem = navigationBarAddRightItem(_imageName: str, target: self, action: #selector(rightBarAction))
+//        rightBarItem = navigationBarAddRightItem(_imageName: str, target: self, action: #selector(rightBarAction))
     }
     
     //MARK:导航栏右边按钮响应事件
@@ -400,7 +400,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         //要下面两句才能使scrollview展示正确
         backScrollView.setContentOffset(CGPoint.init(x: 0, y: -64), animated: true)
         self.view.layoutIfNeeded()
-         self.navigationItem.rightBarButtonItems = [rightBarItem]
+//         self.navigationItem.rightBarButtonItems = [rightBarItem]
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -409,7 +409,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         self.navigationController?.navigationBar.setBackgroundImage(bgImage, for: .default)
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-         self.navigationItem.rightBarButtonItems = nil
+//         self.navigationItem.rightBarButtonItems = nil
     }
     
     

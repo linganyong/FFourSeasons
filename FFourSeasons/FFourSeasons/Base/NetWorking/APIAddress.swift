@@ -35,6 +35,11 @@ class APIAddress: NSObject {
     static let api_findGoodsByCateId = String(format: "%@/api/findGoodsByCateId", arguments: [api_domainName()])
     
     /*
+     获取商品列表和商品分类 已完成
+     */
+    static let api_searchGoods = String(format: "%@/api/searchGoods", arguments: [api_domainName()])
+    
+    /*
      商品详情 已完成
      */
     static let api_goodsDetail = String(format: "%@/api/goodsDetail", arguments: [api_domainName()])

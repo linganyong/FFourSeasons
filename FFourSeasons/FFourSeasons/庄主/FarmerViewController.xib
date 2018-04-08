@@ -62,8 +62,8 @@
                                                     <constraint firstAttribute="width" constant="13" id="SC2-ZX-hSh"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（在获取300000点积分升级恒然超级至尊铂金会员）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="cFg-Iw-nhr">
-                                                <rect key="frame" x="134" y="51" width="140" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（在获取300000点积分升铂金会员）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="cFg-Iw-nhr">
+                                                <rect key="frame" x="134" y="51" width="121" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Kh5-KE-GWO"/>
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="140" id="W65-WP-NeK"/>
@@ -681,6 +681,8 @@
                 </constraints>
             </view>
             <connections>
+                <outlet property="dateLabel" destination="nMs-AZ-xMz" id="LRE-Z4-DBb"/>
+                <outlet property="desLabel" destination="cFg-Iw-nhr" id="WLd-mp-o2K"/>
                 <outlet property="line1BackView" destination="2cx-At-zuZ" id="s0y-GI-7GR"/>
                 <outlet property="line2BackView" destination="xk0-zJ-vdm" id="HVk-5z-Nfn"/>
                 <outlet property="line3BackView" destination="3aE-CO-g2n" id="n98-u1-lqc"/>
@@ -688,6 +690,7 @@
                 <outlet property="line5BackView" destination="OEs-2c-IeQ" id="cKg-eT-wnm"/>
                 <outlet property="line6BackView" destination="OiT-lk-5kS" id="xqz-p7-bZ5"/>
                 <outlet property="menuBackView" destination="5hZ-C5-qV5" id="Iqp-ez-i5w"/>
+                <outlet property="vipNumberLabel" destination="KFz-23-DgA" id="7KC-A0-AxE"/>
             </connections>
             <point key="canvasLocation" x="239.5" y="-359.5"/>
         </viewController>

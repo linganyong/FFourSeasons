@@ -68,10 +68,10 @@ class IntegralShopViewController: UIViewController,UITableViewDataSource,UITable
     }
     
    @objc func cellButtonAction(btn:UIButton) -> Void {
-    LGYAlertViewSimple.show(title: "您确定要兑换此产品码？", leftStr: "确定", rightStr: "取消").callBlock = {
-        (position) in
+        LGYAlertViewSimple.show(title: "您确定要兑换此产品码？", leftStr: "确定", rightStr: "取消").callBlock = {
+            (position) in
         
-    }
+        }
     }
     
     

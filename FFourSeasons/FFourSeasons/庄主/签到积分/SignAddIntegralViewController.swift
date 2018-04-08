@@ -24,7 +24,6 @@ class SignAddIntegralViewController: UIViewController,UITableViewDelegate,UITabl
     @IBOutlet weak var menuBackView: UIView!
     let dataScoure = ["全部","支出","收入"]
     @IBOutlet weak var pageView: LGYPageView!
-    let forkey = "hua经9存eqq.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,22 +40,24 @@ class SignAddIntegralViewController: UIViewController,UITableViewDelegate,UITabl
     
     //MARK:保存唯一
     func isTap() -> Void{
-        let dateForm = DateFormatter()
-        dateForm.dateFormat = "yyyyMMdd"
-        let dateStr = dateForm.string(from: Date.init())
-        let str = UserDefaults.standard.string(forKey: forkey)
-        //判断UserDefaults中是否已经存在
-        if(str == nil){
-            animationButtonView.isHidden = false
-            intgralLabel.alpha = 0
-            intgralLabel.text = String.init(format: "0")
-            integralDesLabel.alpha = 0
-        }else{
-            if (str?.contains(dateStr))!{
-                animationButtonView.isHidden = true
-                intgralLabel.alpha = 1
-                intgralLabel.text = String.init(format: "%D",(PersonViewController.infornation?.integral)!)
-                integralDesLabel.alpha = 1
+        if let forkey = PersonViewController.infornation?.phone{
+            let dateForm = DateFormatter()
+            dateForm.dateFormat = "yyyyMMdd"
+            let dateStr = dateForm.string(from: Date.init())
+            let str = UserDefaults.standard.string(forKey: forkey)
+            //判断UserDefaults中是否已经存在
+            if(str == nil){
+                animationButtonView.isHidden = false
+                intgralLabel.alpha = 0
+                intgralLabel.text = String.init(format: "0")
+                integralDesLabel.alpha = 0
+            }else{
+                if (str?.contains(dateStr))!{
+                    animationButtonView.isHidden = true
+                    intgralLabel.alpha = 1
+                    intgralLabel.text = String.init(format: "%D",(PersonViewController.infornation?.integral)!)
+                    integralDesLabel.alpha = 1
+                }
             }
         }
 //        UserDefaults.standard.set(dateForm, forKey: forkey)
@@ -104,7 +105,8 @@ class SignAddIntegralViewController: UIViewController,UITableViewDelegate,UITabl
         let dateForm = DateFormatter()
         dateForm.dateFormat = "yyyyMMdd"
         let dateStr = dateForm.string(from: Date.init())
-         UserDefaults.standard.set(dateStr, forKey:forkey)
+        UserDefaults.standard.set(dateStr, forKey:(PersonViewController.infornation?.phone)!)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: PersonViewControllerNeedLoadDataScoure), object: true)
         UIView.animate(withDuration: 1, animations: {
             vc?.animationButtonView.frame = CGRect(x: -200, y: 500, width: (vc?.animationButtonView.frame.size.width)!, height: (vc?.animationButtonView.frame.size.height)!)
             vc?.intgralLabel.alpha = 1

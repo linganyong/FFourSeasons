@@ -40,8 +40,9 @@ class OrderPaymentViewController: UIViewController{
         self.initPayType()
         setBackgroundColor()
         navigationItemBack(title: nil)
-        addEmptyView(frame: nil)
-        
+        if addressID != 0{
+            addEmptyView(frame: nil)
+        }
     }
     
     private func initPayType() {
@@ -167,6 +168,19 @@ class OrderPaymentViewController: UIViewController{
             }
         }
     }
+    
+    
+//   class func removeSelfViewController()->Void {
+//        let vController = UIViewController.currentViewController()
+//        let arrayVC = NSMutableArray.init(array: (vController?.navigationController?.viewControllers)!)
+//        for vc in arrayVC {
+//            if (vc as! UIViewController).classForCoder == self.classForCoder  {
+//                arrayVC.remove(vc)
+//                break;
+//            }
+//        }
+//        self.navigationController?.viewControllers = arrayVC as! [UIViewController];
+//    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

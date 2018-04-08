@@ -439,7 +439,7 @@
                                 <constraint firstAttribute="width" constant="42" id="Xkf-aU-IUx"/>
                             </constraints>
                             <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="12"/>
-                            <state key="normal" title="平邮">
+                            <state key="normal" title="快递">
                                 <color key="titleColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
@@ -466,7 +466,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PG-1M-jgC">
-                            <rect key="frame" x="325" y="141" width="42" height="21"/>
+                            <rect key="frame" x="309" y="141" width="42" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="d3y-zA-ATE"/>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="vBG-qE-qkF"/>
@@ -490,7 +490,7 @@
                         <constraint firstAttribute="trailing" secondItem="pGK-SS-6tS" secondAttribute="trailing" constant="8" id="Mx0-Kv-Vmz"/>
                         <constraint firstItem="8PG-1M-jgC" firstAttribute="centerY" secondItem="DWE-dR-5g5" secondAttribute="centerY" id="Nas-qi-lDQ"/>
                         <constraint firstItem="RSy-YZ-tfK" firstAttribute="leading" secondItem="pGK-SS-6tS" secondAttribute="leading" id="QE8-8u-4JP"/>
-                        <constraint firstAttribute="trailing" secondItem="8PG-1M-jgC" secondAttribute="trailing" constant="8" id="RSV-fC-be8"/>
+                        <constraint firstAttribute="trailing" secondItem="8PG-1M-jgC" secondAttribute="trailing" constant="24" id="RSV-fC-be8"/>
                         <constraint firstItem="bGj-2j-Hkt" firstAttribute="centerY" secondItem="Ukb-tZ-KCg" secondAttribute="centerY" id="Zkg-d1-I9c"/>
                         <constraint firstItem="9RC-r9-RbF" firstAttribute="leading" secondItem="pGK-SS-6tS" secondAttribute="leading" id="aEw-Gg-wjJ"/>
                         <constraint firstItem="bGj-2j-Hkt" firstAttribute="leading" secondItem="Ukb-tZ-KCg" secondAttribute="trailing" constant="8" id="bfS-HO-2yo"/>
