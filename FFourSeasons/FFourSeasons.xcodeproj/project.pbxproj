@@ -1239,7 +1239,7 @@
 			children = (
 				9CFD5539206F1F380028B1A4 /* 邀请码3x.png */,
 				9CD62126204F83BD003CD6C4 /* 相机.jpg */,
-				9CBB50A8204949620018A43B /* 资源3x.png */,
+				9CBB50A8204949620018A43B /* logoImg.png */,
 				9CBB508E2049340F0018A43B /* 常见问题3x.png */,
 				9CBB508F2049340F0018A43B /* 检查更新3x.png */,
 				9CBB508D2049340F0018A43B /* 修改密码3x.png */,
@@ -2728,12 +2728,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FFourSeasons/Pods-FFourSeasons-resources.sh",
 				"${PODS_ROOT}/AMap2DMap/MAMapKit.framework/AMap.bundle",
-				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
