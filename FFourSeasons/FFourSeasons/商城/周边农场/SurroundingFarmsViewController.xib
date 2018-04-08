@@ -30,6 +30,9 @@
                                 <real key="value" value="25"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="selfLocationAction:" destination="Fq1-ec-1mW" eventType="touchUpInside" id="dkr-5G-wmC"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Va-d8-sf9">
                         <rect key="frame" x="323" y="615" width="44" height="44"/>

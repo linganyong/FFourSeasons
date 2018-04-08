@@ -17,7 +17,7 @@
 @property (nonatomic, retain) NSString * freight;
 @property (nonatomic, retain) NSString * get_goods_time;
 @property (nonatomic, retain) NSString * goods_success_time;
-@property (nonatomic, assign) long id;
+@property (nonatomic, assign) long _id;
 @property (nonatomic, retain) NSString * message;
 @property (nonatomic, assign) long order_type;
 @property (nonatomic, retain) NSString * out_trade_no;

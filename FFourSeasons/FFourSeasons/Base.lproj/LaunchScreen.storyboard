@@ -23,17 +23,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="启动页.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zkV-Rr-zQH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="zkV-Rr-zQH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="资源3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="mgj-w6-AaK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoImg.png" translatesAutoresizingMaskIntoConstraints="NO" id="mgj-w6-AaK">
                                 <rect key="frame" x="140.5" y="120" width="94" height="148.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mgj-w6-AaK" secondAttribute="height" multiplier="150:237" id="Tq9-ay-yKc"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.65490196079999996" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mgj-w6-AaK" firstAttribute="top" secondItem="nfu-5f-lUn" secondAttribute="bottom" multiplier="6" id="6j3-Hb-fmU"/>
                             <constraint firstItem="mgj-w6-AaK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="91f-KA-kmS"/>
@@ -51,7 +51,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="启动页.jpg" width="750" height="1334"/>
-        <image name="资源3x.png" width="150" height="237"/>
+        <image name="launch.png" width="750" height="1334"/>
+        <image name="logoImg.png" width="150" height="237"/>
     </resources>
 </document>

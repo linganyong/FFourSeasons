@@ -119,9 +119,11 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
             }else if annotation.lgyTag < 10000 && annotation.lgyTag >= 0{
                 let farm = listFarm[annotation.lgyTag]
                 if farm.imgs != nil{
-                  _ = UIImage.image(fromURL: farm.imgs, placeholder: UIImage.init(), shouldCacheImage: true, closure: { [weak annotationView](image) in
-                        annotationView?.image = image
-                        annotationView?.reloadInputViews()
+                    _ = UIImage.image(fromURL: farm.imgs, placeholder: UIImage.init(named: "农场图标.png")!, shouldCacheImage: true, closure: { [weak annotationView](image) in
+                        if image != nil {
+                            annotationView?.image = image
+                            annotationView?.reloadInputViews()
+                        }
                     })
                 }
             }else if annotation.lgyTag == 10000{
@@ -245,6 +247,11 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         }
     }
     
+    @IBAction func selfLocationAction(_ sender: UIButton) {
+        ///如果您需要进入地图就显示定位小蓝点，则需要下面两行代码
+        mapView.isShowsUserLocation = true
+        mapView.userTrackingMode = .follow;
+    }
     override func viewWillDisappear(_ animated: Bool) {
         locationManager.stopUpdatingLocation()
     }

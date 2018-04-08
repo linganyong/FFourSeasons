@@ -104,6 +104,9 @@ class MyHarvestTableViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func action(_ sender: UIButton) {
+        myDelegate?.myHarvestTableViewCell(cell: self, actionKey: (sender.titleLabel?.text)!)
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

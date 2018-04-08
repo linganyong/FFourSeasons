@@ -9,6 +9,15 @@
 import UIKit
 import LCRefresh
 
+let orderAll = "-1" //全部
+let orderWaitPay = "0" //未付款
+let orderPaySuccess = "2" //付款成功
+let orderWaitReceipt = "3" //待收货
+let orderWaitEvaluate = "4" //待评价
+let orderCustomerService = "5" //售后
+let orderCancle = "1" //取消订单
+let orderComplete = "6" //已完成
+
 class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MyHarvestTableViewCellDelegate{
     let pageView = LGYPageView()
     
@@ -44,28 +53,28 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 tb?.lgyPageIndex = 1
                 switch i{
                 case 0:
-                    tb?.lgyTypeKey = "-1" //全部
+                    tb?.lgyTypeKey = orderAll
                     break
                 case 1:
-                    tb?.lgyTypeKey = "0" //未付款
+                    tb?.lgyTypeKey = orderWaitPay //未付款
                     break
                 case 2:
-                    tb?.lgyTypeKey = "2" //付款成功
+                    tb?.lgyTypeKey = orderPaySuccess //付款成功
                     break
                 case 3: //
-                    tb?.lgyTypeKey = "3" //待收货
+                    tb?.lgyTypeKey = orderWaitReceipt //待收货
                     break
                 case 4: //
-                    tb?.lgyTypeKey = "4" //待评价
+                    tb?.lgyTypeKey = orderWaitEvaluate //待评价
                     break
                 case 5: //
-                    tb?.lgyTypeKey = "5" //售后
+                    tb?.lgyTypeKey = orderCustomerService //售后
                     break
                 case 6: //
-                    tb?.lgyTypeKey = "1" //取消订单
+                    tb?.lgyTypeKey = orderCancle //取消订单
                     break
                 case 7: //
-                    tb?.lgyTypeKey = "6" //已完成
+                    tb?.lgyTypeKey = orderComplete //已完成
                     break
                 default:
                     break
@@ -99,11 +108,68 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if let item = tableView.lgyDataScoure[indexPath.row] as? OrderList{
             cell.setModelOrder(item: item, delegate: self)
         }
+        let str = "\(cell.modelOrder!.order_type)"
+        switch str{
+        case orderWaitPay: //未付款
+            cell.buttonTitle(leftStr: "支付订单", rightStr: "取消订单")
+            break
+        case orderCancle: //取消订单
+            cell.buttonTitle(leftStr: nil, rightStr: nil)
+            break
+        case orderPaySuccess: //付款成功
+            cell.buttonTitle(leftStr: nil, rightStr: nil)
+            break
+        case orderWaitReceipt: //待收货
+            cell.buttonTitle(leftStr: nil, rightStr: nil)
+            break
+        case orderWaitEvaluate: //待评价
+            cell.buttonTitle(leftStr: nil, rightStr: "评价")
+            break
+        case orderCustomerService: //售后
+            cell.buttonTitle(leftStr: nil, rightStr: nil)
+            break
+        case orderComplete:  //已完成
+            cell.buttonTitle(leftStr: nil, rightStr: nil)
+            break
+        default:
+            break
+        }
         return cell
     }
     
     func myHarvestTableViewCell(cell: MyHarvestTableViewCell, actionKey: String) {
-        
+        switch actionKey {
+        case "支付订单":
+            if let array  = cell.modelOrder?.detail{
+                var orderString = ""
+                for item in array{
+                    if orderString.count == 0{
+                        orderString += "\(item.g_id):\(item.count)"
+                    }else{
+                        orderString += ";\(item.g_id):\(item.count)"
+                    }
+                }
+//                let vc = Bundle.main.loadNibNamed("OrderPaymentViewController", owner: nil, options: nil)?.first as! OrderPaymentViewController
+//                vc.orderString = orderString
+//                if let addressID = defaultAddress?._id {
+//                    vc.addressID = addressID
+//                }
+//                vc.liuyan = liuyan
+//                vc.totalPrice = totalPrice
+//                vc.getOrderAction()
+//                self.navigationController?.pushViewController(vc, animated: true)
+                break
+            }
+            break
+        case "取消订单":
+            deleteOrder(cell: cell)
+            break
+        case "确定收货":
+            comfirmOrder(cell: cell)
+            break
+        default:
+            break
+        }
     }
     
     
@@ -111,38 +177,78 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! MyHarvestTableViewCell
             let vc = Bundle.main.loadNibNamed("OrderDetailsViewController", owner: nil, options: nil)?.first as! OrderDetailsViewController
-            switch tableView.lgyTypeKey!{
-            case "0": //未付款
+        let str = "\(cell.modelOrder!.order_type)"
+            switch str{
+            case orderWaitPay: //未付款
                 vc.setOrderType(orderType:.WaitForPayment)
                 break
-            case "1": //取消订单
+            case orderCancle: //取消订单
                 vc.setOrderType(orderType: .TransactionCosure)
                 break
-            case "2": //付款成功
+            case orderPaySuccess: //付款成功
                 vc.setOrderType(orderType:.WaitForPayment)
                 break
-            case "3": //待收货
+            case orderWaitReceipt: //待收货
                 vc.setOrderType(orderType:.WaitForReceipt)
                 break
-            case "4": //待评价
+            case orderWaitEvaluate: //待评价
                 vc.setOrderType(orderType:.WaitForEvaluation)
                 break
-            case "5": //售后
+            case orderCustomerService: //售后
                 let vc = Bundle.main.loadNibNamed("CustomerServiceApplyResultViewController", owner: nil, options: nil)?.first as! CustomerServiceApplyResultViewController
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case "6":  //已完成
+            case orderComplete:  //已完成
                 vc.setOrderType(orderType: .TransactionCompletion)
                 break
             default:
                 break
             }
             vc.orderDetail = cell.modelOrder
+            vc.loadOrderDetails()
             self.navigationController?.pushViewController(vc, animated: true)
-       
-       
     }
     
+    func deleteOrder(cell:MyHarvestTableViewCell){
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_cancelOrder, parameters: ["oId":"\(cell.modelOrder!._id)","token":Model_user_information.getToken()], progress: nil) { [weak self](object, isError) in
+            if !isError{
+                let model = Model_user_information.yy_model(withJSON: object as Any)
+                if let msg = model?.msg {
+                    LGYToastView.show(message: msg)
+                }
+                if LGYAFNetworking.isNetWorkSuccess(str: model?.code) {
+                    if let weakSelf = self{
+                        weakSelf.reloadDataScoure()
+                    }
+                }
+            }
+        }
+    }
+    
+    func comfirmOrder(cell:MyHarvestTableViewCell){
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_confirmOrder, parameters: ["oId":"\(cell.modelOrder!._id)","token":Model_user_information.getToken()], progress: nil) { [weak self](object, isError) in
+            if !isError{
+                let model = Model_user_information.yy_model(withJSON: object as Any)
+                if let msg = model?.msg {
+                    LGYToastView.show(message: msg)
+                }
+                if LGYAFNetworking.isNetWorkSuccess(str: model?.code) {
+                    if let weakSelf = self{
+                        weakSelf.reloadDataScoure()
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    func reloadDataScoure(){
+        for i in 0...7{
+            let tb = pageView.pageViewtableView(index: i)
+            tb?.lgyPageIndex = 1
+            loadDataScoure(tableView: tb!)
+        }
+    }
     
     func loadDataScoure(tableView:UITableView) -> Void {
         weak var tb = tableView

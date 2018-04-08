@@ -213,6 +213,13 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         return cell
     }
     
+    func loadOrderDetails() -> Void {
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_orderDetail, parameters: ["token":Model_user_information.getToken(),"oId":"\(orderDetail!._id)"], progress: nil) { (object, isError) in
+            if !isError{
+                
+            }
+        }
+    }
  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

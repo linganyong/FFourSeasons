@@ -10,8 +10,8 @@ import UIKit
 
 class APIAddress: NSObject {
     private class func api_domainName()->String{
-        return "https://huayanchuang.com"
-//        return "http://123.207.168.146"
+//        return "https://huayanchuang.com"
+        return "http://123.207.168.146"
     }
     
     /*
@@ -142,6 +142,21 @@ class APIAddress: NSObject {
      订单列表
      */
     static let api_orderList = String(format: "%@/api/orderList", arguments: [api_domainName()])
+    
+    /*
+     订单详情
+     */
+    static let api_orderDetail = String(format: "%@/api/orderDetail", arguments: [api_domainName()])
+    
+    /*
+     删除订单
+     */
+    static let api_cancelOrder = String(format: "%@/api/cancelOrder", arguments: [api_domainName()])
+    
+    /*
+     确定收货
+     */
+    static let api_confirmOrder = String(format: "%@/api/confirmOrder", arguments: [api_domainName()])
     
     /*
      充值

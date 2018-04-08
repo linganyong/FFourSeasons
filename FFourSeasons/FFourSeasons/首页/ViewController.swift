@@ -80,9 +80,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //MARK:定位
     @objc func loaction() -> Void {
-        startLocationManager()
+        if locationPermissionsCheck(){
+            startLocationManager()
+        }
     }
     
+    //权限检测
+    private func locationPermissionsCheck()->Bool{
+        
+        if CLLocationManager.locationServicesEnabled() == false {
+            print("请确认已开启定位服务");
+            return true;
+        }
+        
+        // 请求用户授权
+       _ = LGYAlertViewSimple.show(title: "请开启定位授权！", buttonStr: "确定")
+        return false
+    }
     
     //MARK:设置样式
     func setStyle(){
@@ -115,7 +129,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.lgyDataScoure.count == 0 {
-            return 0
+            if cycledataScoure.count == 0{
+                return 0
+            }else{
+                return 2
+            }
         }
         return tableView.lgyDataScoure.count+2
     }
@@ -345,6 +363,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func leftLocationButton(_imageName:String,_title:String,target:Any?, action: Selector?) -> Void {
         let leftLocationView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 120, height: 44))
         self.leftLocationButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+         self.leftLocationButton?.isUserInteractionEnabled = false
         let locationImageView = UIImageView.init(frame: CGRect(x:0, y: (self.leftLocationButton!.frame.size.height - 15)/2, width: 15, height: 15))
         locationImageView.image = UIImage.init(named: _imageName)
         if action != nil{

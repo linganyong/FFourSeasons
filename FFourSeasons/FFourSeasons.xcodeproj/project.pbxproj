@@ -25,6 +25,7 @@
 		9C00BFB5202ECD9600E77EA0 /* SearchProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C00BFB3202ECD9600E77EA0 /* SearchProductViewController.xib */; };
 		9C00BFB8202ECE5000E77EA0 /* SearchProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C00BFB6202ECE5000E77EA0 /* SearchProductTableViewCell.xib */; };
 		9C00BFB9202ECE5000E77EA0 /* SearchProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C00BFB7202ECE5000E77EA0 /* SearchProductTableViewCell.swift */; };
+		9C060D9C2079BC3B007EC640 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C060D9B2079BC3B007EC640 /* launch.png */; };
 		9C0D9C762046427400D271CE /* CustomeServiceProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D9C742046427400D271CE /* CustomeServiceProductTableViewCell.swift */; };
 		9C0D9C772046427400D271CE /* CustomeServiceProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C0D9C752046427400D271CE /* CustomeServiceProductTableViewCell.xib */; };
 		9C0D9C7A2046451B00D271CE /* CustomeServiceTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D9C782046451B00D271CE /* CustomeServiceTitleTableViewCell.swift */; };
@@ -372,7 +373,7 @@
 		9CBB50A120493C480018A43B /* OpinionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CBB509F20493C480018A43B /* OpinionViewController.xib */; };
 		9CBB50A6204943BD0018A43B /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB50A4204943BD0018A43B /* AboutUsViewController.swift */; };
 		9CBB50A7204943BD0018A43B /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CBB50A5204943BD0018A43B /* AboutUsViewController.xib */; };
-		9CBB50A9204949620018A43B /* 资源3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBB50A8204949620018A43B /* 资源3x.png */; };
+		9CBB50A9204949620018A43B /* logoImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBB50A8204949620018A43B /* logoImg.png */; };
 		9CBB50AF20494AFF0018A43B /* ShopCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB50AD20494AFF0018A43B /* ShopCarViewController.swift */; };
 		9CBB50B020494AFF0018A43B /* ShopCarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CBB50AE20494AFF0018A43B /* ShopCarViewController.xib */; };
 		9CBB50B320494C670018A43B /* ShopCarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB50B120494C670018A43B /* ShopCarTableViewCell.swift */; };
@@ -413,7 +414,6 @@
 		9CD62105204E7889003CD6C4 /* LGYPickerImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD62103204E7889003CD6C4 /* LGYPickerImageTableViewCell.xib */; };
 		9CD62125204EBF48003CD6C4 /* YSHYClipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62124204EBF47003CD6C4 /* YSHYClipViewController.m */; };
 		9CD62127204F83BD003CD6C4 /* 相机.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9CD62126204F83BD003CD6C4 /* 相机.jpg */; };
-		9CD62129204F9191003CD6C4 /* 启动页.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9CD62128204F9191003CD6C4 /* 启动页.jpg */; };
 		9CD6212D204F960A003CD6C4 /* VipLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6212B204F960A003CD6C4 /* VipLaunchViewController.swift */; };
 		9CD6212E204F960A003CD6C4 /* VipLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD6212C204F960A003CD6C4 /* VipLaunchViewController.xib */; };
 		9CD62132204FBA57003CD6C4 /* 会员登录背景3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CD62131204FBA56003CD6C4 /* 会员登录背景3x.png */; };
@@ -500,6 +500,7 @@
 		9C00BFB3202ECD9600E77EA0 /* SearchProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchProductViewController.xib; sourceTree = "<group>"; };
 		9C00BFB6202ECE5000E77EA0 /* SearchProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchProductTableViewCell.xib; sourceTree = "<group>"; };
 		9C00BFB7202ECE5000E77EA0 /* SearchProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchProductTableViewCell.swift; sourceTree = "<group>"; };
+		9C060D9B2079BC3B007EC640 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		9C096C3C2073076900569FE9 /* HeaderStatic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderStatic.h; sourceTree = "<group>"; };
 		9C0D9C742046427400D271CE /* CustomeServiceProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeServiceProductTableViewCell.swift; sourceTree = "<group>"; };
 		9C0D9C752046427400D271CE /* CustomeServiceProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomeServiceProductTableViewCell.xib; sourceTree = "<group>"; };
@@ -877,7 +878,7 @@
 		9CBB509F20493C480018A43B /* OpinionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpinionViewController.xib; sourceTree = "<group>"; };
 		9CBB50A4204943BD0018A43B /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		9CBB50A5204943BD0018A43B /* AboutUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutUsViewController.xib; sourceTree = "<group>"; };
-		9CBB50A8204949620018A43B /* 资源3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "资源3x.png"; sourceTree = "<group>"; };
+		9CBB50A8204949620018A43B /* logoImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoImg.png; sourceTree = "<group>"; };
 		9CBB50AD20494AFF0018A43B /* ShopCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCarViewController.swift; sourceTree = "<group>"; };
 		9CBB50AE20494AFF0018A43B /* ShopCarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopCarViewController.xib; sourceTree = "<group>"; };
 		9CBB50B120494C670018A43B /* ShopCarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCarTableViewCell.swift; sourceTree = "<group>"; };
@@ -930,7 +931,6 @@
 		9CD62123204EBF47003CD6C4 /* YSHYClipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSHYClipViewController.h; sourceTree = "<group>"; };
 		9CD62124204EBF47003CD6C4 /* YSHYClipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSHYClipViewController.m; sourceTree = "<group>"; };
 		9CD62126204F83BD003CD6C4 /* 相机.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "相机.jpg"; sourceTree = "<group>"; };
-		9CD62128204F9191003CD6C4 /* 启动页.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页.jpg"; sourceTree = "<group>"; };
 		9CD6212B204F960A003CD6C4 /* VipLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VipLaunchViewController.swift; sourceTree = "<group>"; };
 		9CD6212C204F960A003CD6C4 /* VipLaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VipLaunchViewController.xib; sourceTree = "<group>"; };
 		9CD62131204FBA56003CD6C4 /* 会员登录背景3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会员登录背景3x.png"; sourceTree = "<group>"; };
@@ -1278,7 +1278,7 @@
 		9C2C54832029471B00B67BBE /* 引导页 */ = {
 			isa = PBXGroup;
 			children = (
-				9CD62128204F9191003CD6C4 /* 启动页.jpg */,
+				9C060D9B2079BC3B007EC640 /* launch.png */,
 				9C2C548A2029500300B67BBE /* 引导1.png */,
 				9C2C54892029500300B67BBE /* 引导2.png */,
 				9C2C54882029500200B67BBE /* 引导3.png */,
@@ -2479,7 +2479,7 @@
 				9C46BA1620454B2B00646A81 /* AddAddressViewController.xib in Resources */,
 				9C46BA1A204556AD00646A81 /* 打勾.png in Resources */,
 				9C3CB16B2068E1C3001DA039 /* ShareView.xib in Resources */,
-				9CBB50A9204949620018A43B /* 资源3x.png in Resources */,
+				9CBB50A9204949620018A43B /* logoImg.png in Resources */,
 				9C77C4D92027FEC1008B49E2 /* 支付码@2x.png in Resources */,
 				9C77C5262027FFAF008B49E2 /* MarketViewController.xib in Resources */,
 				9C77C5002027FEC1008B49E2 /* f17500e04e03518947918b1370942b4e97d6a30137667-qeCBTe.jpg in Resources */,
@@ -2517,6 +2517,7 @@
 				9C77C51B2027FEC1008B49E2 /* 344ed11c4bdb6a16665bba36f3d057747dd595db3ba9d-2sAiGj.jpg in Resources */,
 				9C77C5102027FEC1008B49E2 /* d7590a5167d6ef9b000ac9781c758d40ba00b0932fd69-83p7ai.jpg in Resources */,
 				9C2C548C2029500300B67BBE /* 引导2.png in Resources */,
+				9C060D9C2079BC3B007EC640 /* launch.png in Resources */,
 				9C77C5092027FEC1008B49E2 /* 148522_banner.jpg in Resources */,
 				9C10BD9320452ED4004AAFE3 /* 编辑.png in Resources */,
 				9C9616C220512B4400D0EB7D /* OrderPaymentViewController.xib in Resources */,
@@ -2606,7 +2607,6 @@
 				9C0D9C8F2046601100D271CE /* 优惠券3x.png in Resources */,
 				9C77C4E12027FEC1008B49E2 /* 矩形1拷贝.png in Resources */,
 				9C2C548B2029500300B67BBE /* 引导3.png in Resources */,
-				9CD62129204F9191003CD6C4 /* 启动页.jpg in Resources */,
 				9CABC3F6202ED7AD00C1EE38 /* 应用3x.png in Resources */,
 				9CA32D5520479BEC00FD5DFC /* SignAddIntegralViewController.xib in Resources */,
 				9CA32D50204793D900FD5DFC /* BranchShopTableViewCell.xib in Resources */,
