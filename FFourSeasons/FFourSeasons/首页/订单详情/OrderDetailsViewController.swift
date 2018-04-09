@@ -183,7 +183,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomeServiceProductTableViewCell", for: indexPath) as! CustomeServiceProductTableViewCell
         cell.selectionStyle = .none
         let model = productDataScoure[indexPath.row]
-        cell.setDataScoure(name: model.title!, priceStr:  "￥\(model.price！)", countStr: "x\( model.count)")
+        cell.setDataScoure(name: model.title!, priceStr:  "￥\(model.price!)", countStr: "x\( model.count)")
         return cell
     }
     
