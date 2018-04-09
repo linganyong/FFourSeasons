@@ -53,6 +53,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.layoutIfNeeded()
         viewShadowColor()
        
         addCommentInformation()
@@ -62,7 +63,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
          navigationItemBack(title: "    ")
 //       self.edgesForExtendedLayout = .init(rawValue: 64)
         setBackgroundColor()
-       
+
     }
     
     //MARK:设置
@@ -184,15 +185,17 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             }
         }
         weak var vc = self
-        if imageUrl.contains("http"){
-            imgView?.imageFromURL(imageUrl, placeholder:UIImage.init(named: "loading.jpg")!, fadeIn: false, shouldCacheImage: true, closure: { (image) in
-                if  image == nil{
-                    return
+        if imageUrl.contains("http") {
+            imgView?.setImageWith(URLRequest.init(url: URL.init(string: imageUrl)!), placeholderImage: UIImage.init(named: "loading.jpg")!, success: { (request, response, image) in
+                imgView?.image = image
+                if vc?.goods_detailImageHeight[indexPath.row] == nil {
+                    let scale = image.size.width/image.size.height
+                    let height = cell.frame.size.width/scale
+                    vc?.goods_detailImageHeight[indexPath.row] = height
+                    vc?.productDetailTableView.reloadData()
                 }
-                let scale = image!.size.width/image!.size.height
-                let height = cell.frame.size.width/scale
-                vc?.goods_detailImageHeight[indexPath.row] = height
-                vc?.productDetailTableView.reloadData()
+            }, failure: { (request, response, error) in
+                
             })
         }else{
             imgView?.image = UIImage.init(named: imageUrl)
@@ -379,17 +382,19 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         NSLog("%lf", scrollView.contentOffset.y)
-        if scrollView.contentOffset.y <= 150.0 && scrollView.contentOffset.y > -60{
-            let alpha = (scrollView.contentOffset.y+60)/150.0
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(color: UIColor.init(red: 255/255.0, green: 255/255.0, blue:255/255.0, alpha: alpha)), for: .default)
+        if scrollView.contentOffset.y <= 150.0 && scrollView.contentOffset.y >= -64{
+            let alpha = (scrollView.contentOffset.y+64)/150.0
+            
+            self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(color: UIColor.init(red: 255/255.0, green: 255/255.0, blue:255/255.0, alpha: alpha)), for: .default)
+            self.view.layoutIfNeeded()
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-    self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(color: UIColor.init(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0.0)), for: .default)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
+//    self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(color: UIColor.init(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0.0)), for: .default)
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

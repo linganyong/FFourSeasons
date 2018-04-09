@@ -25,6 +25,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
     @IBOutlet weak var registerMaginRrailingLC: NSLayoutConstraint!
     @IBOutlet weak var registerMaginjLeadingLC: NSLayoutConstraint!
+    @IBOutlet weak var agressButton: UIButton!
     
     @IBOutlet weak var launchOrRegisterButton: UIButton!
     @IBOutlet weak var shadowView: UIView!
@@ -37,6 +38,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var backHeightLC: NSLayoutConstraint!
     @IBOutlet weak var launchMaginTrailingLC: NSLayoutConstraint!
     
+    @IBOutlet weak var changeDescriptionLabel: UILabel!
     @IBOutlet weak var launchMaginLeadingLC: NSLayoutConstraint!
     
     @IBOutlet weak var launchMaginTopLC: NSLayoutConstraint!
@@ -132,6 +134,8 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
         registerMaginjLeadingLC.constant = 0
         registerMaginRrailingLC.constant = 0
         registerView.alpha = 0
+        agressButton.alpha = 0
+        changeDescriptionLabel.text = "点击可快速切换为注册界面"
         
         launchMaginTopLC.constant = -20
         launchMaginLeadingLC.constant = 30
@@ -145,6 +149,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     @IBAction func forgetPasswordAction(_ sender: UIButton) {
         let vc = Bundle.main.loadNibNamed("ChangePayPassworkViewController", owner: nil, options: nil)?.first as! ChangePayPassworkViewController
         let na = UINavigationController(rootViewController: vc)
+        vc.title = "找回密码"
         vc.type = .LaunchPasswork
         self.present(na, animated: true) {
             
@@ -176,6 +181,8 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
         registerMaginjLeadingLC.constant = 30
         registerMaginRrailingLC.constant = -30
         registerView.alpha = 1
+        agressButton.alpha = 1
+        changeDescriptionLabel.text = "点击可快速切换为登录界面"
         
         launchMaginTopLC.constant = 0
         launchMaginLeadingLC.constant = 0

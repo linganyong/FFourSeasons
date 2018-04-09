@@ -106,12 +106,12 @@ class SearchProductViewController: UIViewController,UITextFieldDelegate,UITableV
         //MARK:加载产品分类信息
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_searchGoods, parameters: ["pageNumber":String(format: "%D", (tableView?.lgyPageIndex)!),"key":search!,"token":Model_user_information.getToken()], progress: nil,cacheName:nil) { (object,isError) in
             if !isError{
-                let model = Model_api_findGoodsByCateId.yy_model(withJSON: object as Any)
-                if model?.cateList != nil {
+                let model = Model_api_searchGoods.yy_model(withJSON: object as Any)
+                if let list = model?.goodsList.list {
                     if tb?.lgyPageIndex == 1{
                         tb?.lgyDataScoure.removeAll();
                     }
-                    for item in (model?.goodsList.list)!{
+                    for item in list {
                         tb?.lgyDataScoure.append(item)
                     }
                     tb?.reloadData();
@@ -121,10 +121,8 @@ class SearchProductViewController: UIViewController,UITextFieldDelegate,UITableV
             if (tb?.isHeaderRefreshing())! {
                 tb?.endHeaderRefreshing()
             }
-            
             if (tb?.isFooterRefreshing())! {
                 tb?.endFooterRefreshing()
-                
             }
             tb?.setDataLoadover()
             tb?.resetDataLoad()

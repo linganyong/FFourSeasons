@@ -63,7 +63,7 @@
 #import "OrderDetails.h"
 #import "OrderList.h"
 #import "Model_api_orderList.h"
-
+#import "Model_api_searchGoods.h"
 
 //import view
 #import "BRAddressPickerView.h"

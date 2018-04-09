@@ -13,6 +13,8 @@ enum PayType : Int {
     case Point  = 3
 }
 
+let NotificationCenterOrderPayment = "letNotificationCenterOrderPayment"
+
 class OrderPaymentViewController: UIViewController{
     
     let selectedImageName = "选中3x.png"
@@ -42,6 +44,17 @@ class OrderPaymentViewController: UIViewController{
         navigationItemBack(title: nil)
         if addressID != 0{
             addEmptyView(frame: nil)
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: NotificationCenterOrderPayment), object: nil)
+    }
+    
+    @objc func notificationCenter(notification:Notification) ->Void{
+        if let flag = notification.object as? Bool {
+            if flag {
+                let vc = MyOrderViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+                removeSelfViewController()
+            }
         }
     }
     
@@ -169,18 +182,26 @@ class OrderPaymentViewController: UIViewController{
         }
     }
     
+    func removeSelfViewController()->Void {
+        let arrayVC = NSMutableArray.init(array: (self.navigationController?.viewControllers)!)
+        for vc in arrayVC {
+            if (vc as! UIViewController).classForCoder == OrderPaymentViewController.classForCoder()  {
+                arrayVC.remove(vc)
+                break;
+            }
+        }
+        for vc in arrayVC {
+            if (vc as! UIViewController).classForCoder == PurchaseImmediatelyViewController.classForCoder()  {
+                arrayVC.remove(vc)
+                break;
+            }
+        }
+        self.navigationController?.viewControllers = arrayVC as! [UIViewController];
+    }
     
-//   class func removeSelfViewController()->Void {
-//        let vController = UIViewController.currentViewController()
-//        let arrayVC = NSMutableArray.init(array: (vController?.navigationController?.viewControllers)!)
-//        for vc in arrayVC {
-//            if (vc as! UIViewController).classForCoder == self.classForCoder  {
-//                arrayVC.remove(vc)
-//                break;
-//            }
-//        }
-//        self.navigationController?.viewControllers = arrayVC as! [UIViewController];
-//    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

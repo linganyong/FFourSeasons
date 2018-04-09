@@ -78,7 +78,32 @@ class MyHarvestTableViewCell: UITableViewCell {
                 productImageView.image = nil
             }
             line1Label.text = details.title
-            line2Label.text = details.detail
+            let str = "\(modelOrder!.pay_status)"
+            switch str{
+            case orderWaitPay: //未付款
+                line2Label.text = "待付款"
+                break
+            case orderCancle: //取消订单
+                line2Label.text = "已取消"
+                break
+            case orderPaySuccess: //付款成功
+                line2Label.text = "待发货"
+                break
+            case orderWaitReceipt: //待收货
+                line2Label.text = "待收货"
+                break
+            case orderWaitEvaluate: //待评价
+                line2Label.text = "待评价"
+                break
+            case orderCustomerService: //售后
+                line2Label.text = "售后"
+                break
+            case orderComplete:  //已完成
+                line2Label.text = "完成"
+                break
+            default:
+                break
+            }
             line3Label.text = "￥\(details.total_price!)"
         }
     }

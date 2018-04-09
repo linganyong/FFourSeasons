@@ -37,19 +37,19 @@
                                 <rect key="frame" x="129.5" y="0.0" width="305.5" height="113.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学季推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Kul-Sl-grB">
-                                        <rect key="frame" x="20" y="0.0" width="285.5" height="19.5"/>
+                                        <rect key="frame" x="16" y="8" width="289.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="万紫千红万人订单" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8Fg-3U-inI">
-                                        <rect key="frame" x="20" y="26.5" width="285.5" height="16.5"/>
+                                        <rect key="frame" x="16" y="37.5" width="289.5" height="16.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥ 50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIa-Ra-geE">
-                                        <rect key="frame" x="20" y="90.5" width="285.5" height="17"/>
+                                        <rect key="frame" x="16" y="83" width="289.5" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="viO-ed-Eji"/>
                                         </constraints>
@@ -58,7 +58,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDu-dC-rkd">
-                                        <rect key="frame" x="225.5" y="89" width="60" height="20"/>
+                                        <rect key="frame" x="225.5" y="81.5" width="60" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="gbC-3b-FXP"/>
@@ -105,7 +105,7 @@
                                     <constraint firstItem="UIa-Ra-geE" firstAttribute="leading" secondItem="Kul-Sl-grB" secondAttribute="leading" id="SW4-zq-kJk"/>
                                     <constraint firstItem="jmo-y9-GUk" firstAttribute="centerX" secondItem="tJm-tp-GXN" secondAttribute="centerX" id="XHC-0i-C57"/>
                                     <constraint firstItem="BDu-dC-rkd" firstAttribute="centerY" secondItem="UIa-Ra-geE" secondAttribute="centerY" id="hHx-1m-xUB"/>
-                                    <constraint firstItem="Kul-Sl-grB" firstAttribute="leading" secondItem="xDI-v8-xtk" secondAttribute="leading" constant="20" id="qrF-tE-Xj2"/>
+                                    <constraint firstItem="Kul-Sl-grB" firstAttribute="leading" secondItem="xDI-v8-xtk" secondAttribute="leading" constant="16" id="qrF-tE-Xj2"/>
                                     <constraint firstAttribute="trailing" secondItem="Kul-Sl-grB" secondAttribute="trailing" id="xEI-2m-ruP"/>
                                 </constraints>
                             </view>
@@ -119,10 +119,10 @@
                             <constraint firstItem="x7W-Ao-Tpn" firstAttribute="leading" secondItem="Vqg-uS-ROW" secondAttribute="leading" id="ebg-Op-VxI"/>
                             <constraint firstItem="xDI-v8-xtk" firstAttribute="leading" secondItem="x7W-Ao-Tpn" secondAttribute="trailing" id="gPJ-bY-fvh"/>
                             <constraint firstItem="Kul-Sl-grB" firstAttribute="height" secondItem="x7W-Ao-Tpn" secondAttribute="height" multiplier="1:6" id="lzI-JF-62S"/>
-                            <constraint firstItem="UIa-Ra-geE" firstAttribute="bottom" secondItem="x7W-Ao-Tpn" secondAttribute="bottom" multiplier="0.95" id="o2I-wY-bh9"/>
+                            <constraint firstItem="UIa-Ra-geE" firstAttribute="bottom" secondItem="x7W-Ao-Tpn" secondAttribute="bottom" multiplier="0.95" constant="-8" id="o2I-wY-bh9"/>
                             <constraint firstAttribute="trailing" secondItem="xDI-v8-xtk" secondAttribute="trailing" id="rKs-UF-70H"/>
                             <constraint firstItem="8Fg-3U-inI" firstAttribute="height" secondItem="x7W-Ao-Tpn" secondAttribute="height" multiplier="1:7" id="vh2-Ds-tdL"/>
-                            <constraint firstItem="Kul-Sl-grB" firstAttribute="top" secondItem="x7W-Ao-Tpn" secondAttribute="top" multiplier="1.8" id="y6Z-6o-jyc"/>
+                            <constraint firstItem="Kul-Sl-grB" firstAttribute="top" secondItem="x7W-Ao-Tpn" secondAttribute="top" constant="8" id="y6Z-6o-jyc"/>
                         </constraints>
                     </view>
                 </subviews>

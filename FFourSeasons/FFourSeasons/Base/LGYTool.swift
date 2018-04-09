@@ -358,7 +358,7 @@ class LGYTool: NSObject {
         let uuid = uuid_string_ref! as String
         UserDefaults.standard.set(uuid, forKey: str)
         
-        return false
+        return flag
     }
     
 }

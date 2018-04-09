@@ -107,7 +107,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if let item = tableView.lgyDataScoure[indexPath.row] as? OrderList{
             cell.setModelOrder(item: item, delegate: self)
         }
-        let str = "\(cell.modelOrder!.order_type)"
+        let str = "\(cell.modelOrder!.pay_status)"
         switch str{
         case orderWaitPay: //未付款
             cell.buttonTitle(leftStr: "支付订单", rightStr: "取消订单")

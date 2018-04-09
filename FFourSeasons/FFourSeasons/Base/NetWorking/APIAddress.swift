@@ -11,6 +11,7 @@ import UIKit
 class APIAddress: NSObject {
     private class func api_domainName()->String{
 //        return "https://huayanchuang.com"
+//        return "http://192.168.1.24:8080"
         return "http://123.207.168.146"
     }
     
@@ -184,7 +185,7 @@ class APIAddress: NSObject {
     static let api_alterPayPw = String(format: "%@/api/alterPayPw", arguments: [api_domainName()])
     
     /*
-     修改密码 已完成
+     忘记密码 已完成
      */
     static let api_alterPw = String(format: "%@/api/alterPw", arguments: [api_domainName()])
     
@@ -204,7 +205,7 @@ class APIAddress: NSObject {
     static let api_getGoods = String(format: "%@/api/getGoods", arguments: [api_domainName()])
     
     /*
-     获取周边农场产品信息
+     修改密码
      */
     static let api_alterUserPw = String(format: "%@/api/alterUserPw", arguments: [api_domainName()])
     

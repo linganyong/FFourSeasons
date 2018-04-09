@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     
     //MARK:设置跟控制器
      func launchScreen() -> Void {
-        if (LGYTool.isFrist(str: "appReislssldk")){
+        if (LGYTool.isFrist(str: "app88Rei9slssldk")){
             let vc = Bundle.main.loadNibNamed("RegisterOrLaunchViewController", owner: nil, options: nil)?.first as! RegisterOrLaunchViewController
             window?.rootViewController = vc
         }else{
@@ -57,17 +57,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         //支付宝回调
         //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
-//        let result: Bool = UMSocialManager.default.handleOpen(url, options: options)
-//        if !result {
-            // 其他如支付等SDK的回调
-            if (url.host == "safepay") {
-                //跳转支付宝钱包进行支付，处理支付结果
-                AlipaySDK.defaultService().processOrder(withPaymentResult: url, standbyCallback: {(_ resultDic: [AnyHashable: Any]?) -> Void in
-                    print(resultDic)
-                   
-                })
-            }
-//        }
+        //        let result: Bool = UMSocialManager.default.handleOpen(url, options: options)
+        //        if !result {
+        // 其他如支付等SDK的回调
+        if (url.host == "safepay") {
+            //跳转支付宝钱包进行支付，处理支付结果
+            AlipaySDK.defaultService().processOrder(withPaymentResult: url, standbyCallback: {(_ resultDic: [AnyHashable: Any]?) -> Void in
+                
+                let memo = resultDic?["msg"] as? String
+                if ((resultDic?["resultStatus"] as? String) == "9000") {
+                   NotificationCenter.default.post(name: Notification.Name.init(NotificationCenterOrderPayment), object: true)
+                } else if memo != nil {
+                    LGYToastView.show(message: memo!)
+                }
+                
+            })
+            
+        }
+        //        }
         //QQ分享
         //[TencentOAuth HandleOpenURL:url];
         //QQApiInterface.handleOpen(url, delegate: self)
@@ -154,6 +161,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     }
     
     
+    
     func applicationWillResignActive(_ application: UIApplication) {
         
     }
@@ -180,7 +188,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
             if (url.host == "safepay") {
                 //跳转支付宝钱包进行支付，处理支付结果
                 AlipaySDK.defaultService().processOrder(withPaymentResult: url, standbyCallback: {(_ resultDic: [AnyHashable: Any]?) -> Void in
-                    print("result = \(resultDic!)")
+                    
+                    let memo = resultDic?["memo"] as? String
+                    if ((resultDic?["ResultStatus"] as? String) == "9000") {
+                        NotificationCenter.default.post(name: Notification.Name.init(NotificationCenterOrderPayment), object: true)
+                    } else if memo != nil {
+                        LGYToastView.show(message: memo!)
+                    }
                 })
             }
         
@@ -191,7 +205,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
         if (url.host == "safepay") {
             //跳转支付宝钱包进行支付，处理支付结果
             AlipaySDK.defaultService().processOrder(withPaymentResult: url, standbyCallback: {(_ resultDic: [AnyHashable: Any]?) -> Void in
-                print("result = \(resultDic!)")
+                
+                let memo = resultDic?["memo"] as? String
+                if ((resultDic?["ResultStatus"] as? String) == "9000") {
+                    NotificationCenter.default.post(name: Notification.Name.init(NotificationCenterOrderPayment), object: true)
+                } else if memo != nil {
+                    LGYToastView.show(message: memo!)
+                }
             })
         }
         return true

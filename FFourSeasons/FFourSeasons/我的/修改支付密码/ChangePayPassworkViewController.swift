@@ -65,7 +65,11 @@ class ChangePayPassworkViewController: UIViewController,UITextFieldDelegate {
             LGYToastView.show(message: "请输入正确的手机号码!")
             return
         }
-        LGYAFNetworking.lgyPost(urlString: APIAddress.sms_verificationCode, parameters: ["phone":phoneTF.text!], progress: nil) { (object,isError) in
+        var codeType = "1"
+        if type == .PayPasswork{
+            codeType = "2"
+        }
+        LGYAFNetworking.lgyPost(urlString: APIAddress.sms_verificationCode, parameters: ["phone":phoneTF.text!,"verifyType":codeType], progress: nil) { (object,isError) in
             if !isError{
                 let model = Model_sms_verificationCode.yy_model(withJSON: object)
                 if let msg = model?.msg {
@@ -168,6 +172,7 @@ class ChangePayPassworkViewController: UIViewController,UITextFieldDelegate {
         }
     }
     
+    //MARK:修改完成
     func isFinish(model:Model_user_information?){
         if model != nil {
             if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
@@ -175,7 +180,20 @@ class ChangePayPassworkViewController: UIViewController,UITextFieldDelegate {
                     model?.msg = "修改成功"
                 }
                 _ = LGYToastView.show(message: (model?.msg!)!, timeInterval: 0.5, block: {
-                    self.navigationController?.popViewController(animated: true)
+                    
+                    if self.type == .LaunchPasswork{
+                        let ss = "ashf4lasjd%&fhasdh9sdih"
+                        //设置原来密码为空
+                        let passwordItem = KeychainConfiguration.get(forKey: ss)
+                        KeychainConfiguration.save(userName: (passwordItem?.account)!, passwork: "", forKey: ss)
+                        let vc = Bundle.main.loadNibNamed("RegisterOrLaunchViewController", owner: nil, options: nil)?.first as! RegisterOrLaunchViewController
+                        vc.isNeedRootPage = false
+                        self.present(vc, animated: true, completion: {
+                            
+                        })
+                    }else{
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 })
             }else{
                 if model?.msg != nil{

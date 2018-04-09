@@ -24,7 +24,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U94-kx-rz0">
                         <rect key="frame" x="16" y="40" width="343" height="71"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="u290.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4S2-dx-2oj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultHeader.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4S2-dx-2oj">
                                 <rect key="frame" x="12" y="11.5" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="3IE-Im-82c"/>
@@ -304,7 +304,7 @@
         </viewController>
     </objects>
     <resources>
-        <image name="u290.jpg" width="500" height="332"/>
+        <image name="defaultHeader.png" width="144" height="144"/>
         <image name="更多评价3x.png" width="24" height="45"/>
     </resources>
 </document>
