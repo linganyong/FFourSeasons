@@ -290,6 +290,10 @@
                             <constraint firstItem="pTt-6e-qvx" firstAttribute="leading" secondItem="A3E-lx-Cxt" secondAttribute="leading" id="voG-d2-R5Z"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLQ-Ve-Kol">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="153.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.90053915977478027" green="0.89494484663009644" blue="0.90145707130432129" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
@@ -298,6 +302,7 @@
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="trailing" secondItem="Wel-Ha-4Vz" secondAttribute="trailing" id="88D-aJ-0dO"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="width" secondItem="nYj-XQ-0ZO" secondAttribute="width" multiplier="8:10" constant="-60" id="89m-5z-YIx"/>
                     <constraint firstItem="Wdg-96-TCy" firstAttribute="centerX" secondItem="ZuG-CD-MMT" secondAttribute="centerX" id="Bir-iG-1JJ"/>
+                    <constraint firstItem="uLQ-Ve-Kol" firstAttribute="trailing" secondItem="V3k-4Z-Twe" secondAttribute="trailing" id="Cbw-QY-xrq"/>
                     <constraint firstItem="A3E-lx-Cxt" firstAttribute="trailing" secondItem="Wel-Ha-4Vz" secondAttribute="trailing" id="Cbz-iO-GSX"/>
                     <constraint firstItem="Qe4-2d-SGA" firstAttribute="bottom" secondItem="V3k-4Z-Twe" secondAttribute="bottom" id="Czi-5s-Gdx"/>
                     <constraint firstItem="55o-5P-mIv" firstAttribute="top" secondItem="A3E-lx-Cxt" secondAttribute="bottom" constant="6.5" id="EXC-CC-CXA"/>
@@ -308,9 +313,12 @@
                     <constraint firstItem="Qe4-2d-SGA" firstAttribute="leading" secondItem="V3k-4Z-Twe" secondAttribute="leading" id="VY7-cd-pNG"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="bottom" secondItem="55o-5P-mIv" secondAttribute="bottom" id="WmQ-Ns-yN2"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="trailing" secondItem="55o-5P-mIv" secondAttribute="trailing" id="YBb-cP-qfq"/>
+                    <constraint firstItem="55o-5P-mIv" firstAttribute="top" secondItem="uLQ-Ve-Kol" secondAttribute="bottom" id="axN-Xp-4NP"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="centerY" secondItem="nYj-XQ-0ZO" secondAttribute="centerY" constant="-80" id="dRJ-fG-CMk"/>
+                    <constraint firstItem="uLQ-Ve-Kol" firstAttribute="top" secondItem="nYj-XQ-0ZO" secondAttribute="top" id="die-Rp-cmz"/>
                     <constraint firstItem="Qe4-2d-SGA" firstAttribute="top" secondItem="nYj-XQ-0ZO" secondAttribute="top" id="f9B-We-xS9"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="trailing" secondItem="GoZ-st-eDT" secondAttribute="trailing" constant="-30" id="fSM-ys-tBg"/>
+                    <constraint firstItem="uLQ-Ve-Kol" firstAttribute="leading" secondItem="V3k-4Z-Twe" secondAttribute="leading" id="fsE-nk-8ya"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="centerX" secondItem="nYj-XQ-0ZO" secondAttribute="centerX" id="lYg-jD-i5z"/>
                     <constraint firstItem="4EQ-ia-6dr" firstAttribute="top" secondItem="ZuG-CD-MMT" secondAttribute="bottom" constant="26" id="m3m-iR-QKg"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="bottom" secondItem="Wel-Ha-4Vz" secondAttribute="bottom" id="nP4-Rv-WX0"/>
@@ -336,6 +344,7 @@
                 <outlet property="registerMaginjLeadingLC" destination="wKD-Bg-Ohf" id="o7z-LH-WgE"/>
                 <outlet property="registerView" destination="GoZ-st-eDT" id="Mey-Kf-XHW"/>
                 <outlet property="shadowView" destination="55o-5P-mIv" id="o7x-rg-3Hy"/>
+                <outlet property="tapView" destination="uLQ-Ve-Kol" id="VDL-GE-OT7"/>
                 <outlet property="view1" destination="ZuG-CD-MMT" id="kEf-Bf-tUl"/>
             </connections>
             <point key="canvasLocation" x="39.5" y="-11.5"/>

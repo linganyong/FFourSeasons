@@ -34,7 +34,16 @@ extension UIView {
         self.layer.mask = shape
     }
     
-   
+//    func screenShot() -> UIImage? {
+//        guard frame.size.height > 0 && frame.size.width > 0 else {
+//            return nil
+//        }
+//        UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
+//        layer.renderInContext(UIGraphicsGetCurrentContext()!)
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return image
+//    }
 
 }
 /*

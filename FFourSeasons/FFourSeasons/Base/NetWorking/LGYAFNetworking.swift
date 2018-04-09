@@ -34,8 +34,8 @@ class LGYAFNetworking: NSObject {
         vc?.addSubview(view)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeLoadingView)))
         view.backgroundColor = UIColor.clear
-        let imgWidth = 100.0
-        let imgHeight = 100.0
+        let imgWidth = 60.0
+        let imgHeight = 60.0
         let size = view.frame.size
         let imageView = UIImageView(frame: CGRect(x:(Double(size.width) - imgWidth)/2.0 , y: (Double(size.height) - imgHeight)/2 - 44, width: imgWidth, height: imgHeight))
         imageView.backgroundColor = UIColor.white

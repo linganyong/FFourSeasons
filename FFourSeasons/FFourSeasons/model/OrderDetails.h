@@ -19,5 +19,7 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * total_price;
 @property (nonatomic, assign) long type;
+@property (nonatomic,retain) NSString *main_imgs;
+@property (nonatomic,retain) NSString *price;
 
 @end

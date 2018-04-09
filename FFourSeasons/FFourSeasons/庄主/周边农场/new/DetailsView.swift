@@ -66,7 +66,7 @@ class DetailsView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
             cell.addSubview(imageView!)
         }
         let  good = listGoods[indexPath.row]
-        if let url = good.main_imgs {
+        if let url = good.small_icon {
             imageView?.imageFromURL(url, placeholder:  UIImage.init(named: "loading.jpg")!)
         }else{
             imageView?.image = nil

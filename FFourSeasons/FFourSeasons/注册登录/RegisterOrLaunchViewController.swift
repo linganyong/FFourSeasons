@@ -20,6 +20,7 @@ let NotificationCenterLaunch = "32412eerrf"
 
 class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
+    @IBOutlet weak var tapView: UIView!
     var guideView:APPGuideView?
     @IBOutlet weak var registerMaginTopLC: NSLayoutConstraint!
     
@@ -73,16 +74,18 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
     //MARK:添加点击事件，用于切换登录或注册
     func addViewTapGestureRecognizer() -> Void {
-        let tap = UITapGestureRecognizer.init(target: self, action: #selector(changeLaunchOrRegister))
-        view1.addGestureRecognizer(tap)
+        let tap0 = UITapGestureRecognizer.init(target: self, action: #selector(changeLaunchOrRegister))
+        view1.addGestureRecognizer(tap0)
+         let tap1 = UITapGestureRecognizer.init(target: self, action: #selector(changeLaunchOrRegister))
+        tapView.addGestureRecognizer(tap1)
     }
     
     //MARK:切换登录或注册响应
     @objc func changeLaunchOrRegister() -> Void {
         if showViewType == .Launch {
-            addLaunchOrReginsterAnimation(showView: .Reginster, withDuration: 2)
+            addLaunchOrReginsterAnimation(showView: .Reginster, withDuration: 1)
         }else{
-            addLaunchOrReginsterAnimation(showView: .Launch, withDuration: 2)
+            addLaunchOrReginsterAnimation(showView: .Launch, withDuration: 1)
         }
     }
     

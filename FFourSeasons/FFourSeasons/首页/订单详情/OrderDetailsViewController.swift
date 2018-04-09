@@ -29,7 +29,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     
     @IBOutlet weak var titleTableView: UITableView!
     @IBOutlet weak var productTableView: UITableView!
-//    var productDataScoure = Array<>
+    var productDataScoure = Array<OrderDetails>()
     
     @IBOutlet weak var productTableViewLC: NSLayoutConstraint!
     @IBOutlet weak var titleTableViewLC: NSLayoutConstraint!
@@ -40,6 +40,8 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     @IBOutlet weak var telLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -49,6 +51,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         navigationItemBack(title: nil)
         setProductTableView()
         setTitleTableView()
+        setText()
     }
     
     //MARK:设置viewController的类型
@@ -100,10 +103,8 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             nameLabel.text = "姓名:\(orderDetail!.receive_name!)"
             telLabel.text = "电话:\(orderDetail!.receive_phone!)"
             addressLabel.text = "地址:\(orderDetail!.receive_address!)"
-            yunFeiLabel.text = "￥\(orderDetail?.pay_way)"
+            yunFeiLabel.text = "￥\(orderDetail!.freight!)"
             priceLabel.text = "￥\(orderDetail!.price!)"
-            
-           
         }else{
             nameLabel.text = ""
             telLabel.text = ""
@@ -158,9 +159,9 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == productTableView{
-            productTableViewLC.constant = 3*93
+            productTableViewLC.constant = CGFloat(productDataScoure.count*93)
             self.view.layoutIfNeeded()
-            return 3
+            return productDataScoure.count
         }else
         if tableView == titleTableView {
             titleTableViewLC.constant = 30*6
@@ -181,7 +182,8 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     func productCell(tableView: UITableView,indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomeServiceProductTableViewCell", for: indexPath) as! CustomeServiceProductTableViewCell
         cell.selectionStyle = .none
-        
+        let model = productDataScoure[indexPath.row]
+        cell.setDataScoure(name: model.title!, priceStr:  "￥\(model.price！)", countStr: "x\( model.count)")
         return cell
     }
     
@@ -214,11 +216,19 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     }
     
     func loadOrderDetails() -> Void {
-        LGYAFNetworking.lgyPost(urlString: APIAddress.api_orderDetail, parameters: ["token":Model_user_information.getToken(),"oId":"\(orderDetail!._id)"], progress: nil) { (object, isError) in
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_orderDetail, parameters: ["token":Model_user_information.getToken(),"oId":"\(orderDetail!._id)"], progress: nil) {[weak self] (object, isError) in
             if !isError{
-                
+                let model = Model_api_orderDetail.yy_model(withJSON: object as Any)
+                if let list = model?.recordList, let weakSelf = self{
+                    weakSelf.setDataScoure(list:list)
+                }
             }
         }
+    }
+    
+    func setDataScoure(list:Array<OrderDetails>)->Void{
+        productDataScoure = list;
+        productTableView.reloadData()
     }
  
     override func didReceiveMemoryWarning() {

@@ -42,8 +42,7 @@ class LinTabBarController: UITabBarController,UITabBarControllerDelegate {
     //MARK:设置导航栏
     func initChildView(){
         //设置导航栏
-        let tabItem1 = UITabBarItem(title: "首页", image:UIImage(named: "首页黑色.png")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "首页黑色.png") )
-     
+        let tabItem1 = tabBarItem(title:"首页",imageName:"首页3x.png",width:17)
         let story = UIStoryboard(name: "Main", bundle:nil)
         let viewController1 = story.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         
@@ -53,21 +52,21 @@ class LinTabBarController: UITabBarController,UITabBarControllerDelegate {
         nav1.LGYViewControllerTag = 0 //用于识别第几个viewController
         nav1.tabBarItem = tabItem1
         
-        let tabItem2 = UITabBarItem(title: "商城", image:UIImage(named: "商城.png")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "商城.png"))
+        let tabItem2 =  tabBarItem(title:"商城",imageName:"商城3x.png",width:17)
         let vController2 = Bundle.main.loadNibNamed("MarketViewController", owner: nil, options: nil)?[0] as! UIViewController
         
         let nav2 = UINavigationController(rootViewController: vController2)
         nav2.LGYViewControllerTag = 1
         nav2.tabBarItem = tabItem2
         
-        let tabItem3 = UITabBarItem(title: "庄主", image:UIImage(named: "农夫.png")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "农夫.png"))
+        let tabItem3 = tabBarItem(title:"农夫",imageName:"农夫3x.png",width:19)
         let vController3 = Bundle.main.loadNibNamed("FarmerViewController", owner: nil, options: nil)?[0] as! UIViewController
         
         let nav3 = UINavigationController(rootViewController: vController3)
         nav3.LGYViewControllerTag = 2 //用于识别第几个viewController
         nav3.tabBarItem = tabItem3
         
-        let tabItem4 = UITabBarItem(title: "我的", image:UIImage(named: "我.png")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "我.png"))
+        let tabItem4 = tabBarItem(title:"我的",imageName:"我3x.png",width:17)
         let vController4 = Bundle.main.loadNibNamed("PersonViewController", owner: nil, options: nil)?[0] as! UIViewController
         
         let nav4 = UINavigationController(rootViewController: vController4)
@@ -107,6 +106,11 @@ class LinTabBarController: UITabBarController,UITabBarControllerDelegate {
         
     }
     
+    
+    func tabBarItem(title:String,imageName:String,width:CGFloat)->UITabBarItem{
+        let Image = UIImage(named: imageName)?.reSizeImage(width: width).withRenderingMode(.alwaysOriginal)
+        return UITabBarItem(title: title, image:Image, selectedImage:Image)
+    }
     
     //点击响应之前监听
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {

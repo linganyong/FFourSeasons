@@ -11,4 +11,5 @@
 @interface FarmGoods : NSObject
 @property (nonatomic, assign) long _id;
 @property (nonatomic, retain) NSString * main_imgs;
+@property (nonatomic,retain) NSString * small_icon;
 @end
