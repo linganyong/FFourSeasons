@@ -42,6 +42,7 @@ class CustomerServiceViewController: UIViewController,UITextViewDelegate,UITable
         productTableView.delegate = self
         productTableView.dataSource = self
         productTableView.rowHeight = 93
+         productTableView.bounces = false
         productTableView.separatorColor = UIColor.clear
         productTableView.register(UINib.init(nibName: "CustomeServiceProductTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomeServiceProductTableViewCell")
     }
@@ -50,6 +51,7 @@ class CustomerServiceViewController: UIViewController,UITextViewDelegate,UITable
         titleTableView.delegate = self
         titleTableView.dataSource = self
         titleTableView.rowHeight = 30
+         productTableView.bounces = false
         titleTableView.separatorColor = UIColor.clear
         titleTableView.register(UINib.init(nibName: "CustomeServiceTitleTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomeServiceTitleTableViewCell")
     }

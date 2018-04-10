@@ -46,7 +46,7 @@ class MyHarvestTableViewCell: UITableViewCell {
     func setDataScoure(imageUrl:String?,line1Str:String?,line2Str:String?,line3Str:String?) -> Void {
        
         if imageUrl != nil{
-            productImageView.lGYImageFromURL(imageUrl: imageUrl!, placeholderImageName: "loading.jpg")
+            productImageView.lGYImageFromURL(imageUrl: imageUrl!, placeholderImageName: "loading.png")
         }
         
         line1Label.text = line1Str
@@ -58,7 +58,7 @@ class MyHarvestTableViewCell: UITableViewCell {
         model = item
         myDelegate = delegate
         if model?.small_icon != nil{
-            productImageView.lGYImageFromURL(imageUrl: (model?.small_icon!)!, placeholderImageName: "loading.jpg")
+            productImageView.lGYImageFromURL(imageUrl: (model?.small_icon!)!, placeholderImageName: "loading.png")
         }else{
             productImageView.image = nil
         }
@@ -73,7 +73,7 @@ class MyHarvestTableViewCell: UITableViewCell {
         myDelegate = delegate
         if  let details = item.detail?.first{
             if let imageUrl = details.small_icon{
-                productImageView.lGYImageFromURL(imageUrl: imageUrl, placeholderImageName: "loading.jpg")
+                productImageView.lGYImageFromURL(imageUrl: imageUrl, placeholderImageName: "loading.png")
             }else{
                 productImageView.image = nil
             }

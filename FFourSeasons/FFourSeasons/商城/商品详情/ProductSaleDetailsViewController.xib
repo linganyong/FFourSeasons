@@ -186,7 +186,7 @@
                                         <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zkf-K2-f3D">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zkf-K2-f3D">
                                         <rect key="frame" x="8" y="35" width="28" height="28"/>
                                         <color key="backgroundColor" red="0.81222718949999995" green="0.81581014389999995" blue="0.81905585530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>

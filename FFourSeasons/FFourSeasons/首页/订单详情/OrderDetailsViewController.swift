@@ -59,11 +59,14 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         orderDetailsType = orderType
         evaluationView.isHidden = true
         switch orderType {
-        case .WaitForHarvest: //待收获  4
-//            self.title = "待收获"
+        case .WaitForHarvest: //待发货  4
+//            self.title = "待发货"
             button1.setTitle("确定收获", for: .normal)
             button2.setTitle("申请售后", for: .normal)
             button3.setTitle("查看物流", for: .normal)
+            button1.isHidden = true
+            button2.isHidden = true
+            button3.isHidden = true
             break
         case .WaitForPayment: //待付款
 //            self.title = "待付款"
@@ -145,6 +148,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         productTableView.dataSource = self
         productTableView.rowHeight = 93
         productTableView.separatorColor = UIColor.clear
+        productTableView.bounces = false
         productTableView.register(UINib.init(nibName: "CustomeServiceProductTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomeServiceProductTableViewCell")
     }
     
@@ -153,6 +157,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         titleTableView.dataSource = self
         titleTableView.rowHeight = 30
         titleTableView.separatorColor = UIColor.clear
+        titleTableView.bounces = false
         titleTableView.register(UINib.init(nibName: "CustomeServiceTitleTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomeServiceTitleTableViewCell")
     }
     

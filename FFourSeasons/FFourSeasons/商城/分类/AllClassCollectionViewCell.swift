@@ -21,9 +21,9 @@ class AllClassCollectionViewCell: UICollectionViewCell {
     
     func setDataScoure(imageUrl:String?,name:String) -> Void {
         if imageUrl != nil && (imageUrl?.contains("http"))!{
-             classImageView.imageFromURL(imageUrl!, placeholder: UIImage.init(named: "loading.jpg")!)
+             classImageView.imageFromURL(imageUrl!, placeholder: UIImage.init(named: "loading.png")!)
         }else{
-            classImageView.image = UIImage.init(named: "loading.jpg")
+            classImageView.image = UIImage.init(named: "loading.png")
         }
         nameLabel.text = name
     }

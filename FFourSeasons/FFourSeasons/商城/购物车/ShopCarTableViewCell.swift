@@ -120,7 +120,7 @@ class ShopCarTableViewCell: UITableViewCell,CAAnimationDelegate,UITextFieldDeleg
         
         priceLabel.text = price
         if imageUrl != nil{
-            productImageView.imageFromURL(imageUrl!, placeholder: UIImage(named: "loading.jpg")!)
+            productImageView.imageFromURL(imageUrl!, placeholder: UIImage(named: "loading.png")!)
         }else{
              productImageView.image = nil
         }

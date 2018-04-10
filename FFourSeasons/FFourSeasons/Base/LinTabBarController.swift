@@ -108,8 +108,8 @@ class LinTabBarController: UITabBarController,UITabBarControllerDelegate {
     
     
     func tabBarItem(title:String,imageName:String,width:CGFloat)->UITabBarItem{
-        let Image = UIImage(named: imageName)?.reSizeImage(width: width).withRenderingMode(.alwaysOriginal)
-        return UITabBarItem(title: title, image:Image, selectedImage:Image)
+        let image = UIImage(named: imageName)?.reSizeImage(width: width)
+        return UITabBarItem(title: title, image:image!.withRenderingMode(.alwaysOriginal), selectedImage:image)
     }
     
     //点击响应之前监听

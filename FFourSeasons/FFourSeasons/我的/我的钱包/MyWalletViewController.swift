@@ -38,7 +38,7 @@ class MyWalletViewController: UIViewController {
         if PersonViewController.infornation != nil{
             nameLabel.text = PersonViewController.infornation!.nick_name
             if PersonViewController.infornation!.head_url != nil{
-                persionImageView.imageFromURL((PersonViewController.infornation!.head_url)!, placeholder: UIImage.init(named: "loading.jpg")!)
+                persionImageView.imageFromURL((PersonViewController.infornation!.head_url)!, placeholder: UIImage.init(named: "loading.png")!)
             }else{
                 persionImageView.image = nil
             }

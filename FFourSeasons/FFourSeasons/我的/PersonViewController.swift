@@ -198,7 +198,7 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
         PersonViewController.infornation = model
          NotificationCenter.default.post(name: NSNotification.Name(rawValue: PersonViewControllerLoadDataScoure), object: true)
         if model.head_url != nil{
-            persionImageView.imageFromURL(model.head_url, placeholder: UIImage.init(named: "loading.jpg")!)
+            persionImageView.imageFromURL(model.head_url, placeholder: UIImage.init(named: "loading.png")!)
         }
         let integ = [1000,2500.0,5000.0,12600.0]
         for item in integ{

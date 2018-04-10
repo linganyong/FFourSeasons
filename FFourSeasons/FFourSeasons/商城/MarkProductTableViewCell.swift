@@ -50,8 +50,9 @@ class MarkProductTableViewCell: UITableViewCell {
             loImage.isHidden = false
             loLabel.text = loStr
         }
+        productImageView.layer.masksToBounds = true
         if imageUrl != nil  && (imageUrl?.contains("http"))!{
-            productImageView.lGYImageFromURL(imageUrl: imageUrl!, placeholderImageName: "loading.jpg")
+            productImageView.lGYImageFromURL(imageUrl: imageUrl!, placeholderImageName: "loading.png")
         }
         self.backgroundColor = UIColor.clear
         groundView.LGyCornerRadius = 10

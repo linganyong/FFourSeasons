@@ -16,7 +16,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     var productInformation:Goods?
     var productModel:Model_api_goodsDetail?
     var productGuiGe:NSArray?
-    
+    static let lock = NSLock()
     
     @IBOutlet weak var headerScollerView: LCycleView!
     @IBOutlet weak var backScrollView: UIScrollView!
@@ -44,6 +44,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     @IBOutlet weak var productDetailView: UIView!
     @IBOutlet weak var productDetailImageView: UIImageView!
+    var timer:Timer?
     
     var isCollection = 1 //1 表示未收藏，2表示已经收藏
     var selectSpec = 0 //选择的规格
@@ -166,6 +167,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         addImageUrl(imageUrl: goods_detailArray![indexPath.row], cell: cell,indexPath: indexPath)
+       
         return cell;
     }
     
@@ -186,13 +188,14 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         }
         weak var vc = self
         if imageUrl.contains("http") {
-            imgView?.setImageWith(URLRequest.init(url: URL.init(string: imageUrl)!), placeholderImage: UIImage.init(named: "loading.jpg")!, success: { (request, response, image) in
+            imgView?.setImageWith(URLRequest.init(url: URL.init(string: imageUrl)!), placeholderImage: UIImage.init(named: "loading.png")!, success: { (request, response, image) in
                 imgView?.image = image
                 if vc?.goods_detailImageHeight[indexPath.row] == nil {
                     let scale = image.size.width/image.size.height
                     let height = cell.frame.size.width/scale
                     vc?.goods_detailImageHeight[indexPath.row] = height
-                    vc?.productDetailTableView.reloadData()
+                    vc?.productDetailTableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.bottom)
+                    vc?.addTimer()
                 }
             }, failure: { (request, response, error) in
                 
@@ -201,10 +204,22 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             imgView?.image = UIImage.init(named: imageUrl)
         }
         
+        
+    }
+    
+    //MARK:定时器
+    private func addTimer() {
+        timer?.invalidate()
+        timer = Timer(timeInterval: 0.01, target: self, selector: #selector(showTableView), userInfo: nil, repeats: true)
+        RunLoop.current.add(timer!, forMode: .commonModes)
+    }
+    
+    @objc func showTableView()->Void{
+        productDetailTableViewLC.constant = productDetailTableView.contentSize.height
+        productDetailTableView.layoutIfNeeded()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        productDetailTableViewLC.constant = tableView.contentSize.height
         if let s = goods_detailImageHeight[indexPath.row]{
             return s
         }
@@ -263,7 +278,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     //MARK:设置评论内容
     func addCommentInformation() -> Void {
-        commentImageView.imageFromURL("http://img1.360buyimg.com/n6/jfs/t8368/109/929691645/455254/ebb7a902/59b10b85N9795cd8f.jpg", placeholder: UIImage.init(named: "loading.jpg")!)
+        commentImageView.imageFromURL("http://img1.360buyimg.com/n6/jfs/t8368/109/929691645/455254/ebb7a902/59b10b85N9795cd8f.jpg", placeholder: UIImage.init(named: "loading.png")!)
         commentNameLabel.text = "七夕e分手"
         commentDescribeLabel.text = "有道翻译提供即时免费的中文、英语、日语、韩语、法语、俄语、西班牙语、葡萄牙语、越南语全文翻译、网页翻译、文档翻译服务。"
         specificationsTextLabel.text = "规格：黑色       数量：1株"

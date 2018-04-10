@@ -33,6 +33,7 @@ class MainPageProductTableViewCell: UITableViewCell {
     func setModel(item:Goods) -> Void {
         model = item
         loginImageView.image = UIImage.init(named: "空心圆.png")
+        productImageView.layer.masksToBounds = true
         setDataScoure(imageUrl: item.small_icon, line1Str: "当前推荐！", line2Str: item.title, line3Str:item.price)
     }
     
@@ -40,8 +41,8 @@ class MainPageProductTableViewCell: UITableViewCell {
         line1Label.text = line1Str
         line2Label.text = line2Str
         line3Label.text = String(format: "￥%@", line3Str)
-        productImageView.lGYImageFromURL(imageUrl: imageUrl, placeholderImageName: "loading.jpg")
-        
+        productImageView.lGYImageFromURL(imageUrl: imageUrl, placeholderImageName: "loading.png")
+      
         self.backgroundColor = UIColor.clear
         groundView.LGyCornerRadius = 10
         backView.LGyCornerRadius = 10

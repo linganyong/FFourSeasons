@@ -31,7 +31,7 @@ class EverydayFreshTableViewCell: UITableViewCell {
     }
     
     func dataScoure(imageUrl:String,name:String,des:String) -> Void {
-        productImageView.imageFromURL(imageUrl, placeholder: UIImage.init(named: "loading.jpg")!)
+        productImageView.imageFromURL(imageUrl, placeholder: UIImage.init(named: "loading.png")!)
             productNameLabel.text = name
         productDesLabel.text = des
     }

@@ -31,7 +31,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bqh-kS-YSN">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bqh-kS-YSN">
                         <rect key="frame" x="10" y="8" width="93.5" height="93.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Bqh-kS-YSN" secondAttribute="height" multiplier="1:1" id="K6Q-KA-HoH"/>

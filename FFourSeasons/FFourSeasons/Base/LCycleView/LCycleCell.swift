@@ -32,6 +32,7 @@ class LCycleCell: UICollectionViewCell {
         
         if self.viewWithTag(1000) == nil{
             imgView.tag = 1000
+            imgView.contentMode = .scaleAspectFill
             addSubview(imgView)
             //设置collectionView和pageControl的约束
             imgView.snp.makeConstraints { (make) in
@@ -43,7 +44,7 @@ class LCycleCell: UICollectionViewCell {
             //            ImgView.frame = self.frame
         }
         if imageUrl.contains("http"){
-            imgView.imageFromURL(imageUrl, placeholder: UIImage.init(named: "loading.jpg")!)
+            imgView.imageFromURL(imageUrl, placeholder: UIImage.init(named: "loading.png")!)
         }else{
             imgView.image = UIImage.init(named: imageUrl)
         }

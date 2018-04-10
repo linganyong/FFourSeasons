@@ -44,7 +44,7 @@
                         <rect key="frame" x="38" y="31" width="80" height="80"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1181d42c9ae176da7a0697cc5e2b1dcc70ebac1917a7b-ZsTZXq_fw658.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pp4-rJ-VP9">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1181d42c9ae176da7a0697cc5e2b1dcc70ebac1917a7b-ZsTZXq_fw658.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pp4-rJ-VP9">
                         <rect key="frame" x="38" y="31" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="pp4-rJ-VP9" secondAttribute="height" multiplier="1:1" id="RTd-oz-Bqa"/>

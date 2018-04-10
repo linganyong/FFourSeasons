@@ -238,7 +238,6 @@
 		9C77C5032027FEC1008B49E2 /* 144608a14aba3c35cb8b56e94f87dba17a12e10f484ee-COP9gV.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C48E2027FEC0008B49E2 /* 144608a14aba3c35cb8b56e94f87dba17a12e10f484ee-COP9gV.jpg */; };
 		9C77C5052027FEC1008B49E2 /* u290.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4902027FEC0008B49E2 /* u290.jpg */; };
 		9C77C5062027FEC1008B49E2 /* 9d618bdb533c9f033714c1e8365d52102d6e7174ed80-IpEt4L.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4912027FEC0008B49E2 /* 9d618bdb533c9f033714c1e8365d52102d6e7174ed80-IpEt4L.jpg */; };
-		9C77C5072027FEC1008B49E2 /* loading.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4922027FEC0008B49E2 /* loading.jpg */; };
 		9C77C5082027FEC1008B49E2 /* afcf58e2ef29674fabacc1dc6051266d5e13186f2f61f-kim3hV.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4932027FEC0008B49E2 /* afcf58e2ef29674fabacc1dc6051266d5e13186f2f61f-kim3hV.jpg */; };
 		9C77C5092027FEC1008B49E2 /* 148522_banner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4942027FEC0008B49E2 /* 148522_banner.jpg */; };
 		9C77C50A2027FEC1008B49E2 /* 2deecd846595981c6c06e7972608f485fb5fd7b42ad9b-kDNLmR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4952027FEC0008B49E2 /* 2deecd846595981c6c06e7972608f485fb5fd7b42ad9b-kDNLmR.jpg */; };
@@ -279,6 +278,7 @@
 		9C77C58420287246008B49E2 /* LGY+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77C58320287246008B49E2 /* LGY+UIView.swift */; };
 		9C7E79AC207B7DF20007A9E4 /* 首页3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C7E79AB207B7DF10007A9E4 /* 首页3x.png */; };
 		9C7E79AF207B8AE50007A9E4 /* Model_api_orderDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E79AE207B8AE50007A9E4 /* Model_api_orderDetail.m */; };
+		9C7E79B1207C55550007A9E4 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C7E79B0207C55550007A9E4 /* loading.png */; };
 		9C90648F20610239006158AC /* 内容为空3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C90648E20610238006158AC /* 内容为空3x.png */; };
 		9C9064912061FA63006158AC /* LGYMaxCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9064902061FA63006158AC /* LGYMaxCollectionViewFlowLayout.swift */; };
 		9C941144205A2820002A29F9 /* SurroundingFarmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C941142205A2820002A29F9 /* SurroundingFarmsViewController.swift */; };
@@ -746,7 +746,6 @@
 		9C77C48E2027FEC0008B49E2 /* 144608a14aba3c35cb8b56e94f87dba17a12e10f484ee-COP9gV.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "144608a14aba3c35cb8b56e94f87dba17a12e10f484ee-COP9gV.jpg"; sourceTree = "<group>"; };
 		9C77C4902027FEC0008B49E2 /* u290.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = u290.jpg; sourceTree = "<group>"; };
 		9C77C4912027FEC0008B49E2 /* 9d618bdb533c9f033714c1e8365d52102d6e7174ed80-IpEt4L.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "9d618bdb533c9f033714c1e8365d52102d6e7174ed80-IpEt4L.jpg"; sourceTree = "<group>"; };
-		9C77C4922027FEC0008B49E2 /* loading.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loading.jpg; sourceTree = "<group>"; };
 		9C77C4932027FEC0008B49E2 /* afcf58e2ef29674fabacc1dc6051266d5e13186f2f61f-kim3hV.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "afcf58e2ef29674fabacc1dc6051266d5e13186f2f61f-kim3hV.jpg"; sourceTree = "<group>"; };
 		9C77C4942027FEC0008B49E2 /* 148522_banner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 148522_banner.jpg; sourceTree = "<group>"; };
 		9C77C4952027FEC0008B49E2 /* 2deecd846595981c6c06e7972608f485fb5fd7b42ad9b-kDNLmR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2deecd846595981c6c06e7972608f485fb5fd7b42ad9b-kDNLmR.jpg"; sourceTree = "<group>"; };
@@ -790,6 +789,7 @@
 		9C7E79AB207B7DF10007A9E4 /* 首页3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页3x.png"; sourceTree = "<group>"; };
 		9C7E79AD207B8AE50007A9E4 /* Model_api_orderDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_orderDetail.h; sourceTree = "<group>"; };
 		9C7E79AE207B8AE50007A9E4 /* Model_api_orderDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model_api_orderDetail.m; sourceTree = "<group>"; };
+		9C7E79B0207C55550007A9E4 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
 		9C90648E20610238006158AC /* 内容为空3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "内容为空3x.png"; sourceTree = "<group>"; };
 		9C9064902061FA63006158AC /* LGYMaxCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYMaxCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		9C941142205A2820002A29F9 /* SurroundingFarmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurroundingFarmsViewController.swift; sourceTree = "<group>"; };
@@ -1756,11 +1756,11 @@
 		9C77C4772027FEC0008B49E2 /* 其他素材 */ = {
 			isa = PBXGroup;
 			children = (
+				9C7E79B0207C55550007A9E4 /* loading.png */,
 				9CFD55462070DF870028B1A4 /* loading.gif */,
 				9C90648E20610238006158AC /* 内容为空3x.png */,
 				9CD36B00205930080075732C /* icon.png */,
 				9CD36AF02057AA850075732C /* weixin.png */,
-				9C77C4922027FEC0008B49E2 /* loading.jpg */,
 				9C10BD5C2043DE28004AAFE3 /* 菠萝长图.jpg */,
 				9C77C4782027FEC0008B49E2 /* 1.jpg */,
 				9C77C4792027FEC0008B49E2 /* 2.png */,
@@ -2479,10 +2479,10 @@
 				9C0D9CAD2046854700D271CE /* 选中3x.png in Resources */,
 				9C77C4C92027FEC1008B49E2 /* 我.png in Resources */,
 				9C77C50B2027FEC1008B49E2 /* 205e439c0a99adcd4ce5a71fd8fbd73a4789633111a8e-9VPTqt.jpg in Resources */,
-				9C77C5072027FEC1008B49E2 /* loading.jpg in Resources */,
 				9C77C3B82027F1FF008B49E2 /* LaunchScreen.storyboard in Resources */,
 				9C77C4C82027FEC1008B49E2 /* 每日尝鲜.png in Resources */,
 				9C10BD592043AD93004AAFE3 /* 更多评价3x.png in Resources */,
+				9C7E79B1207C55550007A9E4 /* loading.png in Resources */,
 				9C77C4F52027FEC1008B49E2 /* be873e755bbeb1e73c56a5a659db077aa6e17910208fc-Ai7JYG.jpg in Resources */,
 				9C0D9C9E20467D0F00D271CE /* MemberPrivilegesDetailViewController.xib in Resources */,
 				9C10BD9520453DAE004AAFE3 /* 收起.png in Resources */,

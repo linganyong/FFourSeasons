@@ -20,6 +20,7 @@ let NotificationCenterLaunch = "32412eerrf"
 
 class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
+    @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var tapView: UIView!
     var guideView:APPGuideView?
     @IBOutlet weak var registerMaginTopLC: NSLayoutConstraint!
@@ -82,6 +83,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
     //MARK:切换登录或注册响应
     @objc func changeLaunchOrRegister() -> Void {
+        descriptionView.isHidden = true
         if showViewType == .Launch {
             addLaunchOrReginsterAnimation(showView: .Reginster, withDuration: 1)
         }else{
@@ -110,6 +112,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
                 self.registerShow()
                 vc?.registerView.setLineView()
             }, completion: { (finish) in
+                 vc?.launchOrRegisterButton.setTitle("完成注册", for: .normal)
                 vc?.registerView.setLineView()
             })
             
@@ -123,6 +126,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
                 vc?.launchView.setLineView()
             }, completion: { (finish) in
                 vc?.launchView.setLineView()
+                vc?.launchOrRegisterButton.setTitle("登录", for: .normal)
             })
             showViewType = .Launch
             break
@@ -145,7 +149,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
         launchMaginTrailingLC.constant = -30
         launchView.alpha = 1
         launchView.backgroundColor = UIColor.black
-        launchOrRegisterButton.setTitle("登录", for: .normal)
+        
         self.view.layoutIfNeeded();
     }
     
@@ -191,7 +195,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
         launchMaginLeadingLC.constant = 0
         launchMaginTrailingLC.constant = 0
         launchView.alpha = 0
-        launchOrRegisterButton.setTitle("完成注册", for: .normal)
+       
         
         self.view.layoutIfNeeded();
     }

@@ -334,6 +334,7 @@
                 <outlet property="agressButton" destination="4EQ-ia-6dr" id="NTa-UV-SXo"/>
                 <outlet property="backHeightLC" destination="hTE-Sh-ckU" id="2v6-YD-0hy"/>
                 <outlet property="changeDescriptionLabel" destination="VGE-uY-thE" id="Xzl-Vj-cJM"/>
+                <outlet property="descriptionView" destination="A3E-lx-Cxt" id="Bm2-9s-7K2"/>
                 <outlet property="launchMaginLeadingLC" destination="QAk-eG-Q01" id="lsm-Ug-wl5"/>
                 <outlet property="launchMaginTopLC" destination="RGO-cH-iR9" id="jh5-lq-Vst"/>
                 <outlet property="launchMaginTrailingLC" destination="88D-aJ-0dO" id="IC0-hQ-ewU"/>

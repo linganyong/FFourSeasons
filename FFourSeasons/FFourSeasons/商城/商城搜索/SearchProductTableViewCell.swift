@@ -31,7 +31,7 @@ class SearchProductTableViewCell: UITableViewCell {
     func setDataScoure(imageUrl:String?,line1Str:String?,line2Str:String?) -> Void {
        
         if imageUrl != nil{
-            productImageView.lGYImageFromURL(imageUrl: imageUrl!, placeholderImageName: "loading.jpg")
+            productImageView.lGYImageFromURL(imageUrl: imageUrl!, placeholderImageName: "loading.png")
         }
         
         line1Label.text = line1Str

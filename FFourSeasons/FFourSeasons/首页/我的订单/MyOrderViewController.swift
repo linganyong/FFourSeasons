@@ -172,7 +172,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! MyHarvestTableViewCell
             let vc = Bundle.main.loadNibNamed("OrderDetailsViewController", owner: nil, options: nil)?.first as! OrderDetailsViewController
-        let str = "\(cell.modelOrder!.order_type)"
+        let str = "\(cell.modelOrder!.pay_status)"
             switch str{
             case orderWaitPay: //未付款
                 vc.setOrderType(orderType:.WaitForPayment)
@@ -181,7 +181,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 vc.setOrderType(orderType: .TransactionCosure)
                 break
             case orderPaySuccess: //付款成功
-                vc.setOrderType(orderType:.WaitForPayment)
+                vc.setOrderType(orderType:.WaitForHarvest)
                 break
             case orderWaitReceipt: //待收货
                 vc.setOrderType(orderType:.WaitForReceipt)
@@ -201,6 +201,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
             }
             vc.orderDetail = cell.modelOrder
             vc.loadOrderDetails()
+            vc.setText()
             self.navigationController?.pushViewController(vc, animated: true)
     }
     

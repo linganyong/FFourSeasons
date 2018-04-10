@@ -36,7 +36,7 @@ class IntegralShopTableViewCell: UITableViewCell {
     func setDataScoure(item:Goods,delegate:IntegralShopTableViewCellDelegate?) -> Void {
         model = item
         if model?.small_icon != nil{
-            productImageView.lGYImageFromURL(imageUrl: model!.small_icon!, placeholderImageName: "loading.jpg")
+            productImageView.lGYImageFromURL(imageUrl: model!.small_icon!, placeholderImageName: "loading.png")
         }else{
              productImageView.image = nil
         }

@@ -67,7 +67,8 @@ class DetailsView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         }
         let  good = listGoods[indexPath.row]
         if let url = good.small_icon {
-            imageView?.imageFromURL(url, placeholder:  UIImage.init(named: "loading.jpg")!)
+            imageView?.imageFromURL(url, placeholder:  UIImage.init(named: "loading.png")!)
+            imageView?.contentMode = .scaleAspectFill
         }else{
             imageView?.image = nil
         }

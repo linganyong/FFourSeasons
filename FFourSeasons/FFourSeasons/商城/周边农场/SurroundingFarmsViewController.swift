@@ -22,9 +22,10 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     let textLabel = TYAttributedLabel()
     var listFarm = Array<Farm>() //其他农场列表
     var firstFarm:Farm? //推荐农场
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "人人庄园"
+        title = "周边农场"
         addMapView()
         setTextViewText()
         navigationItemBack(title: nil)
@@ -49,32 +50,21 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     //MARK:设置地图上面的View
     func setTextViewText() ->Void{
         let backViewWidth = view.frame.width - 32
-        backView.frame = CGRect(x: 16, y: 0, width: backViewWidth, height: 0)
+        backView.frame = CGRect(x: 16, y: 0, width: backViewWidth, height: 30)
         backView.backgroundColor = UIColor.white
         backView.LGyCornerRadius = 10
         LGYTool.viewLayerShadow(view: backView)
         self.view.addSubview(backView)
         
         textLabel.delegate = self
+        textLabel.frame = CGRect(x: 8, y: 8, width: backViewWidth-16, height: 0)
         backView.addSubview(textLabel)
         backView.layoutSubviews()
-        backView.snp.makeConstraints { (make) in
-            make.top.equalTo(view.snp.top).offset(84)
-            make.right.equalTo(view.snp.right).offset(-8)
-            make.left.equalTo(view.snp.left).offset(8)
-        }
-        textLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(backView.snp.top).offset(8)
-            make.right.equalTo(backView.snp.right).offset(-8)
-            make.left.equalTo(backView.snp.left).offset(8)
-            make.bottom.equalTo(backView.snp.bottom).offset(-8)
-            make.height.greaterThanOrEqualTo(30)
-        }
-        
     }
     
     //MARK:设置地图上面浮动文字
     func setTextLabelText(text:String) -> Void {
+        let backViewWidth = view.frame.width - 32
         let text = "\(text)<立即前往>"
         textLabel.text = text
         textLabel.font = UIFont.systemFont(ofSize: 9)
@@ -84,8 +74,9 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         linkStorage.textColor = UIColor(red: 187/255.0, green: 187/255.0, blue: 187/255.0, alpha: 1)
         textLabel.addTextStorage(linkStorage)
         textLabel.sizeToFit()
+        textLabel.layoutIfNeeded()
         backView.layoutIfNeeded()
-//        backView.frame = CGRect(x: 16, y: 80, width: backViewWidth, height: textLabel.frame.size.height + 24)
+        backView.frame = CGRect(x: 16, y: 84, width: backViewWidth, height: textLabel.frame.size.height + 16)
     }
     
     
@@ -115,13 +106,14 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
             }
             if annotation.lgyTag < 0{
                 
-                
             }else if annotation.lgyTag < 10000 && annotation.lgyTag >= 0{
                 let farm = listFarm[annotation.lgyTag]
                 if farm.imgs != nil{
-                    _ = UIImage.image(fromURL: farm.imgs, placeholder: UIImage.init(named: "农场图标.png")!, shouldCacheImage: true, closure: { [weak annotationView](image) in
+                    _ = UIImage.image(fromURL: farm.imgs, placeholder: UIImage.init(named: "农场图标.png")!, shouldCacheImage: false, closure: { [weak annotationView](image) in
                         if image != nil {
-                            annotationView?.image = image?.reSizeImage(reSize: CGSize(width: 30, height: 30)).maskWithColor(color: UIColor.white).toCircle()
+                            annotationView?.image = image?.maskWithColor(color: UIColor.white).reSizeImage(reSize: CGSize(width: 50, height: 50)).toCircle()
+                            annotationView?.layer.cornerRadius = 25
+                            LGYTool.viewLayerShadowShadowOffsetHeight(view: annotationView!)
                             annotationView?.reloadInputViews()
                         }
                     })
