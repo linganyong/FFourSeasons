@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "OrderDetails.h"
+#import "OrderList.h"
 @interface Model_api_orderDetail : NSObject
 @property (nonatomic, retain) NSString * code;
 @property (nonatomic, assign) long error;
 @property (nonatomic, retain) NSString * msg;
-@property (nonatomic, retain) NSString *orderPay;
+@property (nonatomic, retain) OrderList *orderPay;
 @property (nonatomic, retain) NSArray<OrderDetails *> *recordList;
 @end

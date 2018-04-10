@@ -39,8 +39,11 @@ class LGYPageView: UIView,UIScrollViewDelegate {
             _headerView.isHidden = false
             _headerView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: _headerHeight)
             _headerView.showsVerticalScrollIndicator = false
+            _headerView.showsHorizontalScrollIndicator = false
             headerButtonAdd()
             _contentView.frame = CGRect(x: 0, y:_headerView.frame.size.height, width: self.bounds.size.width, height: self.frame.size.height - _headerHeight);
+            _contentView.showsVerticalScrollIndicator = false
+            _contentView.showsHorizontalScrollIndicator = false
         }
         contentViewAdd()
 //        self.addObserver(self, forKeyPath: "frame", options: .new, context: nil)

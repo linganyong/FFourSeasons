@@ -52,21 +52,44 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         setProductTableView()
         setTitleTableView()
         setText()
+        
+    }
+    
+    func getImage(button:UIButton){
+        let img = UIImageView.init(frame:button.bounds)
+        img.image = UIImage(named: "背景3x.png")
+        button.addSubview(img)
+        button.backgroundColor = UIColor.white
+        img.LGyCornerRadius = button.LGyCornerRadius
+    }
+    
+    //MARK:统一设置阴影
+    func viewLayerShadowCornerRadius(view:UIView) ->Void{
+        //添加阴影
+        view.layer.shadowOpacity = 1 //不透明图
+        view.layer.shadowColor = UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 0.25).cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 3) // 设置阴影的偏移量
+        view.layer.shadowRadius = CGFloat(3)
+        view.clipsToBounds = false //添加此句展示效果
     }
     
     //MARK:设置viewController的类型
     func setOrderType(orderType:OrderDetailsType) -> Void {
         orderDetailsType = orderType
         evaluationView.isHidden = true
+        getImage(button: button1)
+        getImage(button: button2)
+        getImage(button: button3)
+        viewLayerShadowCornerRadius(view: button1)
+        viewLayerShadowCornerRadius(view: button2)
+        viewLayerShadowCornerRadius(view: button3)
         switch orderType {
+            
         case .WaitForHarvest: //待发货  4
 //            self.title = "待发货"
             button1.setTitle("确定收获", for: .normal)
             button2.setTitle("申请售后", for: .normal)
             button3.setTitle("查看物流", for: .normal)
-            button1.isHidden = true
-            button2.isHidden = true
-            button3.isHidden = true
             break
         case .WaitForPayment: //待付款
 //            self.title = "待付款"
@@ -118,11 +141,20 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         
     }
 
-    
+    //MARK:点击button响应
     @IBAction func buttonAction(_ sender: UIButton) {
         if (sender.titleLabel?.text?.contains("支付"))! {
-            let vc = Bundle.main.loadNibNamed("OrderPaymentViewController", owner: nil, options: nil)?.first as! OrderPaymentViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            if let no = orderDetail?.out_trade_no{
+                let vc = Bundle.main.loadNibNamed("OrderPaymentViewController", owner: nil, options: nil)?.first as! OrderPaymentViewController
+                vc.outTradeNo = no
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        if (sender.titleLabel?.text?.contains("取消订单"))! {
+            deleteOrder()
+        }
+        if (sender.titleLabel?.text?.contains("确定收货"))! {
+            comfirmOrder()
         }
         if (sender.titleLabel?.text?.contains("售后"))! {
             let vc = Bundle.main.loadNibNamed("CustomerServiceViewController", owner: nil, options: nil)?.first as! CustomerServiceViewController
@@ -132,8 +164,33 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             let vc = Bundle.main.loadNibNamed("EvaluateViewController", owner: nil, options: nil)?.first as! EvaluateViewController
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        
     }
   
+    //MARK:取消订单
+    func deleteOrder(){
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_cancelOrder, parameters: ["oId":"\(orderDetail!._id)","token":Model_user_information.getToken()], progress: nil) { (object, isError) in
+            if !isError{
+                let model = Model_user_information.yy_model(withJSON: object as Any)
+                if let msg = model?.msg {
+                    LGYToastView.show(message: msg)
+                }
+            }
+        }
+    }
+    
+    //MARK:删除订单
+    func comfirmOrder(){
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_confirmOrder, parameters: ["oId":"\(orderDetail!._id)","token":Model_user_information.getToken()], progress: nil) {(object, isError) in
+            if !isError{
+                let model = Model_user_information.yy_model(withJSON: object as Any)
+                if let msg = model?.msg {
+                    LGYToastView.show(message: msg)
+                }
+            }
+            
+        }
+    }
     
     
     //MARK:申请售后点击响应
@@ -169,8 +226,23 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             return productDataScoure.count
         }else
         if tableView == titleTableView {
-            titleTableViewLC.constant = 30*6
-            return 6
+            var count = 0
+            //根据最后操作日常来确定需要展示cell个数
+            if orderDetail?.return_goods_time != nil{
+                count = 6
+            }else if orderDetail?.get_goods_time != nil{
+                count = 5
+            }else if orderDetail?.send_goods_time != nil{
+                count = 4
+            }else if orderDetail?.pay_time != nil{
+                count = 3
+            }else if orderDetail?.created_time != nil{
+                count = 2
+            }else if orderDetail?.out_trade_no != nil{
+                count = 1
+            }
+            titleTableViewLC.constant = CGFloat(30*count)
+            return count
         }
         return 0
     }
@@ -197,22 +269,25 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         cell.selectionStyle = .none
         switch indexPath.row {
         case 0:
-            cell.setDataScoure(leftStr: "订单号：", rightStr: "12345678901")
+            cell.setDataScoure(leftStr: "订单号：", rightStr:(orderDetail?.out_trade_no)!)
+            break
+        case 1:
+             cell.setDataScoure(leftStr: "创建时间：", rightStr:(orderDetail?.created_time)!)
             break
         case 2:
-             cell.setDataScoure(leftStr: "创建时间：", rightStr: "2018-03-08")
+             cell.setDataScoure(leftStr: "支付时间：", rightStr:(orderDetail?.pay_time)!)
             break
         case 3:
-             cell.setDataScoure(leftStr: "支付时间：", rightStr: "2018-03-08")
+             cell.setDataScoure(leftStr: "发货时间：", rightStr: (orderDetail?.send_goods_time)!)
             break
         case 4:
-             cell.setDataScoure(leftStr: "发货时间：", rightStr: "2018-03-08")
+            cell.setDataScoure(leftStr: "收货时间：", rightStr: (orderDetail?.get_goods_time)!)
             break
         case 5:
-             cell.setDataScoure(leftStr: "申请退货时间：", rightStr: "2018-03-08")
+             cell.setDataScoure(leftStr: "申请退货时间：", rightStr: (orderDetail?.return_goods_time)!)
             break
         case 6:
-             cell.setDataScoure(leftStr: "退款成功时间：", rightStr: "2018-03-08")
+             cell.setDataScoure(leftStr: "退款成功时间：", rightStr: "")
             break
         default:
             break
@@ -225,15 +300,23 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             if !isError{
                 let model = Model_api_orderDetail.yy_model(withJSON: object as Any)
                 if let list = model?.recordList, let weakSelf = self{
-                    weakSelf.setDataScoure(list:list)
+                    weakSelf.setProductDataScoure(list:list)
+                }
+                if let item = model?.orderPay, let weakSelf = self {
+                    weakSelf.setTitleDataScoure(item: item)
                 }
             }
         }
     }
     
-    func setDataScoure(list:Array<OrderDetails>)->Void{
+    func setProductDataScoure(list:Array<OrderDetails>)->Void{
         productDataScoure = list;
         productTableView.reloadData()
+    }
+    
+    func setTitleDataScoure(item:OrderList)->Void{
+        orderDetail = item
+        titleTableView.reloadData()
     }
  
     override func didReceiveMemoryWarning() {
