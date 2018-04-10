@@ -17,7 +17,9 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     var productModel:Model_api_goodsDetail?
     var productGuiGe:NSArray?
     static let lock = NSLock()
+    var comment:Comment?
     
+    @IBOutlet weak var commentHeightLC: NSLayoutConstraint!
     @IBOutlet weak var headerScollerView: LCycleView!
     @IBOutlet weak var backScrollView: UIScrollView!
     @IBOutlet weak var payBackView: UIView!
@@ -245,6 +247,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             }
            vc?.setDataScoure(object: object)
         }
+        loadComment(gId:"\(productId)",pageNumber:"1")
     }
     
     func setDataScoure(object:Any?) -> Void {
@@ -349,6 +352,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     //MARK:买家评论点击响应
     @objc func commentViewAction() -> Void {
         let vc = Bundle.main.loadNibNamed("AllCommentsViewController", owner: nil, options: nil)?.first as! AllCommentsViewController
+        vc.gId = productInformation!._id
         vc.loadComment(gId: String.init(format: "%D", (productInformation?._id)!), pageNumber: "1")
         self.navigationController?.pushViewController(vc, animated: true)
         
@@ -432,7 +436,44 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
 //         self.navigationItem.rightBarButtonItems = nil
     }
     
+    //MARK:加载评论
+    func loadComment(gId:String,pageNumber:String){
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_commentList, parameters: ["gId":gId,"pageNumber":pageNumber,"token":Model_user_information.getToken()], progress: nil) {[weak self] (object, isError) in
+            if let weakSelf = self{
+                if !isError {
+                    let model = Model_api_comment.yy_model(withJSON: object as Any)
+                    if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                        if let array = model?.page.list{
+                            weakSelf.comment = array[0]
+                        }else {
+                            weakSelf.commentHeightLC.constant = 0
+                        }
+                    }else if let msg = model?.msg{
+                        LGYToastView.show(message: msg)
+                    }
+                }
+                weakSelf.setComment()
+            }
+        }
+    }
     
+    func setComment()->Void{
+        if comment != nil{
+            commentNameLabel.text = comment?.nick_name
+            if let url = comment?.head_url{
+                commentImageView.imageFromURL(url, placeholder: UIImage(named: "loading.png")!)
+            }else{
+                commentImageView.image =  UIImage(named:"loading.png")
+            }
+            commentDescribeLabel.text = comment?.content
+            specificationsTextLabel.text = comment?.created_time
+        }else{
+            commentNameLabel.text = nil
+            commentImageView.image =  nil
+            commentDescribeLabel.text = nil
+            specificationsTextLabel.text = nil
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

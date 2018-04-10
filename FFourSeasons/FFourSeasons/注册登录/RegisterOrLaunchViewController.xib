@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchBackground.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Qe4-2d-SGA">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launcherImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qe4-2d-SGA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55o-5P-mIv">
@@ -352,8 +352,8 @@
         </viewController>
     </objects>
     <resources>
-        <image name="launchBackground.jpg" width="795" height="1024"/>
         <image name="launchChange.png" width="242" height="149"/>
+        <image name="launcherImage.png" width="750" height="1334"/>
         <image name="矩形3x.png" width="828" height="120"/>
     </resources>
 </document>

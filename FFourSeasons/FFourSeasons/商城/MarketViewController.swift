@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LCRefresh
+
 
 class MarketViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate{
     var rightBarItem:UIBarButtonItem!

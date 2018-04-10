@@ -14,9 +14,18 @@ extension UIImage {
      */
     func reSizeImage(reSize:CGSize)->UIImage {
 //        UIGraphicsBeginImageContext(reSize);
+        
         let scale = self.size.width/self.size.height
-        UIGraphicsBeginImageContextWithOptions(reSize,false,scale);
-        self.draw(in:CGRect(x: 0, y: 0, width: reSize.width, height:  reSize.height));
+        var height = reSize.height
+        var width = reSize.width
+        if scale > 1{
+            height = width/scale
+        }else{
+            width = height*scale
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(reSize,false,0.0);
+        self.draw(in:CGRect(x: 0, y: 0, width:width, height:height));
         let reSizeImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
         UIGraphicsEndImageContext();
         return reSizeImage;

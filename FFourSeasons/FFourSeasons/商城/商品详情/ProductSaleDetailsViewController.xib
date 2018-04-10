@@ -258,6 +258,7 @@
                                     <constraint firstItem="D9s-ri-ZaC" firstAttribute="centerY" secondItem="Zkf-K2-f3D" secondAttribute="centerY" id="GdD-ir-tId"/>
                                     <constraint firstItem="HC7-1F-iaJ" firstAttribute="trailing" secondItem="MGs-9P-8aw" secondAttribute="trailing" id="GjP-Zl-bcb"/>
                                     <constraint firstItem="D9s-ri-ZaC" firstAttribute="leading" secondItem="Zkf-K2-f3D" secondAttribute="trailing" constant="4" id="MOE-9G-YSB"/>
+                                    <constraint firstAttribute="height" constant="117" id="Nr0-DQ-UFi"/>
                                     <constraint firstAttribute="bottom" secondItem="iet-YZ-1fn" secondAttribute="bottom" constant="8" id="TfA-5D-TD6"/>
                                     <constraint firstItem="iet-YZ-1fn" firstAttribute="top" secondItem="MGs-9P-8aw" secondAttribute="bottom" constant="8" id="VBZ-so-hz3"/>
                                     <constraint firstItem="MGs-9P-8aw" firstAttribute="leading" secondItem="154-EF-vhI" secondAttribute="leading" id="WTA-qp-hpM"/>
@@ -414,6 +415,7 @@
             <connections>
                 <outlet property="backScrollView" destination="oAQ-am-fyc" id="wNA-QZ-tFe"/>
                 <outlet property="commentDescribeLabel" destination="MGs-9P-8aw" id="QNH-Dq-04m"/>
+                <outlet property="commentHeightLC" destination="Nr0-DQ-UFi" id="9QQ-Yy-Hz5"/>
                 <outlet property="commentImageView" destination="Zkf-K2-f3D" id="OS2-iC-Hqk"/>
                 <outlet property="commentNameLabel" destination="D9s-ri-ZaC" id="dag-UI-qhP"/>
                 <outlet property="commentView" destination="vsc-aQ-4HQ" id="e0k-uX-AQt"/>

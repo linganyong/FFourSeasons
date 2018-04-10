@@ -10,6 +10,10 @@ import UIKit
 
 class AllCommentsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var specLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var backView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +24,17 @@ class AllCommentsTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    
+    func setModel(item:Comment)->Void{
+        if let url = item.head_url {
+            headerImageView.imageFromURL(url, placeholder: UIImage(named: "loading.png")!)
+        }else{
+            headerImageView.image = UIImage(named: "loading.png")
+        }
+        contentLabel.text = item.content
+        nameLabel.text = item.nick_name
+        specLabel.text = item.created_time
     }
     
 }

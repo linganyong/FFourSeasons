@@ -115,10 +115,8 @@ class OrderPaymentViewController: UIViewController{
                    weakSelf.toPay(outTradeNo: weakSelf.outTradeNo, payPw: text)
                 }
             }
-        }else if payType == PayType.Alipay {
+        }else  {
             toPay(outTradeNo: outTradeNo, payPw: nil)
-        }else {
-            LGYToastView.show(message: "微信支付暂无开发,请选择其它开发方式")
         }
     }
     
@@ -136,7 +134,7 @@ class OrderPaymentViewController: UIViewController{
                             return
                         }
                     }
-                    if let order_no = model?.orderPay.out_trade_no as? String {
+                    if let order_no = model?.orderPay.out_trade_no {
                          weakSelf.removeEmptyView()
                         weakSelf.outTradeNo = order_no
                     }
@@ -163,23 +161,52 @@ class OrderPaymentViewController: UIViewController{
                             return
                         }
                     }
-                    if let payString = model?.pay {
-                        if weakSelf.payType == PayType.Alipay {
+                   
+                    if weakSelf.payType == PayType.Alipay {
                             //支付宝支付
+                        if let payString = model?.pay {
                             AlipaySDK.defaultService().payOrder(payString, fromScheme: "ffourSeasons", callback: { (result) in
                                 //这个是H5支付的回调
                                 
                             })
-                        }else if weakSelf.payType == PayType.WeiXin {
-                            //微信支付
-                        }else {
-                            //积分支付
+                        }
+                    }
+                    if weakSelf.payType == PayType.WeiXin {
+                        //微信支付
+                        if (LGYAFNetworking.isNetWorkSuccess(str: model?.code)) {
+                            weakSelf.weixinPay(model:model!)
+                        }
+                    }
+                    if weakSelf.payType == PayType.Point{
+                        //积分支付
+                        if (LGYAFNetworking.isNetWorkSuccess(str: model?.code)) {
+                            NotificationCenter.default.post(name: Notification.Name.init(NotificationCenterOrderPayment), object: true)
                         }
                     }
                    
                 }
             }
         }
+    }
+    
+    //MARK:微信支付
+    func weixinPay(model:Model_api_pay){
+        //获取nonceStr随机数
+        //        let uuid_ref = CFUUIDCreate(nil)
+        //        let uuid_string_ref = CFUUIDCreateString(nil , uuid_ref)
+        //        let uuid = uuid_string_ref! as String
+        //        let timeStamp = UInt32(Date().timeIntervalSince1970)
+        //        let stringA = "appid=wxd930ea5d5a258f4f&nonce_str="+uuid+"&partnerId="+partnerId+"&prepayId="+prepayid+"&timeStamp="+String(format: "%D", timeStamp)
+        //        let stringSignTemp = stringA+"&key=192006250b4c09247ec02edce69f6a2d"
+        //        let sign = stringSignTemp.md5().uppercased()
+        let request = PayReq()
+        request.partnerId = model.partnerid //微信支付分配的商户号
+        request.prepayId = model.prepayid  //微信返回的支付交易会话ID
+        request.package = model.package //默认
+        request.nonceStr = model.noncestr
+        request.timeStamp =  UInt32.init(model.timestamp)
+        request.sign = model.sign
+        WXApi.send(request)
     }
     
     func removeSelfViewController()->Void {
@@ -197,6 +224,27 @@ class OrderPaymentViewController: UIViewController{
             }
         }
         self.navigationController?.viewControllers = arrayVC as! [UIViewController];
+    }
+    
+    //MARK:代理方法（QQ、微信一样）
+    func on(_ req: BaseReq?) {
+        
+    }
+    
+    //MARK:代理方法（QQ、微信一样）
+    func on(_ resp: BaseResp?) {
+        //支付回调
+        if (resp?.isKind(of: PayResp.classForCoder()))!{
+            switch resp?.errCode{
+            case 0?:
+                //服务器端查询支付通知或查询API返回的结果再提示成功
+                NotificationCenter.default.post(name: Notification.Name.init(NotificationCenterOrderPayment), object: true)
+                break
+            default:
+                _ = LGYAlertViewSimple.show(title: "支付失败，"+(resp?.errStr)!, buttonStr: "确定")
+                break
+            }
+        }
     }
     
     deinit {

@@ -10,10 +10,18 @@
 
 @interface Model_api_pay : NSObject
 
-@property (nonatomic, retain) NSString * pay;
+
 @property (nonatomic, retain) NSString * code;
 @property (nonatomic, assign) long error;
 @property (nonatomic, retain) NSString * msg;
 @property (nonatomic, retain) NSString  *token;
-
+//支付宝
+@property (nonatomic, retain) NSString * pay;
+//微信
+@property (nonatomic, retain) NSString * noncestr;
+@property (nonatomic, retain) NSString * package;
+@property (nonatomic, retain) NSString * partnerid;
+@property (nonatomic, retain) NSString * prepayid;
+@property (nonatomic, retain) NSString * sign;
+@property (nonatomic, assign) double timestamp;
 @end

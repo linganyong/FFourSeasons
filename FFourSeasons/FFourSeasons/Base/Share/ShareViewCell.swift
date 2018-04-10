@@ -1,5 +1,5 @@
 //
-//  AllClassCollectionViewCell.swift
+//  ShareViewCell.swift
 //  FFourSeasons
 //
 //  Created by 林赣泳 on 2018/2/10.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class AllClassCollectionViewCell: UICollectionViewCell {
+class ShareViewCell: UICollectionViewCell {
 
     @IBOutlet weak var classImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+  
     
     
     override func awakeFromNib() {
@@ -19,7 +19,7 @@ class AllClassCollectionViewCell: UICollectionViewCell {
      
     }
     
-    func setDataScoure(imageUrl:String?,name:String) -> Void {
+    func setDataScoure(imageUrl:String?) -> Void {
         if imageUrl != nil && (imageUrl?.contains("http"))!{
              classImageView.imageFromURL(imageUrl!, placeholder: UIImage.init(named: "loading.png")!)
         }else if imageUrl != nil{
@@ -27,7 +27,6 @@ class AllClassCollectionViewCell: UICollectionViewCell {
         }else{
             classImageView.image = UIImage.init(named: "loading.png")
         }
-        nameLabel.text = name
     }
 
 }

@@ -14,7 +14,6 @@ protocol ShareViewDelegate {
 
 class ShareView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
 
-    @IBOutlet weak var maginBottomLC: NSLayoutConstraint!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
 //        @IBOutlet weak var collectionViewLC: NSLayoutConstraint!
@@ -28,7 +27,6 @@ class ShareView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     
         class func initShareView(titleArray:Array<String>,imageArray:Array<String>) -> ShareView {
             let view = Bundle.main.loadNibNamed("ShareView", owner: nil, options: nil)?.first as! ShareView
-            LGYTool.viewLayerShadowShadowOffsetHeight(view: view.backView)
             view.setCollectionView(titleArray: titleArray, imageArray: imageArray)
             
             return view
@@ -39,37 +37,28 @@ class ShareView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         func setCollectionView(titleArray:Array<String>,imageArray:Array<String>) -> Void {
             dataTitleScoure = titleArray
             dataImageScoure = imageArray
-            addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancle)))
-            var count =  CGFloat(1.0)
-            if titleArray.count < 4{
-                count = CGFloat(titleArray.count)
-            }
-            let width = (UIScreen.main.bounds.size.width*60.0/75.0)/count-10.0
-            collectionViewHeight = 68+30
+            backView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancle)))
+            self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.35)
+            let width = (collectionView.frame.size.width - 40)/2
             let flowLayout = UICollectionViewFlowLayout()
-            flowLayout.minimumInteritemSpacing = 0
+            flowLayout.minimumInteritemSpacing = 40
             flowLayout.minimumLineSpacing = 0
-            flowLayout.itemSize = CGSize( width:width, height: collectionViewHeight)
+            flowLayout.itemSize = CGSize( width:width, height: width)
             collectionView.collectionViewLayout = flowLayout
             collectionView.delegate = self
             collectionView.dataSource = self
-            collectionView.register(UINib.init(nibName: "AllClassCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AllClassCollectionViewCell")
+            collectionView.register(UINib.init(nibName: "ShareViewCell", bundle: nil), forCellWithReuseIdentifier: "ShareViewCell")
             collectionView.bounces = false
-//            if self.dataTitleScoure.count > 3{
-//                self.collectionViewLC.constant = collectionViewHeight * 2+20
-//            }else{
-//                self.collectionViewLC.constant = collectionViewHeight * 10
-//            }
+           
             
         }
         
         func show() {
+             self.alpha = 0
             UIApplication.shared.keyWindow?.addSubview(self)
-            maginBottomLC.constant = -200
-             self.layoutIfNeeded()
             //MARK:设置导航栏取消按钮
             UIView.animate(withDuration: 0.5, animations: {
-                self.maginBottomLC.constant = 150
+                self.alpha = 1
                 self.layoutIfNeeded()
             }) { (finish) in
                 
@@ -79,7 +68,7 @@ class ShareView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
        @objc  func cancle(){
             //MARK:设置导航栏取消按钮
             UIView.animate(withDuration: 0.5, animations: {
-                self.maginBottomLC.constant = -200
+                 self.alpha = 0
                 self.layoutIfNeeded()
             }) { (finish) in
                 self.removeFromSuperview()
@@ -98,8 +87,9 @@ class ShareView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         }
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllClassCollectionViewCell", for: indexPath) as! AllClassCollectionViewCell
-            cell.setDataScoure(imageUrl: dataImageScoure[indexPath.row], name: dataTitleScoure[indexPath.row])
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShareViewCell", for: indexPath) as! ShareViewCell
+            cell.backgroundColor = UIColor(red: 249/255.0, green: 131/255.0, blue: 249/255.0, alpha: 1)
+            cell.setDataScoure(imageUrl: dataImageScoure[indexPath.row])
             return cell
         }
         

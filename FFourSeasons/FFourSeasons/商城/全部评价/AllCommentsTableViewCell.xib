@@ -12,18 +12,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="137" id="KGk-i7-Jjw" customClass="AllCommentsTableViewCell" customModule="FFourSeasons" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="137"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="122" id="KGk-i7-Jjw" customClass="AllCommentsTableViewCell" customModule="FFourSeasons" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="122"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="136.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="121.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="评价背景3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="ocI-R1-wVx">
-                        <rect key="frame" x="6" y="16" width="308" height="116.5"/>
+                        <rect key="frame" x="6" y="16" width="308" height="101.5"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="av7-x6-8SD">
-                        <rect key="frame" x="6" y="16" width="308" height="116.5"/>
+                        <rect key="frame" x="6" y="16" width="308" height="101.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01474d58f84d01a8012049efb7a609.png" translatesAutoresizingMaskIntoConstraints="NO" id="T2N-Zw-3XD">
                                 <rect key="frame" x="36" y="18" width="30" height="30"/>
@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvh-v7-Uq0">
-                                <rect key="frame" x="36" y="96.5" width="21.5" height="10"/>
+                                <rect key="frame" x="36" y="81.5" width="21.5" height="10"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -98,8 +98,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="backView" destination="av7-x6-8SD" id="mZZ-kB-FdQ"/>
+                <outlet property="contentLabel" destination="RN4-GI-byZ" id="FHb-dn-bhm"/>
+                <outlet property="headerImageView" destination="T2N-Zw-3XD" id="zSl-k1-rIF"/>
+                <outlet property="nameLabel" destination="G09-TU-KBb" id="Mdh-WZ-L7o"/>
+                <outlet property="specLabel" destination="Bvh-v7-Uq0" id="Yrd-Ym-eqb"/>
             </connections>
-            <point key="canvasLocation" x="25" y="98.5"/>
+            <point key="canvasLocation" x="25" y="91"/>
         </tableViewCell>
     </objects>
     <resources>

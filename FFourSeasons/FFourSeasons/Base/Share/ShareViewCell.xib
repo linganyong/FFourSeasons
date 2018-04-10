@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ShareViewCell" customModule="FFourSeasons" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="116" height="126"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="116" height="126"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XDY-35-lXf">
+                        <rect key="frame" x="20" y="24.5" width="77" height="77"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="XDY-35-lXf" secondAttribute="height" id="hki-6V-pB9"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="XDY-35-lXf" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ASJ-gK-1TS"/>
+                <constraint firstItem="XDY-35-lXf" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="2:3" id="gYu-W9-SVV"/>
+                <constraint firstItem="XDY-35-lXf" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="hSk-Fi-0oC"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="116" height="126"/>
+            <connections>
+                <outlet property="classImageView" destination="XDY-35-lXf" id="UPq-mm-8hI"/>
+            </connections>
+            <point key="canvasLocation" x="136" y="166"/>
+        </collectionViewCell>
+    </objects>
+</document>

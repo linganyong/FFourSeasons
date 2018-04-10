@@ -85,9 +85,9 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     @objc func changeLaunchOrRegister() -> Void {
         descriptionView.isHidden = true
         if showViewType == .Launch {
-            addLaunchOrReginsterAnimation(showView: .Reginster, withDuration: 1)
+            addLaunchOrReginsterAnimation(showView: .Reginster, withDuration: 0.7)
         }else{
-            addLaunchOrReginsterAnimation(showView: .Launch, withDuration: 1)
+            addLaunchOrReginsterAnimation(showView: .Launch, withDuration: 0.7)
         }
     }
     
@@ -131,7 +131,6 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
             showViewType = .Launch
             break
         }
-        
     }
     
     //MARK:展示登录

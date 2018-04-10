@@ -65,6 +65,10 @@
 #import "Model_api_orderList.h"
 #import "Model_api_searchGoods.h"
 #import "Model_api_orderDetail.h"
+#import "Comment.h"
+#import "CommentPage.h"
+#import "Model_api_comment.h"
+
 
 //import view
 #import "BRAddressPickerView.h"
@@ -72,5 +76,5 @@
 #import "Model_api_orderPay.h"
 #import "Model_api_pay.h"
 
-
+@import LCRefresh;
 #endif /* bridging_Header_h */

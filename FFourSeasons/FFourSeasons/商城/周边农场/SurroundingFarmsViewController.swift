@@ -111,8 +111,11 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
                 if farm.imgs != nil{
                     _ = UIImage.image(fromURL: farm.imgs, placeholder: UIImage.init(named: "农场图标.png")!, shouldCacheImage: false, closure: { [weak annotationView](image) in
                         if image != nil {
-                            annotationView?.image = image?.maskWithColor(color: UIColor.white).reSizeImage(reSize: CGSize(width: 50, height: 50)).toCircle()
-                            annotationView?.layer.cornerRadius = 25
+                            annotationView?.image = image
+                            annotationView?.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+                            annotationView?.backgroundColor = UIColor.white
+                            annotationView?.contentMode = .center
+                            annotationView?.LGyCornerRadius = 25
                             LGYTool.viewLayerShadowShadowOffsetHeight(view: annotationView!)
                             annotationView?.reloadInputViews()
                         }
@@ -158,13 +161,9 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         let cl = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         userAnnotation.coordinate = location.coordinate
         clGeoCoder.reverseGeocodeLocation(cl) { (placemarks, error) in
-            for placeMark: CLPlacemark in placemarks! {
-                let addressDic = placeMark.addressDictionary
-                let state = addressDic?["State"] as? String
-                var city = addressDic?["City"] as? String
-                let subLocality = addressDic?["SubLocality"] as? String
-                let street = addressDic?["Street"] as? String
-            }
+//            for placeMark: CLPlacemark in placemarks! {
+//
+//            }
         }
         
         mapView.addAnnotation(self.userAnnotation)

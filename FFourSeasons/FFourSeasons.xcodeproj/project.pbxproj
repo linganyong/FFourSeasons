@@ -25,6 +25,13 @@
 		9C00BFB5202ECD9600E77EA0 /* SearchProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C00BFB3202ECD9600E77EA0 /* SearchProductViewController.xib */; };
 		9C00BFB8202ECE5000E77EA0 /* SearchProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C00BFB6202ECE5000E77EA0 /* SearchProductTableViewCell.xib */; };
 		9C00BFB9202ECE5000E77EA0 /* SearchProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C00BFB7202ECE5000E77EA0 /* SearchProductTableViewCell.swift */; };
+		9C04BB7B207CA63D006EA205 /* sharpF.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C04BB79207CA63C006EA205 /* sharpF.png */; };
+		9C04BB7C207CA63D006EA205 /* sharpC.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C04BB7A207CA63C006EA205 /* sharpC.png */; };
+		9C04BB7F207CAC4C006EA205 /* ShareViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C04BB7D207CAC4C006EA205 /* ShareViewCell.xib */; };
+		9C04BB80207CAC4C006EA205 /* ShareViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C04BB7E207CAC4C006EA205 /* ShareViewCell.swift */; };
+		9C04BB86207CEA38006EA205 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C04BB85207CEA38006EA205 /* Comment.m */; };
+		9C04BB89207CEAB6006EA205 /* Model_api_comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C04BB88207CEAB6006EA205 /* Model_api_comment.m */; };
+		9C04BB8C207CEB05006EA205 /* CommentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C04BB8B207CEB05006EA205 /* CommentPage.m */; };
 		9C060D9C2079BC3B007EC640 /* launcherImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C060D9B2079BC3B007EC640 /* launcherImage.png */; };
 		9C060D9E207A0C5F007EC640 /* Lin+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C060D9D207A0C5E007EC640 /* Lin+UIImage.swift */; };
 		9C060DA1207A4AD2007EC640 /* Model_api_searchGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C060DA0207A4AD2007EC640 /* Model_api_searchGoods.m */; };
@@ -505,6 +512,16 @@
 		9C00BFB3202ECD9600E77EA0 /* SearchProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchProductViewController.xib; sourceTree = "<group>"; };
 		9C00BFB6202ECE5000E77EA0 /* SearchProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchProductTableViewCell.xib; sourceTree = "<group>"; };
 		9C00BFB7202ECE5000E77EA0 /* SearchProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchProductTableViewCell.swift; sourceTree = "<group>"; };
+		9C04BB79207CA63C006EA205 /* sharpF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sharpF.png; sourceTree = "<group>"; };
+		9C04BB7A207CA63C006EA205 /* sharpC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sharpC.png; sourceTree = "<group>"; };
+		9C04BB7D207CAC4C006EA205 /* ShareViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareViewCell.xib; sourceTree = "<group>"; };
+		9C04BB7E207CAC4C006EA205 /* ShareViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewCell.swift; sourceTree = "<group>"; };
+		9C04BB84207CEA38006EA205 /* Comment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		9C04BB85207CEA38006EA205 /* Comment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		9C04BB87207CEAB6006EA205 /* Model_api_comment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_comment.h; sourceTree = "<group>"; };
+		9C04BB88207CEAB6006EA205 /* Model_api_comment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model_api_comment.m; sourceTree = "<group>"; };
+		9C04BB8A207CEB05006EA205 /* CommentPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentPage.h; sourceTree = "<group>"; };
+		9C04BB8B207CEB05006EA205 /* CommentPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentPage.m; sourceTree = "<group>"; };
 		9C060D9B2079BC3B007EC640 /* launcherImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launcherImage.png; sourceTree = "<group>"; };
 		9C060D9D207A0C5E007EC640 /* Lin+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lin+UIImage.swift"; sourceTree = "<group>"; };
 		9C060D9F207A4AD2007EC640 /* Model_api_searchGoods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_searchGoods.h; sourceTree = "<group>"; };
@@ -1249,6 +1266,8 @@
 		9C10BD8B20450F60004AAFE3 /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
+				9C04BB7A207CA63C006EA205 /* sharpC.png */,
+				9C04BB79207CA63C006EA205 /* sharpF.png */,
 				9C060DA4207B0928007EC640 /* launchChange.png */,
 				9C060DA2207B0858007EC640 /* defaultHeader.png */,
 				9CFD5539206F1F380028B1A4 /* 邀请码3x.png */,
@@ -1331,6 +1350,8 @@
 		9C3CB1672068E182001DA039 /* Share */ = {
 			isa = PBXGroup;
 			children = (
+				9C04BB7E207CAC4C006EA205 /* ShareViewCell.swift */,
+				9C04BB7D207CAC4C006EA205 /* ShareViewCell.xib */,
 				9C3CB1682068E1A8001DA039 /* ShareView.swift */,
 				9C3CB16A2068E1C3001DA039 /* ShareView.xib */,
 			);
@@ -1962,6 +1983,12 @@
 				9C060DA0207A4AD2007EC640 /* Model_api_searchGoods.m */,
 				9C7E79AD207B8AE50007A9E4 /* Model_api_orderDetail.h */,
 				9C7E79AE207B8AE50007A9E4 /* Model_api_orderDetail.m */,
+				9C04BB84207CEA38006EA205 /* Comment.h */,
+				9C04BB85207CEA38006EA205 /* Comment.m */,
+				9C04BB87207CEAB6006EA205 /* Model_api_comment.h */,
+				9C04BB88207CEAB6006EA205 /* Model_api_comment.m */,
+				9C04BB8A207CEB05006EA205 /* CommentPage.h */,
+				9C04BB8B207CEB05006EA205 /* CommentPage.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2471,6 +2498,7 @@
 				9C77C5112027FEC1008B49E2 /* c70833b982692a9b074a79353ba5585d9b25d4565867d-FxqhJp.jpg in Resources */,
 				9CBB50B8204953A60018A43B /* 选中.png in Resources */,
 				9C58AADF20511B8200594011 /* CustomerServiceApplyResultViewController.xib in Resources */,
+				9C04BB7B207CA63D006EA205 /* sharpF.png in Resources */,
 				9C10BD7C2044FA09004AAFE3 /* 定位3x.png in Resources */,
 				9C941145205A2820002A29F9 /* SurroundingFarmsViewController.xib in Resources */,
 				9CD62132204FBA57003CD6C4 /* 会员登录背景3x.png in Resources */,
@@ -2629,6 +2657,7 @@
 				9C2C548B2029500300B67BBE /* 引导3.png in Resources */,
 				9CABC3F6202ED7AD00C1EE38 /* 应用3x.png in Resources */,
 				9CA32D5520479BEC00FD5DFC /* SignAddIntegralViewController.xib in Resources */,
+				9C04BB7C207CA63D006EA205 /* sharpC.png in Resources */,
 				9CA32D50204793D900FD5DFC /* BranchShopTableViewCell.xib in Resources */,
 				9C77C4F42027FEC1008B49E2 /* 8.jpg in Resources */,
 				9CBB5083204929B00018A43B /* 设置3x.png in Resources */,
@@ -2669,6 +2698,7 @@
 				9C0D9CA52046801600D271CE /* 钟表3x.png in Resources */,
 				9C0D9C952046601100D271CE /* 背景3x.png in Resources */,
 				9C77C51E2027FEC1008B49E2 /* 910dbf29deb6fdcdd3b118e0a00d6d48da66b04f24430-EoDveD.jpg in Resources */,
+				9C04BB7F207CAC4C006EA205 /* ShareViewCell.xib in Resources */,
 				9CFD5529206E61D30028B1A4 /* 百耕园社区3x.png in Resources */,
 				9CA32D8120480DEA00FD5DFC /* MemberAnalysisViewController.xib in Resources */,
 			);
@@ -2803,6 +2833,7 @@
 				9CA32D402046CD8900FD5DFC /* CallPhoneView.swift in Sources */,
 				9C0DB9C1206BA0F100F9085D /* Spec.m in Sources */,
 				9CBB507C204921A50018A43B /* PersonCollectionViewCell.swift in Sources */,
+				9C04BB8C207CEB05006EA205 /* CommentPage.m in Sources */,
 				9C46BA1520454B2B00646A81 /* AddAddressViewController.swift in Sources */,
 				9C5CBF16207677FE0078F17B /* Model_api_getGoods.m in Sources */,
 				9CBB508B20492F2E0018A43B /* SetViewController.swift in Sources */,
@@ -2886,6 +2917,7 @@
 				9CFD55532071055A0028B1A4 /* IntegralItem.m in Sources */,
 				9CFD554A207102340028B1A4 /* Model_api_signIn.m in Sources */,
 				9CFD554D207104730028B1A4 /* Model_api_signInList.m in Sources */,
+				9C04BB89207CEAB6006EA205 /* Model_api_comment.m in Sources */,
 				9CBD4811206B872F005C3EB0 /* SubTag.m in Sources */,
 				9CD62104204E7889003CD6C4 /* LGYPickerImageTableViewCell.swift in Sources */,
 				9C0DB9E2206E0F6800F9085D /* Addresses.m in Sources */,
@@ -2908,10 +2940,12 @@
 				9C00BFB9202ECE5000E77EA0 /* SearchProductTableViewCell.swift in Sources */,
 				9C58AAD820510AAA00594011 /* OrderDetailsViewController.swift in Sources */,
 				9CEFBAF9205FA926006A6625 /* AddressShowTableViewCell.swift in Sources */,
+				9C04BB86207CEA38006EA205 /* Comment.m in Sources */,
 				9C2C5487202947EF00B67BBE /* APPGuideViewCell.swift in Sources */,
 				9C77C4212027F96D008B49E2 /* NSBundle+PYSearchExtension.m in Sources */,
 				9C77C3AE2027F1FF008B49E2 /* AppDelegate.swift in Sources */,
 				9CA32D752047FA7200FD5DFC /* CouponViewController.swift in Sources */,
+				9C04BB80207CAC4C006EA205 /* ShareViewCell.swift in Sources */,
 				9CEFBAFE205FA97C006A6625 /* AddressShowViewController.swift in Sources */,
 				9CC79B4B202DA1EF00C43E08 /* RegisterView.swift in Sources */,
 				9CBB509A204935570018A43B /* ChangeUserPassworkViewController.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 
+let wxApi_id = "wxcf5e70f7ba0877fe" //微信接入 正式
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
@@ -22,8 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
         setNavigationBarStyle() //导航栏设置
         LGYAFNetworking.lgyReachabilityStatus() //网络提示
         AMapServices.shared().apiKey = "32551cbf411055ca9114325c28655c3a" //高德地图 正式
-        WXApi.registerApp("wxcf5e70f7ba0877fe")//微信接入 正式
-        
+        WXApi.registerApp(wxApi_id)//微信接入 正式
         return true
     }
     
@@ -74,6 +74,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
             })
             
         }
+        let result = "\(url.absoluteString)"
+        if result.contains(wxApi_id) && result.contains("ret=0"){
+            NotificationCenter.default.post(name: Notification.Name.init(NotificationCenterOrderPayment), object: true)
+        }
+        
         //        }
         //QQ分享
         //[TencentOAuth HandleOpenURL:url];
@@ -84,70 +89,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     
     //MARK:代理方法（QQ、微信一样）
     func on(_ req: BaseReq?) {
-        
+        //支付回调
+        //支付回调
+        if (req?.isKind(of: PayReq.classForCoder()))!{
+            
+        }
     }
     
     //MARK:代理方法（QQ、微信一样）
     func on(_ resp: BaseResp?) {
-        //支付回调
-        if (resp?.isKind(of: PayResp.classForCoder()))!{
-            switch resp?.errCode{
-            case 0?:
-                //服务器端查询支付通知或查询API返回的结果再提示成功
-                _ = LGYToastView.show(message: "支付成功", timeInterval: 2, block: {
-
-                })
-                break
-            default:
-                _ = LGYAlertViewSimple.show(title: "支付失败，"+(resp?.errStr)!, buttonStr: "确定")
-                break
-            }
-        }
+        
+     
     }
 
-    //MARK:微信分享调用入口
-    class func weixinShareAction(title:String?,description:String?,imageName:String?,pageUrlStr:String?) {
-        let message = WXMediaMessage()
-        if title != nil {
-            message.title = title
-        }
-        if description != nil {
-            message.description = description!
-        }
-        if imageName != nil{
-            message.setThumbImage(UIImage(named: imageName!))
-        }
-        let webPageObject = WXWebpageObject()
-        if pageUrlStr != nil {
-            webPageObject.webpageUrl = pageUrlStr
-        }
-        message.mediaObject = webPageObject
-        let req = SendMessageToWXReq()
-        req.bText = false
-        req.message = message
-        req.scene = Int32(WXSceneSession.rawValue)
-        WXApi.send(req)
-    }
-    
-    //MARK:微信支付
-    func weixinPay(partnerId:String,prepayid:String){
-        //获取nonceStr随机数
-        let uuid_ref = CFUUIDCreate(nil)
-        let uuid_string_ref = CFUUIDCreateString(nil , uuid_ref)
-        let uuid = uuid_string_ref! as String
-        let timeStamp = UInt32(Date().timeIntervalSince1970)
-        let stringA = "appid=wxd930ea5d5a258f4f&nonce_str="+uuid+"&partnerId="+partnerId+"&prepayId="+prepayid+"&timeStamp="+String(format: "%D", timeStamp)
-        let stringSignTemp = stringA+"&key=192006250b4c09247ec02edce69f6a2d"
-        let sign = stringSignTemp.md5().uppercased()
-        let request = PayReq()
-        request.partnerId = partnerId //微信支付分配的商户号
-        request.prepayId = prepayid  //微信返回的支付交易会话ID
-        request.package = "Sign=WXPay" //默认
-        request.nonceStr = uuid
-        request.timeStamp = timeStamp
-        request.sign = sign
-        WXApi.send(request)
-    }
     
     //MARK:判断缓存是否被使用，判断的用时也在使用（判断数组是否存在和添加到数组）
      func isExistCacheNameUse(cacheName:String) -> Bool {
@@ -189,8 +143,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
                 //跳转支付宝钱包进行支付，处理支付结果
                 AlipaySDK.defaultService().processOrder(withPaymentResult: url, standbyCallback: {(_ resultDic: [AnyHashable: Any]?) -> Void in
                     
-                    let memo = resultDic?["memo"] as? String
-                    if ((resultDic?["ResultStatus"] as? String) == "9000") {
+                    let memo = resultDic?["msg"] as? String
+                    if ((resultDic?["resultStatus"] as? String) == "9000") {
                         NotificationCenter.default.post(name: Notification.Name.init(NotificationCenterOrderPayment), object: true)
                     } else if memo != nil {
                         LGYToastView.show(message: memo!)
@@ -206,8 +160,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
             //跳转支付宝钱包进行支付，处理支付结果
             AlipaySDK.defaultService().processOrder(withPaymentResult: url, standbyCallback: {(_ resultDic: [AnyHashable: Any]?) -> Void in
                 
-                let memo = resultDic?["memo"] as? String
-                if ((resultDic?["ResultStatus"] as? String) == "9000") {
+                let memo = resultDic?["msg"] as? String
+                if ((resultDic?["resultStatus"] as? String) == "9000") {
                     NotificationCenter.default.post(name: Notification.Name.init(NotificationCenterOrderPayment), object: true)
                 } else if memo != nil {
                     LGYToastView.show(message: memo!)

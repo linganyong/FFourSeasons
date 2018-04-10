@@ -46,6 +46,12 @@ class APIAddress: NSObject {
     static let api_goodsDetail = String(format: "%@/api/goodsDetail", arguments: [api_domainName()])
     
     /*
+     商品评论 已完成
+     */
+    static let api_commentList = String(format: "%@/api/commentList", arguments: [api_domainName()])
+    
+    
+    /*
      首页 已完成
      */
     static let api_index = String(format: "%@/api/index", arguments: [api_domainName()])
@@ -188,11 +194,6 @@ class APIAddress: NSObject {
      忘记密码 已完成
      */
     static let api_alterPw = String(format: "%@/api/alterPw", arguments: [api_domainName()])
-    
-     /*
-    获取评论信息
-    */
-    static let api_commentList = String(format: "%@/api/commentList", arguments: [api_domainName()])
     
     /*
      获取周边农场信息
