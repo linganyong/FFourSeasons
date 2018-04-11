@@ -94,9 +94,9 @@ class QCodeViewController: UIViewController,ShareViewDelegate {
     func shareView(shareView: ShareView, selectIndex: NSInteger) {
         shapeView?.cancle()
         if selectIndex == 0{
-            weixinShareAction(title: "分享", description: "这是一段描述",imageName: "icon.png",pageUrlStr:"https://www.baidu.com",isWXSceneSession: true)
+            weixinShareAction(title: "分享", description: "这是一段描述",imageName: "icon.jpeg",pageUrlStr:"https://www.baidu.com",isWXSceneSession: true)
         }else{
-            weixinShareAction(title: "分享", description: "这是一段描述",imageName: "icon.png",pageUrlStr:"https://www.baidu.com",isWXSceneSession: false)
+            weixinShareAction(title: "分享", description: "这是一段描述",imageName: "icon.jpeg",pageUrlStr:"https://www.baidu.com",isWXSceneSession: false)
         }
     }
     

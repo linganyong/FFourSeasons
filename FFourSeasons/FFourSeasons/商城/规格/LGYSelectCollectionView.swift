@@ -169,7 +169,7 @@ class LGYSelectCollectionView: UIView,UICollectionViewDelegate,UICollectionViewD
         if flag {
             selectIndexPaths.add(indexPath)
         }
-         collectionView.reloadData()
+         collectionView.reloadSections([indexPath.section])
     }
     
     

@@ -19,6 +19,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     static let lock = NSLock()
     var comment:Comment?
     
+    @IBOutlet weak var commentMaginLC: NSLayoutConstraint!
     @IBOutlet weak var commentHeightLC: NSLayoutConstraint!
     @IBOutlet weak var headerScollerView: LCycleView!
     @IBOutlet weak var backScrollView: UIScrollView!
@@ -218,7 +219,6 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     @objc func showTableView()->Void{
         productDetailTableViewLC.constant = productDetailTableView.contentSize.height
-        productDetailTableView.layoutIfNeeded()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -444,9 +444,9 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
                     let model = Model_api_comment.yy_model(withJSON: object as Any)
                     if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
                         if let array = model?.page.list{
-                            weakSelf.comment = array[0]
-                        }else {
-                            weakSelf.commentHeightLC.constant = 0
+                            if array.count > 0{
+                                weakSelf.comment = array[0]
+                            }
                         }
                     }else if let msg = model?.msg{
                         LGYToastView.show(message: msg)
@@ -459,6 +459,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     func setComment()->Void{
         if comment != nil{
+            commentView.isHidden = false
             commentNameLabel.text = comment?.nick_name
             if let url = comment?.head_url{
                 commentImageView.imageFromURL(url, placeholder: UIImage(named: "loading.png")!)
@@ -467,11 +468,16 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             }
             commentDescribeLabel.text = comment?.content
             specificationsTextLabel.text = comment?.created_time
+            commentHeightLC.constant = 117
+            commentMaginLC.constant = 16
         }else{
             commentNameLabel.text = nil
             commentImageView.image =  nil
             commentDescribeLabel.text = nil
             specificationsTextLabel.text = nil
+            commentView.isHidden = true
+            commentHeightLC.constant = 0
+            commentMaginLC.constant = 0
         }
     }
     

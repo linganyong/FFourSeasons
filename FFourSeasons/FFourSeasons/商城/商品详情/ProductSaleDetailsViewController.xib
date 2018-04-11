@@ -417,6 +417,7 @@
                 <outlet property="commentDescribeLabel" destination="MGs-9P-8aw" id="QNH-Dq-04m"/>
                 <outlet property="commentHeightLC" destination="Nr0-DQ-UFi" id="9QQ-Yy-Hz5"/>
                 <outlet property="commentImageView" destination="Zkf-K2-f3D" id="OS2-iC-Hqk"/>
+                <outlet property="commentMaginLC" destination="nMv-cQ-c8M" id="3Om-rz-ekA"/>
                 <outlet property="commentNameLabel" destination="D9s-ri-ZaC" id="dag-UI-qhP"/>
                 <outlet property="commentView" destination="vsc-aQ-4HQ" id="e0k-uX-AQt"/>
                 <outlet property="headerScollerView" destination="h0X-PS-h80" id="3j0-PO-Z6I"/>

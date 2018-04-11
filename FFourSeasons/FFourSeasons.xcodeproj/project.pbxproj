@@ -286,6 +286,7 @@
 		9C7E79AC207B7DF20007A9E4 /* 首页3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C7E79AB207B7DF10007A9E4 /* 首页3x.png */; };
 		9C7E79AF207B8AE50007A9E4 /* Model_api_orderDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E79AE207B8AE50007A9E4 /* Model_api_orderDetail.m */; };
 		9C7E79B1207C55550007A9E4 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C7E79B0207C55550007A9E4 /* loading.png */; };
+		9C7F39D4207DFB4600F5990C /* icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9C7F39D3207DFB4500F5990C /* icon.jpeg */; };
 		9C90648F20610239006158AC /* 内容为空3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C90648E20610238006158AC /* 内容为空3x.png */; };
 		9C9064912061FA63006158AC /* LGYMaxCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9064902061FA63006158AC /* LGYMaxCollectionViewFlowLayout.swift */; };
 		9C941144205A2820002A29F9 /* SurroundingFarmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C941142205A2820002A29F9 /* SurroundingFarmsViewController.swift */; };
@@ -417,7 +418,6 @@
 		9CD36AFB2057AC7D0075732C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD36AFA2057AC7D0075732C /* Security.framework */; };
 		9CD36AFD2057AC930075732C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD36AFC2057AC930075732C /* CoreTelephony.framework */; };
 		9CD36AFF2057ACA30075732C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD36AFE2057ACA30075732C /* CFNetwork.framework */; };
-		9CD36B01205930080075732C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CD36B00205930080075732C /* icon.png */; };
 		9CD620FA204E5A2C003CD6C4 /* LGYImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD620F8204E5A2C003CD6C4 /* LGYImageSelectViewController.swift */; };
 		9CD620FB204E5A2C003CD6C4 /* LGYImageSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD620F9204E5A2C003CD6C4 /* LGYImageSelectViewController.xib */; };
 		9CD62100204E634D003CD6C4 /* LGYPickerImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD620FE204E634D003CD6C4 /* LGYPickerImageCollectionViewCell.swift */; };
@@ -807,6 +807,7 @@
 		9C7E79AD207B8AE50007A9E4 /* Model_api_orderDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_orderDetail.h; sourceTree = "<group>"; };
 		9C7E79AE207B8AE50007A9E4 /* Model_api_orderDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model_api_orderDetail.m; sourceTree = "<group>"; };
 		9C7E79B0207C55550007A9E4 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
+		9C7F39D3207DFB4500F5990C /* icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpeg; sourceTree = "<group>"; };
 		9C90648E20610238006158AC /* 内容为空3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "内容为空3x.png"; sourceTree = "<group>"; };
 		9C9064902061FA63006158AC /* LGYMaxCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYMaxCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		9C941142205A2820002A29F9 /* SurroundingFarmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurroundingFarmsViewController.swift; sourceTree = "<group>"; };
@@ -950,7 +951,6 @@
 		9CD36AFA2057AC7D0075732C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9CD36AFC2057AC930075732C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9CD36AFE2057ACA30075732C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		9CD36B00205930080075732C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		9CD620F8204E5A2C003CD6C4 /* LGYImageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYImageSelectViewController.swift; sourceTree = "<group>"; };
 		9CD620F9204E5A2C003CD6C4 /* LGYImageSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LGYImageSelectViewController.xib; sourceTree = "<group>"; };
 		9CD620FE204E634D003CD6C4 /* LGYPickerImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYPickerImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1777,10 +1777,10 @@
 		9C77C4772027FEC0008B49E2 /* 其他素材 */ = {
 			isa = PBXGroup;
 			children = (
+				9C7F39D3207DFB4500F5990C /* icon.jpeg */,
 				9C7E79B0207C55550007A9E4 /* loading.png */,
 				9CFD55462070DF870028B1A4 /* loading.gif */,
 				9C90648E20610238006158AC /* 内容为空3x.png */,
-				9CD36B00205930080075732C /* icon.png */,
 				9CD36AF02057AA850075732C /* weixin.png */,
 				9C10BD5C2043DE28004AAFE3 /* 菠萝长图.jpg */,
 				9C77C4782027FEC0008B49E2 /* 1.jpg */,
@@ -2544,7 +2544,6 @@
 				9CBB508C20492F2E0018A43B /* SetViewController.xib in Resources */,
 				9C77C5022027FEC1008B49E2 /* e6e2f71ff2fcbe78b5619a441748cd3c4e66293c33759-RosDee.jpg in Resources */,
 				9CA32D632047B2FB00FD5DFC /* 积分详情3x.png in Resources */,
-				9CD36B01205930080075732C /* icon.png in Resources */,
 				9C77C4E32027FEC1008B49E2 /* 抽奖.png in Resources */,
 				9C31298C2060EBC8006E6102 /* 我的订单bg.png in Resources */,
 				9CA32D712047F57C00FD5DFC /* IntegralShopTableViewCell.xib in Resources */,
@@ -2644,6 +2643,7 @@
 				9CD62127204F83BD003CD6C4 /* 相机.jpg in Resources */,
 				9C9616C8205139C900D0EB7D /* EvaluateViewController.xib in Resources */,
 				9C0D9C972046601100D271CE /* 生日特权3x.png in Resources */,
+				9C7F39D4207DFB4600F5990C /* icon.jpeg in Resources */,
 				9C77C4B92027FEC0008B49E2 /* 右箭头3x.png in Resources */,
 				9CA32D7C2047FDE900FD5DFC /* 优惠券背景3x.png in Resources */,
 				9CA32D3D2046CB2B00FD5DFC /* LGYLineSelectViewTableViewCell.xib in Resources */,

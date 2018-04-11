@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="qmY-81-hqg">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="qmY-81-hqg">
                         <rect key="frame" x="150.5" y="60" width="75" height="75"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="qmY-81-hqg" secondAttribute="height" id="yIv-5a-RC6"/>
@@ -242,7 +242,7 @@
         </viewController>
     </objects>
     <resources>
-        <image name="icon.png" width="180" height="180"/>
+        <image name="icon.jpeg" width="800" height="800"/>
         <image name="更多评价3x.png" width="24" height="45"/>
     </resources>
 </document>
