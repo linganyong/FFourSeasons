@@ -435,6 +435,7 @@
                 <outlet property="productPriceLabel" destination="mHO-CT-Dx8" id="0sw-hn-CjP"/>
                 <outlet property="selectSpecificationsView" destination="J8W-td-1Zd" id="N7y-fj-UGe"/>
                 <outlet property="specificationsTextLabel" destination="iet-YZ-1fn" id="PJV-t8-H1d"/>
+                <outlet property="spelabel" destination="t2G-Sq-yHR" id="qCy-P4-CEu"/>
             </connections>
             <point key="canvasLocation" x="99.5" y="-6.5"/>
         </viewController>

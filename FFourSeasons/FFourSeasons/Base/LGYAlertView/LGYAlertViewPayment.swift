@@ -10,17 +10,17 @@ import UIKit
 
 typealias LGYAlertViewPaymentCallBlock = (_ text:String) ->Void
 
-class LGYAlertViewPayment: UIView,UITextFieldDelegate {
+class LGYAlertViewPayment: UIView,UITextFieldDelegate,LGYTextFieldDelegate {
 
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var textField1: UITextField!
-    @IBOutlet weak var textField2: UITextField!
-    @IBOutlet weak var textField3: UITextField!
-    @IBOutlet weak var textField4: UITextField!
-        @IBOutlet weak var textField5: UITextField!
-    @IBOutlet weak var textField6: UITextField!
-
+    @IBOutlet weak var textField1: LGYTextField!
+    @IBOutlet weak var textField2: LGYTextField!
+    @IBOutlet weak var textField3: LGYTextField!
+    @IBOutlet weak var textField4: LGYTextField!
+    @IBOutlet weak var textField5: LGYTextField!
+    @IBOutlet weak var textField6: LGYTextField!
+    
     var _inPutStrLength = 1
 
     
@@ -40,6 +40,12 @@ class LGYAlertViewPayment: UIView,UITextFieldDelegate {
         view.textField4.delegate = view
         view.textField5.delegate = view
         view.textField6.delegate = view
+        view.textField1.lgyDelegate = view
+        view.textField2.lgyDelegate = view
+        view.textField3.lgyDelegate = view
+        view.textField4.lgyDelegate = view
+        view.textField5.lgyDelegate = view
+        view.textField6.lgyDelegate = view
         view.textField1.becomeFirstResponder()
         return view
     }
@@ -47,6 +53,25 @@ class LGYAlertViewPayment: UIView,UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func lgyTextField(textField: LGYTextField) {
+            if textField6 == textField {
+                textField5.becomeFirstResponder()
+            }
+            if textField5 == textField {
+                textField4.becomeFirstResponder()
+            }
+            if textField4 == textField {
+                textField3.becomeFirstResponder()
+            }
+            if textField3 == textField {
+                textField2.becomeFirstResponder()
+            }
+            if textField2 == textField {
+                textField1.becomeFirstResponder()
+            }
+        
     }
     
     
@@ -63,7 +88,7 @@ class LGYAlertViewPayment: UIView,UITextFieldDelegate {
         }else if textField5 == textField {
             textField6.becomeFirstResponder()
         }
-        
+
         let text = String(format: "%@%@%@%@%@%@", textField1.text!, textField2.text!,textField3.text!,textField4.text!, textField5.text!,textField6.text!)
         
         if text.count == _inPutStrLength*6{
@@ -74,6 +99,7 @@ class LGYAlertViewPayment: UIView,UITextFieldDelegate {
     
     //MARK:监听控制输入
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
         //控制手机输入位数
         let count = (textField.text?.count)! + string.count - range.length
         if count  == _inPutStrLength{
@@ -86,7 +112,7 @@ class LGYAlertViewPayment: UIView,UITextFieldDelegate {
         }else if count > _inPutStrLength{
             return false
         }
-       
+        
         return true
     }
     

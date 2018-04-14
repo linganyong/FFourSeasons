@@ -30,13 +30,13 @@ class AllCommentsViewController: UIViewController,UITableViewDelegate,UITableVie
         tableView.register(UINib.init(nibName: "AllCommentsTableViewCell", bundle: nil), forCellReuseIdentifier: "AllCommentsTableViewCell")
         weak var tb = tableView
         weak var vc = self
-        tableView.refreshHeader = LCRefreshHeader.init(refreshBlock: {
+        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             if vc != nil{
                 tb!.lgyPageIndex = 1
                 vc!.loadComment(gId: "\(vc!.gId)", pageNumber: "\((tb!.lgyPageIndex)!)")
             }
         })
-        tableView.refreshFooter = LCRefreshFooter.init(refreshBlock: {
+        tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
             if vc != nil{
             tb!.lgyPageIndex = 1+(tb!.lgyPageIndex)!
             vc!.loadComment(gId: "\(vc!.gId)", pageNumber: "\((tb!.lgyPageIndex)!)")

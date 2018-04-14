@@ -22,6 +22,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     let textLabel = TYAttributedLabel()
     var listFarm = Array<Farm>() //其他农场列表
     var firstFarm:Farm? //推荐农场
+    var selectFarm:Farm? //点击展开的农场
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,8 +137,8 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
             
             
         }else if view.lgyTag < 10000 && view.lgyTag >= 0{
-            let farm = listFarm[view.lgyTag]
-            loadGoodData(sid: farm._id, description: farm.shop_introduce, title: farm.shop_name)
+            selectFarm = listFarm[view.lgyTag]
+            loadGoodData(sid: selectFarm!._id, description: selectFarm!.shop_introduce, title: selectFarm!.shop_name)
         }else if view.lgyTag == 10000{
             
         }
@@ -204,6 +205,12 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         self.navigationController?.pushViewController(na, animated: true)
     }
     
+    //MARK: DetailsViewDelegate pro 获取周边农场立即前往点击回调
+    func detailsViewGoToAction(view: DetailsView) {
+        let cl = CLLocation(latitude: selectFarm!.lat, longitude: selectFarm!.lng)
+        tool.endLocation = cl.coordinate
+        tool.mapNavigation(vController: self)
+    }
     //插入大图标
     func setData(model:Model_api_farm?)->Void{
         if LGYAFNetworking.isNetWorkSuccess(str: model?.code){

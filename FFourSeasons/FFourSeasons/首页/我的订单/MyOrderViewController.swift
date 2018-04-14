@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LCRefresh
+
 
 let orderAll = "-1" //全部
 let orderWaitPay = "0" //未付款
@@ -79,11 +79,12 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     break
                 }
                 vc?.loadDataScoure(tableView: tb!)
-                tb?.refreshHeader = LCRefreshHeader.init(refreshBlock: {
+                tb?.mj_header = MJRefreshNormalHeader(refreshingBlock: {
                     tb?.lgyPageIndex = 1
                     vc?.loadDataScoure(tableView: tb!)
                 })
-                tb?.refreshFooter = LCRefreshFooter.init(refreshBlock: {
+                tb?.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+//                    tb?.mj_footer?.alpha = 1
                     tb?.lgyPageIndex = 1 + (tb?.lgyPageIndex)!
                     vc?.loadDataScoure(tableView: tb!)
                 })
@@ -119,7 +120,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
             cell.buttonTitle(leftStr: nil, rightStr: nil)
             break
         case orderWaitReceipt: //待收货
-            cell.buttonTitle(leftStr: nil, rightStr: nil)
+            cell.buttonTitle(leftStr: "申请售后", rightStr: "确定收货")
             break
         case orderWaitEvaluate: //待评价
             cell.buttonTitle(leftStr: nil, rightStr: "评价")
@@ -162,6 +163,11 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
         case "确定收货":
             comfirmOrder(cell: cell)
             break
+        case "申请售后":
+            let vc = ApplyCustomerServiceViewController()
+            vc.orderDetail = cell.modelOrder
+            self.navigationController?.pushViewController(vc, animated: true)
+            break;
         default:
             break
         }
@@ -191,8 +197,11 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 break
             case orderCustomerService: //售后
                 let vc = Bundle.main.loadNibNamed("CustomerServiceApplyResultViewController", owner: nil, options: nil)?.first as! CustomerServiceApplyResultViewController
+                vc.orderDetail = cell.modelOrder
+                vc.setText()
+                vc.loadOrderDetails()
                 self.navigationController?.pushViewController(vc, animated: true)
-                break
+                return
             case orderComplete:  //已完成
                 vc.setOrderType(orderType: .TransactionCompletion)
                 break
@@ -220,6 +229,13 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
             }
         }
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationBarStyle(type: .Default)
+    }
+    
     
     func comfirmOrder(cell:MyHarvestTableViewCell){
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_confirmOrder, parameters: ["oId":"\(cell.modelOrder!._id)","token":Model_user_information.getToken()], progress: nil) { [weak self](object, isError) in
@@ -264,14 +280,9 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     }
                 }
                 
-                if (tb?.isHeaderRefreshing())! {
-                    tb?.endHeaderRefreshing()
-                }
-                if (tb?.isFooterRefreshing())! {
-                    tb?.endFooterRefreshing()
-                }
-                tb?.setDataLoadover()
-                tb?.resetDataLoad()
+                tb?.mj_header?.endRefreshing()
+                tb?.mj_footer?.endRefreshing()
+                
         }
     }
     

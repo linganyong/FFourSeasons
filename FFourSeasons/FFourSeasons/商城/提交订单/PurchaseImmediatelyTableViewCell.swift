@@ -11,6 +11,7 @@ import UIKit
 class PurchaseImmediatelyTableViewCell: UITableViewCell {
     @IBOutlet weak var imageViewMaginLeftLC: NSLayoutConstraint!
     
+    @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productCountLabel: UILabel!
@@ -22,12 +23,18 @@ class PurchaseImmediatelyTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        productImageView.layer.masksToBounds = true
     }
     
-    func setDataScoure(name:String,priceStr:String,countStr:String) -> Void {
+    func setDataScoure(name:String,priceStr:String,countStr:String,imageUrl:String?) -> Void {
         productNameLabel.text = name
         productPriceLabel.text = priceStr
         productCountLabel.text = countStr
+        if imageUrl != nil{
+            productImageView.imageFromURL(imageUrl!, placeholder: UIImage.init(named: "loading.png")!)
+        }else{
+            productImageView.image = UIImage.init(named: "loading.png")
+        }
     }
     
 }

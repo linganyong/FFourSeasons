@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import LCRefresh
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate,LCycleViewDelegate {
     var rightBarItem: UIBarButtonItem?
@@ -54,10 +53,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }catch{
                 LBuyly.lBuglyError(error: error)
             }
-            
             NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: NotificationCenterLaunch), object: nil)
         }
-       
     }
     
     @objc func notificationCenter(notification:Notification)->Void{
@@ -122,7 +119,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         tableView.register(UINib.init(nibName: "MainPageProductTableViewCell", bundle: nil), forCellReuseIdentifier: "MainPageProductTableViewCell")
         tableView.lgyDataScoure = Array<Goods>()
         weak var vc = self;
-        tableView.refreshHeader = LCRefreshHeader.init(refreshBlock: {
+        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             vc?.needLaunch()
         })
     }
@@ -308,6 +305,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cacheName = "api_index_1"
         //MARK:加载产品分类信息
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_index, parameters: ["token":Model_user_information.getToken()], progress: nil,cacheName:cacheName) { (object,isError) in
+            vc?.tableView?.mj_header?.endRefreshing()
+            vc?.tableView?.mj_footer?.endRefreshing()
             if isError {
                 return
             }
@@ -337,16 +336,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
         }
         tableView.reloadData();
-        if (tableView.isHeaderRefreshing()) {
-            tableView.endHeaderRefreshing()
-        }
         
-        if (tableView.isFooterRefreshing()) {
-            tableView.endFooterRefreshing()
-            
-        }
-        tableView.setDataLoadover()
-        tableView.resetDataLoad()
+        
     }
     
     override func didReceiveMemoryWarning() {

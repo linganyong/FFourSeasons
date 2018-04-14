@@ -19,12 +19,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launcherImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qe4-2d-SGA">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launcher.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qe4-2d-SGA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55o-5P-mIv">
                         <rect key="frame" x="67.5" y="153.5" width="240" height="200"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6B9-GM-94W">
+                        <rect key="frame" x="273" y="400" width="50" height="1"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Ksh-E9-nAL"/>
+                            <constraint firstAttribute="height" constant="0.5" id="pqJ-Ig-0Yf"/>
+                        </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZuG-CD-MMT">
                         <rect key="frame" x="67.5" y="153.5" width="240" height="200"/>
@@ -259,9 +267,13 @@
                             <action selector="registerAgreementAction:" destination="61n-8i-Bzu" eventType="touchUpInside" id="czj-y2-Oco"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g58-Z0-MLx">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g58-Z0-MLx">
                         <rect key="frame" x="260" y="379" width="77" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="H2v-PJ-SKK"/>
+                            <constraint firstAttribute="width" constant="77" id="oZ4-3N-1n6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <state key="normal" title="游客登录">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
@@ -309,6 +321,8 @@
                     <constraint firstItem="A3E-lx-Cxt" firstAttribute="trailing" secondItem="Wel-Ha-4Vz" secondAttribute="trailing" id="Cbz-iO-GSX"/>
                     <constraint firstItem="Qe4-2d-SGA" firstAttribute="bottom" secondItem="V3k-4Z-Twe" secondAttribute="bottom" id="Czi-5s-Gdx"/>
                     <constraint firstItem="55o-5P-mIv" firstAttribute="top" secondItem="A3E-lx-Cxt" secondAttribute="bottom" constant="6.5" id="EXC-CC-CXA"/>
+                    <constraint firstItem="Wdg-96-TCy" firstAttribute="top" secondItem="6B9-GM-94W" secondAttribute="bottom" constant="24" id="Ho2-NO-L9X"/>
+                    <constraint firstItem="Wdg-96-TCy" firstAttribute="top" secondItem="g58-Z0-MLx" secondAttribute="bottom" constant="16.5" id="MDx-6m-sBt"/>
                     <constraint firstItem="Wdg-96-TCy" firstAttribute="top" secondItem="4EQ-ia-6dr" secondAttribute="bottom" constant="16" id="ODQ-2L-PwD"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="bottom" secondItem="GoZ-st-eDT" secondAttribute="bottom" id="Pe9-Mr-ukj"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="leading" secondItem="Wel-Ha-4Vz" secondAttribute="leading" id="QAk-eG-Q01"/>
@@ -320,6 +334,7 @@
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="centerY" secondItem="nYj-XQ-0ZO" secondAttribute="centerY" constant="-80" id="dRJ-fG-CMk"/>
                     <constraint firstItem="uLQ-Ve-Kol" firstAttribute="top" secondItem="nYj-XQ-0ZO" secondAttribute="top" id="die-Rp-cmz"/>
                     <constraint firstItem="Qe4-2d-SGA" firstAttribute="top" secondItem="nYj-XQ-0ZO" secondAttribute="top" id="f9B-We-xS9"/>
+                    <constraint firstItem="g58-Z0-MLx" firstAttribute="trailing" secondItem="Wdg-96-TCy" secondAttribute="trailing" id="fEg-wc-nCa"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="trailing" secondItem="GoZ-st-eDT" secondAttribute="trailing" constant="-30" id="fSM-ys-tBg"/>
                     <constraint firstItem="uLQ-Ve-Kol" firstAttribute="leading" secondItem="V3k-4Z-Twe" secondAttribute="leading" id="fsE-nk-8ya"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="centerX" secondItem="nYj-XQ-0ZO" secondAttribute="centerX" id="lYg-jD-i5z"/>
@@ -327,6 +342,7 @@
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="bottom" secondItem="Wel-Ha-4Vz" secondAttribute="bottom" id="nP4-Rv-WX0"/>
                     <constraint firstItem="4EQ-ia-6dr" firstAttribute="centerX" secondItem="Qe4-2d-SGA" secondAttribute="centerX" id="oYj-Q7-juK"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="top" secondItem="GoZ-st-eDT" secondAttribute="top" constant="-30" id="syV-LR-98j"/>
+                    <constraint firstItem="6B9-GM-94W" firstAttribute="centerX" secondItem="g58-Z0-MLx" secondAttribute="centerX" id="tWR-mf-rl4"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="leading" secondItem="55o-5P-mIv" secondAttribute="leading" id="tYW-0L-dZ8"/>
                     <constraint firstItem="Wdg-96-TCy" firstAttribute="width" secondItem="nYj-XQ-0ZO" secondAttribute="width" multiplier="8:10" id="uw9-HN-qBp"/>
                     <constraint firstItem="ZuG-CD-MMT" firstAttribute="leading" secondItem="GoZ-st-eDT" secondAttribute="leading" constant="30" id="wKD-Bg-Ohf"/>
@@ -349,6 +365,8 @@
                 <outlet property="registerView" destination="GoZ-st-eDT" id="Mey-Kf-XHW"/>
                 <outlet property="shadowView" destination="55o-5P-mIv" id="o7x-rg-3Hy"/>
                 <outlet property="tapView" destination="uLQ-Ve-Kol" id="VDL-GE-OT7"/>
+                <outlet property="touristButton" destination="g58-Z0-MLx" id="0bG-cc-nlz"/>
+                <outlet property="touristView" destination="6B9-GM-94W" id="t23-ra-jeO"/>
                 <outlet property="view1" destination="ZuG-CD-MMT" id="kEf-Bf-tUl"/>
             </connections>
             <point key="canvasLocation" x="39.5" y="-11.5"/>
@@ -356,7 +374,7 @@
     </objects>
     <resources>
         <image name="launchChange.png" width="242" height="149"/>
-        <image name="launcherImage.png" width="750" height="1334"/>
+        <image name="launcher.png" width="750" height="1334"/>
         <image name="矩形3x.png" width="828" height="120"/>
     </resources>
 </document>

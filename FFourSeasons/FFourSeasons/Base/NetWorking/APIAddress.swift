@@ -210,5 +210,10 @@ class APIAddress: NSObject {
      */
     static let api_alterUserPw = String(format: "%@/api/alterUserPw", arguments: [api_domainName()])
     
+    /*
+     售后申请
+     */
+    static let api_customerService = String(format: "%@/api/customerService", arguments: [api_domainName()])
+    
     
 }

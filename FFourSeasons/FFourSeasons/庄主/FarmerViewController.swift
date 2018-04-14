@@ -89,7 +89,7 @@ class FarmerViewController: UIViewController {
         //私人客服
         if (sender.LGYLabelKey?.elementsEqual("1"))!{
             //自动打开拨号页面并自动拨打电话
-            let urlString = "tel://400-4800-4520"
+            let urlString = "tel://020-3807-8100"
             if let url = URL(string: urlString) {
                 //根据iOS系统版本，分别处理
                 if #available(iOS 10, *) {

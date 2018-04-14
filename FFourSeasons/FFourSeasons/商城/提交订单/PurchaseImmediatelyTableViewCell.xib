@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01474d58f84d01a8012049efb7a609.png" translatesAutoresizingMaskIntoConstraints="NO" id="2B4-By-Y7w">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01474d58f84d01a8012049efb7a609.png" translatesAutoresizingMaskIntoConstraints="NO" id="2B4-By-Y7w">
                         <rect key="frame" x="0.0" y="12" width="106" height="81"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="81" id="1ux-Er-ti4"/>
@@ -72,6 +72,7 @@
             <connections>
                 <outlet property="imageViewMaginLeftLC" destination="zqE-B3-Ipz" id="lr9-H5-kXy"/>
                 <outlet property="productCountLabel" destination="D3T-1Z-47O" id="dMY-8r-waw"/>
+                <outlet property="productImageView" destination="2B4-By-Y7w" id="Fcz-B7-7LP"/>
                 <outlet property="productNameLabel" destination="c0M-iE-IyQ" id="IPV-Ai-WKw"/>
                 <outlet property="productPriceLabel" destination="SJm-XP-pXs" id="GSc-ph-tl6"/>
             </connections>

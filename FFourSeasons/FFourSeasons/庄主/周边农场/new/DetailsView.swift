@@ -10,6 +10,7 @@ import UIKit
 
 protocol DetailsViewDelegate {
     func detailsView(view:DetailsView,farmGoods:FarmGoods)->Void
+    func detailsViewGoToAction(view:DetailsView)->Void
 }
 
 class DetailsView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
@@ -17,6 +18,7 @@ class DetailsView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     private var delegate:DetailsViewDelegate?
     let layout = UICollectionViewFlowLayout()
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var goToButton: UIButton!
     var listGoods = Array<FarmGoods>()
     
     @IBOutlet weak var backView: UIView!
@@ -32,12 +34,17 @@ class DetailsView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         superView.addSubview(view)
         view.backgroundColor = UIColor.init(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.4)
         view.setCollectionView()
-        let row = Int(array.count/3+1)
-        view.collectionViewHeightLC.constant = ((view.collectionView.frame.size.width)/3)*CGFloat(row)
+        if array.count == 0{
+            view.collectionViewHeightLC.constant = 0
+        }else{
+            let row = Int(array.count/3+1)
+            view.collectionViewHeightLC.constant = ((view.collectionView.frame.size.width)/3)*CGFloat(row)
+        }
         return view
     }
     
     func setCollectionView() -> Void {
+        LGYTool.buttonCornerRadiusImage(button: goToButton, imageName: "背景3x.png", title: "立即前往")
         if collectionView.delegate == nil {
             backView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancle)))
             self.layoutIfNeeded()
@@ -81,6 +88,9 @@ class DetailsView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         cancle()
     }
     
+    @IBAction func goToAction(_ sender: Any) {
+        self.delegate?.detailsViewGoToAction(view: self)
+    }
     @objc func cancle() ->Void{
         self.removeFromSuperview()
     }

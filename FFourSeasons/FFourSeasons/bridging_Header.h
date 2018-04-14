@@ -26,7 +26,7 @@
 #import "WXApi.h"
 #import <CommonCrypto/CommonDigest.h> //md5加密
 #import <AlipaySDK/AlipaySDK.h>
-
+@import MJRefresh;
 
 //import model
 #import "Model_sms_verificationCode.h"
@@ -76,5 +76,5 @@
 #import "Model_api_orderPay.h"
 #import "Model_api_pay.h"
 
-@import LCRefresh;
+
 #endif /* bridging_Header_h */

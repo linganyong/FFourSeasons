@@ -10,7 +10,9 @@ import UIKit
 
 class CustomerServiceViewController: UIViewController,UITextViewDelegate,UITableViewDataSource,UITableViewDelegate {
 
-     var rightBarItem:UIBarButtonItem!
+    @IBOutlet weak var refundButton: UIButton!
+    @IBOutlet weak var onlyRefundMoneyButton: UIButton!
+    var rightBarItem:UIBarButtonItem!
     @IBOutlet weak var titleTableView: UITableView!
     @IBOutlet weak var productTableView: UITableView!
     @IBOutlet weak var prictureCollectionView: UICollectionView!
@@ -18,8 +20,18 @@ class CustomerServiceViewController: UIViewController,UITextViewDelegate,UITable
     @IBOutlet weak var describleLabel: UILabel!
     @IBOutlet weak var descibleBackView: UIView!
     
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var yunFeiLabel: UILabel!
+    @IBOutlet weak var telLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    
+    var orderDetail:OrderList?
+    var productDataScoure = Array<OrderDetails>()
     @IBOutlet weak var productTableViewLC: NSLayoutConstraint!
     @IBOutlet weak var titleTableViewLC: NSLayoutConstraint!
+    var selectType = 0 //
     
     
     override func viewDidLoad() {
@@ -33,10 +45,26 @@ class CustomerServiceViewController: UIViewController,UITextViewDelegate,UITable
         setProductTableView()
         setTitleTableView()
        notificationCenterKeyboard()
-//        setBackgroundColor()
+        buttonSelectStyle(button:onlyRefundMoneyButton)
+        buttonSelectStyle(button:refundButton)
     }
     
-   
+    func setText(){
+        if orderDetail != nil{
+            nameLabel.text = "姓名:\(orderDetail!.receive_name!)"
+            telLabel.text = "电话:\(orderDetail!.receive_phone!)"
+            addressLabel.text = "地址:\(orderDetail!.receive_address!)"
+            yunFeiLabel.text = "￥\(orderDetail!.freight!)"
+            priceLabel.text = "￥\(orderDetail!.price!)"
+        }else{
+            nameLabel.text = ""
+            telLabel.text = ""
+            addressLabel.text = ""
+            yunFeiLabel.text = "￥0"
+            priceLabel.text = "￥0"
+        }
+        
+    }
     
     func setProductTableView() -> Void {
         productTableView.delegate = self
@@ -45,6 +73,27 @@ class CustomerServiceViewController: UIViewController,UITextViewDelegate,UITable
          productTableView.bounces = false
         productTableView.separatorColor = UIColor.clear
         productTableView.register(UINib.init(nibName: "CustomeServiceProductTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomeServiceProductTableViewCell")
+    }
+    
+    @IBAction func onlyRefundAction(_ sender: Any) {
+        buttonSelectStyle(button:onlyRefundMoneyButton)
+        buttonSelectStyle(button:refundButton)
+    }
+    
+    @IBAction func refundAction(_ sender: Any) {
+        buttonSelectStyle(button:refundButton)
+        buttonSelectStyle(button:onlyRefundMoneyButton)
+    }
+    
+    func buttonSelectStyle(button:UIButton){
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = UIColor(red: 0/255.0, green: 216/255.0, blue: 135/255.0, alpha: 1)
+        LGYTool.viewLayerShadow(view: button)
+    }
+    func buttonDefaultStyle(button:UIButton){
+        button.setTitleColor(UIColor.init(red: 52/255.0, green: 52/255.0, blue: 52/255.0, alpha: 1), for: .normal)
+        button.backgroundColor = UIColor.white
+        LGYTool.viewLayerShadow(view: button)
     }
     
     func setTitleTableView() -> Void {
@@ -59,13 +108,28 @@ class CustomerServiceViewController: UIViewController,UITextViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == productTableView{
-            productTableViewLC.constant = 3*93
+            productTableViewLC.constant = CGFloat(productDataScoure.count*93)
             self.view.layoutIfNeeded()
-            return 3
+            return  productDataScoure.count
         }else
-        if tableView == titleTableView {
-            titleTableViewLC.constant = 30*5
-            return 5
+            if tableView == titleTableView {
+                var count = 0
+                //根据最后操作日常来确定需要展示cell个数
+                if orderDetail?.return_goods_time != nil{
+                    count = 6
+                }else if orderDetail?.get_goods_time != nil{
+                    count = 5
+                }else if orderDetail?.send_goods_time != nil{
+                    count = 4
+                }else if orderDetail?.pay_time != nil{
+                    count = 3
+                }else if orderDetail?.created_time != nil{
+                    count = 2
+                }else if orderDetail?.out_trade_no != nil{
+                    count = 1
+                }
+                titleTableViewLC.constant = CGFloat(30*count)
+                return count
         }
         return 0
     }
@@ -82,6 +146,8 @@ class CustomerServiceViewController: UIViewController,UITextViewDelegate,UITable
     func productCell(tableView: UITableView,indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomeServiceProductTableViewCell", for: indexPath) as! CustomeServiceProductTableViewCell
         cell.selectionStyle = .none
+        let model = productDataScoure[indexPath.row]
+        cell.setDataScoure(name: model.title!, priceStr:  "￥\(model.price!)", countStr: "x\( model.count)", imageUrl: model.small_icon)
         
         return cell
     }
@@ -89,13 +155,36 @@ class CustomerServiceViewController: UIViewController,UITextViewDelegate,UITable
     func titleCell(tableView: UITableView,indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomeServiceTitleTableViewCell", for: indexPath) as! CustomeServiceTitleTableViewCell
         cell.selectionStyle = .none
-        
+        switch indexPath.row {
+        case 0:
+            cell.setDataScoure(leftStr: "订单号：", rightStr:(orderDetail?.out_trade_no)!)
+            break
+        case 1:
+            cell.setDataScoure(leftStr: "创建时间：", rightStr:(orderDetail?.created_time)!)
+            break
+        case 2:
+            cell.setDataScoure(leftStr: "支付时间：", rightStr:(orderDetail?.pay_time)!)
+            break
+        case 3:
+            cell.setDataScoure(leftStr: "发货时间：", rightStr: (orderDetail?.send_goods_time)!)
+            break
+        case 4:
+            cell.setDataScoure(leftStr: "收货时间：", rightStr: (orderDetail?.get_goods_time)!)
+            break
+        case 5:
+            cell.setDataScoure(leftStr: "申请退货时间：", rightStr: (orderDetail?.return_goods_time)!)
+            break
+        case 6:
+            cell.setDataScoure(leftStr: "退款成功时间：", rightStr: "")
+            break
+        default:
+            break
+        }
         return cell
     }
     
     func setTextView() -> Void {
         LGYTool.viewLayerShadow(view: descibleBackView)
-        
          let tap = UITapGestureRecognizer.init(target: self, action: #selector(registerKeyBoard))
         self.view.addGestureRecognizer(tap)
         describleTextView.delegate = self
@@ -132,7 +221,25 @@ class CustomerServiceViewController: UIViewController,UITextViewDelegate,UITable
     
     //MARK:导航栏右边按钮响应
     @objc func rightBarAction() -> Void {
-        
+        if describleTextView.text == nil || describleTextView.text.count == 0{
+            LGYToastView.show(message: "请输入退货原因")
+            return
+        }
+        loadCustomerService()
+    }
+    
+    func loadCustomerService(){
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_customerService, parameters: ["token":Model_user_information.getToken()
+            ,"oId":"\(orderDetail!._id)"
+            ,"content":describleTextView.text!
+            ,"imgs":""], progress: nil, cacheName: nil) { (object, isError) in
+            if !isError {
+                let model = Model_user_information.yy_model(withJSON: object as Any)
+                if let msg = model?.msg{
+                    LGYToastView.show(message: msg)
+                }
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

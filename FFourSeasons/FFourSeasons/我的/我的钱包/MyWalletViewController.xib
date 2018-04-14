@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nx-aV-bdi">
                         <rect key="frame" x="12" y="40" width="351" height="71"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2deecd846595981c6c06e7972608f485fb5fd7b42ad9b-kDNLmR.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wTj-Yk-HBq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultHeader.png" translatesAutoresizingMaskIntoConstraints="NO" id="wTj-Yk-HBq">
                                 <rect key="frame" x="12" y="6.5" width="58" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="A0T-Du-PIZ"/>
@@ -143,7 +143,7 @@
         </viewController>
     </objects>
     <resources>
-        <image name="2deecd846595981c6c06e7972608f485fb5fd7b42ad9b-kDNLmR.jpg" width="800" height="800"/>
+        <image name="defaultHeader.png" width="144" height="144"/>
         <image name="更多评价3x.png" width="24" height="45"/>
     </resources>
 </document>

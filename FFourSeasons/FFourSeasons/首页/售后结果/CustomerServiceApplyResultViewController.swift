@@ -15,7 +15,6 @@ enum CustomerServiceApplyResult:Int {
 
 class CustomerServiceApplyResultViewController: UIViewController,UITextViewDelegate,UITableViewDataSource,UITableViewDelegate {
 
-     var rightBarItem:UIBarButtonItem!
     var resultType:CustomerServiceApplyResult?
     
     @IBOutlet weak var applyButtonHeightLC: NSLayoutConstraint!
@@ -23,9 +22,19 @@ class CustomerServiceApplyResultViewController: UIViewController,UITextViewDeleg
     @IBOutlet weak var titleTableView: UITableView!
     @IBOutlet weak var productTableView: UITableView!
     
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var yunFeiLabel: UILabel!
+    @IBOutlet weak var telLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    var orderDetail:OrderList?
+    var productDataScoure = Array<OrderDetails>()
+    
     @IBOutlet weak var productTableViewLC: NSLayoutConstraint!
     @IBOutlet weak var titleTableViewLC: NSLayoutConstraint!
-    
+    var titleLeftDataScoue = Array<String>()
+    var titleRightDataScoue = Array<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +43,8 @@ class CustomerServiceApplyResultViewController: UIViewController,UITextViewDeleg
         setTitleTableView()
         self.title = "申请售后"
         navigationItemBack(title: " ")
-       
         setProductTableView()
         setTitleTableView()
-        setResultType()
-//        setBackgroundColor()
     }
     
     
@@ -54,6 +60,24 @@ class CustomerServiceApplyResultViewController: UIViewController,UITextViewDeleg
         }
     }
    
+    func setText(){
+        if orderDetail != nil{
+            nameLabel.text = "姓名:\(orderDetail!.receive_name!)"
+            telLabel.text = "电话:\(orderDetail!.receive_phone!)"
+            addressLabel.text = "地址:\(orderDetail!.receive_address!)"
+            yunFeiLabel.text = "￥\(orderDetail!.freight!)"
+            priceLabel.text = "￥\(orderDetail!.price!)"
+        }else{
+            nameLabel.text = ""
+            telLabel.text = ""
+            addressLabel.text = ""
+            yunFeiLabel.text = "￥0"
+            priceLabel.text = "￥0"
+        }
+        
+    }
+    
+    
     @IBAction func appleAgainAction(_ sender: UIButton) {
         let vc = Bundle.main.loadNibNamed("CustomerServiceViewController", owner: nil, options: nil)?.first as! CustomerServiceViewController
         self.navigationController?.pushViewController(vc, animated: true)
@@ -80,13 +104,40 @@ class CustomerServiceApplyResultViewController: UIViewController,UITextViewDeleg
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == productTableView{
-            productTableViewLC.constant = 3*93
+            productTableViewLC.constant = CGFloat(productDataScoure.count*93)
             self.view.layoutIfNeeded()
-            return 3
+            return  productDataScoure.count
         }else
-        if tableView == titleTableView {
-            titleTableViewLC.constant = 30*6
-            return 6
+            if tableView == titleTableView {
+                titleRightDataScoue.removeAll()
+                titleLeftDataScoue.removeAll()
+                if let str = orderDetail?.out_trade_no{
+                    titleRightDataScoue.append(str)
+                    titleLeftDataScoue.append("订单号：")
+                }
+                if let str = orderDetail?.created_time {
+                    titleRightDataScoue.append(str)
+                    titleLeftDataScoue.append("创建时间：")
+                }
+                if let str = orderDetail?.pay_time {
+                    titleRightDataScoue.append(str)
+                    titleLeftDataScoue.append("支付时间：")
+                }
+                if let str = orderDetail?.send_goods_time {
+                    titleRightDataScoue.append(str)
+                    titleLeftDataScoue.append("发货时间：")
+                }
+                //根据最后操作日常来确定需要展示cell个数
+                if let str = orderDetail?.return_goods_time {
+                    titleRightDataScoue.append(str)
+                    titleLeftDataScoue.append("申请退货时间：：")
+                }
+                if let str = orderDetail?.get_goods_time {
+                    titleRightDataScoue.append(str)
+                    titleLeftDataScoue.append("退款成功时间：")
+                }
+                titleTableViewLC.constant = CGFloat(30*titleLeftDataScoue.count)
+                return titleLeftDataScoue.count
         }
         return 0
     }
@@ -103,6 +154,8 @@ class CustomerServiceApplyResultViewController: UIViewController,UITextViewDeleg
     func productCell(tableView: UITableView,indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomeServiceProductTableViewCell", for: indexPath) as! CustomeServiceProductTableViewCell
         cell.selectionStyle = .none
+        let model = productDataScoure[indexPath.row]
+        cell.setDataScoure(name: model.title!, priceStr:  "￥\(model.price!)", countStr: "x\( model.count)", imageUrl: model.small_icon)
         
         return cell
     }
@@ -110,32 +163,35 @@ class CustomerServiceApplyResultViewController: UIViewController,UITextViewDeleg
     func titleCell(tableView: UITableView,indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomeServiceTitleTableViewCell", for: indexPath) as! CustomeServiceTitleTableViewCell
         cell.selectionStyle = .none
-        switch indexPath.row {
-        case 0:
-            cell.setDataScoure(leftStr: "订单号：", rightStr: "12345678901")
-            break
-        case 2:
-             cell.setDataScoure(leftStr: "创建时间：", rightStr: "2018-03-08")
-            break
-        case 3:
-             cell.setDataScoure(leftStr: "支付时间：", rightStr: "2018-03-08")
-            break
-        case 4:
-             cell.setDataScoure(leftStr: "发货时间：", rightStr: "2018-03-08")
-            break
-        case 5:
-             cell.setDataScoure(leftStr: "申请退货时间：", rightStr: "2018-03-08")
-            break
-        case 6:
-             cell.setDataScoure(leftStr: "退款成功时间：", rightStr: "2018-03-08")
-            break
-        default:
-            break
-        }
+        cell.setDataScoure(leftStr: titleLeftDataScoue[indexPath.row], rightStr: titleRightDataScoue[indexPath.row])
         return cell
     }
     
+    
+    func loadOrderDetails() -> Void {
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_orderDetail, parameters: ["token":Model_user_information.getToken(),"oId":"\(orderDetail!._id)"], progress: nil) {[weak self] (object, isError) in
+            if !isError{
+                let model = Model_api_orderDetail.yy_model(withJSON: object as Any)
+                if let list = model?.recordList, let weakSelf = self{
+                    weakSelf.setProductDataScoure(list:list)
+                }
+                if let item = model?.orderPay, let weakSelf = self {
+                    weakSelf.setTitleDataScoure(item: item)
+                }
+            }
+        }
+    }
+    
+    func setProductDataScoure(list:Array<OrderDetails>)->Void{
+        productDataScoure = list;
+        productTableView.reloadData()
+    }
  
+    func setTitleDataScoure(item:OrderList)->Void{
+        orderDetail = item
+        titleTableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
    

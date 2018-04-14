@@ -54,9 +54,7 @@ class ShopCarTableViewCell: UITableViewCell,CAAnimationDelegate,UITextFieldDeleg
         if (keyPath == "text"){
             let newStr = change![NSKeyValueChangeKey.newKey] as! String
             let oldStr = change![NSKeyValueChangeKey.oldKey] as! String
-            if oldStr.contains("￥"){
-                delegate?.shopCarTableViewCell(newCount: Int(newStr)!, oldCount: Int(oldStr)!, price: Float((priceLabel.text?.replacingOccurrences(of: "￥", with: ""))!)!, ndexPath: indexPath, isSelect: isImageSelected)
-            }
+            delegate?.shopCarTableViewCell(newCount: Int(newStr)!, oldCount: Int(oldStr)!, price: Float((priceLabel.text?.replacingOccurrences(of: "￥", with: ""))!)!, ndexPath: indexPath, isSelect: isImageSelected)
         }
     }
    
@@ -68,6 +66,10 @@ class ShopCarTableViewCell: UITableViewCell,CAAnimationDelegate,UITextFieldDeleg
 
     //MARK:点击选择或非选择响应
     @IBAction func action(_ sender: UIButton) {
+        tapIsSelect()
+    }
+    
+    func tapIsSelect(){
         isImageSelected = !isImageSelected
         if isImageSelected {
             isSelectImageView.image = UIImage.init(named: "空心圆.png")
@@ -78,6 +80,7 @@ class ShopCarTableViewCell: UITableViewCell,CAAnimationDelegate,UITextFieldDeleg
             delegate?.shopCarTableViewCell(cell: self, indexPath: indexPath, isSelect: isImageSelected)
         }
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -122,7 +125,7 @@ class ShopCarTableViewCell: UITableViewCell,CAAnimationDelegate,UITextFieldDeleg
         if imageUrl != nil{
             productImageView.imageFromURL(imageUrl!, placeholder: UIImage(named: "loading.png")!)
         }else{
-             productImageView.image = nil
+             productImageView.image = UIImage(named: "loading.png")
         }
         productNameLabel.text = productName
         specLabel.text = model?.spec

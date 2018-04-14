@@ -40,7 +40,8 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     @IBOutlet weak var telLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    
+    var titleLeftDataScoue = Array<String>()
+    var titleRightDataScoue = Array<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +88,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             
         case .WaitForHarvest: //待发货  4
 //            self.title = "待发货"
-            button1.setTitle("确定收获", for: .normal)
+            button1.isHidden = true
             button2.setTitle("申请售后", for: .normal)
             button3.setTitle("查看物流", for: .normal)
             break
@@ -99,8 +100,8 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             break
         case .WaitForReceipt: //待收货 4
             self.title = "待收货"
-            button1.setTitle("付款", for: .normal)
-            button2.setTitle("退款", for: .normal)
+            button1.setTitle("确定收货", for: .normal)
+            button2.setTitle("申请退款", for: .normal)
             button3.isHidden = true
             break
         case .WaitForEvaluation: //待评价 4
@@ -157,7 +158,8 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             comfirmOrder()
         }
         if (sender.titleLabel?.text?.contains("售后"))! {
-            let vc = Bundle.main.loadNibNamed("CustomerServiceViewController", owner: nil, options: nil)?.first as! CustomerServiceViewController
+            let vc = ApplyCustomerServiceViewController()
+            vc.orderDetail = orderDetail
             self.navigationController?.pushViewController(vc, animated: true)
         }
         if (sender.titleLabel?.text?.contains("评价"))! {
@@ -226,23 +228,35 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             return productDataScoure.count
         }else
         if tableView == titleTableView {
-            var count = 0
-            //根据最后操作日常来确定需要展示cell个数
-            if orderDetail?.return_goods_time != nil{
-                count = 6
-            }else if orderDetail?.get_goods_time != nil{
-                count = 5
-            }else if orderDetail?.send_goods_time != nil{
-                count = 4
-            }else if orderDetail?.pay_time != nil{
-                count = 3
-            }else if orderDetail?.created_time != nil{
-                count = 2
-            }else if orderDetail?.out_trade_no != nil{
-                count = 1
+            titleRightDataScoue.removeAll()
+            titleLeftDataScoue.removeAll()
+            if let str = orderDetail?.out_trade_no{
+                titleRightDataScoue.append(str)
+                titleLeftDataScoue.append("订单号：")
             }
-            titleTableViewLC.constant = CGFloat(30*count)
-            return count
+            if let str = orderDetail?.created_time {
+                titleRightDataScoue.append(str)
+                titleLeftDataScoue.append("创建时间：")
+            }
+            if let str = orderDetail?.pay_time {
+                titleRightDataScoue.append(str)
+                titleLeftDataScoue.append("支付时间：")
+            }
+            if let str = orderDetail?.send_goods_time {
+                titleRightDataScoue.append(str)
+                titleLeftDataScoue.append("发货时间：")
+            }
+            //根据最后操作日常来确定需要展示cell个数
+            if let str = orderDetail?.return_goods_time {
+                titleRightDataScoue.append(str)
+                titleLeftDataScoue.append("申请退货时间：：")
+            }
+            if let str = orderDetail?.get_goods_time {
+                titleRightDataScoue.append(str)
+                titleLeftDataScoue.append("退款成功时间：")
+            }
+            titleTableViewLC.constant = CGFloat(30*titleLeftDataScoue.count)
+            return titleLeftDataScoue.count
         }
         return 0
     }
@@ -260,38 +274,14 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomeServiceProductTableViewCell", for: indexPath) as! CustomeServiceProductTableViewCell
         cell.selectionStyle = .none
         let model = productDataScoure[indexPath.row]
-        cell.setDataScoure(name: model.title!, priceStr:  "￥\(model.price!)", countStr: "x\( model.count)")
+        cell.setDataScoure(name: model.title!, priceStr:  "￥\(model.price!)", countStr: "x\( model.count)", imageUrl: model.small_icon)
         return cell
     }
     
     func titleCell(tableView: UITableView,indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomeServiceTitleTableViewCell", for: indexPath) as! CustomeServiceTitleTableViewCell
         cell.selectionStyle = .none
-        switch indexPath.row {
-        case 0:
-            cell.setDataScoure(leftStr: "订单号：", rightStr:(orderDetail?.out_trade_no)!)
-            break
-        case 1:
-             cell.setDataScoure(leftStr: "创建时间：", rightStr:(orderDetail?.created_time)!)
-            break
-        case 2:
-             cell.setDataScoure(leftStr: "支付时间：", rightStr:(orderDetail?.pay_time)!)
-            break
-        case 3:
-             cell.setDataScoure(leftStr: "发货时间：", rightStr: (orderDetail?.send_goods_time)!)
-            break
-        case 4:
-            cell.setDataScoure(leftStr: "收货时间：", rightStr: (orderDetail?.get_goods_time)!)
-            break
-        case 5:
-             cell.setDataScoure(leftStr: "申请退货时间：", rightStr: (orderDetail?.return_goods_time)!)
-            break
-        case 6:
-             cell.setDataScoure(leftStr: "退款成功时间：", rightStr: "")
-            break
-        default:
-            break
-        }
+        cell.setDataScoure(leftStr: titleLeftDataScoue[indexPath.row], rightStr: titleRightDataScoue[indexPath.row])
         return cell
     }
     

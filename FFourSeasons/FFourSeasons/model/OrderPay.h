@@ -12,5 +12,6 @@
 
 @property (nonatomic, retain) NSString * out_trade_no;
 @property (nonatomic, assign) long _id;
-
+@property (nonatomic, assign) long order_type;
+@property (nonatomic,assign) long pay_integral;
 @end

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import LCRefresh
 
 let letIntegralStatusAll = ""
 let letIntegralStatusIn = "0"
@@ -152,14 +151,15 @@ class SignAddIntegralViewController: UIViewController,UITableViewDelegate,UITabl
                     break
                 }
                 vc?.loadSignInList(tableView: tb!)
-                tb?.refreshHeader = LCRefreshHeader.init(refreshBlock: {
+                tb?.mj_header = MJRefreshNormalHeader(refreshingBlock: {
                     tb?.lgyPageIndex = 1
                     vc?.loadSignInList(tableView: tb!)
                 })
-                tb?.refreshFooter = LCRefreshFooter.init(refreshBlock: {
+                tb?.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
                     tb?.lgyPageIndex = 1 + (tb?.lgyPageIndex)!
                     vc?.loadSignInList(tableView: tb!)
                 })
+                
             }
         }
         
@@ -225,25 +225,13 @@ class SignAddIntegralViewController: UIViewController,UITableViewDelegate,UITabl
                         tb?.reloadData();
                     }
                 }
-                if (tb?.isHeaderRefreshing())! {
-                    tb?.endHeaderRefreshing()
-                }
+                tb?.mj_header?.endRefreshing()
+                tb?.mj_footer?.endRefreshing()
                 
-                if (tb?.isFooterRefreshing())! {
-                    tb?.endFooterRefreshing()
-                    
-                }
-                tb?.setDataLoadover()
-                tb?.resetDataLoad()
             }
         }
     }
-    deinit {
-        for i in 0..<dataScoure.count{
-            let tb = pageView.pageViewtableView(index: i)
-            tb?.removeOffsetObserver()
-        }
-    }
+ 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

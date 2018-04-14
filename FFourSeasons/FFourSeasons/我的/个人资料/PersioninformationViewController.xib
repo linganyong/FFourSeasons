@@ -27,7 +27,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="37d3d539b6003af3e276905a3e2ac65c1038b638.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="0CF-h5-QML">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultHeader.png" translatesAutoresizingMaskIntoConstraints="NO" id="0CF-h5-QML">
                         <rect key="frame" x="158" y="40" width="60" height="60"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -285,7 +285,7 @@
         </viewController>
     </objects>
     <resources>
-        <image name="37d3d539b6003af3e276905a3e2ac65c1038b638.jpg" width="1200" height="800"/>
+        <image name="defaultHeader.png" width="144" height="144"/>
         <image name="右箭头3x.png" width="23" height="46"/>
     </resources>
 </document>

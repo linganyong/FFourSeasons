@@ -23,10 +23,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launcherImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="zkV-Rr-zQH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage1.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="zkV-Rr-zQH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launcherlogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="mgj-w6-AaK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mgj-w6-AaK">
                                 <rect key="frame" x="140.5" y="120" width="94" height="148.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mgj-w6-AaK" secondAttribute="height" multiplier="150:237" id="Tq9-ay-yKc"/>
@@ -51,7 +51,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Launcherlogo.png" width="150" height="237"/>
-        <image name="launcherImage.png" width="750" height="1334"/>
+        <image name="launchImage1.jpeg" width="750" height="1344"/>
     </resources>
 </document>

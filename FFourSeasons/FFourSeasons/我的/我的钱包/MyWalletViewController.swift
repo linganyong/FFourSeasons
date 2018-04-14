@@ -40,7 +40,7 @@ class MyWalletViewController: UIViewController {
             if PersonViewController.infornation!.head_url != nil{
                 persionImageView.imageFromURL((PersonViewController.infornation!.head_url)!, placeholder: UIImage.init(named: "loading.png")!)
             }else{
-                persionImageView.image = nil
+                persionImageView.image = UIImage(named: "defaultHeader.png")
             }
             moneyLabel.text = String.init(format: "积分：%D", PersonViewController.infornation!.integral)
         }

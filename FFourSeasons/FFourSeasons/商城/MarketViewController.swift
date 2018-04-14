@@ -9,7 +9,7 @@
 import UIKit
 
 
-class MarketViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate{
+class MarketViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,MarkProductTableViewCellDelegate{
     var rightBarItem:UIBarButtonItem!
     var titleDataScoure = Array<String>()
     var imageDataScoure = Array<String>()
@@ -90,11 +90,12 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     //MARK:设置pageView
     func setPageView() ->Void{
+        self.view.layoutIfNeeded()
         pageView.frame = CGRect(x: 0, y: 64, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 64 - 52)
         pageView.addContent(titleArray: titleDataScoure, height: 21, maginLeft: 10)
        pageView.setBackgroundColor(defaultBackgroundColor: UIColor.clear, selectBackgroundColor: UIColor.init(red: 42/255.0, green: 201/255.0, blue: 140/255.0, alpha: 1))
         pageView.headerBtnStyle(defaultTextColor: UIColor.black, selectTextColor: UIColor.white, headerBtnMagin: 20, headerLineHeight: 0, textFront: 12)
-        
+        pageView.layoutIfNeeded()
         for i in 0..<titleDataScoure.count{
             let tb = pageView.pageViewtableView(index: i)
             tb?.delegate = self
@@ -108,17 +109,18 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
             }
             
             tb?.register(UINib.init(nibName: "MarkProductTableViewCell", bundle: nil), forCellReuseIdentifier: "MarkProductTableViewCell")
-            if tb?.refreshHeader == nil{
+            if tb?.mj_header == nil{
                 let cateItem = cateListItem[i]
                 tb?.lgyTypeKey = String(format: "%D",cateItem._id)
                 tb?.lgyPageIndex = 1
                 loadProduct(cateId:String(format: "%D",cateItem._id), tableView: tb)
                 weak var vc = self;
-                tb?.refreshHeader = LCRefreshHeader.init(refreshBlock: {
+                tb?.mj_header = MJRefreshNormalHeader(refreshingBlock: {
                     tb?.lgyPageIndex = 1
                     vc?.loadProduct(cateId: (tb?.lgyTypeKey)!, tableView: tb)
                 })
-                tb?.refreshFooter = LCRefreshFooter.init(refreshBlock: {
+                tb?.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+                    tb?.mj_footer.alpha = 1
                     tb?.lgyPageIndex = 1+(tb?.lgyPageIndex)!
                     vc?.loadProduct(cateId: (tb?.lgyTypeKey)!, tableView: tb)
                    
@@ -193,7 +195,13 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
         cell.selectionStyle = .none
         let item = tableView.lgyDataScoure[indexPath.row] as? Goods
         cell.setModel(item: item!)
+        cell.delegate = self
         return cell
+    }
+    
+    
+    func markProductTableViewCell(cell: MarkProductTableViewCell) {
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -209,11 +217,14 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
         addView()
         setNavigationBarStyle(type:.Default)
         self.tabBarController?.tabBar.isHidden = false
+        self.view.layoutIfNeeded()
+        self.view.reloadInputViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBarStyle(type:.Default)
         self.tabBarController?.tabBar.isHidden = false
+        
     }
     
     //MARK:加载数据 分类
@@ -246,6 +257,10 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
         //MARK:加载产品分类信息
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_findGoodsByCateId, parameters: ["pageNumber":String(format: "%D", (tableView?.lgyPageIndex)!),"cateId":cateId,"title":"","token":Model_user_information.getToken()], progress: nil,cacheName:cacheName) { (object,isError) in
+//            tb?.mj_footer?.alpha = 0
+            tb?.mj_header?.endRefreshing()
+            tb?.mj_footer?.endRefreshing()
+            tb?.layoutIfNeeded()
             if !isError{
                 let model = Model_api_findGoodsByCateId.yy_model(withJSON: object as Any)
                 if model?.cateList != nil {
@@ -258,19 +273,9 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
                     }
                     tb?.reloadData();
                     
-                    
                 }
             }
-            if (tb?.isHeaderRefreshing())! {
-                tb?.endHeaderRefreshing()
-            }
             
-            if (tb?.isFooterRefreshing())! {
-                tb?.endFooterRefreshing()
-                
-            }
-            tb?.setDataLoadover()
-            tb?.resetDataLoad()
         }
     }
     
@@ -292,10 +297,6 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
 
     deinit {
-        for i in 0..<titleDataScoure.count{
-            let tb = pageView.pageViewtableView(index: i)
-            tb?.removeOffsetObserver()
-        }
         NotificationCenter.default.removeObserver(self)
     }
     

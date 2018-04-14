@@ -35,6 +35,7 @@ class LGYMarkPageView: UIView,UIScrollViewDelegate {
     public var delegate:LGYMarkPageViewDelegate?
     
     let allClassButton = UIButton() //所有菜单点击按钮
+    let allClassImageView = UIImageView()
     //MARK:设置布局
     func frameLayout() -> Void {
         _headerView.addSubview(_headerLineView)
@@ -47,8 +48,11 @@ class LGYMarkPageView: UIView,UIScrollViewDelegate {
         _headerView.showsHorizontalScrollIndicator = false
             headerButtonAdd()
             _contentView.frame = CGRect(x: 0, y:_headerView.frame.size.height+20+4, width: self.bounds.size.width, height: self.frame.size.height - _headerView.frame.size.height+_headerView.frame.origin.y - 24);
-        allClassButton.frame = CGRect(x: self.bounds.size.width-_headerHeight-16, y: 4, width: _headerHeight, height: _headerHeight)
-        allClassButton.setImage(UIImage.init(named: "应用3x.png"), for: .normal)
+        allClassButton.frame = CGRect(x: self.bounds.size.width-_headerHeight-16, y: 4, width: _headerHeight, height: _headerHeight+16)
+        allClassImageView.frame = CGRect(x:0, y: 0, width: _headerHeight, height: _headerHeight)
+        allClassButton.contentMode = .scaleAspectFit
+        allClassImageView.image = UIImage.init(named: "应用3x.png")
+        allClassButton.addSubview(allClassImageView)
         self.addSubview(allClassButton)
         contentViewAdd()
     }

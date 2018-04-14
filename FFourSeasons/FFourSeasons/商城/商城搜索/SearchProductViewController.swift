@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import LCRefresh
 
 class SearchProductViewController: UIViewController,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource {
 
@@ -76,12 +75,20 @@ class SearchProductViewController: UIViewController,UITextFieldDelegate,UITableV
         tableView.register(UINib.init(nibName: "SearchProductTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchProductTableViewCell")
         weak var tb = tableView
         weak var vc = self
-        tableView.refreshFooter = LCRefreshFooter.init(refreshBlock: {
+        tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
             tb?.lgyPageIndex = 1+(tb?.lgyPageIndex)!
             vc?.loadProduct(text: vc?.searchTextField.text)
             
         })
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! SearchProductTableViewCell
+        let na = Bundle.main.loadNibNamed("ProductSaleDetailsViewController", owner: nil, options: nil)![0] as! ProductSaleDetailsViewController
+        na.addContentProductSaleInformaiton(product:cell.model!, productId: (cell.model?._id)!)
+        self.navigationController?.pushViewController(na, animated: true)
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableView.lgyDataScoure!.count
@@ -91,6 +98,7 @@ class SearchProductViewController: UIViewController,UITextFieldDelegate,UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchProductTableViewCell", for: indexPath) as! SearchProductTableViewCell
         cell.selectionStyle = .none
         let goods = tableView.lgyDataScoure[indexPath.row] as! Goods
+         cell.model = goods
         cell.setDataScoure(imageUrl: goods.small_icon, line1Str: goods.title, line2Str: String.init(format: "￥%@", goods.price))
         return cell
     }
@@ -118,14 +126,9 @@ class SearchProductViewController: UIViewController,UITextFieldDelegate,UITableV
                 }
             }
             
-            if (tb?.isHeaderRefreshing())! {
-                tb?.endHeaderRefreshing()
-            }
-            if (tb?.isFooterRefreshing())! {
-                tb?.endFooterRefreshing()
-            }
-            tb?.setDataLoadover()
-            tb?.resetDataLoad()
+            tb?.mj_header?.endRefreshing()
+            tb?.mj_footer?.endRefreshing()
+         
         }
     }
     

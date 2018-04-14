@@ -18,7 +18,7 @@ class SearchProductTableViewCell: UITableViewCell {
     @IBOutlet weak var line1Label: UILabel!
 
     @IBOutlet weak var line2Label: UILabel!
-
+    var model:Goods?
     
     override func awakeFromNib() {
         super.awakeFromNib()

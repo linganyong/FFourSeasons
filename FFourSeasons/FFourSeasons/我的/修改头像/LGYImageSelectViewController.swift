@@ -15,16 +15,19 @@ protocol LGYImageSelectViewControllerDelegate : NSObjectProtocol {
     func lgyImageSelectViewController(viewController: LGYImageSelectViewController, image:UIImage,imagePath:String)
 }
 
-class LGYImageSelectViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDataSource,UITableViewDelegate,ClipViewControllerDelegate {
+class LGYImageSelectViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,ClipViewControllerDelegate {
     var dataScoure = NSMutableArray()
     var dataScoureMenu = Array<NSDictionary>()
-    var selectMenuIndex = 0
+    var selectMenuIndex = 0 //选择第几种图片类型的菜单位置
     weak var delegate:LGYImageSelectViewControllerDelegate?
     
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableViewHeightLC: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    var isNeedCut = true //是否需要截取
+    //初始化图片控制器
+    let picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +91,7 @@ class LGYImageSelectViewController: UIViewController,UICollectionViewDelegate,UI
         menuButton.setTitle("所有图片", for: .normal)
     }
     
+    //MARK:获取图片的PHAsset，图片信息保存在PHAsset中
     func getAssetWith(assetCollection: PHAssetCollection) -> [PHAsset] {
         //set fetchoptions
         let options = PHFetchOptions()
@@ -101,6 +105,7 @@ class LGYImageSelectViewController: UIViewController,UICollectionViewDelegate,UI
         return assetArray
     }
     
+    //MARK:从asset中获得图片
     func getImage(asset:PHAsset,original:Bool,block:((_ image:UIImage?)->Void)?) ->Void{
         let options = PHImageRequestOptions()
         // 是否要原图
@@ -150,53 +155,117 @@ class LGYImageSelectViewController: UIViewController,UICollectionViewDelegate,UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        weak var vc = self
+        if !isNeedCut{ //这里是不需要截取图片
+            if indexPath.row > 0{
+                getImage(asset: dataScoure[indexPath.row-1] as! PHAsset, original: true, block: {[weak self](image) in
+                    if let weakSelf = self{
+                        weakSelf.delegate?.lgyImageSelectViewController(viewController: weakSelf, image:image!, imagePath: "")
+                    }
+                })
+            }else{
+                startCamera();
+            }
+            return;
+        }
+        //下面是需要截取图片
         if selectMenuIndex == 0{
             if indexPath.row > 0{
-                getImage(asset: dataScoure[indexPath.row-1] as! PHAsset, original: true, block: {(image) in
+                getImage(asset: dataScoure[indexPath.row-1] as! PHAsset, original: true, block: {[weak self](image) in
                     let clipView = YSHYClipViewController(image: image)
                     clipView?.delegate = self
                     clipView?.clipType = SQUARECLIP
                     //支持圆形:CIRCULARCLIP 方形裁剪:SQUARECLIP   默认:圆形裁剪
                     
                     //    clipView.scaleRation = 5;// 图片缩放的最大倍数 默认为10
-                    self.show(clipView!, sender: true)
+                    if let weakSelf = self{
+                        weakSelf.show(clipView!, sender: true)
+                    }
                 })
             }else{
-                        //判断设置是否支持图片库
-                        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-                            //初始化图片控制器
-                            let picker = UIImagePickerController()
-                
-                            //设置代理
-//                            picker.delegate = self
-                            //指定图片控制器类型
-                            picker.sourceType = UIImagePickerControllerSourceType.camera
-                            //设置是否允许编辑
-                            picker.allowsEditing = true
-                
-                            //弹出控制器，显示界面
-                            self.present(picker, animated: true, completion: {
-                                () -> Void in
-                
-                            })
-                        }else{
-                            print("读取相册错误")
-                        }
+                      startCamera();
             }
             
         }else{
-            getImage(asset: dataScoure[indexPath.row] as! PHAsset, original: true, block: {(image) in
+            getImage(asset: dataScoure[indexPath.row] as! PHAsset, original: true, block: {[weak self](image) in
                 let clipView = YSHYClipViewController(image: image)
 //                clipView.delegate = self
                 clipView?.clipType = SQUARECLIP
                 //支持圆形:CIRCULARCLIP 方形裁剪:SQUARECLIP   默认:圆形裁剪
                
                 //    clipView.scaleRation = 5;// 图片缩放的最大倍数 默认为10
-                self.show(clipView!, sender: true)
+                if let weakSelf = self {
+                    weakSelf.show(clipView!, sender: true)
+                }
             })
            
         }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let type:String = (info[UIImagePickerControllerMediaType]as!String)
+        //当选择的类型是图片
+        if type=="public.image"
+        {
+            let img = info[UIImagePickerControllerOriginalImage]as?UIImage
+             delegate?.lgyImageSelectViewController(viewController: self, image:img!, imagePath: "")
+        }
+        picker.dismiss(animated: true) {
+            
+        }
+    }
+    
+    func startCamera()->Void{
+        //判断设置是否支持图片库
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+           
+            //设置代理
+            picker.delegate = self
+            //指定图片控制器类型
+            picker.sourceType = UIImagePickerControllerSourceType.camera
+            //设置是否允许编辑
+            picker.allowsEditing = isNeedCut
+            //弹出控制器，显示界面
+            self.present(picker, animated: true, completion: {
+                () -> Void in
+                
+            })
+        }else{
+            print("读取相册错误")
+        }
+    }
+    //MARK:修改相机Retake 和 use按钮
+    func addSomeElements(viewController: UIViewController?) {
+        let PLCameraView: UIView? = find(view:viewController?.view, name: "PLCameraView")
+        let bottomBar: UIView? = find(view:PLCameraView, name: "PLCropOverlayBottomBar")
+        let bottomBarImageForSave: UIImageView? = bottomBar?.subviews.first as? UIImageView
+        let retakeButton: UIButton? = bottomBarImageForSave?.subviews.first as? UIButton
+        retakeButton?.setTitle("重拍", for: .normal)
+        //左下角按钮
+        let useButton: UIButton? = bottomBarImageForSave?.subviews[1] as? UIButton
+        useButton?.setTitle("上传", for: .normal)
+        //右下角按钮
+    }
+    func find(view:UIView?, name:String?) -> UIView? {
+        let cl: AnyClass? = view?.classForCoder
+        let desc = cl?.description()
+        if (name == desc) {
+            return view
+        }
+        if let ss = view?.subviews.count{
+            for i in 0..<ss {
+                var subView: UIView? = view?.subviews[i]
+                subView = find(view: subView, name: name)
+                if subView != nil {
+                    return subView
+                }
+            }
+        }
+        return nil
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        addSomeElements(viewController: viewController)
     }
     
     func clipViewController(_ clipViewController: YSHYClipViewController!, finishClipImage editImage: UIImage!) {

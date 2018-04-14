@@ -24,9 +24,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="定位3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="KnC-Ub-w75">
-                                        <rect key="frame" x="12" y="20" width="22" height="22"/>
+                                        <rect key="frame" x="12" y="16" width="22" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="Qc2-7E-aSF"/>
+                                            <constraint firstAttribute="height" constant="30" id="Qc2-7E-aSF"/>
                                             <constraint firstAttribute="width" constant="22" id="hqb-HD-Kez"/>
                                         </constraints>
                                     </imageView>
@@ -174,13 +174,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neP-bF-ssL">
-                                        <rect key="frame" x="125.5" y="12.5" width="80" height="11"/>
+                                        <rect key="frame" x="125.5" y="10.5" width="100" height="15"/>
                                         <color key="backgroundColor" red="0.1647058824" green="0.78823529410000004" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="11" id="3Ir-tf-2q5"/>
-                                            <constraint firstAttribute="width" constant="80" id="bjR-a7-yIF"/>
+                                            <constraint firstAttribute="height" constant="15" id="3Ir-tf-2q5"/>
+                                            <constraint firstAttribute="width" constant="100" id="bjR-a7-yIF"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <state key="normal" title="未收到货，只退款">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -189,14 +189,17 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onlyRefundAction:" destination="xcX-gI-IN6" eventType="touchUpInside" id="rw3-5Q-lRp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mV-lk-2KB">
-                                        <rect key="frame" x="235.5" y="12.5" width="46" height="11"/>
+                                        <rect key="frame" x="255.5" y="10.5" width="46" height="15"/>
                                         <color key="backgroundColor" red="0.1647058824" green="0.78823529410000004" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="Zey-UV-hxg"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <state key="normal" title="退货退款">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -205,6 +208,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="refundAction:" destination="xcX-gI-IN6" eventType="touchUpInside" id="erf-gd-T15"/>
+                                        </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="dyh-Zk-BNo">
                                         <rect key="frame" x="32" y="29" width="311" height="0.0"/>
@@ -389,20 +395,27 @@
                 <viewLayoutGuide key="safeArea" id="2A8-qY-gg7"/>
             </view>
             <connections>
+                <outlet property="addressLabel" destination="wSO-qD-IcJ" id="Cd3-OT-rLW"/>
                 <outlet property="descibleBackView" destination="k07-yJ-Gcz" id="bPK-7t-w5o"/>
                 <outlet property="describleLabel" destination="5pT-T2-GVp" id="9CQ-gw-PYM"/>
                 <outlet property="describleTextView" destination="Get-Kc-NGn" id="c3u-N3-uBx"/>
+                <outlet property="nameLabel" destination="pF4-Ed-dpN" id="Xhd-Mc-qNb"/>
+                <outlet property="onlyRefundMoneyButton" destination="neP-bF-ssL" id="Lh1-GD-PJu"/>
+                <outlet property="priceLabel" destination="hnf-uP-ILy" id="dE1-N4-9l8"/>
                 <outlet property="prictureCollectionView" destination="dyh-Zk-BNo" id="XkJ-JD-2yv"/>
                 <outlet property="productTableView" destination="L28-DC-t5G" id="5jV-90-SRL"/>
                 <outlet property="productTableViewLC" destination="bda-jt-YC5" id="aJL-oh-xh1"/>
+                <outlet property="refundButton" destination="5mV-lk-2KB" id="UWS-I2-EKJ"/>
+                <outlet property="telLabel" destination="7r4-YI-LCR" id="5Gj-ei-fek"/>
                 <outlet property="titleTableView" destination="DYz-Ll-Bbh" id="4V3-zZ-hPq"/>
                 <outlet property="titleTableViewLC" destination="wXs-X8-ZSx" id="0qT-cw-cfT"/>
+                <outlet property="yunFeiLabel" destination="be2-04-SAs" id="XRX-Oa-Yu0"/>
             </connections>
             <point key="canvasLocation" x="35.5" y="-81.5"/>
         </viewController>
     </objects>
     <resources>
         <image name="右箭头3x.png" width="23" height="46"/>
-        <image name="定位3x.png" width="66" height="68"/>
+        <image name="定位3x.png" width="50" height="67"/>
     </resources>
 </document>

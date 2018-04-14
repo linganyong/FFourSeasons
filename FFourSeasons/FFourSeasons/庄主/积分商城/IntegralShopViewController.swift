@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LCRefresh
+
 
 class IntegralShopViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,IntegralShopTableViewCellDelegate {
 
@@ -31,11 +31,11 @@ class IntegralShopViewController: UIViewController,UITableViewDataSource,UITable
         weak var vc = self
         weak var tb = tableView
         loadIntegralShop(tableView: tableView)
-        tableView.refreshHeader = LCRefreshHeader.init(refreshBlock: {
+        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             tb?.lgyPageIndex = 1
             vc?.loadIntegralShop(tableView: tb!)
         })
-        tableView.refreshFooter = LCRefreshFooter.init(refreshBlock: {
+        tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
             tb?.lgyPageIndex = 1 + (tb?.lgyPageIndex)!
             vc?.loadIntegralShop(tableView: tb!)
         })
@@ -96,16 +96,9 @@ class IntegralShopViewController: UIViewController,UITableViewDataSource,UITable
                         }
                     }
                     tb?.reloadData();
-                    if (tb?.isHeaderRefreshing())! {
-                        tb?.endHeaderRefreshing()
-                    }
+                    tb?.mj_header?.endRefreshing()
+                    tb?.mj_footer?.endRefreshing()
                     
-                    if (tb?.isFooterRefreshing())! {
-                        tb?.endFooterRefreshing()
-                        
-                    }
-                    tb?.setDataLoadover()
-                    tb?.resetDataLoad()
                 }
         }
     }
@@ -127,7 +120,5 @@ class IntegralShopViewController: UIViewController,UITableViewDataSource,UITable
         // Dispose of any resources that can be recreated.
     }
 
-    deinit {
-        tableView?.removeOffsetObserver()
-    }
+    
 }

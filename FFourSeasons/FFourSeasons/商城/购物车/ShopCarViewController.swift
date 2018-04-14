@@ -28,7 +28,7 @@ class ShopCarViewController: UIViewController,UITableViewDataSource,UITableViewD
     @IBOutlet weak var productCountLabel: UILabel!
     let emptyBackgroundView = LGYEmptyBackgroundView.loadViewFromNib(message: "空空的购物车，赶快去挑一件吧")
     @IBOutlet weak var productPriceLabel: UILabel!
-
+    var firstSelect:[Int:String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +62,11 @@ class ShopCarViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if dataScoure.count == delegateArray.count || dataScoure.count == 0{
+            self.navigationItem.rightBarButtonItems = nil
+        }else{
+            self.navigationItem.rightBarButtonItems = [rightBarItem]
+        }
         emptyBackgroundView.addToSuperview(view: tableView, frame: nil, dataScoureCount: dataScoure.count-delegateArray.count)
         return dataScoure.count
     }
@@ -123,8 +128,13 @@ class ShopCarViewController: UIViewController,UITableViewDataSource,UITableViewD
         //判断是否已经添加到删除项
         if isDelegate(indexPath: indexPath) {
             cell.isHidden = true
+            
         }else{
             cell.isHidden = false
+        }
+        if firstSelect[indexPath.row] == nil {
+            cell.tapIsSelect()
+            firstSelect[indexPath.row] = "STR"
         }
         
         return cell
@@ -135,7 +145,6 @@ class ShopCarViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
     //MARK:添加订单
     func loadAddOrder() -> Void {
-        weak var vc = self
         var orderStr = ""
         var productArray = Array<CartList>()
         //拼接订单信息
@@ -253,6 +262,9 @@ class ShopCarViewController: UIViewController,UITableViewDataSource,UITableViewD
         })
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+    }
     
     
     override func didReceiveMemoryWarning() {

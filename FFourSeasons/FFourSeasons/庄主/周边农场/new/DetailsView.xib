@@ -21,8 +21,27 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
-                    <rect key="frame" x="12" y="118" width="351" height="431.5"/>
+                    <rect key="frame" x="12" y="87.5" width="351" height="492"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndp-1Z-OhT">
+                            <rect key="frame" x="135.5" y="432" width="80" height="40"/>
+                            <color key="backgroundColor" red="0.1647058824" green="0.78823529410000004" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="1nr-40-6VH"/>
+                                <constraint firstAttribute="width" constant="80" id="MeU-X3-3Si"/>
+                            </constraints>
+                            <state key="normal" title="立即前往">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="LGyCornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="goToAction:" destination="0k4-kK-UfU" eventType="touchUpInside" id="Oe2-me-ehJ"/>
+                            </connections>
+                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="三化庄园" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlU-Df-1g6">
                             <rect key="frame" x="20" y="24" width="311" height="21"/>
                             <constraints>
@@ -70,14 +89,16 @@
                         <constraint firstItem="GlU-Df-1g6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="1Yx-c0-Yok"/>
                         <constraint firstItem="GlU-Df-1g6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="24" id="80M-3N-opV"/>
                         <constraint firstItem="ful-T5-BR8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="A3E-OS-kLH"/>
-                        <constraint firstAttribute="bottom" secondItem="uo1-pa-p0X" secondAttribute="bottom" constant="20" id="BGE-yG-ajN"/>
                         <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GlU-Df-1g6" secondAttribute="trailing" constant="20" id="HQK-d1-uJg"/>
                         <constraint firstItem="ful-T5-BR8" firstAttribute="top" secondItem="GlU-Df-1g6" secondAttribute="bottom" constant="8" id="ID7-J8-lBJ"/>
                         <constraint firstItem="uo1-pa-p0X" firstAttribute="top" secondItem="giw-Fa-gTA" secondAttribute="bottom" constant="8" id="Iu2-MD-FiE"/>
                         <constraint firstItem="giw-Fa-gTA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="NbP-yh-kEq"/>
                         <constraint firstItem="uo1-pa-p0X" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="OBS-Xo-GCh"/>
+                        <constraint firstItem="Ndp-1Z-OhT" firstAttribute="top" secondItem="uo1-pa-p0X" secondAttribute="bottom" constant="20" id="RUh-TR-KaX"/>
                         <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ful-T5-BR8" secondAttribute="trailing" constant="20" id="VVD-V8-Q1v"/>
+                        <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Ndp-1Z-OhT" secondAttribute="bottom" constant="20" id="Vq9-E1-aJp"/>
                         <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="giw-Fa-gTA" secondAttribute="trailing" constant="20" id="bC5-TO-Hsz"/>
+                        <constraint firstItem="Ndp-1Z-OhT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cmg-RF-JKJ"/>
                         <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uo1-pa-p0X" secondAttribute="trailing" constant="20" id="jNK-nJ-uiN"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -105,6 +126,7 @@
                 <outlet property="collectionView" destination="uo1-pa-p0X" id="y99-5F-zFM"/>
                 <outlet property="collectionViewHeightLC" destination="MEV-IC-r8s" id="Hf3-Vg-yrz"/>
                 <outlet property="descriptionLabel" destination="ful-T5-BR8" id="EqE-Ti-V3k"/>
+                <outlet property="goToButton" destination="Ndp-1Z-OhT" id="EKS-TI-PFM"/>
                 <outlet property="titleLabel" destination="GlU-Df-1g6" id="f7I-TZ-Bwk"/>
             </connections>
             <point key="canvasLocation" x="-186.5" y="16.5"/>

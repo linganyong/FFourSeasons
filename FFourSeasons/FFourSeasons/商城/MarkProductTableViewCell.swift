@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MarkProductTableViewCellDelegate {
+    func markProductTableViewCell(cell:MarkProductTableViewCell)
+}
+
 class MarkProductTableViewCell: UITableViewCell {
     public var model:Goods?
     @IBOutlet weak var loLabel: UILabel!
@@ -19,7 +23,8 @@ class MarkProductTableViewCell: UITableViewCell {
     @IBOutlet weak var line2Label: UILabel!
     @IBOutlet weak var line1Label: UILabel!
     @IBOutlet weak var line3Label: UILabel!
-    
+    var delegate:MarkProductTableViewCellDelegate?
+    @IBOutlet weak var button: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -39,6 +44,10 @@ class MarkProductTableViewCell: UITableViewCell {
         setDataScoure(imageUrl: item.small_icon,line1Str: item.title, line2Str: item.profile, line3str:String(format: "￥%@",(item.price)!), loStr: str)
     }
     
+    @IBAction func action(_ sender: UIButton) {
+        delegate?.markProductTableViewCell(cell: self)
+        
+    }
     func setDataScoure(imageUrl:String?,line1Str:String?,line2Str:String?,line3str:String?,loStr:String?) -> Void {
         line1Label.text = line1Str
         line2Label.text = line2Str

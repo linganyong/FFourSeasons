@@ -20,11 +20,13 @@ let NotificationCenterLaunch = "32412eerrf"
 
 class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
+    @IBOutlet weak var touristView: UIView!
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var tapView: UIView!
     var guideView:APPGuideView?
     @IBOutlet weak var registerMaginTopLC: NSLayoutConstraint!
     
+    @IBOutlet weak var touristButton: UIButton!
     @IBOutlet weak var registerMaginRrailingLC: NSLayoutConstraint!
     @IBOutlet weak var registerMaginjLeadingLC: NSLayoutConstraint!
     @IBOutlet weak var agressButton: UIButton!
@@ -113,6 +115,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
                 vc?.registerView.setLineView()
             }, completion: { (finish) in
                  vc?.launchOrRegisterButton.setTitle("完成注册", for: .normal)
+               
                 vc?.registerView.setLineView()
             })
             
@@ -147,8 +150,9 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
         launchMaginLeadingLC.constant = 30
         launchMaginTrailingLC.constant = -30
         launchView.alpha = 1
+        touristButton.alpha = 1
+        touristView.alpha = 1
         launchView.backgroundColor = UIColor.black
-        
         self.view.layoutIfNeeded();
     }
     
@@ -194,7 +198,8 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
         launchMaginLeadingLC.constant = 0
         launchMaginTrailingLC.constant = 0
         launchView.alpha = 0
-       
+        touristButton.alpha = 0
+        touristView.alpha = 0
         
         self.view.layoutIfNeeded();
     }
@@ -242,10 +247,14 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     }
     
     @IBAction func registerAgreementAction(_ sender: UIButton) {
+        
         let vc = WebViewController()
+        let na = UINavigationController(rootViewController: vc)
         vc.loadDataRichTextType(type: .AboutAgreement)
         vc.title = "注册协议"
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.present(na, animated: true) {
+            
+        }
     }
     //MARK:用户登录
     class func api_launch(userName:String,passwork:String) -> Void {

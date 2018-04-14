@@ -14,6 +14,7 @@ enum PayType : Int {
 }
 
 let NotificationCenterOrderPayment = "letNotificationCenterOrderPayment"
+let IsFirstToPayPoint = "IsFirstToPayPoint"  //用于判断应用是否是第一次
 
 class OrderPaymentViewController: UIViewController{
     
@@ -108,7 +109,20 @@ class OrderPaymentViewController: UIViewController{
 //    }
     
     @IBAction func paymentAction(_ sender: UIButton) {
+        
+        
         if payType == PayType.Point {
+            
+            if LGYTool.isFrist(str: IsFirstToPayPoint){
+                LGYAlertViewSimple.show(title: "默认支付密码为手机号码后6位", leftStr: "修改密码", rightStr:"我知道啦").callBlock = {(position) in
+                    if position == 0 {
+                        let vc = Bundle.main.loadNibNamed("ChangePayPassworkViewController", owner: nil, options: nil)?.first as! ChangePayPassworkViewController
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
+                return
+            }
+            
             let view =  LGYAlertViewPayment.show(title: "支付订单 ￥\(totalPrice)")
             view.callBlock = {[weak self](text) ->Void in
                 if let weakSelf = self {
@@ -142,6 +156,15 @@ class OrderPaymentViewController: UIViewController{
             }
         }
     }
+    
+    func setPayType(type:Int){
+        if type == 0{
+            
+        }else{
+            
+        }
+    }
+    
     
     private func toPay(outTradeNo : String,payPw : String? = nil) {
         var parmeter = [
@@ -181,6 +204,8 @@ class OrderPaymentViewController: UIViewController{
                         //积分支付
                         if (LGYAFNetworking.isNetWorkSuccess(str: model?.code)) {
                             NotificationCenter.default.post(name: Notification.Name.init(NotificationCenterOrderPayment), object: true)
+                        }else{
+                            
                         }
                     }
                    

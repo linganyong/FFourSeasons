@@ -26,6 +26,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     @IBOutlet weak var payBackView: UIView!
     
   
+    @IBOutlet weak var spelabel: UILabel!
     @IBOutlet weak var productDetailTableViewLC: NSLayoutConstraint!
     @IBOutlet weak var productDetailTableView: UITableView!
     @IBOutlet weak var productInformationView: UIView!
@@ -309,6 +310,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     //MARK:获取规格ID
     func specificationDeal(text:String,array:Array<String>) -> Void {
+        var spec = ""
         if productModel != nil{
             productGuiGe = self.productModel?.itemList! as NSArray?
             if productGuiGe != nil{
@@ -320,10 +322,14 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
                         for s in listSpec!{
                             let spec = s as Spec?
                             if spec != nil{
+                                if str.count > 0{
+                                    str += ","
+                                }
                                 str += (spec?.name)! //拼接规格组合为字符串
                             }
                         }
                     }
+                   
                     var flag = true
                     for guige in array{ //遍历是否是否为选择规格
                         if !str.contains(guige){
@@ -332,6 +338,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
                         }
                     }
                     if flag{
+                        spec = str
                         selectSpec = (item?._id)!
                         if productInformation?.goods_type == 0{
                             productPriceLabel.text = "￥\((item?.price)!)"
@@ -342,6 +349,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
                     
                 }
             }
+            spelabel.text = "已选规格：\(spec)，数量\(text)"
         }
     }
     

@@ -361,4 +361,24 @@ class LGYTool: NSObject {
         return flag
     }
     
+    
+    class func buttonCornerRadiusImage(button:UIButton,imageName:String,title:String?){
+        let img = UIImageView.init(frame:button.bounds)
+        img.image = UIImage(named: "背景3x.png")
+        button.insertSubview(img, at: 0)
+        button.backgroundColor = UIColor.white
+        img.layer.masksToBounds = true
+        img.layer.cornerRadius = button.layer.cornerRadius
+        //添加阴影
+        button.layer.shadowOpacity = 1 //不透明图
+        button.layer.shadowColor = UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 0.25).cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 3) // 设置阴影的偏移量
+        button.layer.shadowRadius = CGFloat(3)
+        button.clipsToBounds = false //添加此句展示效果
+        
+        button.setTitle(title, for: .normal)
+    }
+    
+   
+    
 }

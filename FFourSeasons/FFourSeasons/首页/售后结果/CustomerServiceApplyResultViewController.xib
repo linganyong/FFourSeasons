@@ -24,9 +24,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="定位3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="KnC-Ub-w75">
-                                        <rect key="frame" x="12" y="20" width="22" height="22"/>
+                                        <rect key="frame" x="12" y="16" width="22" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="Qc2-7E-aSF"/>
+                                            <constraint firstAttribute="height" constant="30" id="Qc2-7E-aSF"/>
                                             <constraint firstAttribute="width" constant="22" id="hqb-HD-Kez"/>
                                         </constraints>
                                     </imageView>
@@ -250,19 +250,24 @@
                 <viewLayoutGuide key="safeArea" id="2A8-qY-gg7"/>
             </view>
             <connections>
+                <outlet property="addressLabel" destination="wSO-qD-IcJ" id="0um-dd-UqN"/>
                 <outlet property="applyButtonHeightLC" destination="n7y-Yi-YQH" id="Ptn-95-Jf3"/>
                 <outlet property="labelMaginBottomLC" destination="D8v-Bg-FEm" id="aCo-yG-1Fx"/>
+                <outlet property="nameLabel" destination="pF4-Ed-dpN" id="iUr-Io-Ktj"/>
+                <outlet property="priceLabel" destination="hnf-uP-ILy" id="7kN-r7-iNS"/>
                 <outlet property="productTableView" destination="L28-DC-t5G" id="5jV-90-SRL"/>
                 <outlet property="productTableViewLC" destination="bda-jt-YC5" id="aJL-oh-xh1"/>
+                <outlet property="telLabel" destination="7r4-YI-LCR" id="zYv-gP-5fs"/>
                 <outlet property="titleTableView" destination="DYz-Ll-Bbh" id="4V3-zZ-hPq"/>
                 <outlet property="titleTableViewLC" destination="wXs-X8-ZSx" id="0qT-cw-cfT"/>
+                <outlet property="yunFeiLabel" destination="be2-04-SAs" id="iSN-qy-PS2"/>
             </connections>
             <point key="canvasLocation" x="35.5" y="-81.5"/>
         </viewController>
     </objects>
     <resources>
         <image name="右箭头3x.png" width="23" height="46"/>
-        <image name="定位3x.png" width="66" height="68"/>
+        <image name="定位3x.png" width="50" height="67"/>
         <image name="按钮背景.png" width="177" height="93"/>
     </resources>
 </document>

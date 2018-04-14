@@ -72,9 +72,10 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
         cell.selectionStyle = .none
         let item = dataScoure![indexPath.row]
         if item.goods_type == 0{
-            cell.setDataScoure(name: item.name, priceStr:"￥\(item.price!)", countStr: String.init(format: "x%D", item.count))
+            cell.setDataScoure(name: item.name, priceStr:"￥\(item.price!)", countStr: String.init(format: "x%D", item.count), imageUrl:item.item_url)
+            
         }else{
-            cell.setDataScoure(name: item.name, priceStr: "\(item.price!) 积分", countStr: String.init(format: "x%D", item.count))
+            cell.setDataScoure(name: item.name, priceStr: "\(item.price!) 积分", countStr: String.init(format: "x%D", item.count), imageUrl: item.item_url)
         }
         return cell
     }
