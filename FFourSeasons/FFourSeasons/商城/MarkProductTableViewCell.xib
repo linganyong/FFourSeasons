@@ -57,23 +57,6 @@
                                         <color key="textColor" red="0.92577856779098511" green="0.38466110825538635" blue="0.21081253886222839" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDu-dC-rkd">
-                                        <rect key="frame" x="225.5" y="81.5" width="60" height="20"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="gbC-3b-FXP"/>
-                                            <constraint firstAttribute="width" constant="60" id="ljL-AV-bpe"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <state key="normal">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="LGyCornerRadius">
-                                                <real key="value" value="9.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="新品3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="tJm-tp-GXN">
                                         <rect key="frame" x="242.5" y="0.0" width="23" height="34.5"/>
                                         <constraints>
@@ -90,44 +73,20 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOA-Tt-kb6">
-                                        <rect key="frame" x="237" y="81.5" width="60" height="20"/>
-                                        <color key="backgroundColor" red="0.92577856780000001" green="0.3846611083" blue="0.21081253890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="Lmi-F5-TIK"/>
-                                            <constraint firstAttribute="width" constant="60" id="dms-Bk-sdh"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                        <state key="normal" title="立即购买">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="LGyCornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="action:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4VB-db-YpD"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="tJm-tp-GXN" secondAttribute="trailing" constant="40" id="2g4-Qa-b5m"/>
-                                    <constraint firstAttribute="trailing" secondItem="BDu-dC-rkd" secondAttribute="trailing" constant="20" id="3cE-SG-Qgj"/>
                                     <constraint firstItem="tJm-tp-GXN" firstAttribute="height" secondItem="xDI-v8-xtk" secondAttribute="height" multiplier="1:3.3" id="3cg-LB-Rpm"/>
                                     <constraint firstItem="tJm-tp-GXN" firstAttribute="top" secondItem="xDI-v8-xtk" secondAttribute="top" id="84F-wa-bl6"/>
                                     <constraint firstAttribute="trailing" secondItem="UIa-Ra-geE" secondAttribute="trailing" id="GfD-QR-e6a"/>
                                     <constraint firstItem="8Fg-3U-inI" firstAttribute="leading" secondItem="Kul-Sl-grB" secondAttribute="leading" constant="1" id="Ha4-8h-bo6"/>
                                     <constraint firstItem="jmo-y9-GUk" firstAttribute="centerY" secondItem="tJm-tp-GXN" secondAttribute="centerY" id="I7t-j9-0i0"/>
-                                    <constraint firstItem="OOA-Tt-kb6" firstAttribute="centerY" secondItem="UIa-Ra-geE" secondAttribute="centerY" id="IUE-pR-HRC"/>
                                     <constraint firstItem="8Fg-3U-inI" firstAttribute="top" secondItem="Kul-Sl-grB" secondAttribute="bottom" multiplier="1.33" id="JI5-DZ-YmC"/>
                                     <constraint firstAttribute="trailing" secondItem="8Fg-3U-inI" secondAttribute="trailing" id="Pav-lq-kSs"/>
                                     <constraint firstItem="UIa-Ra-geE" firstAttribute="leading" secondItem="Kul-Sl-grB" secondAttribute="leading" constant="-2" id="SW4-zq-kJk"/>
                                     <constraint firstItem="jmo-y9-GUk" firstAttribute="centerX" secondItem="tJm-tp-GXN" secondAttribute="centerX" id="XHC-0i-C57"/>
-                                    <constraint firstItem="BDu-dC-rkd" firstAttribute="centerY" secondItem="UIa-Ra-geE" secondAttribute="centerY" id="hHx-1m-xUB"/>
                                     <constraint firstItem="Kul-Sl-grB" firstAttribute="leading" secondItem="xDI-v8-xtk" secondAttribute="leading" constant="16" id="qrF-tE-Xj2"/>
-                                    <constraint firstAttribute="trailing" secondItem="OOA-Tt-kb6" secondAttribute="trailing" constant="8.5" id="uUn-yf-DsK"/>
                                     <constraint firstAttribute="trailing" secondItem="Kul-Sl-grB" secondAttribute="trailing" id="xEI-2m-ruP"/>
                                 </constraints>
                             </view>
@@ -161,7 +120,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="backView" destination="IIQ-an-ug4" id="rG0-ty-Arv"/>
-                <outlet property="button" destination="OOA-Tt-kb6" id="arA-l0-6WF"/>
                 <outlet property="groundView" destination="Vqg-uS-ROW" id="6LA-9w-mc4"/>
                 <outlet property="line1Label" destination="Kul-Sl-grB" id="dj3-Z7-onX"/>
                 <outlet property="line2Label" destination="8Fg-3U-inI" id="XOr-Td-ZMd"/>

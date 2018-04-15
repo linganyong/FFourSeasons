@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ApplyCustomerServiceViewController: UIViewController,UITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,LGYImageSelectViewControllerDelegate {
+class ApplyCustomerServiceViewController: UIViewController,UITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,LGYImageSelectViewControllerDelegate,ApplyCustomerServiceImageCollectionViewCellDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeightLC: NSLayoutConstraint!
@@ -18,8 +18,8 @@ class ApplyCustomerServiceViewController: UIViewController,UITextViewDelegate,UI
     
     var rightBarItem:UIBarButtonItem!
     var orderDetail:OrderList?
-    var imageArray:[Int:UIImage] = [:]
-    var imageUrlArray:[Int:String] = [:]
+    var imageArray = Array<UIImage>()
+    var imageUrlArray = Array<String>()
     var cellWidth = CGFloat(0.0)
     var selectIndexPaht:IndexPath?
     var isTextEdit = false //是否在编辑文本，用于取消点击冲突
@@ -53,28 +53,35 @@ class ApplyCustomerServiceViewController: UIViewController,UITextViewDelegate,UI
     }
     
     func addImageArray(iamge:UIImage,imageUrl:String?)->Void{
-        if selectIndexPaht == nil || selectIndexPaht?.row == 0{
-            let count = imageArray.count
-            imageArray[count] = iamge
-            imageUrlArray[count] = imageUrl
-        }else{
-            imageArray[selectIndexPaht!.row] = iamge
-            imageUrlArray[selectIndexPaht!.row] = imageUrl
+        if (selectIndexPaht == nil || selectIndexPaht?.row == 0){
+            imageArray.append(iamge)
+            if imageUrl != nil{
+                imageUrlArray.append(imageUrl!)
+            }
+//        }else{
+//            imageArray[selectIndexPaht!.row] = iamge
+//            imageUrlArray[selectIndexPaht!.row] = imageUrl
         }
+       
+        collectionViewHeightLC.constant = cellWidth*2+20
+        collectionView.layoutIfNeeded()
         
-        if imageArray.count > 4{
-            collectionViewHeightLC.constant = cellWidth
-        }else{
-            collectionViewHeightLC.constant = cellWidth*2+20
-        }
         collectionView.reloadData()
         
     }
     
+    func deleteImageArray(indexPath:IndexPath)->Void{
+        
+        imageArray.remove(at: indexPath.row)
+        imageUrlArray.remove(at: indexPath.row-1)
+        collectionView.reloadData()
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ApplyCustomerServiceImageCollectionViewCell", for: indexPath) as! ApplyCustomerServiceImageCollectionViewCell
         cell.myImageView.image = imageArray[indexPath.row]
+        cell.deleteButton.isHidden = true
         return cell
     }
     
@@ -99,8 +106,16 @@ class ApplyCustomerServiceViewController: UIViewController,UITextViewDelegate,UI
             }
             break
         default:
+            let cell = collectionView.cellForItem(at: indexPath) as! ApplyCustomerServiceImageCollectionViewCell
+            cell.deleteButton.isHidden = false
+            cell.indexPath = indexPath
+            cell.delegate = self
             break
         }
+    }
+    
+    func applyCustomerServiceImageCollectionViewCell(cell: ApplyCustomerServiceImageCollectionViewCell) {
+        deleteImageArray(indexPath:cell.indexPath!)
     }
     
     //MARK:修改头像代理图片回调
@@ -161,11 +176,20 @@ class ApplyCustomerServiceViewController: UIViewController,UITextViewDelegate,UI
         loadCustomerService()
     }
     
+    //MARK:提交售后申请
     func loadCustomerService(){
+        var imgs = ""
+        for intem in imageUrlArray{
+            if imgs.count == 0 {
+                imgs = "\(intem)"
+            }else{
+                imgs = ";\(intem)"
+            }
+        }
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_customerService, parameters: ["token":Model_user_information.getToken()
             ,"oId":"\(orderDetail!._id)"
             ,"content":describleTextView.text!
-            ,"imgs":""], progress: nil, cacheName: nil) { [weak self](object, isError) in
+            ,"imgs":imgs], progress: nil, cacheName: nil) { [weak self](object, isError) in
                 if !isError {
                     let model = Model_user_information.yy_model(withJSON: object as Any)
                     if let msg = model?.msg{

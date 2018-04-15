@@ -30,7 +30,7 @@
                                             <constraint firstAttribute="width" constant="22" id="hqb-HD-Kez"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右箭头3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="DsM-q9-NFX">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DsM-q9-NFX">
                                         <rect key="frame" x="360" y="25" width="7" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="7" id="OU8-r3-4E6"/>
@@ -266,7 +266,6 @@
         </viewController>
     </objects>
     <resources>
-        <image name="右箭头3x.png" width="23" height="46"/>
         <image name="定位3x.png" width="50" height="67"/>
         <image name="按钮背景.png" width="177" height="93"/>
     </resources>

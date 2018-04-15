@@ -24,6 +24,7 @@ class ShopCarViewController: UIViewController,UITableViewDataSource,UITableViewD
     var delegateArray = Array<IndexPath>()
     var isEdit = false
     
+    @IBOutlet weak var payViewBottomLC: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var productCountLabel: UILabel!
     let emptyBackgroundView = LGYEmptyBackgroundView.loadViewFromNib(message: "空空的购物车，赶快去挑一件吧")
@@ -62,13 +63,22 @@ class ShopCarViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        emptyView()
+        return dataScoure.count
+    }
+    
+    func emptyView() {
         if dataScoure.count == delegateArray.count || dataScoure.count == 0{
+            payViewBottomLC.constant = 97
             self.navigationItem.rightBarButtonItems = nil
+            self.view.layoutIfNeeded()
         }else{
+            payViewBottomLC.constant = 0
             self.navigationItem.rightBarButtonItems = [rightBarItem]
+            self.view.layoutIfNeeded()
         }
         emptyBackgroundView.addToSuperview(view: tableView, frame: nil, dataScoureCount: dataScoure.count-delegateArray.count)
-        return dataScoure.count
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -19,21 +19,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rgu-eu-HxD">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rgu-eu-HxD">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQV-zt-PMq">
+                        <rect key="frame" x="20" y="0.0" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="JZE-fP-4M0"/>
+                            <constraint firstAttribute="width" constant="30" id="iDQ-Qh-mLT"/>
+                        </constraints>
+                        <state key="normal" image="-3x.png"/>
+                        <connections>
+                            <action selector="action:" destination="gTV-IL-0wX" eventType="touchUpInside" id="fve-aU-hy6"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="rgu-eu-HxD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5T7-hr-ym0"/>
                 <constraint firstAttribute="trailing" secondItem="rgu-eu-HxD" secondAttribute="trailing" id="dNA-uk-8qo"/>
                 <constraint firstItem="rgu-eu-HxD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="esg-TS-Xrr"/>
+                <constraint firstAttribute="trailing" secondItem="yQV-zt-PMq" secondAttribute="trailing" id="hcm-z7-51t"/>
                 <constraint firstAttribute="bottom" secondItem="rgu-eu-HxD" secondAttribute="bottom" id="jmS-pM-pQ5"/>
+                <constraint firstItem="yQV-zt-PMq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nr2-dv-syU"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="deleteButton" destination="yQV-zt-PMq" id="XbS-ZB-WWb"/>
                 <outlet property="myImageView" destination="rgu-eu-HxD" id="mvB-3b-SDh"/>
             </connections>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="-3x.png" width="114" height="114"/>
+    </resources>
 </document>

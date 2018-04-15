@@ -27,7 +27,7 @@ class ChangePayPassworkViewController: UIViewController,UITextFieldDelegate {
     var type:ChangePassworkType = ChangePassworkType.PayPasswork
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "设置修改支付密码"
+        self.title = "设置修改密码"
         navigationItemBack(title: "    ")
         viewLayerShadow()
         rightBarItem = navigationBarAddRightItem(_imageName: "打勾.png", target: self, action: #selector(rightBarAction))
@@ -45,6 +45,17 @@ class ChangePayPassworkViewController: UIViewController,UITextFieldDelegate {
         LGYTool.viewLayerShadow(view: verificationCodeView)
         LGYTool.viewLayerShadow(view: passworkView)
         LGYTool.viewLayerShadow(view: passworkAgainView)
+        if type == .PayPasswork{
+            self.title = "设置修改支付密码"
+            let phone = PersonViewController.infornation?.phone
+            //        let startIndex = phone?.index((phone?.startIndex)!, offsetBy: 3)
+            //        let endIndex = phone?.index((phone?.startIndex)!, offsetBy: 7)
+            if let range = phone?.lgyRange(nsRange: NSMakeRange(2, 6)){
+                phoneTF.text =  phone?.replacingCharacters(in:range , with: "******")
+            }
+            phoneTF.isEnabled = false
+        }
+        
     }
     
     func setTextFieldDelegate() -> Void {

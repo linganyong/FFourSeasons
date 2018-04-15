@@ -117,8 +117,10 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
                             annotationView?.backgroundColor = UIColor.white
                             annotationView?.contentMode = .center
                             annotationView?.LGyCornerRadius = 25
-                            LGYTool.viewLayerShadowShadowOffsetHeight(view: annotationView!)
-                            annotationView?.reloadInputViews()
+                            if annotationView != nil{
+                                LGYTool.viewLayerShadowShadowOffsetHeight(view: annotationView!)
+                                annotationView?.reloadInputViews()
+                            }
                         }
                     })
                 }

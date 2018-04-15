@@ -78,6 +78,7 @@
                             <constraint firstItem="pYD-qV-CHK" firstAttribute="centerY" secondItem="oDK-Nu-uVL" secondAttribute="centerY" id="Lyh-TY-ns6"/>
                             <constraint firstItem="pYD-qV-CHK" firstAttribute="trailing" secondItem="qtk-HZ-Si8" secondAttribute="trailing" id="Pmu-eg-cpl"/>
                             <constraint firstItem="oDK-Nu-uVL" firstAttribute="leading" secondItem="4hF-Fq-9Lw" secondAttribute="leading" id="eyD-J9-jeR"/>
+                            <constraint firstAttribute="height" constant="97" id="gZ1-ys-Csy"/>
                             <constraint firstItem="qtk-HZ-Si8" firstAttribute="top" secondItem="oDK-Nu-uVL" secondAttribute="bottom" constant="8" id="gd5-7Q-vw1"/>
                         </constraints>
                     </view>
@@ -95,6 +96,7 @@
                 <viewLayoutGuide key="safeArea" id="OYA-kH-n4t"/>
             </view>
             <connections>
+                <outlet property="payViewBottomLC" destination="8Ew-rW-lbe" id="aqr-H3-B8r"/>
                 <outlet property="productCountLabel" destination="oDK-Nu-uVL" id="twV-qr-Nk8"/>
                 <outlet property="productPriceLabel" destination="pYD-qV-CHK" id="D1h-9r-enU"/>
                 <outlet property="tableView" destination="zki-sg-vqw" id="Int-zX-xWg"/>

@@ -234,6 +234,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavigationBarStyle(type: .Default)
+        reloadDataScoure()
     }
     
     

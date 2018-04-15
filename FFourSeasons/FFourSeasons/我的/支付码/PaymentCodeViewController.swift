@@ -15,7 +15,7 @@ class PaymentCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundColor()
-        title = "支付码"
+        title = "积分付码"
         navigationItemBack(title: "")
 //        HMScannerController.cardImage(withCardName: cardName, avatar: avatar, scale: 0.2) { (image) -> Void in
 //

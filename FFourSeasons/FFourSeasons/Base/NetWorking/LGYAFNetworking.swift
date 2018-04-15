@@ -39,7 +39,7 @@ class LGYAFNetworking: NSObject {
         let size = view.frame.size
         let imageView = UIImageView(frame: CGRect(x:(Double(size.width) - imgWidth)/2.0 , y: (Double(size.height) - imgHeight)/2 - 44, width: imgWidth, height: imgHeight))
         imageView.backgroundColor = UIColor.white
-        imageView.LGyCornerRadius = 10
+        imageView.LGyCornerRadius = Float(imgHeight/2)
         view.addSubview(imageView)
         loadingGif(imageView: imageView, gifName: "loading.gif")
     }
@@ -55,7 +55,7 @@ class LGYAFNetworking: NSObject {
         let size = view.frame.size
         let imageView = UIImageView(frame: CGRect(x:(Double(size.width) - imgWidth)/2.0 , y: (Double(size.height) - imgHeight)/2 - 44, width: imgWidth, height: imgHeight))
         imageView.backgroundColor = UIColor.white
-        imageView.LGyCornerRadius = 10
+        imageView.LGyCornerRadius = Float(imgHeight/2)
         view.addSubview(imageView)
         loadingGif(imageView: imageView, gifName: "loading.gif")
     }
@@ -132,8 +132,9 @@ class LGYAFNetworking: NSObject {
     
     //请求 图片格式 multipart/form-data ，返回数据格式 text/plain
     class func lgyPushImage(urlString: String, parameters: [String:Any]?,array:Array<UIImage>,progress:UIProgressView?,responseBlock:((_ urlString:String?,_ isError:Bool)->Void)?)->Void{
+        let network = LGYAFNetworking()
+        network.addLoadingView()
         let manager = AFHTTPSessionManager()
-        
         //设置相应数据支持的类型
         manager.responseSerializer = AFHTTPResponseSerializer()
         manager.requestSerializer.timeoutInterval = 10;
@@ -155,11 +156,13 @@ class LGYAFNetworking: NSObject {
         }, success: { (dataTask, any) in
             let url = String.init(data: any as! Data, encoding: .utf8)
             responseBlock?(url,false)
+            network.removeLoadingView()
         }) { (dataTask, error) in
             print("error  ",error,dataTask)
             _ = LGYAlertViewSimple.show(title: error.localizedDescription, buttonStr: "确定")
             responseBlock?(error.localizedDescription, true)
             LBuyly.lBuglyError(error: error)
+            network.removeLoadingView()
         }
     }
     

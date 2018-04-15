@@ -10,7 +10,7 @@ import UIKit
 
 typealias LGYAlertViewCallBlock = (_ key:String,_ text:String?) ->Void
 
-class LGYAlertView: UIView {
+class LGYAlertView: UIView,UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
@@ -26,6 +26,7 @@ class LGYAlertView: UIView {
         view.textField.placeholder = placeholder
         view.leftButton.setTitle(leftStr, for: .normal)
         view.rightButton.setTitle(rightStr, for: .normal)
+        view.textField.delegate = view
         UIApplication.shared.keyWindow?.addSubview(view)
         
         let tap = UITapGestureRecognizer.init(target: view, action: #selector(removeFromSuperview))
@@ -33,6 +34,10 @@ class LGYAlertView: UIView {
         return view
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.removeFromSuperview()
+        return true
+    }
    
     
     @IBAction func Action(_ sender: UIButton) {

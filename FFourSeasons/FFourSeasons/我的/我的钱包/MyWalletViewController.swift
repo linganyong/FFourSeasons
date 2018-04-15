@@ -54,6 +54,7 @@ class MyWalletViewController: UIViewController {
     
     @IBAction func changePayPassworkAction(_ sender: Any) {
         let vc = Bundle.main.loadNibNamed("ChangePayPassworkViewController", owner: nil, options: nil)?.first as! ChangePayPassworkViewController
+        vc.type = .PayPasswork
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

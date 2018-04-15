@@ -8,12 +8,24 @@
 
 import UIKit
 
+protocol ApplyCustomerServiceImageCollectionViewCellDelegate {
+    func applyCustomerServiceImageCollectionViewCell(cell:ApplyCustomerServiceImageCollectionViewCell)->Void;
+}
+
 class ApplyCustomerServiceImageCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var myImageView: UIImageView!
+    var delegate:ApplyCustomerServiceImageCollectionViewCellDelegate?
+    var indexPath:IndexPath?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         myImageView.layer.masksToBounds = true
+        deleteButton.isHidden = true
     }
 
+    @IBAction func action(_ sender: UIButton) {
+        delegate?.applyCustomerServiceImageCollectionViewCell(cell: self)
+    }
 }

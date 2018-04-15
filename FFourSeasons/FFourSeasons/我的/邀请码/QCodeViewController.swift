@@ -35,6 +35,7 @@ class QCodeViewController: UIViewController,ShareViewDelegate {
     }
 
     @IBAction func copyAction(_ sender: UIButton) {
+        LGYToastView.show(message: "复制成功！")
          UIPasteboard.general.string = self.codeLabel.text
     }
     

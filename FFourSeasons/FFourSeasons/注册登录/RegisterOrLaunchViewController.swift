@@ -101,6 +101,19 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
             addRootPage()
         }
     }
+    @IBAction func touristAction(_ sender: UIButton) {
+        //设置原来密码为空
+        let ss = "ashf4lasjd%&fhasdh9sdih"
+        let passwordItem = KeychainConfiguration.get(forKey: ss)
+        if passwordItem != nil {
+            KeychainConfiguration.save(userName: (passwordItem?.account)!, passwork: "", forKey: ss)
+        }
+        let tb = LinTabBarController()
+        tb.initChildView()
+        self.present(tb, animated: true, completion: {
+            
+        })
+    }
     
     //MARK:切换登录或注册方法
     func addLaunchOrReginsterAnimation(showView:LGYReginsterLaunchShowView,withDuration:TimeInterval) -> Void {
@@ -247,7 +260,6 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     }
     
     @IBAction func registerAgreementAction(_ sender: UIButton) {
-        
         let vc = WebViewController()
         let na = UINavigationController(rootViewController: vc)
         vc.loadDataRichTextType(type: .AboutAgreement)

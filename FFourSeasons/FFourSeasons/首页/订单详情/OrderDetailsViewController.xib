@@ -30,7 +30,7 @@
                                             <constraint firstAttribute="width" constant="22" id="hqb-HD-Kez"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="右箭头3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="DsM-q9-NFX">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DsM-q9-NFX">
                                         <rect key="frame" x="360" y="25" width="7" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="7" id="OU8-r3-4E6"/>
@@ -17339,7 +17339,6 @@ k98AD5PnAA+T6gAPk+8AD5P3AA+T+gAPlAwAD5QPAA+UFAAAAAAAAAQBAAAAAAAAAFYAAAAAAAAAAAAA
 AAAAD5QWA
 </mutableData>
         </image>
-        <image name="右箭头3x.png" width="23" height="46"/>
         <image name="定位3x.png" width="50" height="67"/>
     </resources>
 </document>

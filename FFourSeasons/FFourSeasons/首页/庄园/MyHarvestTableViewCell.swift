@@ -77,7 +77,7 @@ class MyHarvestTableViewCell: UITableViewCell {
             }else{
                 productImageView.image = nil
             }
-            line1Label.text = details.title
+            line1Label.text = "\(details.title!) x\(details.count)"
             let str = "\(modelOrder!.pay_status)"
             switch str{
             case orderWaitPay: //未付款

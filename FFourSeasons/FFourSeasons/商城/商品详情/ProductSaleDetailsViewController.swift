@@ -242,7 +242,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         weak var vc = self;
         //MARK:加载产品分类信息
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_goodsDetail
-        , parameters: ["gId":String.init(format: "%D", productId),"token":Model_user_information.getToken()], progress: nil) { (object,isError) in
+        , parameters: ["gId":String.init(format: "%D", productId)], progress: nil) { (object,isError) in
             if isError{
                 return
             }
@@ -375,7 +375,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             if productInformation == nil || selectCountText.count < 0{
                 return
             }
-            LGYAFNetworking.lgyPost(urlString: APIAddress.api_addCart, parameters: ["itemId":String.init(format: "%D", selectSpec),"token":Model_user_information.getToken(),"count":selectCountText], progress: nil, responseBlock: { (object, isError) in
+            LGYAFNetworking.lgyPost(urlString: APIAddress.api_addCart, parameters: ["itemId":String.init(format: "%D", selectSpec),"count":selectCountText], progress: nil, responseBlock: { (object, isError) in
                 if !isError {
                     let model = Model_user_information.yy_model(withJSON: object)
                     if model == nil{
@@ -446,7 +446,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     //MARK:加载评论
     func loadComment(gId:String,pageNumber:String){
-        LGYAFNetworking.lgyPost(urlString: APIAddress.api_commentList, parameters: ["gId":gId,"pageNumber":pageNumber,"token":Model_user_information.getToken()], progress: nil) {[weak self] (object, isError) in
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_commentList, parameters: ["gId":gId,"pageNumber":pageNumber], progress: nil) {[weak self] (object, isError) in
             if let weakSelf = self{
                 if !isError {
                     let model = Model_api_comment.yy_model(withJSON: object as Any)

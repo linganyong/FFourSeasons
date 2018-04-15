@@ -24,7 +24,6 @@ class MarkProductTableViewCell: UITableViewCell {
     @IBOutlet weak var line1Label: UILabel!
     @IBOutlet weak var line3Label: UILabel!
     var delegate:MarkProductTableViewCellDelegate?
-    @IBOutlet weak var button: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -48,6 +47,7 @@ class MarkProductTableViewCell: UITableViewCell {
         delegate?.markProductTableViewCell(cell: self)
         
     }
+    
     func setDataScoure(imageUrl:String?,line1Str:String?,line2Str:String?,line3str:String?,loStr:String?) -> Void {
         line1Label.text = line1Str
         line2Label.text = line2Str

@@ -33,24 +33,24 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.title = "官方商城"
         setBackgroundColor()
         LGYTool.viewLayerShadowAll(view: shopCarButton)
-        needLaunch()
+        loadDataScoure()
     }
     
-    //MARK:判断是否需要登录
-    func needLaunch() -> Void {
-        if Model_user_information.getToken().count > 0{
-            loadDataScoure()
-        }else{
-            NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: NotificationCenterLaunch), object: nil)
-        }
-    }
+//    //MARK:判断是否需要登录
+//    func needLaunch() -> Void {
+//        if Model_user_information.getToken().count > 0{
+//            loadDataScoure()
+//        }else{
+//            NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: NotificationCenterLaunch), object: nil)
+//        }
+//    }
     
-    @objc func notificationCenter(notification:Notification)->Void{
-        let flag = notification.object as! Bool
-        if flag{
-            loadDataScoure()
-        }
-    }
+//    @objc func notificationCenter(notification:Notification)->Void{
+//        let flag = notification.object as! Bool
+//        if flag{
+//            loadDataScoure()
+//        }
+//    }
     
     
     //MARK:导航栏添加搜索
@@ -231,7 +231,7 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
     func loadDataScoure() -> Void {
         weak var vc = self;
         //MARK:加载产品分类信息
-        LGYAFNetworking.lgyPost(urlString: APIAddress.api_findGoodsByCateId, parameters: ["pageNumber":"1","cateId":"0","title":"","token":Model_user_information.getToken()],progress: nil, cacheName:"api_findGoodsByCateId_class") { (object,isError) in
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_findGoodsByCateId, parameters: ["pageNumber":"1","cateId":"0","title":""],progress: nil, cacheName:"api_findGoodsByCateId_class") { (object,isError) in
             let model = Model_api_findGoodsByCateId.yy_model(withJSON: object as Any)
             if model?.cateList != nil {
                 vc?.titleDataScoure.removeAll()
@@ -242,7 +242,6 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
                     vc?.titleDataScoure.append(item.name!)
                     vc?.imageDataScoure.append(item.icon!)
                 }
-                
                 vc?.setPageView()
             }
         }
@@ -256,7 +255,7 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
             cacheName = "api_findGoodsByCateId_index1_" + cateId
         }
         //MARK:加载产品分类信息
-        LGYAFNetworking.lgyPost(urlString: APIAddress.api_findGoodsByCateId, parameters: ["pageNumber":String(format: "%D", (tableView?.lgyPageIndex)!),"cateId":cateId,"title":"","token":Model_user_information.getToken()], progress: nil,cacheName:cacheName) { (object,isError) in
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_findGoodsByCateId, parameters: ["pageNumber":String(format: "%D", (tableView?.lgyPageIndex)!),"cateId":cateId,"title":""], progress: nil,cacheName:cacheName) { (object,isError) in
 //            tb?.mj_footer?.alpha = 0
             tb?.mj_header?.endRefreshing()
             tb?.mj_footer?.endRefreshing()

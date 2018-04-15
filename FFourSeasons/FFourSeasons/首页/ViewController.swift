@@ -32,30 +32,30 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         startLocationManager()
         extendedLayout()
         setBackgroundColor()
-        needLaunch()
+        loadDataScoure()
         
     }
     
-    //MARK:判断是否需要登录
-    func needLaunch() -> Void {
-        if Model_user_information.getToken().count > 0{
-            loadDataScoure()
-        }else{
-            let passwordItem = KeychainConfiguration.get(forKey: userDefaultsKey)
-            do{
-                let password = try passwordItem?.readPassword()
-                if password == nil || password?.count == 0{
-                    pushToLaunch()
-                    return
-                }
-                let userName = passwordItem?.account
-                RegisterOrLaunchViewController.api_launch(userName: userName!, passwork: password!)
-            }catch{
-                LBuyly.lBuglyError(error: error)
-            }
-            NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: NotificationCenterLaunch), object: nil)
-        }
-    }
+//    //MARK:判断是否需要登录
+//    func needLaunch() -> Void {
+//        if Model_user_information.getToken().count > 0{
+//
+//        }else{
+//            let passwordItem = KeychainConfiguration.get(forKey: userDefaultsKey)
+//            do{
+//                let password = try passwordItem?.readPassword()
+//                if password == nil || password?.count == 0{
+//                    pushToLaunch()
+//                    return
+//                }
+//                let userName = passwordItem?.account
+//                RegisterOrLaunchViewController.api_launch(userName: userName!, passwork: password!)
+//            }catch{
+//                LBuyly.lBuglyError(error: error)
+//            }
+//            NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: NotificationCenterLaunch), object: nil)
+//        }
+//    }
     
     @objc func notificationCenter(notification:Notification)->Void{
         let flag = notification.object as! Bool
@@ -120,7 +120,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         tableView.lgyDataScoure = Array<Goods>()
         weak var vc = self;
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
-            vc?.needLaunch()
+            vc?.loadDataScoure()
         })
     }
     
@@ -304,7 +304,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         weak var vc = self;
         let cacheName = "api_index_1"
         //MARK:加载产品分类信息
-        LGYAFNetworking.lgyPost(urlString: APIAddress.api_index, parameters: ["token":Model_user_information.getToken()], progress: nil,cacheName:cacheName) { (object,isError) in
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_index, parameters: nil, progress: nil,cacheName:cacheName) { (object,isError) in
             vc?.tableView?.mj_header?.endRefreshing()
             vc?.tableView?.mj_footer?.endRefreshing()
             if isError {

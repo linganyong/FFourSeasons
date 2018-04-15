@@ -38,6 +38,8 @@
 		9C060DA3207B0858007EC640 /* defaultHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C060DA2207B0858007EC640 /* defaultHeader.png */; };
 		9C060DA5207B0928007EC640 /* launchChange.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C060DA4207B0928007EC640 /* launchChange.png */; };
 		9C062F202082266F000B1172 /* LGYTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C062F1F2082266F000B1172 /* LGYTextField.swift */; };
+		9C062F2520839989000B1172 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C062F2320839988000B1172 /* LaunchViewController.swift */; };
+		9C062F2620839989000B1172 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C062F2420839988000B1172 /* LaunchViewController.xib */; };
 		9C0D9C762046427400D271CE /* CustomeServiceProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D9C742046427400D271CE /* CustomeServiceProductTableViewCell.swift */; };
 		9C0D9C772046427400D271CE /* CustomeServiceProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C0D9C752046427400D271CE /* CustomeServiceProductTableViewCell.xib */; };
 		9C0D9C7A2046451B00D271CE /* CustomeServiceTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D9C782046451B00D271CE /* CustomeServiceTitleTableViewCell.swift */; };
@@ -538,6 +540,8 @@
 		9C060DA2207B0858007EC640 /* defaultHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultHeader.png; sourceTree = "<group>"; };
 		9C060DA4207B0928007EC640 /* launchChange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchChange.png; sourceTree = "<group>"; };
 		9C062F1F2082266F000B1172 /* LGYTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYTextField.swift; sourceTree = "<group>"; };
+		9C062F2320839988000B1172 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		9C062F2420839988000B1172 /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
 		9C096C3C2073076900569FE9 /* HeaderStatic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderStatic.h; sourceTree = "<group>"; };
 		9C0D9C742046427400D271CE /* CustomeServiceProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeServiceProductTableViewCell.swift; sourceTree = "<group>"; };
 		9C0D9C752046427400D271CE /* CustomeServiceProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomeServiceProductTableViewCell.xib; sourceTree = "<group>"; };
@@ -1152,6 +1156,15 @@
 				9C00BFB6202ECE5000E77EA0 /* SearchProductTableViewCell.xib */,
 			);
 			path = "商城搜索";
+			sourceTree = "<group>";
+		};
+		9C062F2220839939000B1172 /* 农夫 */ = {
+			isa = PBXGroup;
+			children = (
+				9C062F2320839988000B1172 /* LaunchViewController.swift */,
+				9C062F2420839988000B1172 /* LaunchViewController.xib */,
+			);
+			path = "农夫";
 			sourceTree = "<group>";
 		};
 		9C0D9C7E20465CA700D271CE /* 售后结果 */ = {
@@ -2158,6 +2171,7 @@
 		9CB13D5F202981B1001E5FC4 /* 注册登录 */ = {
 			isa = PBXGroup;
 			children = (
+				9C062F2220839939000B1172 /* 农夫 */,
 				9CBB50AA204949F80018A43B /* 忘记密码 */,
 				9CB13D6020298433001E5FC4 /* RegisterOrLaunchViewController.swift */,
 				9CB13D6120298433001E5FC4 /* RegisterOrLaunchViewController.xib */,
@@ -2627,6 +2641,7 @@
 				9CC9D19F204FD21D00AED4CD /* LGYAlertViewSimple.xib in Resources */,
 				9C77C57A20284FAB008B49E2 /* MainPageProductTableViewCell.xib in Resources */,
 				9CA32D622047B2FB00FD5DFC /* 积分规则3x.png in Resources */,
+				9C062F2620839989000B1172 /* LaunchViewController.xib in Resources */,
 				9C9616CA20513BD200D0EB7D /* 评价背景3x.png in Resources */,
 				9C77C4DD2027FEC1008B49E2 /* 矩形1拷贝@3x.png in Resources */,
 				9C77C5152027FEC1008B49E2 /* scroller_2.jpg in Resources */,
@@ -2995,6 +3010,7 @@
 				9C2C5487202947EF00B67BBE /* APPGuideViewCell.swift in Sources */,
 				9C77C4212027F96D008B49E2 /* NSBundle+PYSearchExtension.m in Sources */,
 				9C77C3AE2027F1FF008B49E2 /* AppDelegate.swift in Sources */,
+				9C062F2520839989000B1172 /* LaunchViewController.swift in Sources */,
 				9CA32D752047FA7200FD5DFC /* CouponViewController.swift in Sources */,
 				9C04BB80207CAC4C006EA205 /* ShareViewCell.swift in Sources */,
 				9CEFBAFE205FA97C006A6625 /* AddressShowViewController.swift in Sources */,
