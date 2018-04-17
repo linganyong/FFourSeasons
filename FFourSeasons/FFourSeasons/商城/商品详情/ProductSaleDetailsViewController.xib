@@ -378,7 +378,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drI-2d-UoV">
                                 <rect key="frame" x="0.0" y="0.0" width="94" height="44"/>
-                                <state key="normal" image="购物车.png"/>
+                                <state key="normal" image="购物车+.png"/>
                                 <connections>
                                     <action selector="shoppingCarAction:" destination="SDz-t6-8zU" eventType="touchUpInside" id="BsU-g1-DJe"/>
                                 </connections>
@@ -443,6 +443,6 @@
     <resources>
         <image name="右箭头3x.png" width="23" height="46"/>
         <image name="更多评价3x.png" width="24" height="45"/>
-        <image name="购物车.png" width="28" height="28"/>
+        <image name="购物车+.png" width="44" height="30"/>
     </resources>
 </document>

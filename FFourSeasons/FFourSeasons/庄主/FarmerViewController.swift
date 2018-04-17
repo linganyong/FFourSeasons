@@ -21,6 +21,7 @@ class FarmerViewController: UIViewController {
     @IBOutlet weak var line4BackView: UIView!
     @IBOutlet weak var line5BackView: UIView!
     @IBOutlet weak var line6BackView: UIView!
+    var vipLaunchView:VIPLaunchView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class FarmerViewController: UIViewController {
         setBackgroundColor()
         NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: PersonViewControllerLoadDataScoure), object: nil)
         setText()
+        
     }
     
     @objc func notificationCenter(notification:Notification)->Void{
@@ -64,6 +66,13 @@ class FarmerViewController: UIViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.navigationBar.isHidden = true
+        if Model_user_information.getToken().count == 0 && vipLaunchView == nil{
+            vipLaunchView = VIPLaunchView.defaultView()
+            vipLaunchView?.cController(vController: self)
+        }
+        if Model_user_information.getToken().count == 0{
+            vipLaunchView?.show()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -104,9 +113,10 @@ class FarmerViewController: UIViewController {
         }
         //支付码
         if (sender.LGYLabelKey?.elementsEqual("2"))!{
-            let vc = Bundle.main.loadNibNamed("PaymentCodeViewController", owner: nil, options: nil)?.first as! PaymentCodeViewController
-            self.navigationController?.pushViewController(vc, animated: true)
-            self.tabBarController?.tabBar.isHidden = true
+             _ = LGYAlertViewSimple.show(title: "功能即将上线！", buttonStr: "确定")
+//            let vc = Bundle.main.loadNibNamed("PaymentCodeViewController", owner: nil, options: nil)?.first as! PaymentCodeViewController
+//            self.navigationController?.pushViewController(vc, animated: true)
+//            self.tabBarController?.tabBar.isHidden = true
         }
         //周边农场
         if (sender.LGYLabelKey?.elementsEqual("3"))!{
@@ -196,5 +206,4 @@ class FarmerViewController: UIViewController {
             desLabel.text = "(再获取\(0)点积分升级会员)"
         }
     }
-    
 }

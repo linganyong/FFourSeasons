@@ -21,7 +21,7 @@ let NotificationCenterLaunch = "32412eerrf"
 class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
     @IBOutlet weak var touristView: UIView!
-    @IBOutlet weak var descriptionView: UIView!
+    
     @IBOutlet weak var tapView: UIView!
     var guideView:APPGuideView?
     @IBOutlet weak var registerMaginTopLC: NSLayoutConstraint!
@@ -41,12 +41,12 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
     @IBOutlet weak var backHeightLC: NSLayoutConstraint!
     @IBOutlet weak var launchMaginTrailingLC: NSLayoutConstraint!
-    
+    @IBOutlet weak var descriptionView: UIView! //changeDescriptionLabel的父视图
     @IBOutlet weak var changeDescriptionLabel: UILabel!
     @IBOutlet weak var launchMaginLeadingLC: NSLayoutConstraint!
     
     @IBOutlet weak var launchMaginTopLC: NSLayoutConstraint!
-    private var showViewType = LGYReginsterLaunchShowView.Reginster
+    var showViewType = LGYReginsterLaunchShowView.Reginster
     var isNeedRootPage = true //是否需要弹出引导页
     var userName:String?
     var password:String?
@@ -85,7 +85,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
     //MARK:切换登录或注册响应
     @objc func changeLaunchOrRegister() -> Void {
-        descriptionView.isHidden = true
+//        descriptionView.isHidden = true
         if showViewType == .Launch {
             addLaunchOrReginsterAnimation(showView: .Reginster, withDuration: 0.7)
         }else{
@@ -110,6 +110,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
         }
         let tb = LinTabBarController()
         tb.initChildView()
+        Model_user_information.setToken("")
         self.present(tb, animated: true, completion: {
             
         })
@@ -183,11 +184,11 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
         let passwordItem = KeychainConfiguration.get(forKey: userDefaultsKey)
         
         do{
+            launchView.phoneNumberTextField.text = passwordItem?.account
             let str = try passwordItem?.readPassword()
             if str == nil || str?.count == 0{
                 return
             }
-            launchView.phoneNumberTextField.text = passwordItem?.account
             launchView.passworkTextField.text = str
             
             //设置原来密码为空
@@ -276,6 +277,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
                     let model = Model_user_information.yy_model(withJSON: object as Any)
                     Model_user_information.setToken(model?.token)
                     if model != nil && LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                         KeychainConfiguration.save(userName: userName, passwork: passwork, forKey: userDefaultsKey)
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationCenterLaunch), object: true)
                     }else{
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationCenterLaunch), object: false)
@@ -301,7 +303,6 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     //MARK:登录成功，界面跳转
     func pushViewController(userName:String?,passwork:String?) ->Void{
         if passwork != nil && passwork != "" && userName != nil {
-            KeychainConfiguration.save(userName: userName!, passwork: passwork!, forKey: userDefaultsKey)
             let tb = LinTabBarController()
             tb.initChildView()
             self.present(tb, animated: true, completion: {

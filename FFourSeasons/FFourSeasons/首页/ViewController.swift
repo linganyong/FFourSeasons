@@ -33,29 +33,24 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         extendedLayout()
         setBackgroundColor()
         loadDataScoure()
-        
+        needLaunch()
     }
     
-//    //MARK:判断是否需要登录
-//    func needLaunch() -> Void {
-//        if Model_user_information.getToken().count > 0{
-//
-//        }else{
-//            let passwordItem = KeychainConfiguration.get(forKey: userDefaultsKey)
-//            do{
-//                let password = try passwordItem?.readPassword()
-//                if password == nil || password?.count == 0{
-//                    pushToLaunch()
-//                    return
-//                }
-//                let userName = passwordItem?.account
-//                RegisterOrLaunchViewController.api_launch(userName: userName!, passwork: password!)
-//            }catch{
-//                LBuyly.lBuglyError(error: error)
-//            }
-//            NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: NotificationCenterLaunch), object: nil)
-//        }
-//    }
+    //MARK:判断是否需要登录
+    func needLaunch() -> Void {
+        let passwordItem = KeychainConfiguration.get(forKey: userDefaultsKey)
+        do{
+            let password = try passwordItem?.readPassword()
+            if password != nil && password!.count > 0{
+                NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: NotificationCenterLaunch), object: nil)
+                let userName = passwordItem?.account
+                RegisterOrLaunchViewController.api_launch(userName: userName!, passwork: password!)
+            }
+        }catch{
+            LBuyly.lBuglyError(error: error)
+        }
+        
+    }
     
     @objc func notificationCenter(notification:Notification)->Void{
         let flag = notification.object as! Bool

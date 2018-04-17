@@ -38,8 +38,8 @@
 		9C060DA3207B0858007EC640 /* defaultHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C060DA2207B0858007EC640 /* defaultHeader.png */; };
 		9C060DA5207B0928007EC640 /* launchChange.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C060DA4207B0928007EC640 /* launchChange.png */; };
 		9C062F202082266F000B1172 /* LGYTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C062F1F2082266F000B1172 /* LGYTextField.swift */; };
-		9C062F2520839989000B1172 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C062F2320839988000B1172 /* LaunchViewController.swift */; };
-		9C062F2620839989000B1172 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C062F2420839988000B1172 /* LaunchViewController.xib */; };
+		9C062F2620839989000B1172 /* VIPLaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C062F2420839988000B1172 /* VIPLaunchView.xib */; };
+		9C062F282083A30B000B1172 /* VIPLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C062F272083A30B000B1172 /* VIPLaunchView.swift */; };
 		9C0D9C762046427400D271CE /* CustomeServiceProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D9C742046427400D271CE /* CustomeServiceProductTableViewCell.swift */; };
 		9C0D9C772046427400D271CE /* CustomeServiceProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C0D9C752046427400D271CE /* CustomeServiceProductTableViewCell.xib */; };
 		9C0D9C7A2046451B00D271CE /* CustomeServiceTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D9C782046451B00D271CE /* CustomeServiceTitleTableViewCell.swift */; };
@@ -443,6 +443,7 @@
 		9CD62134204FBC87003CD6C4 /* logo3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CD62133204FBC87003CD6C4 /* logo3x.png */; };
 		9CD62139204FC23A003CD6C4 /* QCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62137204FC23A003CD6C4 /* QCodeViewController.swift */; };
 		9CD6213A204FC23A003CD6C4 /* QCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD62138204FC23A003CD6C4 /* QCodeViewController.xib */; };
+		9CD9BD3A208618B600D2894D /* 购物车+.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CD9BD39208618B500D2894D /* 购物车+.png */; };
 		9CEFBAF4205F9E4E006A6625 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEFBAF3205F9E4D006A6625 /* libc++.tbd */; };
 		9CEFBAF6205F9E68006A6625 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEFBAF5205F9E68006A6625 /* libz.tbd */; };
 		9CEFBAF9205FA926006A6625 /* AddressShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEFBAF8205FA926006A6625 /* AddressShowTableViewCell.swift */; };
@@ -540,8 +541,8 @@
 		9C060DA2207B0858007EC640 /* defaultHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultHeader.png; sourceTree = "<group>"; };
 		9C060DA4207B0928007EC640 /* launchChange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchChange.png; sourceTree = "<group>"; };
 		9C062F1F2082266F000B1172 /* LGYTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYTextField.swift; sourceTree = "<group>"; };
-		9C062F2320839988000B1172 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		9C062F2420839988000B1172 /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
+		9C062F2420839988000B1172 /* VIPLaunchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VIPLaunchView.xib; sourceTree = "<group>"; };
+		9C062F272083A30B000B1172 /* VIPLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPLaunchView.swift; sourceTree = "<group>"; };
 		9C096C3C2073076900569FE9 /* HeaderStatic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderStatic.h; sourceTree = "<group>"; };
 		9C0D9C742046427400D271CE /* CustomeServiceProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeServiceProductTableViewCell.swift; sourceTree = "<group>"; };
 		9C0D9C752046427400D271CE /* CustomeServiceProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomeServiceProductTableViewCell.xib; sourceTree = "<group>"; };
@@ -988,6 +989,7 @@
 		9CD62133204FBC87003CD6C4 /* logo3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo3x.png; sourceTree = "<group>"; };
 		9CD62137204FC23A003CD6C4 /* QCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QCodeViewController.swift; sourceTree = "<group>"; };
 		9CD62138204FC23A003CD6C4 /* QCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QCodeViewController.xib; sourceTree = "<group>"; };
+		9CD9BD39208618B500D2894D /* 购物车+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "购物车+.png"; sourceTree = "<group>"; };
 		9CEFBAF3205F9E4D006A6625 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		9CEFBAF5205F9E68006A6625 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		9CEFBAF8205FA926006A6625 /* AddressShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressShowTableViewCell.swift; sourceTree = "<group>"; };
@@ -1124,6 +1126,7 @@
 		9C00BFAA202EBE3700E77EA0 /* 商城 */ = {
 			isa = PBXGroup;
 			children = (
+				9CD9BD39208618B500D2894D /* 购物车+.png */,
 				9CFD553D206F83710028B1A4 /* 购物车黑色.png */,
 				9CFD5531206E66F80028B1A4 /* 购物车.png */,
 				9C9616C920513BD200D0EB7D /* 评价背景3x.png */,
@@ -1161,8 +1164,8 @@
 		9C062F2220839939000B1172 /* 农夫 */ = {
 			isa = PBXGroup;
 			children = (
-				9C062F2320839988000B1172 /* LaunchViewController.swift */,
-				9C062F2420839988000B1172 /* LaunchViewController.xib */,
+				9C062F272083A30B000B1172 /* VIPLaunchView.swift */,
+				9C062F2420839988000B1172 /* VIPLaunchView.xib */,
 			);
 			path = "农夫";
 			sourceTree = "<group>";
@@ -2641,7 +2644,7 @@
 				9CC9D19F204FD21D00AED4CD /* LGYAlertViewSimple.xib in Resources */,
 				9C77C57A20284FAB008B49E2 /* MainPageProductTableViewCell.xib in Resources */,
 				9CA32D622047B2FB00FD5DFC /* 积分规则3x.png in Resources */,
-				9C062F2620839989000B1172 /* LaunchViewController.xib in Resources */,
+				9C062F2620839989000B1172 /* VIPLaunchView.xib in Resources */,
 				9C9616CA20513BD200D0EB7D /* 评价背景3x.png in Resources */,
 				9C77C4DD2027FEC1008B49E2 /* 矩形1拷贝@3x.png in Resources */,
 				9C77C5152027FEC1008B49E2 /* scroller_2.jpg in Resources */,
@@ -2762,6 +2765,7 @@
 				9C77C51E2027FEC1008B49E2 /* 910dbf29deb6fdcdd3b118e0a00d6d48da66b04f24430-EoDveD.jpg in Resources */,
 				9C04BB7F207CAC4C006EA205 /* ShareViewCell.xib in Resources */,
 				9CFD5529206E61D30028B1A4 /* 百耕园社区3x.png in Resources */,
+				9CD9BD3A208618B600D2894D /* 购物车+.png in Resources */,
 				9C7F39E6207E338A00F5990C /* launcher.png in Resources */,
 				9CA32D8120480DEA00FD5DFC /* MemberAnalysisViewController.xib in Resources */,
 			);
@@ -3010,11 +3014,11 @@
 				9C2C5487202947EF00B67BBE /* APPGuideViewCell.swift in Sources */,
 				9C77C4212027F96D008B49E2 /* NSBundle+PYSearchExtension.m in Sources */,
 				9C77C3AE2027F1FF008B49E2 /* AppDelegate.swift in Sources */,
-				9C062F2520839989000B1172 /* LaunchViewController.swift in Sources */,
 				9CA32D752047FA7200FD5DFC /* CouponViewController.swift in Sources */,
 				9C04BB80207CAC4C006EA205 /* ShareViewCell.swift in Sources */,
 				9CEFBAFE205FA97C006A6625 /* AddressShowViewController.swift in Sources */,
 				9CC79B4B202DA1EF00C43E08 /* RegisterView.swift in Sources */,
+				9C062F282083A30B000B1172 /* VIPLaunchView.swift in Sources */,
 				9CBB509A204935570018A43B /* ChangeUserPassworkViewController.swift in Sources */,
 				9C0DB9E9206E39AE00F9085D /* WebViewController.swift in Sources */,
 				9C10BD562043A0BD004AAFE3 /* ProductSaleDetailsViewController.swift in Sources */,

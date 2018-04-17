@@ -26,20 +26,18 @@ class LGYAFNetworking: NSObject {
     }
     
     func addLoadingView() -> Void {
-       
-        
         let vc = UIApplication.shared.keyWindow
         vc?.layoutIfNeeded()
         view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         vc?.addSubview(view)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeLoadingView)))
         view.backgroundColor = UIColor.clear
-        let imgWidth = 60.0
+        let imgWidth = 80.0
         let imgHeight = 60.0
         let size = view.frame.size
         let imageView = UIImageView(frame: CGRect(x:(Double(size.width) - imgWidth)/2.0 , y: (Double(size.height) - imgHeight)/2 - 44, width: imgWidth, height: imgHeight))
         imageView.backgroundColor = UIColor.white
-        imageView.LGyCornerRadius = Float(imgHeight/2)
+        imageView.LGyCornerRadius = Float(5)
         view.addSubview(imageView)
         loadingGif(imageView: imageView, gifName: "loading.gif")
     }
@@ -50,12 +48,12 @@ class LGYAFNetworking: NSObject {
         viewSuper.addSubview(view)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeLoadingView)))
         view.backgroundColor = UIColor.clear
-        let imgWidth = 100.0
-        let imgHeight = 100.0
+        let imgWidth = 80.0
+        let imgHeight = 60.0
         let size = view.frame.size
         let imageView = UIImageView(frame: CGRect(x:(Double(size.width) - imgWidth)/2.0 , y: (Double(size.height) - imgHeight)/2 - 44, width: imgWidth, height: imgHeight))
         imageView.backgroundColor = UIColor.white
-        imageView.LGyCornerRadius = Float(imgHeight/2)
+        imageView.LGyCornerRadius = Float(5)
         view.addSubview(imageView)
         loadingGif(imageView: imageView, gifName: "loading.gif")
     }

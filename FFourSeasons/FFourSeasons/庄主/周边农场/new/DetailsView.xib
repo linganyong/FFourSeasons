@@ -21,14 +21,14 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
-                    <rect key="frame" x="12" y="87.5" width="351" height="492"/>
+                    <rect key="frame" x="12" y="92.5" width="351" height="482"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndp-1Z-OhT">
-                            <rect key="frame" x="135.5" y="432" width="80" height="40"/>
+                            <rect key="frame" x="125.5" y="432" width="100" height="30"/>
                             <color key="backgroundColor" red="0.1647058824" green="0.78823529410000004" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="1nr-40-6VH"/>
-                                <constraint firstAttribute="width" constant="80" id="MeU-X3-3Si"/>
+                                <constraint firstAttribute="height" constant="30" id="1nr-40-6VH"/>
+                                <constraint firstAttribute="width" constant="100" id="MeU-X3-3Si"/>
                             </constraints>
                             <state key="normal" title="立即前往">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -125,9 +125,11 @@
                 <outlet property="backView" destination="b6k-g8-2Ki" id="DDC-A0-hb9"/>
                 <outlet property="collectionView" destination="uo1-pa-p0X" id="y99-5F-zFM"/>
                 <outlet property="collectionViewHeightLC" destination="MEV-IC-r8s" id="Hf3-Vg-yrz"/>
+                <outlet property="desTitleHeightLC" destination="et8-4F-AAZ" id="pOf-Ol-7l7"/>
+                <outlet property="desTitleLabel" destination="giw-Fa-gTA" id="GAM-ft-UZ7"/>
                 <outlet property="descriptionLabel" destination="ful-T5-BR8" id="EqE-Ti-V3k"/>
                 <outlet property="goToButton" destination="Ndp-1Z-OhT" id="EKS-TI-PFM"/>
-                <outlet property="titleLabel" destination="GlU-Df-1g6" id="f7I-TZ-Bwk"/>
+                <outlet property="titleLabel" destination="GlU-Df-1g6" id="vXI-oc-m7h"/>
             </connections>
             <point key="canvasLocation" x="-186.5" y="16.5"/>
         </view>

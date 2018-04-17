@@ -52,7 +52,11 @@ class OrderPaymentViewController: UIViewController{
     @objc func notificationCenter(notification:Notification) ->Void{
         if let flag = notification.object as? Bool {
             if flag {
-                let vc = MyOrderViewController()
+                let vc = Bundle.main.loadNibNamed("OrderDetailsViewController", owner: nil, options: nil)?.first as! OrderDetailsViewController
+//                vc.orderDetail = 
+                vc.setOrderType(orderType:.WaitForHarvest)
+                vc.loadOrderDetails()
+                vc.setText()
                 self.navigationController?.pushViewController(vc, animated: true)
                 removeSelfViewController()
             }
@@ -188,7 +192,7 @@ class OrderPaymentViewController: UIViewController{
                     if weakSelf.payType == PayType.Alipay {
                             //支付宝支付
                         if let payString = model?.pay {
-                            AlipaySDK.defaultService().payOrder(payString, fromScheme: "ffourSeasons", callback: { (result) in
+                            AlipaySDK.defaultService().payOrder(payString, fromScheme: "FFourSeasonsApp", callback: { (result) in
                                 //这个是H5支付的回调
                                 
                             })

@@ -31,7 +31,7 @@ class LGYToastView: UILabel {
     class func show(message:String) ->Void{
         let view = LGYToastView.defaultToastView
         let window = UIApplication.shared.windows.last
-        window?.insertSubview(view, at: 1)
+        window?.addSubview(view)
         view.backgroundColor = UIColor.init(red: 255/255.0, green: 132/255.0, blue: 0, alpha: 1)
         view.textAlignment = .center
         view.textColor = UIColor.white

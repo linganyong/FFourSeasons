@@ -112,14 +112,14 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             break
         case .TransactionCompletion: //交易完成
 //            self.title = "交易完成"
-            evaluationView.isHidden = false
+//            evaluationView.isHidden = false
             break
         case .TransactionCosure: //交易关闭
 //            self.title = "交易关闭"
             button1.isHidden = true
             button2.isHidden = true
             button3.isHidden = true
-            evaluationView.isHidden = false
+//            evaluationView.isHidden = true
             break
         }
     }

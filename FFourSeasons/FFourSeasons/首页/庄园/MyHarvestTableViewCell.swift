@@ -104,7 +104,7 @@ class MyHarvestTableViewCell: UITableViewCell {
             default:
                 break
             }
-            line3Label.text = "￥\(details.total_price!)"
+            line3Label.text = "￥\((modelOrder?.price)!)"
         }
     }
     

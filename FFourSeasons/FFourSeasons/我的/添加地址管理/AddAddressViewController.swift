@@ -58,7 +58,7 @@ class AddAddressViewController: UIViewController,UITextFieldDelegate {
         addressInformation = address
         phoneTF.text = address.phone
         nameTF.text = address.name
-        address1TF.text = address.located
+        address1TF.text = address.located.replacingOccurrences(of: "/", with: "")
         address2TF.text = address.address
     }
     
@@ -229,7 +229,7 @@ class AddAddressViewController: UIViewController,UITextFieldDelegate {
             defaultSelArr = [""]
         }
         BRAddressPickerView.showAddressPicker(withShowType: .area, defaultSelected: defaultSelArr, isAutoSelect: true, themeColor: nil, resultBlock: { (proviceModel, cityModel, areaModel) in
-            self.address1TF.text = proviceModel!.name + "/" + cityModel!.name + "/" + areaModel!.name
+            self.address1TF.text = proviceModel!.name  + cityModel!.name  + areaModel!.name
         }) {
             //取消
             

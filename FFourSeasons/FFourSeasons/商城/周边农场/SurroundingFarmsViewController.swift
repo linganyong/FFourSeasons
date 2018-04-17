@@ -241,6 +241,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
                         count += 1
                     }
                 }
+                
             }
         }else{
             backView.isHidden = true

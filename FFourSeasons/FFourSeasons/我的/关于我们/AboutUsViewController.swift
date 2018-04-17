@@ -37,8 +37,10 @@ class AboutUsViewController: UIViewController {
             
             break
         case "3"?:
-           
-            
+            let vc = WebViewController()
+            vc.loadDataRichTextType(type: .AboutAgreement)
+            vc.title = "服务协议和私隐协议"
+            self.navigationController?.pushViewController(vc, animated: true)
             break
         case "4"?:
             let vc = Bundle.main.loadNibNamed("OpinionViewController", owner: nil, options: nil)?.first as! OpinionViewController

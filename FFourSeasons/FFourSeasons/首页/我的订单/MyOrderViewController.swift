@@ -14,9 +14,10 @@ let orderWaitPay = "0" //未付款
 let orderPaySuccess = "2" //付款成功
 let orderWaitReceipt = "3" //待收货
 let orderWaitEvaluate = "4" //待评价
-let orderCustomerService = "5" //售后
+let orderCustomerService = "5" //售后 退款中 退款失败 退款成功
 let orderCancle = "1" //取消订单
 let orderComplete = "6" //已完成
+
 
 class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MyHarvestTableViewCellDelegate{
     let pageView = LGYPageView()
@@ -34,11 +35,11 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func setPageView() -> Void {
         pageView.frame = CGRect(x: 0, y: 64, width: self.view.frame.width, height: self.view.frame.height-64)
         self.view .addSubview(pageView)
-        pageView.addContent(titleArray: ["全部","待付款","待发货","待收货","待评价","售后","已取消","已完成"], height: 30, isHiddenHeader: false)
+        pageView.addContent(titleArray: ["全部","待付款","待发货","待收货","待评价","售后"], height: 30, isHiddenHeader: false)
         pageView.headerBtnStyle(defaultTextColor: UIColor.init(red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1), selectTextColor: UIColor.init(red: 42/255.0, green: 201/255.0, blue: 140/255.0, alpha: 1), headerBtnWidth: self.view.frame.size.width/6, headerLineHeight: 1,textFront: 12)
          pageView.setLineViewWidth(width: 40)
         weak var vc = self
-        for i in 0...7{
+        for i in 0...5{
             let tb = pageView.pageViewtableView(index: i)
             tb?.delegate = self
             tb?.rowHeight = self.view.frame.size.width/4+16
@@ -256,7 +257,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func reloadDataScoure(){
-        for i in 0...7{
+        for i in 0...5{
             let tb = pageView.pageViewtableView(index: i)
             tb?.lgyPageIndex = 1
             loadDataScoure(tableView: tb!)

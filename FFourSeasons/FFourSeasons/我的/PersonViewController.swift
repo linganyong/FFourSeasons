@@ -160,9 +160,10 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
     
     //MARK:会员成长值点击响应
     @IBAction func MemberGrowth(_ sender: UIButton) {
-        let vc = Bundle.main.loadNibNamed("MemberAnalysisViewController", owner: nil, options: nil)?.first as! MemberAnalysisViewController
+        let vc = WebViewController()
+        vc.loadDataRichTextType(type: .AboutRule)
+        vc.title = "会员积分规则"
         self.navigationController?.pushViewController(vc, animated: true)
-         self.tabBarController?.tabBar.isHidden = true
     }
     
     //MARK:我的钱包

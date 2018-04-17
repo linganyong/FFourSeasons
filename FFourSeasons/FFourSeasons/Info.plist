@@ -43,7 +43,7 @@
 			<string>alipay</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>ffourSeasons</string>
+				<string>FFourSeasonsApp</string>
 			</array>
 		</dict>
 	</array>

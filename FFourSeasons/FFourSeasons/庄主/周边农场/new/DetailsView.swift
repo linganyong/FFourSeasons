@@ -21,8 +21,10 @@ class DetailsView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     @IBOutlet weak var goToButton: UIButton!
     var listGoods = Array<FarmGoods>()
     
-    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var desTitleHeightLC: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var desTitleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var collectionViewHeightLC: NSLayoutConstraint!
     //MARK:模仿Android toast 弹出提示
@@ -61,6 +63,13 @@ class DetailsView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if listGoods.count == 0{
+            desTitleLabel.isHidden = true
+            desTitleHeightLC.constant = 0
+        }else{
+            desTitleLabel.isHidden = false
+            desTitleHeightLC.constant = 40
+        }
         return listGoods.count
     }
     
