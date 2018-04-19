@@ -31,5 +31,6 @@
 @property (nonatomic, assign) long state;
 @property (nonatomic, assign) long status;
 @property (nonatomic, retain) NSString * title;
-
+@property (nonatomic, retain) NSString * remark;
+@property (nonatomic, retain) NSString * real_scale;
 @end

@@ -27,7 +27,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UcP-bd-YSt">
-                        <rect key="frame" x="36" y="557" width="50" height="50"/>
+                        <rect key="frame" x="22" y="595" width="50" height="50"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="hW3-Df-0F0"/>
@@ -46,8 +46,8 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="UcP-bd-YSt" firstAttribute="leading" secondItem="O2p-Xs-RVc" secondAttribute="leadingMargin" constant="20" id="3iN-Y7-slY"/>
-                    <constraint firstItem="75h-FQ-U84" firstAttribute="top" secondItem="UcP-bd-YSt" secondAttribute="bottom" constant="60" id="ABX-p8-Nxp"/>
+                    <constraint firstItem="UcP-bd-YSt" firstAttribute="leading" secondItem="O2p-Xs-RVc" secondAttribute="leadingMargin" constant="6" id="3iN-Y7-slY"/>
+                    <constraint firstItem="75h-FQ-U84" firstAttribute="top" secondItem="UcP-bd-YSt" secondAttribute="bottom" constant="22" id="ABX-p8-Nxp"/>
                 </constraints>
             </view>
             <connections>

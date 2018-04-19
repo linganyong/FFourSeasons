@@ -26,7 +26,7 @@ class SearchProductViewController: UIViewController,UITextFieldDelegate,UITableV
     
     //MARK:导航栏添加搜索
     func navigationBarAddSearchTextField() -> Void {
-        searchView.frame =  CGRect(x:80, y: 11, width: self.view.frame.size.width - 80*2, height: 22)
+        searchView.frame =  CGRect(x:80, y: 9, width: self.view.frame.size.width - 80*2, height: 26)
         searchView.addSubview(searchTextField)
         searchTextField.snp.makeConstraints { (make) in
             make.left.equalTo(searchView.snp.left).offset(8)
@@ -42,8 +42,8 @@ class SearchProductViewController: UIViewController,UITextFieldDelegate,UITableV
         searchView.tag = 1000
         searchView.layer.cornerRadius = searchView.frame.size.height/2;
         searchView.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1)
-//        searchView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
-//        searchView.layer.borderWidth = 0.5
+        searchView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+        searchView.layer.borderWidth = 0.5
         searchView.addSubview(searchTextField)
     }
     

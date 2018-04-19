@@ -59,7 +59,7 @@ class LinTabBarController: UITabBarController,UITabBarControllerDelegate {
         nav2.LGYViewControllerTag = 1
         nav2.tabBarItem = tabItem2
         
-        let tabItem3 = tabBarItem(title:"农夫",imageName:"农夫3x.png",width:19)
+        let tabItem3 = tabBarItem(title:"庄园",imageName:"农夫3x.png",width:19)
         let vController3 = Bundle.main.loadNibNamed("FarmerViewController", owner: nil, options: nil)?[0] as! UIViewController
         
         let nav3 = UINavigationController(rootViewController: vController3)

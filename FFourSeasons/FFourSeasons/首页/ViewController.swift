@@ -80,7 +80,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //权限检测
     private func locationPermissionsCheck()->Bool{
         
-        if CLLocationManager.locationServicesEnabled() == false {
+        if CLLocationManager.locationServicesEnabled(){
             print("请确认已开启定位服务");
             return true;
         }

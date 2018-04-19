@@ -12,7 +12,7 @@ import UIKit
 class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttributedLabelDelegate,CLLocationManagerDelegate,DetailsViewDelegate {
     
     @IBOutlet weak var myLocationBtn: UIButton!
-    var mapZoomLevel = 10.5
+    var mapZoomLevel = CGFloat(10.5)
     ///初始化地图
     let mapView = MAMapView()
     let locationManager = CLLocationManager()
@@ -23,6 +23,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     var listFarm = Array<Farm>() //其他农场列表
     var firstFarm:Farm? //推荐农场
     var selectFarm:Farm? //点击展开的农场
+    var isFirst = true //判断第一次
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,19 +33,18 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         navigationItemBack(title: nil)
         startLocationManager()
         LGYTool.viewLayerShadowShadowOffsetHeight(view: myLocationBtn)
-        loadDataScoure()
     }
     
     //MARK:设置地图
     func addMapView() ->Void{
         mapView.frame = CGRect(x: 0, y: 60, width: view.bounds.size.width, height: view.bounds.size.height - 60)
-        mapView.setZoomLevel(mapZoomLevel, animated: true)
+//        mapView.setZoomLevel(mapZoomLevel, animated: true)
         view.insertSubview(mapView, at: 0)
         mapView.delegate = self
         AMapServices.shared().enableHTTPS = true
         
         ///如果您需要进入地图就显示定位小蓝点，则需要下面两行代码
-        mapView.isShowsUserLocation = true
+        mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow;
     }
     
@@ -96,9 +96,18 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         }
         
     }
+    
+    
     //MARK:修改大头标
     func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
         
+        if (annotation.isKind(of: MAUserLocation.classForCoder())) {
+            if isFirst{
+                self.loadDataScoure()
+                isFirst = false
+            }
+            return nil
+        }
         if (annotation.isKind(of: MAPointAnnotation.classForCoder())) {
             let pointReuseIndentifier = "pointReuseIndentifier"
             var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: pointReuseIndentifier) as? MAPinAnnotationView
@@ -106,7 +115,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
                 annotationView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: pointReuseIndentifier)
             }
             if annotation.lgyTag < 0{
-                
+                annotationView?.image = UIImage(named:"");
             }else if annotation.lgyTag < 10000 && annotation.lgyTag >= 0{
                 let farm = listFarm[annotation.lgyTag]
                 if farm.imgs != nil{
@@ -133,6 +142,8 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         return nil
     }
 
+    
+    
     //MARK:点击大头标响应
     func mapView(_ mapView: MAMapView!, didSelect view: MAAnnotationView!) {
         if view.lgyTag < 0{
@@ -230,7 +241,6 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
             if let farms = model?.farms{
                 var count = 0
                 for item in farms{ //插入大图标
-                    if item != nil{
                         listFarm.append(item)
                         let cl = CLLocation(latitude: item.lat, longitude: item.lng)
                         let annotation = MAPointAnnotation()
@@ -239,9 +249,8 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
                         mapView.addAnnotation(annotation)
                         
                         count += 1
-                    }
                 }
-                
+                 mapView.setZoomLevel(mapZoomLevel, animated: true)
             }
         }else{
             backView.isHidden = true
@@ -250,7 +259,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     
     @IBAction func selfLocationAction(_ sender: UIButton) {
         ///如果您需要进入地图就显示定位小蓝点，则需要下面两行代码
-        mapView.isShowsUserLocation = true
+        mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow;
     }
     override func viewWillDisappear(_ animated: Bool) {

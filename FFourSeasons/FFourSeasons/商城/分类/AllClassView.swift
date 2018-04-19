@@ -24,6 +24,7 @@ class AllClassView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     class func initAllClassView(titleArray:Array<String>,imageArray:Array<String>) -> AllClassView {
         let view = Bundle.main.loadNibNamed("AllClassView", owner: nil, options: nil)?.first as! AllClassView
         view.setCollectionView(titleArray: titleArray, imageArray: imageArray)
+        view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.35);
         return view
     }
     

@@ -131,7 +131,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             line2_3Label.text = String(format: "累计销售%D笔", (productInformation?.sale)!)
             line2_4Label.text = String(format: "%@", (productInformation?.origin_place)!)
             line4_1Label.text = String(format: "配送范围：%@", (productInformation?.delivery_address)!)
-            line3_1Label.text = "· 快递：免运费    ·7天无理由退款    ·48小时内发货"
+            line3_1Label.text = productInformation?.remark
             line2_2Label.text = ""
             if productInformation?.main_imgs != nil{
                 let array = productInformation?.main_imgs.split(separator: ";").map(String.init)

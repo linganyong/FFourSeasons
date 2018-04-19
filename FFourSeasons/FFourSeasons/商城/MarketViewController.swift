@@ -30,7 +30,7 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
 //        navigationItemBack(title: "    ")
         navigationBarAddSearchTextField()
          rightBarItem = navigationBarAddRightItem(_imageName: "搜索.png", target: self, action: #selector(rightBarAction))
-        self.title = "官方商城"
+        self.title = "人人商城"
         setBackgroundColor()
         LGYTool.viewLayerShadowAll(view: shopCarButton)
         loadDataScoure()
@@ -56,7 +56,7 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
     //MARK:导航栏添加搜索
     func navigationBarAddSearchTextField() -> Void {
         searchAhpdView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
-        searchView.frame =  CGRect(x:self.view.frame.size.width - 80, y: 11, width: 0, height: 22)
+        searchView.frame =  CGRect(x:self.view.frame.size.width - 80, y: 9, width: 0, height: 26)
        
         searchView.addSubview(searchTextField)
         searchTextField.snp.makeConstraints { (make) in
@@ -73,8 +73,8 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
         searchView.tag = 1000
         searchView.layer.cornerRadius = searchView.frame.size.height/2;
         searchView.backgroundColor = UIColor.white
-        searchView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
-        searchView.layer.borderWidth = 0.5
+//        searchView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+//        searchView.layer.borderWidth = 0.5
        
     }
     
@@ -160,24 +160,42 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
     //MARK:导航栏右边按钮响应事件
     @objc func rightBarAction() ->Void{
         if searchView.frame.width == 0 || searchView.superview == nil{
-            searchTextField.becomeFirstResponder()
-            searchView.frame =  CGRect(x:self.view.frame.size.width - 80, y: 11, width: 0, height: 22)
-            self.navigationController?.navigationBar.addSubview(searchView)
-            searchAhpdView.frame = CGRect(x: UIScreen.main.bounds.size.width, y: pageView.frame.origin.y, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height-pageView.frame.origin.y)
-            self.view.addSubview(searchAhpdView)
-            UIView.animate(withDuration: 0.25) {
-                self.searchView.frame =  CGRect(x:80, y: self.searchView.frame.origin.y, width: self.view.frame.size.width - 80*2, height: self.searchView.frame.height)
-                self.searchAhpdView.frame = CGRect(x: 0, y: 60, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height-self.pageView.frame.origin.y)
-            }
+            searchViewShow()
+            searchAhpdView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(searchViewHidden)))
         }else{
-            searchTextField.resignFirstResponder()
-            UIView.animate(withDuration: 0.25) {
-                self.searchView.frame =  CGRect(x:80, y: self.searchView.frame.origin.y, width: 0, height: self.searchView.frame.height)
-                self.searchAhpdView.frame = CGRect(x: UIScreen.main.bounds.size.width, y: 60, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height-self.pageView.frame.origin.y)
+            if searchTextField.text?.count == 0 {
+                searchViewHidden()
+            }else{
+                goSearchViewController()
             }
+            
+            
         }
     }
     
+     //MARK:搜索展示
+    func searchViewShow() -> Void{
+        searchTextField.becomeFirstResponder()
+        searchView.frame =  CGRect(x:self.view.frame.size.width - 80, y: 9, width: 0, height: 26)
+        self.navigationController?.navigationBar.addSubview(searchView)
+        searchAhpdView.frame = CGRect(x: UIScreen.main.bounds.size.width, y: pageView.frame.origin.y, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height-pageView.frame.origin.y)
+        self.view.addSubview(searchAhpdView)
+        UIView.animate(withDuration: 0.25) {
+            self.searchView.frame =  CGRect(x:80, y: self.searchView.frame.origin.y, width: self.view.frame.size.width - 80*2, height: self.searchView.frame.height)
+            self.searchAhpdView.frame = CGRect(x: 0, y: 60, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height-self.pageView.frame.origin.y)
+        }
+    }
+    
+    //MARK:搜索隐藏
+    @objc func searchViewHidden() -> Void {
+        searchTextField.resignFirstResponder()
+        UIView.animate(withDuration: 0.25) {
+            self.searchView.frame =  CGRect(x:80, y: self.searchView.frame.origin.y, width: 0, height: self.searchView.frame.height)
+            self.searchAhpdView.frame = CGRect(x: UIScreen.main.bounds.size.width, y: 60, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height-self.pageView.frame.origin.y)
+        }
+    }
+    
+    //MARK:跳转搜索
     func goSearchViewController() -> Void {
         let vc = Bundle.main.loadNibNamed("SearchProductViewController", owner: nil, options: nil)?.first as! SearchProductViewController
         self.navigationController?.pushViewController(vc, animated: true)

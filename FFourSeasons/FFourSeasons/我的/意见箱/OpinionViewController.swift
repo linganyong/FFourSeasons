@@ -21,7 +21,7 @@ class OpinionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "设置"
+        self.title = "意见箱"
         navigationItemBack(title: "    ")
         viewLayerShadow()
         setTextView()
@@ -83,6 +83,7 @@ class OpinionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
                 
             }else{
                 if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                    self.navigationController?.popViewController(animated: true)
                     LGYToastView.show(message: "提交成功")
                 }
             }
