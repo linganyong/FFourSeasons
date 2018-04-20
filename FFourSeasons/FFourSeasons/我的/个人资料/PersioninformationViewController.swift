@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import AssetsLibrary
+import Photos
 class PersioninformationViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,LGYImageSelectViewControllerDelegate {
   
@@ -33,6 +34,13 @@ UINavigationControllerDelegate,LGYImageSelectViewControllerDelegate {
         setBackgroundColor()
         setInformation()
         avatar_url =  PersonViewController.infornation?.head_url
+        // 获得相机胶卷
+        do{
+            try _ = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil).lastObject
+        }catch{
+            LBuyly.lBuglyError(error: error)
+        }
+        
     }
 
     //MARK:修改头像
@@ -48,8 +56,41 @@ UINavigationControllerDelegate,LGYImageSelectViewControllerDelegate {
         }else{
             alertView(_title: "您还没有开启相册权限", _message: "请您到：设置 > 人人庄园 中添加相册权限", _bText: "确定")
         }
-       
+
     }
+    
+    
+//    //MARK:修改头像
+//    @IBAction func persionImageBackViewTapAction(_ sender: Any) {
+//        if infornation == nil {
+//            return
+//        }
+//
+//        //判断设置是否支持图片库
+//
+//        if !isRightPhoto() || !isRightCamera() {
+//
+//        }else{
+//            let vc = Bundle.main.loadNibNamed("LGYImageSelectViewController", owner: nil, options: nil)?.first as! LGYImageSelectViewController
+//            vc.delegate = self
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+//
+//
+//    }
+//
+//    // 相机权限
+//    func isRightCamera() -> Bool {
+//        let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+//        return authStatus != .restricted && authStatus != .denied
+//    }
+//
+//    // 相册权限
+//    func isRightPhoto() -> Bool {
+//        let authStatus = ALAssetsLibrary.authorizationStatus()
+//        return authStatus != .restricted && authStatus != .denied
+//    }
+    
     
     func setInformation() -> Void {
         infornation = PersonViewController.infornation

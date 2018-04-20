@@ -15,8 +15,6 @@ import AFNetworking
 
 typealias  LGYAFNetworkingBlock = ()->Void
 
-
-
 class LGYAFNetworking: NSObject {
     let view = UIView()
     
@@ -32,8 +30,8 @@ class LGYAFNetworking: NSObject {
         vc?.addSubview(view)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeLoadingView)))
         view.backgroundColor = UIColor.clear
-        let imgWidth = 80.0
-        let imgHeight = 60.0
+        let imgWidth = 160.0
+        let imgHeight = 120.0
         let size = view.frame.size
         let imageView = UIImageView(frame: CGRect(x:(Double(size.width) - imgWidth)/2.0 , y: (Double(size.height) - imgHeight)/2 - 44, width: imgWidth, height: imgHeight))
         imageView.backgroundColor = UIColor.white
@@ -48,8 +46,8 @@ class LGYAFNetworking: NSObject {
         viewSuper.addSubview(view)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeLoadingView)))
         view.backgroundColor = UIColor.clear
-        let imgWidth = 80.0
-        let imgHeight = 60.0
+        let imgWidth = 160.0
+        let imgHeight = 120.0
         let size = view.frame.size
         let imageView = UIImageView(frame: CGRect(x:(Double(size.width) - imgWidth)/2.0 , y: (Double(size.height) - imgHeight)/2 - 44, width: imgWidth, height: imgHeight))
         imageView.backgroundColor = UIColor.white
@@ -111,15 +109,13 @@ class LGYAFNetworking: NSObject {
         manager.post(urlString, parameters: parameters, progress: { (press) in
             
         }, success: { (dataTask, any) in
-            print("\n",urlString,parameters,any)
+            print("\n",urlString,parameters as Any,any)
             lgyObjectReturnBlock(any: any,cacheName:cacheName, responseBlock: responseBlock)
             network.removeLoadingView()
         }) { (dataTask, error) in
              print("error  ",error)
-            print("\n",urlString,parameters)
-            _ = LGYAlertViewSimple.show(title: error.localizedDescription, buttonStr: "确定")
+            print("\n",urlString,parameters as Any)
             responseBlock?(error.localizedDescription, true)
-            LBuyly.lBuglyError(error: error)
             network.removeLoadingView()
         }
         
@@ -156,10 +152,9 @@ class LGYAFNetworking: NSObject {
             responseBlock?(url,false)
             network.removeLoadingView()
         }) { (dataTask, error) in
-            print("error  ",error,dataTask)
+            print("error  ",error,dataTask as Any)
             _ = LGYAlertViewSimple.show(title: error.localizedDescription, buttonStr: "确定")
             responseBlock?(error.localizedDescription, true)
-            LBuyly.lBuglyError(error: error)
             network.removeLoadingView()
         }
     }

@@ -51,9 +51,6 @@ class LGYImageSelectViewController: UIViewController,UICollectionViewDelegate,UI
         getPHAsset()
     }
     
-
-    
-    
     //  MARK:- 获取全部图片,不分文件类型
     func getPHAsset() -> Void {
         //当然，也可以使用下方的方法直接获取权限的状态
