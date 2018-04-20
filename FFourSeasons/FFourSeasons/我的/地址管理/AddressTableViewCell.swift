@@ -55,12 +55,12 @@ class AddressTableViewCell: UITableViewCell {
     func editShow() -> Void {
         editButton.isHidden = false
         deleteButton.isHidden = false
-        extendButton.setImage(UIImage.init(named: "收起.png"), for: .normal)
+        extendButton.setImage(UIImage.init(named: "下拉收起"), for: .normal)
     }
     
     func edithidden() -> Void {
         editButton.isHidden = true
         deleteButton.isHidden = true
-        extendButton.setImage(UIImage.init(named: "下拉.png"), for: .normal)
+        extendButton.setImage(UIImage.init(named: "下拉展开"), for: .normal)
     }
 }

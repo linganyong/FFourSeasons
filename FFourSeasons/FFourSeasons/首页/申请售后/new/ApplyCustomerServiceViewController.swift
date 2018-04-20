@@ -28,7 +28,7 @@ class ApplyCustomerServiceViewController: UIViewController,UITextViewDelegate,UI
         super.viewDidLoad()
         self.title = "申请售后"
         navigationItemBack(title: "    ")
-        rightBarItem = navigationBarAddRightItem(_imageName: "打勾.png", target: self, action: #selector(rightBarAction))
+        rightBarItem = navigationBarAddRightItem(_imageName: "黑色确定", target: self, action: #selector(rightBarAction))
         setTextView()
         setCollectionView()
     }

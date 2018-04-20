@@ -22,7 +22,7 @@ class BindingPhoneViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         self.title = "绑定手机号码"
         viewLayerShadow()
-        rightBarItem = navigationBarAddRightItem(_imageName: "打勾.png", target: self, action: #selector(rightBarAction))
+        rightBarItem = navigationBarAddRightItem(_imageName: "黑色确定", target: self, action: #selector(rightBarAction))
         setBackgroundColor()
         setTextViewDelegate()
     }

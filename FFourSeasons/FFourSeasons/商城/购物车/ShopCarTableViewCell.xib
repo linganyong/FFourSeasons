@@ -105,7 +105,7 @@
                             <constraint firstAttribute="width" constant="30" id="9Ok-5f-D3Q"/>
                             <constraint firstAttribute="height" constant="30" id="fJ1-np-xxz"/>
                         </constraints>
-                        <state key="normal" image="打叉.png"/>
+                        <state key="normal" image="打叉"/>
                         <connections>
                             <action selector="delegateAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="i9V-ZW-4Jh"/>
                         </connections>
@@ -183,7 +183,7 @@
         <image name="+3x.png" width="114" height="114"/>
         <image name="-3x.png" width="114" height="114"/>
         <image name="1181d42c9ae176da7a0697cc5e2b1dcc70ebac1917a7b-ZsTZXq_fw658.jpg" width="658" height="658"/>
-        <image name="打叉.png" width="18" height="18"/>
+        <image name="打叉" width="17" height="17"/>
         <image name="空心圆.png" width="10" height="10"/>
     </resources>
 </document>

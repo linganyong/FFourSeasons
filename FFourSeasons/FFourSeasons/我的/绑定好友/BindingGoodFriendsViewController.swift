@@ -17,7 +17,7 @@ class BindingGoodFriendsViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         self.title = "邀请码"
         navigationItemBack(title: "    ")
-        rightBarItem = navigationBarAddRightItem(_imageName: "打勾白色.png", target: self, action: #selector(rightBarAction))
+        rightBarItem = navigationBarAddRightItem(_imageName: "白色确定", target: self, action: #selector(rightBarAction))
         textField.delegate = self
         setBackgroundColor()
     }

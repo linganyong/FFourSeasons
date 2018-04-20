@@ -24,7 +24,7 @@
                             <constraint firstAttribute="width" constant="50" id="0dD-B8-MW3"/>
                             <constraint firstAttribute="height" constant="50" id="JxR-CE-CWg"/>
                         </constraints>
-                        <state key="normal" image="定位2.png"/>
+                        <state key="normal" image="展示自身定位"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="LGyCornerRadius">
                                 <real key="value" value="25"/>
@@ -75,6 +75,6 @@
     <resources>
         <image name="+3x.png" width="114" height="114"/>
         <image name="-3x.png" width="114" height="114"/>
-        <image name="定位2.png" width="32" height="32"/>
+        <image name="展示自身定位" width="16" height="16"/>
     </resources>
 </document>

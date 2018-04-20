@@ -32,7 +32,7 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "我的"
-//        navigationItemBack(title: "    ")
+        navigationItemBack(title: "    ")
         viewLayerShadow()
         personView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(personViewTapAction)))
         persionImageView.isUserInteractionEnabled = true

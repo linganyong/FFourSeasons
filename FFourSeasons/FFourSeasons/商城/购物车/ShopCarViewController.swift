@@ -46,7 +46,7 @@ class ShopCarViewController: UIViewController,UITableViewDataSource,UITableViewD
     @objc func rightBarAction() ->Void{
         isEdit = !isEdit
         if isEdit{
-            rightBarItem.image = UIImage(named: "打勾.png")
+            rightBarItem.image = UIImage(named: "黑色确定")
         }else{
             rightBarItem.image = UIImage(named: "加.png")
         }

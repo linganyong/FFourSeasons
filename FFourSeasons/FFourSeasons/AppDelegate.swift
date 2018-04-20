@@ -24,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
         LGYAFNetworking.lgyReachabilityStatus() //网络提示
         AMapServices.shared().apiKey = "32551cbf411055ca9114325c28655c3a" //高德地图 正式
         WXApi.registerApp(wxApi_id)//微信接入 正式
+        
+        NSSetUncaughtExceptionHandler { exception in
+            let ex =  NSException.init(name: NSExceptionName(rawValue: "全局异常捕获：\(exception.name)"), reason: exception.reason, userInfo: exception.userInfo)
+            LBuyly.lBuglyNSException(exception: ex)
+            
+        }
         return true
     }
     

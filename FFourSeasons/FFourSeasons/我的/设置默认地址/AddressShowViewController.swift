@@ -18,7 +18,7 @@ class AddressShowViewController: UIViewController,UITableViewDelegate,UITableVie
         super.viewDidLoad()
         setTableView()
         navigationItemBack(title: "    ")
-        rightBarItem = navigationBarAddRightItem(_imageName: "打勾.png", target: self, action: #selector(rightBarAction))
+        rightBarItem = navigationBarAddRightItem(_imageName: "黑色确定", target: self, action: #selector(rightBarAction))
         setBackgroundColor()
         loadAddressList()
     }

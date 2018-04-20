@@ -40,7 +40,7 @@
                                 <constraint firstAttribute="height" constant="20" id="0vX-ed-eog"/>
                                 <constraint firstAttribute="width" constant="20" id="RB6-ug-NRa"/>
                             </constraints>
-                            <state key="normal" image="打叉.png"/>
+                            <state key="normal" image="打叉"/>
                             <connections>
                                 <action selector="cancleAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="YIK-tg-zRY"/>
                             </connections>
@@ -126,6 +126,6 @@
         </view>
     </objects>
     <resources>
-        <image name="打叉.png" width="18" height="18"/>
+        <image name="打叉" width="17" height="17"/>
     </resources>
 </document>

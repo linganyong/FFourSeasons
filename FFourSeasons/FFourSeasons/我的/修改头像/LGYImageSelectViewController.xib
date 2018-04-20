@@ -55,7 +55,7 @@
                             <action selector="menuAcition:" destination="ZZB-Kw-wkB" eventType="touchUpInside" id="f0J-yJ-N1B"/>
                         </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页卡片左上角圆3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="zLH-q1-4l1">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页卡片左上角圆" translatesAutoresizingMaskIntoConstraints="NO" id="zLH-q1-4l1">
                         <rect key="frame" x="76" y="640" width="10" height="10"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="8Pk-q1-dcp"/>
@@ -92,6 +92,6 @@
         </viewController>
     </objects>
     <resources>
-        <image name="首页卡片左上角圆3x.png" width="30" height="30"/>
+        <image name="首页卡片左上角圆" width="10" height="10"/>
     </resources>
 </document>

@@ -19,7 +19,7 @@ class SearchProductViewController: UIViewController,UITextFieldDelegate,UITableV
         super.viewDidLoad()
         setTableView()
         navigationItemBack(title: nil)
-        rightBarButton = navigationBarAddRightItem(_imageName: "搜索.png", target: self, action: #selector(searchAction))
+        rightBarButton = navigationBarAddRightItem(_imageName: "白色搜索", target: self, action: #selector(searchAction))
         navigationBarAddSearchTextField()
         setBackgroundColor()
     }

@@ -20,7 +20,6 @@
 		9C00BFA9202EB74F00E77EA0 /* MarkProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C00BFA7202EB74F00E77EA0 /* MarkProductTableViewCell.swift */; };
 		9C00BFAC202EBE6200E77EA0 /* 新品3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C00BFAB202EBE6200E77EA0 /* 新品3x.png */; };
 		9C00BFAE202EC16300E77EA0 /* 搜索3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C00BFAD202EC16300E77EA0 /* 搜索3x.png */; };
-		9C00BFB0202EC21F00E77EA0 /* 搜索.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C00BFAF202EC21F00E77EA0 /* 搜索.png */; };
 		9C00BFB4202ECD9600E77EA0 /* SearchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C00BFB2202ECD9600E77EA0 /* SearchProductViewController.swift */; };
 		9C00BFB5202ECD9600E77EA0 /* SearchProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C00BFB3202ECD9600E77EA0 /* SearchProductViewController.xib */; };
 		9C00BFB8202ECE5000E77EA0 /* SearchProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C00BFB6202ECE5000E77EA0 /* SearchProductTableViewCell.xib */; };
@@ -44,7 +43,6 @@
 		9C0D9C772046427400D271CE /* CustomeServiceProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C0D9C752046427400D271CE /* CustomeServiceProductTableViewCell.xib */; };
 		9C0D9C7A2046451B00D271CE /* CustomeServiceTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D9C782046451B00D271CE /* CustomeServiceTitleTableViewCell.swift */; };
 		9C0D9C7B2046451B00D271CE /* CustomeServiceTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C0D9C792046451B00D271CE /* CustomeServiceTitleTableViewCell.xib */; };
-		9C0D9C7D20464CF800D271CE /* 打勾白色.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0D9C7C20464CF800D271CE /* 打勾白色.png */; };
 		9C0D9C8520465F4C00D271CE /* 卡板3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0D9C8420465F4C00D271CE /* 卡板3x.png */; };
 		9C0D9C8F2046601100D271CE /* 优惠券3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0D9C862046601000D271CE /* 优惠券3x.png */; };
 		9C0D9C912046601100D271CE /* 周边农场3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0D9C882046601000D271CE /* 周边农场3x.png */; };
@@ -107,10 +105,6 @@
 		9C10BD8920450CAF004AAFE3 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C10BD8720450CAF004AAFE3 /* AddressTableViewCell.swift */; };
 		9C10BD8A20450CAF004AAFE3 /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C10BD8820450CAF004AAFE3 /* AddressTableViewCell.xib */; };
 		9C10BD8D20450F76004AAFE3 /* 下拉3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C10BD8C20450F75004AAFE3 /* 下拉3x.png */; };
-		9C10BD8F20450FAD004AAFE3 /* 下拉.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C10BD8E20450FAC004AAFE3 /* 下拉.png */; };
-		9C10BD9220452ED4004AAFE3 /* 删除.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C10BD9020452ED3004AAFE3 /* 删除.png */; };
-		9C10BD9320452ED4004AAFE3 /* 编辑.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C10BD9120452ED4004AAFE3 /* 编辑.png */; };
-		9C10BD9520453DAE004AAFE3 /* 收起.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C10BD9420453DAD004AAFE3 /* 收起.png */; };
 		9C17DEEA202BFC1F0073AAA3 /* LuckDrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C17DEE8202BFC1F0073AAA3 /* LuckDrawViewController.swift */; };
 		9C17DEEB202BFC1F0073AAA3 /* LuckDrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C17DEE9202BFC1F0073AAA3 /* LuckDrawViewController.xib */; };
 		9C17DEED202C02040073AAA3 /* LuckDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C17DEEC202C02040073AAA3 /* LuckDrawView.swift */; };
@@ -126,7 +120,6 @@
 		9C3129902060FBF4006E6102 /* PurchaseImmediatelyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C31298E2060FBF3006E6102 /* PurchaseImmediatelyTableViewCell.xib */; };
 		9C3129932060FE36006E6102 /* LGYEmptyBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3129922060FE36006E6102 /* LGYEmptyBackgroundView.swift */; };
 		9C3129952060FE55006E6102 /* LGYEmptyBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3129942060FE55006E6102 /* LGYEmptyBackgroundView.xib */; };
-		9C3CB1522068A38B001DA039 /* 定位2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C3CB1512068A38B001DA039 /* 定位2.png */; };
 		9C3CB1532068D2AD001DA039 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC9D1AD204FE22500AED4CD /* QuartzCore.framework */; };
 		9C3CB1552068D2BA001DA039 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C3CB1542068D2B9001DA039 /* CoreText.framework */; };
 		9C3CB1562068D2C5001DA039 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC9D1AB204FE21B00AED4CD /* CoreGraphics.framework */; };
@@ -141,7 +134,6 @@
 		9C46BA1520454B2B00646A81 /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C46BA1320454B2B00646A81 /* AddAddressViewController.swift */; };
 		9C46BA1620454B2B00646A81 /* AddAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C46BA1420454B2B00646A81 /* AddAddressViewController.xib */; };
 		9C46BA1820454DB200646A81 /* 加.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C46BA1720454DB200646A81 /* 加.png */; };
-		9C46BA1A204556AD00646A81 /* 打勾.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C46BA19204556AD00646A81 /* 打勾.png */; };
 		9C46BA1F20455A1500646A81 /* EverydayFreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C46BA1D20455A1500646A81 /* EverydayFreshViewController.swift */; };
 		9C46BA2020455A1500646A81 /* EverydayFreshViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C46BA1E20455A1500646A81 /* EverydayFreshViewController.xib */; };
 		9C46BA2320455A6B00646A81 /* EverydayFreshTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C46BA2120455A6B00646A81 /* EverydayFreshTableViewCell.swift */; };
@@ -166,6 +158,7 @@
 		9C5CBF19207678E20078F17B /* FarmGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CBF18207678E20078F17B /* FarmGoodsList.m */; };
 		9C5CBF1C207679370078F17B /* FarmGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CBF1B207679370078F17B /* FarmGoods.m */; };
 		9C6044502074F8A100FA7F1A /* 可用余额3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C60444F2074F8A100FA7F1A /* 可用余额3x.png */; };
+		9C76DF61208A191F002EEC27 /* Lin+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C76DF60208A191F002EEC27 /* Lin+UIImageView.swift */; };
 		9C77C3AE2027F1FF008B49E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77C3AD2027F1FF008B49E2 /* AppDelegate.swift */; };
 		9C77C3B02027F1FF008B49E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77C3AF2027F1FF008B49E2 /* ViewController.swift */; };
 		9C77C3B32027F1FF008B49E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C3B12027F1FF008B49E2 /* Main.storyboard */; };
@@ -195,34 +188,24 @@
 		9C77C4302027F96D008B49E2 /* LCycleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77C4162027F96D008B49E2 /* LCycleCell.swift */; };
 		9C77C4B22027FEC0008B49E2 /* 导航矩形3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C43B2027FEC0008B49E2 /* 导航矩形3x.png */; };
 		9C77C4B62027FEC0008B49E2 /* 矩形拷贝.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C43F2027FEC0008B49E2 /* 矩形拷贝.png */; };
-		9C77C4B72027FEC0008B49E2 /* 左箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4402027FEC0008B49E2 /* 左箭头.png */; };
-		9C77C4B82027FEC0008B49E2 /* 右箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4412027FEC0008B49E2 /* 右箭头.png */; };
 		9C77C4B92027FEC0008B49E2 /* 右箭头3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4422027FEC0008B49E2 /* 右箭头3x.png */; };
 		9C77C4C12027FEC0008B49E2 /* 矢量智能对象@3x_79.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C44A2027FEC0008B49E2 /* 矢量智能对象@3x_79.png */; };
 		9C77C4C62027FEC1008B49E2 /* 商城.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4502027FEC0008B49E2 /* 商城.png */; };
 		9C77C4C82027FEC1008B49E2 /* 每日尝鲜.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4522027FEC0008B49E2 /* 每日尝鲜.png */; };
 		9C77C4C92027FEC1008B49E2 /* 我.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4532027FEC0008B49E2 /* 我.png */; };
 		9C77C4CA2027FEC1008B49E2 /* 农夫3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4542027FEC0008B49E2 /* 农夫3x.png */; };
-		9C77C4CC2027FEC1008B49E2 /* 百耕园.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4562027FEC0008B49E2 /* 百耕园.png */; };
 		9C77C4CF2027FEC1008B49E2 /* 抽奖3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4592027FEC0008B49E2 /* 抽奖3x.png */; };
 		9C77C4D02027FEC1008B49E2 /* 我3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C45A2027FEC0008B49E2 /* 我3x.png */; };
-		9C77C4D32027FEC1008B49E2 /* 定位.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C45D2027FEC0008B49E2 /* 定位.png */; };
 		9C77C4D82027FEC1008B49E2 /* 订单3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4622027FEC0008B49E2 /* 订单3x.png */; };
 		9C77C4D92027FEC1008B49E2 /* 支付码@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4632027FEC0008B49E2 /* 支付码@2x.png */; };
 		9C77C4DB2027FEC1008B49E2 /* 农夫.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4652027FEC0008B49E2 /* 农夫.png */; };
-		9C77C4DC2027FEC1008B49E2 /* 空心圆.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4662027FEC0008B49E2 /* 空心圆.png */; };
 		9C77C4DD2027FEC1008B49E2 /* 矩形1拷贝@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4672027FEC0008B49E2 /* 矩形1拷贝@3x.png */; };
-		9C77C4DE2027FEC1008B49E2 /* 定位3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4682027FEC0008B49E2 /* 定位3x.png */; };
-		9C77C4DF2027FEC1008B49E2 /* 定位2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4692027FEC0008B49E2 /* 定位2x.png */; };
 		9C77C4E02027FEC1008B49E2 /* 矩形1拷贝@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C46A2027FEC0008B49E2 /* 矩形1拷贝@2x.png */; };
 		9C77C4E12027FEC1008B49E2 /* 矩形1拷贝.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C46B2027FEC0008B49E2 /* 矩形1拷贝.png */; };
 		9C77C4E32027FEC1008B49E2 /* 抽奖.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C46D2027FEC0008B49E2 /* 抽奖.png */; };
 		9C77C4E42027FEC1008B49E2 /* 矩形5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C46E2027FEC0008B49E2 /* 矩形5.png */; };
-		9C77C4E52027FEC1008B49E2 /* 首页卡片左上角圆@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C46F2027FEC0008B49E2 /* 首页卡片左上角圆@2x.png */; };
 		9C77C4E82027FEC1008B49E2 /* 商城3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4722027FEC0008B49E2 /* 商城3x.png */; };
-		9C77C4EA2027FEC1008B49E2 /* 订单.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4742027FEC0008B49E2 /* 订单.png */; };
 		9C77C4EB2027FEC1008B49E2 /* toorBar2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4752027FEC0008B49E2 /* toorBar2x.png */; };
-		9C77C4EC2027FEC1008B49E2 /* 首页卡片左上角圆3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4762027FEC0008B49E2 /* 首页卡片左上角圆3x.png */; };
 		9C77C4ED2027FEC1008B49E2 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4782027FEC0008B49E2 /* 1.jpg */; };
 		9C77C4EE2027FEC1008B49E2 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C4792027FEC0008B49E2 /* 2.png */; };
 		9C77C4EF2027FEC1008B49E2 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C77C47A2027FEC0008B49E2 /* 3.jpg */; };
@@ -360,7 +343,6 @@
 		9CABC3F6202ED7AD00C1EE38 /* 应用3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CABC3F5202ED7AC00C1EE38 /* 应用3x.png */; };
 		9CABC3F9202EDD1F00C1EE38 /* AllClassCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CABC3F7202EDD1F00C1EE38 /* AllClassCollectionViewCell.swift */; };
 		9CABC3FA202EDD1F00C1EE38 /* AllClassCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CABC3F8202EDD1F00C1EE38 /* AllClassCollectionViewCell.xib */; };
-		9CABC3FC202EE69B00C1EE38 /* 打叉.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CABC3FB202EE69B00C1EE38 /* 打叉.png */; };
 		9CABC3FE202EE85600C1EE38 /* 种子3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CABC3FD202EE85600C1EE38 /* 种子3x.png */; };
 		9CABC401202EF0EF00C1EE38 /* AllClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CABC400202EF0EF00C1EE38 /* AllClassView.swift */; };
 		9CABC405202EF2BB00C1EE38 /* AllClassView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CABC404202EF2BB00C1EE38 /* AllClassView.xib */; };
@@ -417,7 +399,6 @@
 		9CC9D19C204FCAC100AED4CD /* BindingGoodFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CC9D19A204FCAC100AED4CD /* BindingGoodFriendsViewController.xib */; };
 		9CC9D19F204FD21D00AED4CD /* LGYAlertViewSimple.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CC9D19D204FD21D00AED4CD /* LGYAlertViewSimple.xib */; };
 		9CC9D1A0204FD21D00AED4CD /* LGYAlertViewSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC9D19E204FD21D00AED4CD /* LGYAlertViewSimple.swift */; };
-		9CC9D1A2204FD6CE00AED4CD /* 扫码.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CC9D1A1204FD6CE00AED4CD /* 扫码.png */; };
 		9CD36AE6205681660075732C /* APIConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD36AE5205681660075732C /* APIConnect.swift */; };
 		9CD36AED205778B30075732C /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD36AEC205778B30075732C /* DetailsView.swift */; };
 		9CD36AEF205778E40075732C /* DetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD36AEE205778E40075732C /* DetailsView.xib */; };
@@ -465,11 +446,9 @@
 		9CFD5529206E61D30028B1A4 /* 百耕园社区3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD5524206E61D30028B1A4 /* 百耕园社区3x.png */; };
 		9CFD552C206E648D0028B1A4 /* 积分商城3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD552A206E648C0028B1A4 /* 积分商城3x.png */; };
 		9CFD552D206E648D0028B1A4 /* 分店查找3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD552B206E648D0028B1A4 /* 分店查找3x.png */; };
-		9CFD5532206E66F80028B1A4 /* 购物车.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD5531206E66F80028B1A4 /* 购物车.png */; };
 		9CFD5534206E68430028B1A4 /* 百耕园3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD5533206E68430028B1A4 /* 百耕园3x.png */; };
 		9CFD5538206E69440028B1A4 /* 周边3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD5537206E69430028B1A4 /* 周边3x.png */; };
 		9CFD553A206F1F390028B1A4 /* 邀请码3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD5539206F1F380028B1A4 /* 邀请码3x.png */; };
-		9CFD553E206F83710028B1A4 /* 购物车黑色.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD553D206F83710028B1A4 /* 购物车黑色.png */; };
 		9CFD554220707E080028B1A4 /* Model_api_about.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD554120707E080028B1A4 /* Model_api_about.m */; };
 		9CFD55452070D7C80028B1A4 /* Model_api_addOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD55442070D7C70028B1A4 /* Model_api_addOrder.m */; };
 		9CFD55472070DF870028B1A4 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD55462070DF870028B1A4 /* loading.gif */; };
@@ -519,7 +498,6 @@
 		9C00BFA7202EB74F00E77EA0 /* MarkProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkProductTableViewCell.swift; sourceTree = "<group>"; };
 		9C00BFAB202EBE6200E77EA0 /* 新品3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "新品3x.png"; sourceTree = "<group>"; };
 		9C00BFAD202EC16300E77EA0 /* 搜索3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "搜索3x.png"; sourceTree = "<group>"; };
-		9C00BFAF202EC21F00E77EA0 /* 搜索.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "搜索.png"; sourceTree = "<group>"; };
 		9C00BFB2202ECD9600E77EA0 /* SearchProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductViewController.swift; sourceTree = "<group>"; };
 		9C00BFB3202ECD9600E77EA0 /* SearchProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchProductViewController.xib; sourceTree = "<group>"; };
 		9C00BFB6202ECE5000E77EA0 /* SearchProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchProductTableViewCell.xib; sourceTree = "<group>"; };
@@ -548,7 +526,6 @@
 		9C0D9C752046427400D271CE /* CustomeServiceProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomeServiceProductTableViewCell.xib; sourceTree = "<group>"; };
 		9C0D9C782046451B00D271CE /* CustomeServiceTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeServiceTitleTableViewCell.swift; sourceTree = "<group>"; };
 		9C0D9C792046451B00D271CE /* CustomeServiceTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomeServiceTitleTableViewCell.xib; sourceTree = "<group>"; };
-		9C0D9C7C20464CF800D271CE /* 打勾白色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "打勾白色.png"; sourceTree = "<group>"; };
 		9C0D9C8420465F4C00D271CE /* 卡板3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "卡板3x.png"; sourceTree = "<group>"; };
 		9C0D9C862046601000D271CE /* 优惠券3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "优惠券3x.png"; sourceTree = "<group>"; };
 		9C0D9C882046601000D271CE /* 周边农场3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "周边农场3x.png"; sourceTree = "<group>"; };
@@ -623,10 +600,6 @@
 		9C10BD8720450CAF004AAFE3 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		9C10BD8820450CAF004AAFE3 /* AddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
 		9C10BD8C20450F75004AAFE3 /* 下拉3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下拉3x.png"; sourceTree = "<group>"; };
-		9C10BD8E20450FAC004AAFE3 /* 下拉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下拉.png"; sourceTree = "<group>"; };
-		9C10BD9020452ED3004AAFE3 /* 删除.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除.png"; sourceTree = "<group>"; };
-		9C10BD9120452ED4004AAFE3 /* 编辑.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "编辑.png"; sourceTree = "<group>"; };
-		9C10BD9420453DAD004AAFE3 /* 收起.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "收起.png"; sourceTree = "<group>"; };
 		9C17DEE8202BFC1F0073AAA3 /* LuckDrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckDrawViewController.swift; sourceTree = "<group>"; };
 		9C17DEE9202BFC1F0073AAA3 /* LuckDrawViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LuckDrawViewController.xib; sourceTree = "<group>"; };
 		9C17DEEC202C02040073AAA3 /* LuckDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckDrawView.swift; sourceTree = "<group>"; };
@@ -642,7 +615,6 @@
 		9C31298E2060FBF3006E6102 /* PurchaseImmediatelyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseImmediatelyTableViewCell.xib; sourceTree = "<group>"; };
 		9C3129922060FE36006E6102 /* LGYEmptyBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYEmptyBackgroundView.swift; sourceTree = "<group>"; };
 		9C3129942060FE55006E6102 /* LGYEmptyBackgroundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LGYEmptyBackgroundView.xib; sourceTree = "<group>"; };
-		9C3CB1512068A38B001DA039 /* 定位2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "定位2.png"; sourceTree = "<group>"; };
 		9C3CB1542068D2B9001DA039 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		9C3CB1572068D2D3001DA039 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9C3CB1592068D2E5001DA039 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -655,7 +627,6 @@
 		9C46BA1320454B2B00646A81 /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
 		9C46BA1420454B2B00646A81 /* AddAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAddressViewController.xib; sourceTree = "<group>"; };
 		9C46BA1720454DB200646A81 /* 加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加.png"; sourceTree = "<group>"; };
-		9C46BA19204556AD00646A81 /* 打勾.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "打勾.png"; sourceTree = "<group>"; };
 		9C46BA1D20455A1500646A81 /* EverydayFreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EverydayFreshViewController.swift; sourceTree = "<group>"; };
 		9C46BA1E20455A1500646A81 /* EverydayFreshViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EverydayFreshViewController.xib; sourceTree = "<group>"; };
 		9C46BA2120455A6B00646A81 /* EverydayFreshTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EverydayFreshTableViewCell.swift; sourceTree = "<group>"; };
@@ -683,6 +654,7 @@
 		9C5CBF1A207679370078F17B /* FarmGoods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmGoods.h; sourceTree = "<group>"; };
 		9C5CBF1B207679370078F17B /* FarmGoods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarmGoods.m; sourceTree = "<group>"; };
 		9C60444F2074F8A100FA7F1A /* 可用余额3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "可用余额3x.png"; sourceTree = "<group>"; };
+		9C76DF60208A191F002EEC27 /* Lin+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lin+UIImageView.swift"; sourceTree = "<group>"; };
 		9C77C3AA2027F1FF008B49E2 /* FFourSeasons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFourSeasons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C77C3AD2027F1FF008B49E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C77C3AF2027F1FF008B49E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -725,34 +697,24 @@
 		9C77C4162027F96D008B49E2 /* LCycleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCycleCell.swift; sourceTree = "<group>"; };
 		9C77C43B2027FEC0008B49E2 /* 导航矩形3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "导航矩形3x.png"; sourceTree = "<group>"; };
 		9C77C43F2027FEC0008B49E2 /* 矩形拷贝.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "矩形拷贝.png"; sourceTree = "<group>"; };
-		9C77C4402027FEC0008B49E2 /* 左箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左箭头.png"; sourceTree = "<group>"; };
-		9C77C4412027FEC0008B49E2 /* 右箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右箭头.png"; sourceTree = "<group>"; };
 		9C77C4422027FEC0008B49E2 /* 右箭头3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右箭头3x.png"; sourceTree = "<group>"; };
 		9C77C44A2027FEC0008B49E2 /* 矢量智能对象@3x_79.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "矢量智能对象@3x_79.png"; sourceTree = "<group>"; };
 		9C77C4502027FEC0008B49E2 /* 商城.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "商城.png"; sourceTree = "<group>"; };
 		9C77C4522027FEC0008B49E2 /* 每日尝鲜.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "每日尝鲜.png"; sourceTree = "<group>"; };
 		9C77C4532027FEC0008B49E2 /* 我.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我.png"; sourceTree = "<group>"; };
 		9C77C4542027FEC0008B49E2 /* 农夫3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "农夫3x.png"; sourceTree = "<group>"; };
-		9C77C4562027FEC0008B49E2 /* 百耕园.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "百耕园.png"; sourceTree = "<group>"; };
 		9C77C4592027FEC0008B49E2 /* 抽奖3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "抽奖3x.png"; sourceTree = "<group>"; };
 		9C77C45A2027FEC0008B49E2 /* 我3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我3x.png"; sourceTree = "<group>"; };
-		9C77C45D2027FEC0008B49E2 /* 定位.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "定位.png"; sourceTree = "<group>"; };
 		9C77C4622027FEC0008B49E2 /* 订单3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "订单3x.png"; sourceTree = "<group>"; };
 		9C77C4632027FEC0008B49E2 /* 支付码@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "支付码@2x.png"; sourceTree = "<group>"; };
 		9C77C4652027FEC0008B49E2 /* 农夫.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "农夫.png"; sourceTree = "<group>"; };
-		9C77C4662027FEC0008B49E2 /* 空心圆.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "空心圆.png"; sourceTree = "<group>"; };
 		9C77C4672027FEC0008B49E2 /* 矩形1拷贝@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "矩形1拷贝@3x.png"; sourceTree = "<group>"; };
-		9C77C4682027FEC0008B49E2 /* 定位3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "定位3x.png"; sourceTree = "<group>"; };
-		9C77C4692027FEC0008B49E2 /* 定位2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "定位2x.png"; sourceTree = "<group>"; };
 		9C77C46A2027FEC0008B49E2 /* 矩形1拷贝@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "矩形1拷贝@2x.png"; sourceTree = "<group>"; };
 		9C77C46B2027FEC0008B49E2 /* 矩形1拷贝.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "矩形1拷贝.png"; sourceTree = "<group>"; };
 		9C77C46D2027FEC0008B49E2 /* 抽奖.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "抽奖.png"; sourceTree = "<group>"; };
 		9C77C46E2027FEC0008B49E2 /* 矩形5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "矩形5.png"; sourceTree = "<group>"; };
-		9C77C46F2027FEC0008B49E2 /* 首页卡片左上角圆@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页卡片左上角圆@2x.png"; sourceTree = "<group>"; };
 		9C77C4722027FEC0008B49E2 /* 商城3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "商城3x.png"; sourceTree = "<group>"; };
-		9C77C4742027FEC0008B49E2 /* 订单.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "订单.png"; sourceTree = "<group>"; };
 		9C77C4752027FEC0008B49E2 /* toorBar2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toorBar2x.png; sourceTree = "<group>"; };
-		9C77C4762027FEC0008B49E2 /* 首页卡片左上角圆3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页卡片左上角圆3x.png"; sourceTree = "<group>"; };
 		9C77C4782027FEC0008B49E2 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		9C77C4792027FEC0008B49E2 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		9C77C47A2027FEC0008B49E2 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
@@ -894,7 +856,6 @@
 		9CABC3F5202ED7AC00C1EE38 /* 应用3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用3x.png"; sourceTree = "<group>"; };
 		9CABC3F7202EDD1F00C1EE38 /* AllClassCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClassCollectionViewCell.swift; sourceTree = "<group>"; };
 		9CABC3F8202EDD1F00C1EE38 /* AllClassCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllClassCollectionViewCell.xib; sourceTree = "<group>"; };
-		9CABC3FB202EE69B00C1EE38 /* 打叉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "打叉.png"; sourceTree = "<group>"; };
 		9CABC3FD202EE85600C1EE38 /* 种子3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "种子3x.png"; sourceTree = "<group>"; };
 		9CABC400202EF0EF00C1EE38 /* AllClassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClassView.swift; sourceTree = "<group>"; };
 		9CABC404202EF2BB00C1EE38 /* AllClassView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllClassView.xib; sourceTree = "<group>"; };
@@ -957,7 +918,6 @@
 		9CC9D19A204FCAC100AED4CD /* BindingGoodFriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BindingGoodFriendsViewController.xib; sourceTree = "<group>"; };
 		9CC9D19D204FD21D00AED4CD /* LGYAlertViewSimple.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGYAlertViewSimple.xib; sourceTree = "<group>"; };
 		9CC9D19E204FD21D00AED4CD /* LGYAlertViewSimple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGYAlertViewSimple.swift; sourceTree = "<group>"; };
-		9CC9D1A1204FD6CE00AED4CD /* 扫码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "扫码.png"; sourceTree = "<group>"; };
 		9CC9D1A5204FE0DB00AED4CD /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
 		9CC9D1A7204FE0E500AED4CD /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
 		9CC9D1AB204FE21B00AED4CD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1017,11 +977,9 @@
 		9CFD5524206E61D30028B1A4 /* 百耕园社区3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "百耕园社区3x.png"; path = "../登录/百耕园社区3x.png"; sourceTree = "<group>"; };
 		9CFD552A206E648C0028B1A4 /* 积分商城3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "积分商城3x.png"; sourceTree = "<group>"; };
 		9CFD552B206E648D0028B1A4 /* 分店查找3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "分店查找3x.png"; sourceTree = "<group>"; };
-		9CFD5531206E66F80028B1A4 /* 购物车.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "购物车.png"; sourceTree = "<group>"; };
 		9CFD5533206E68430028B1A4 /* 百耕园3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "百耕园3x.png"; sourceTree = "<group>"; };
 		9CFD5537206E69430028B1A4 /* 周边3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "周边3x.png"; sourceTree = "<group>"; };
 		9CFD5539206F1F380028B1A4 /* 邀请码3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "邀请码3x.png"; sourceTree = "<group>"; };
-		9CFD553D206F83710028B1A4 /* 购物车黑色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "购物车黑色.png"; sourceTree = "<group>"; };
 		9CFD554020707E080028B1A4 /* Model_api_about.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_about.h; sourceTree = "<group>"; };
 		9CFD554120707E080028B1A4 /* Model_api_about.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model_api_about.m; sourceTree = "<group>"; };
 		9CFD55432070D7C70028B1A4 /* Model_api_addOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_addOrder.h; sourceTree = "<group>"; };
@@ -1127,8 +1085,6 @@
 			isa = PBXGroup;
 			children = (
 				9CD9BD39208618B500D2894D /* 购物车+.png */,
-				9CFD553D206F83710028B1A4 /* 购物车黑色.png */,
-				9CFD5531206E66F80028B1A4 /* 购物车.png */,
 				9C9616C920513BD200D0EB7D /* 评价背景3x.png */,
 				9CBB50B7204953A60018A43B /* 选中.png */,
 				9CBB50B5204952350018A43B /* bg-立即购买3x.png */,
@@ -1141,9 +1097,7 @@
 				9C10BD5F20440294004AAFE3 /* 已经收藏.png */,
 				9C10BD582043AD92004AAFE3 /* 更多评价3x.png */,
 				9CABC3FD202EE85600C1EE38 /* 种子3x.png */,
-				9CABC3FB202EE69B00C1EE38 /* 打叉.png */,
 				9CABC3F5202ED7AC00C1EE38 /* 应用3x.png */,
-				9C00BFAF202EC21F00E77EA0 /* 搜索.png */,
 				9C00BFAD202EC16300E77EA0 /* 搜索3x.png */,
 				9C00BFAB202EBE6200E77EA0 /* 新品3x.png */,
 			);
@@ -1318,13 +1272,7 @@
 				9CBB507F2049294F0018A43B /* 我的置换3x.png */,
 				9CBB5078204904E60018A43B /* 底板拷贝3x.png */,
 				9CA32D852048EC5F00FD5DFC /* 会员表拷贝3x.png */,
-				9C0D9C7C20464CF800D271CE /* 打勾白色.png */,
-				9C46BA19204556AD00646A81 /* 打勾.png */,
 				9C46BA1720454DB200646A81 /* 加.png */,
-				9C10BD9420453DAD004AAFE3 /* 收起.png */,
-				9C10BD9120452ED4004AAFE3 /* 编辑.png */,
-				9C10BD9020452ED3004AAFE3 /* 删除.png */,
-				9C10BD8E20450FAC004AAFE3 /* 下拉.png */,
 				9C10BD8C20450F75004AAFE3 /* 下拉3x.png */,
 			);
 			path = "个人中心";
@@ -1564,6 +1512,7 @@
 				9C5CBF1020766D7C0078F17B /* Lin+MAAnnotationView.swift */,
 				9C060D9D207A0C5E007EC640 /* Lin+UIImage.swift */,
 				9C062F1F2082266F000B1172 /* LGYTextField.swift */,
+				9C76DF60208A191F002EEC27 /* Lin+UIImageView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1757,8 +1706,6 @@
 				9CFD551E206E617E0028B1A4 /* 智慧农场3x.png */,
 				9C77C43B2027FEC0008B49E2 /* 导航矩形3x.png */,
 				9C77C43F2027FEC0008B49E2 /* 矩形拷贝.png */,
-				9C77C4402027FEC0008B49E2 /* 左箭头.png */,
-				9C77C4412027FEC0008B49E2 /* 右箭头.png */,
 				9C77C4422027FEC0008B49E2 /* 右箭头3x.png */,
 				9C77C44A2027FEC0008B49E2 /* 矢量智能对象@3x_79.png */,
 			);
@@ -1773,35 +1720,25 @@
 				9C60444F2074F8A100FA7F1A /* 可用余额3x.png */,
 				9CFD5537206E69430028B1A4 /* 周边3x.png */,
 				9CFD5533206E68430028B1A4 /* 百耕园3x.png */,
-				9C3CB1512068A38B001DA039 /* 定位2.png */,
 				9C31298B2060EBC7006E6102 /* 我的订单bg.png */,
 				9C58AADA20510C1000594011 /* 按钮背景.png */,
-				9CC9D1A1204FD6CE00AED4CD /* 扫码.png */,
 				9CA32D832048E34E00FD5DFC /* 首页黑色.png */,
 				9C77C4502027FEC0008B49E2 /* 商城.png */,
 				9C77C4522027FEC0008B49E2 /* 每日尝鲜.png */,
 				9C77C4532027FEC0008B49E2 /* 我.png */,
 				9C77C4542027FEC0008B49E2 /* 农夫3x.png */,
-				9C77C4562027FEC0008B49E2 /* 百耕园.png */,
 				9C77C4592027FEC0008B49E2 /* 抽奖3x.png */,
 				9C77C45A2027FEC0008B49E2 /* 我3x.png */,
-				9C77C45D2027FEC0008B49E2 /* 定位.png */,
 				9C77C4622027FEC0008B49E2 /* 订单3x.png */,
 				9C77C4632027FEC0008B49E2 /* 支付码@2x.png */,
 				9C77C4652027FEC0008B49E2 /* 农夫.png */,
-				9C77C4662027FEC0008B49E2 /* 空心圆.png */,
 				9C77C4672027FEC0008B49E2 /* 矩形1拷贝@3x.png */,
-				9C77C4682027FEC0008B49E2 /* 定位3x.png */,
-				9C77C4692027FEC0008B49E2 /* 定位2x.png */,
 				9C77C46A2027FEC0008B49E2 /* 矩形1拷贝@2x.png */,
 				9C77C46B2027FEC0008B49E2 /* 矩形1拷贝.png */,
 				9C77C46D2027FEC0008B49E2 /* 抽奖.png */,
 				9C77C46E2027FEC0008B49E2 /* 矩形5.png */,
-				9C77C46F2027FEC0008B49E2 /* 首页卡片左上角圆@2x.png */,
 				9C77C4722027FEC0008B49E2 /* 商城3x.png */,
-				9C77C4742027FEC0008B49E2 /* 订单.png */,
 				9C77C4752027FEC0008B49E2 /* toorBar2x.png */,
-				9C77C4762027FEC0008B49E2 /* 首页卡片左上角圆3x.png */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -2506,25 +2443,20 @@
 				9C0D9C922046601100D271CE /* 私人客服3x.png in Resources */,
 				9C77C50D2027FEC1008B49E2 /* 500464962.jpg in Resources */,
 				9C77C51A2027FEC1008B49E2 /* 500468332.jpg in Resources */,
-				9C77C4EA2027FEC1008B49E2 /* 订单.png in Resources */,
 				9C10BD8D20450F76004AAFE3 /* 下拉3x.png in Resources */,
 				9C10BD712044141C004AAFE3 /* LGYSelectCollectionViewCell.xib in Resources */,
 				9C10BD6120440294004AAFE3 /* 已经收藏.png in Resources */,
 				9CBB5079204904E60018A43B /* 底板拷贝3x.png in Resources */,
-				9C10BD9220452ED4004AAFE3 /* 删除.png in Resources */,
 				9C0D9C772046427400D271CE /* CustomeServiceProductTableViewCell.xib in Resources */,
 				9CA32D4B2047938D00FD5DFC /* BranchShopViewController.xib in Resources */,
 				9C77C4F02027FEC1008B49E2 /* 4.jpg in Resources */,
 				9CABC405202EF2BB00C1EE38 /* AllClassView.xib in Resources */,
-				9CABC3FC202EE69B00C1EE38 /* 打叉.png in Resources */,
 				9CD36AF12057AA850075732C /* weixin.png in Resources */,
 				9CFD5525206E61D30028B1A4 /* 农场图标3x.png in Resources */,
-				9C77C4EC2027FEC1008B49E2 /* 首页卡片左上角圆3x.png in Resources */,
 				9C00BFA8202EB74F00E77EA0 /* MarkProductTableViewCell.xib in Resources */,
 				9CA32D7A2047FA9400FD5DFC /* CouponTableViewCell.xib in Resources */,
 				9C0D9CAE2046854700D271CE /* 组43x.png in Resources */,
 				9C77C50E2027FEC1008B49E2 /* d2b3dbe15d3b76c571be1ed9093b606db6d35649c5c2-W9DKDA.jpg in Resources */,
-				9C00BFB0202EC21F00E77EA0 /* 搜索.png in Resources */,
 				9C77C5192027FEC1008B49E2 /* scroller_1.jpg in Resources */,
 				9C3129902060FBF4006E6102 /* PurchaseImmediatelyTableViewCell.xib in Resources */,
 				9C46BA2020455A1500646A81 /* EverydayFreshViewController.xib in Resources */,
@@ -2549,7 +2481,6 @@
 				9CFD552C206E648D0028B1A4 /* 积分商城3x.png in Resources */,
 				9CFD553A206F1F390028B1A4 /* 邀请码3x.png in Resources */,
 				9C10BD8520450C4D004AAFE3 /* AddressViewController.xib in Resources */,
-				9C77C4DE2027FEC1008B49E2 /* 定位3x.png in Resources */,
 				9C10BD572043A0BD004AAFE3 /* ProductSaleDetailsViewController.xib in Resources */,
 				9C77C5172027FEC1008B49E2 /* 100428963.jpg in Resources */,
 				9C0D9C962046601100D271CE /* 每月尝鲜3x.png in Resources */,
@@ -2574,18 +2505,15 @@
 				9C7E79B1207C55550007A9E4 /* loading.png in Resources */,
 				9C77C4F52027FEC1008B49E2 /* be873e755bbeb1e73c56a5a659db077aa6e17910208fc-Ai7JYG.jpg in Resources */,
 				9C0D9C9E20467D0F00D271CE /* MemberPrivilegesDetailViewController.xib in Resources */,
-				9C10BD9520453DAE004AAFE3 /* 收起.png in Resources */,
 				9C10BD6B204407AD004AAFE3 /* -3x.png in Resources */,
 				9CB13D6F202A9381001E5FC4 /* HundredFarmingGardenViewController.xib in Resources */,
 				9C0D9CAF2046854700D271CE /* 苹果支付3x.png in Resources */,
 				9CEFBAFD205FA97C006A6625 /* AddressShowTableViewCell.xib in Resources */,
-				9C3CB1522068A38B001DA039 /* 定位2.png in Resources */,
 				9CB13D66202985CB001E5FC4 /* 矩形3x.png in Resources */,
 				9C77C5162027FEC1008B49E2 /* 2d424332c6f1cd14763a9318a88e8be7241b88a56c995-6tR9sV.jpg in Resources */,
 				9C00BFAC202EBE6200E77EA0 /* 新品3x.png in Resources */,
 				9C77C4C62027FEC1008B49E2 /* 商城.png in Resources */,
 				9C46BA1620454B2B00646A81 /* AddAddressViewController.xib in Resources */,
-				9C46BA1A204556AD00646A81 /* 打勾.png in Resources */,
 				9C813A98207F4D1A00FE19EC /* ApplyCustomerServiceImageCollectionViewCell.xib in Resources */,
 				9C3CB16B2068E1C3001DA039 /* ShareView.xib in Resources */,
 				9CBB50A9204949620018A43B /* Launcherlogo.png in Resources */,
@@ -2629,15 +2557,12 @@
 				9C2C548C2029500300B67BBE /* 引导2.png in Resources */,
 				9C060D9C2079BC3B007EC640 /* launchImage1.jpeg in Resources */,
 				9C77C5092027FEC1008B49E2 /* 148522_banner.jpg in Resources */,
-				9C10BD9320452ED4004AAFE3 /* 编辑.png in Resources */,
 				9C9616C220512B4400D0EB7D /* OrderPaymentViewController.xib in Resources */,
-				9C77C4DF2027FEC1008B49E2 /* 定位2x.png in Resources */,
 				9C77C50C2027FEC1008B49E2 /* scroller_3.jpg in Resources */,
 				9C3CB1632068D41C001DA039 /* AlipaySDK.bundle in Resources */,
 				9CBB50B420494C670018A43B /* ShopCarTableViewCell.xib in Resources */,
 				9CA32D842048E34E00FD5DFC /* 首页黑色.png in Resources */,
 				9CA32D332046AC3000FD5DFC /* BindingPhoneViewController.xib in Resources */,
-				9C77C4B82027FEC0008B49E2 /* 右箭头.png in Resources */,
 				9C10BD7F20450451004AAFE3 /* 椭圆3x.png in Resources */,
 				9CFD552D206E648D0028B1A4 /* 分店查找3x.png in Resources */,
 				9C46BA2C2045678B00646A81 /* CustomerServiceViewController.xib in Resources */,
@@ -2651,13 +2576,11 @@
 				9C77C5152027FEC1008B49E2 /* scroller_2.jpg in Resources */,
 				9C77C4FE2027FEC1008B49E2 /* bcf618df89c91ce7cad0ee5287711fe4ee9f7c0b296b1-0c3VmJ_fw658.jpg in Resources */,
 				9C58AADB20510C1000594011 /* 按钮背景.png in Resources */,
-				9C0D9C7D20464CF800D271CE /* 打勾白色.png in Resources */,
 				9C0D9C912046601100D271CE /* 周边农场3x.png in Resources */,
 				9CC9D19C204FCAC100AED4CD /* BindingGoodFriendsViewController.xib in Resources */,
 				9C00BFB8202ECE5000E77EA0 /* SearchProductTableViewCell.xib in Resources */,
 				9CBB5094204934100018A43B /* 检查更新3x.png in Resources */,
 				9CA32D422046CD9900FD5DFC /* CallPhoneView.xib in Resources */,
-				9CFD5532206E66F80028B1A4 /* 购物车.png in Resources */,
 				9CBB50B020494AFF0018A43B /* ShopCarViewController.xib in Resources */,
 				9C77C50F2027FEC1008B49E2 /* launchBackground.jpg in Resources */,
 				9C77C5132027FEC1008B49E2 /* de66ee4b6e4918ff3341328c3e66a5abacd635508bb5-BWKkPJ.jpg in Resources */,
@@ -2688,13 +2611,9 @@
 				9C10BD67204405A1004AAFE3 /* LGYSelectCollectionView.xib in Resources */,
 				9C0D9CAC2046854700D271CE /* 支付宝3x.png in Resources */,
 				9C77C4DB2027FEC1008B49E2 /* 农夫.png in Resources */,
-				9C77C4D32027FEC1008B49E2 /* 定位.png in Resources */,
 				9C77C4F62027FEC1008B49E2 /* p16.jpg in Resources */,
 				9C0D9CB32046858400D271CE /* 微信3x.png in Resources */,
 				9C0D9C942046601100D271CE /* 支付码3x.png in Resources */,
-				9CFD553E206F83710028B1A4 /* 购物车黑色.png in Resources */,
-				9C77C4E52027FEC1008B49E2 /* 首页卡片左上角圆@2x.png in Resources */,
-				9C10BD8F20450FAD004AAFE3 /* 下拉.png in Resources */,
 				9CA32D6D2047F40C00FD5DFC /* IntegralShopViewController.xib in Resources */,
 				9C94114B205A66F9002A29F9 /* 农场图标.png in Resources */,
 				9C77C5062027FEC1008B49E2 /* 9d618bdb533c9f033714c1e8365d52102d6e7174ed80-IpEt4L.jpg in Resources */,
@@ -2704,7 +2623,6 @@
 				9CBB50722048FCBE0018A43B /* ChangePayPassworkViewController.xib in Resources */,
 				9CA32D762047FA7200FD5DFC /* CouponViewController.xib in Resources */,
 				9C77C4D02027FEC1008B49E2 /* 我3x.png in Resources */,
-				9C77C4CC2027FEC1008B49E2 /* 百耕园.png in Resources */,
 				9CD62127204F83BD003CD6C4 /* 相机.jpg in Resources */,
 				9C9616C8205139C900D0EB7D /* EvaluateViewController.xib in Resources */,
 				9C0D9C972046601100D271CE /* 生日特权3x.png in Resources */,
@@ -2734,7 +2652,6 @@
 				9C77C4F12027FEC1008B49E2 /* 5.jpg in Resources */,
 				9C77C3B32027F1FF008B49E2 /* Main.storyboard in Resources */,
 				9C77C5052027FEC1008B49E2 /* u290.jpg in Resources */,
-				9C77C4B72027FEC0008B49E2 /* 左箭头.png in Resources */,
 				9C77C4CA2027FEC1008B49E2 /* 农夫3x.png in Resources */,
 				9C77C4F92027FEC1008B49E2 /* 31164.jpg in Resources */,
 				9C77C52A20280042008B49E2 /* FarmerViewController.xib in Resources */,
@@ -2750,7 +2667,6 @@
 				9C0D9CC020469CED00D271CE /* PersioninformationViewController.xib in Resources */,
 				9C77C4FD2027FEC1008B49E2 /* 图层 1.png in Resources */,
 				9CA32D5720479CE100FD5DFC /* 每日积分矩形3x.png in Resources */,
-				9C77C4DC2027FEC1008B49E2 /* 空心圆.png in Resources */,
 				9C10BD5D2043DE29004AAFE3 /* 菠萝长图.jpg in Resources */,
 				9C77C51C2027FEC1008B49E2 /* scroller_4.jpg in Resources */,
 				9C10BD6D204409CE004AAFE3 /* 产品详情确定按钮3x.png in Resources */,
@@ -2759,7 +2675,6 @@
 				9C77C4C12027FEC0008B49E2 /* 矢量智能对象@3x_79.png in Resources */,
 				9CBB508620492AFA0018A43B /* 关于我们3x.png in Resources */,
 				9C10BD6A204407AD004AAFE3 /* +3x.png in Resources */,
-				9CC9D1A2204FD6CE00AED4CD /* 扫码.png in Resources */,
 				9CBB5093204934100018A43B /* 常见问题3x.png in Resources */,
 				9C0D9CA52046801600D271CE /* 钟表3x.png in Resources */,
 				9C0D9C952046601100D271CE /* 背景3x.png in Resources */,
@@ -2986,6 +2901,7 @@
 				9CD36AE6205681660075732C /* APIConnect.swift in Sources */,
 				9CA32D5B2047A19400FD5DFC /* SignAddIntegralTableViewCell.swift in Sources */,
 				9CBD47F8206B2B30005C3EB0 /* Model_sms_verificationCode.m in Sources */,
+				9C76DF61208A191F002EEC27 /* Lin+UIImageView.swift in Sources */,
 				9CD62125204EBF48003CD6C4 /* YSHYClipViewController.m in Sources */,
 				9C77C42E2027F96D008B49E2 /* LBuyly.swift in Sources */,
 				9C9616C7205139C900D0EB7D /* EvaluateViewController.swift in Sources */,

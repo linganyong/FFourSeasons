@@ -32,7 +32,7 @@ class MainPageProductTableViewCell: UITableViewCell {
     
     func setModel(item:Goods) -> Void {
         model = item
-        loginImageView.image = UIImage.init(named: "空心圆.png")
+        loginImageView.image = UIImage.init(named: "首页卡片左上角圆")
         productImageView.layer.masksToBounds = true
         setDataScoure(imageUrl: item.small_icon, line1Str: "当前推荐！", line2Str: item.title, line3Str:item.price)
     }

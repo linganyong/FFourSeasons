@@ -200,7 +200,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分付码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKB-dp-8TB">
-                                                        <rect key="frame" x="0.0" y="28" width="53" height="14"/>
+                                                        <rect key="frame" x="0.0" y="28" width="57" height="14"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -229,7 +229,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="H7I-WU-NOR" secondAttribute="trailing" id="Yn1-E2-E1v"/>
                                                     <constraint firstItem="oKB-dp-8TB" firstAttribute="top" secondItem="Bt1-BI-Hzb" secondAttribute="bottom" constant="3" id="gBE-WB-eqs"/>
                                                     <constraint firstItem="oKB-dp-8TB" firstAttribute="leading" secondItem="gos-7w-f3H" secondAttribute="leading" id="hEG-bG-FLg"/>
-                                                    <constraint firstAttribute="trailing" secondItem="oKB-dp-8TB" secondAttribute="trailing" constant="4" id="inJ-q6-oWg"/>
+                                                    <constraint firstAttribute="trailing" secondItem="oKB-dp-8TB" secondAttribute="trailing" id="inJ-q6-oWg"/>
                                                     <constraint firstItem="Bt1-BI-Hzb" firstAttribute="top" secondItem="gos-7w-f3H" secondAttribute="top" id="qVj-DN-rfj"/>
                                                     <constraint firstAttribute="bottom" secondItem="oKB-dp-8TB" secondAttribute="bottom" constant="8" id="zwr-i3-o1b"/>
                                                 </constraints>

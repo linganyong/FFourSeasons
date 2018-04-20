@@ -27,9 +27,9 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationItemBack(title: "    ")
+        navigationItemBack(title: "    ")
         navigationBarAddSearchTextField()
-         rightBarItem = navigationBarAddRightItem(_imageName: "搜索.png", target: self, action: #selector(rightBarAction))
+         rightBarItem = navigationBarAddRightItem(_imageName: "白色搜索", target: self, action: #selector(rightBarAction))
         self.title = "人人商城"
         setBackgroundColor()
         LGYTool.viewLayerShadowAll(view: shopCarButton)

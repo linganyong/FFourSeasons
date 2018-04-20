@@ -113,7 +113,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="下拉3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="piS-rW-Lib">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="下拉展开" translatesAutoresizingMaskIntoConstraints="NO" id="piS-rW-Lib">
                                 <rect key="frame" x="317" y="15" width="22" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="8Hp-Dc-40f"/>
@@ -220,6 +220,6 @@
         </viewController>
     </objects>
     <resources>
-        <image name="下拉3x.png" width="65" height="33"/>
+        <image name="下拉展开" width="25" height="12"/>
     </resources>
 </document>

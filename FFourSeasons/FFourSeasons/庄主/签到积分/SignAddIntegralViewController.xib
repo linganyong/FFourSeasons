@@ -87,7 +87,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分规则" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFf-3e-hU6">
-                                                <rect key="frame" x="0.0" y="28" width="81" height="14"/>
+                                                <rect key="frame" x="0.0" y="28" width="85" height="14"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -113,7 +113,7 @@
                                             <constraint firstItem="8bJ-ob-bWk" firstAttribute="leading" secondItem="lE5-HX-UWV" secondAttribute="leading" id="ApB-zK-Vfx"/>
                                             <constraint firstItem="8bJ-ob-bWk" firstAttribute="top" secondItem="lE5-HX-UWV" secondAttribute="top" id="L1w-AA-SfF"/>
                                             <constraint firstItem="CWR-dg-gW9" firstAttribute="centerX" secondItem="lE5-HX-UWV" secondAttribute="centerX" id="Op7-RK-zDx"/>
-                                            <constraint firstAttribute="trailing" secondItem="YFf-3e-hU6" secondAttribute="trailing" constant="4" id="dqy-Dk-aHr"/>
+                                            <constraint firstAttribute="trailing" secondItem="YFf-3e-hU6" secondAttribute="trailing" id="dqy-Dk-aHr"/>
                                             <constraint firstItem="YFf-3e-hU6" firstAttribute="top" secondItem="CWR-dg-gW9" secondAttribute="bottom" id="ekw-5u-ADX"/>
                                             <constraint firstItem="YFf-3e-hU6" firstAttribute="leading" secondItem="lE5-HX-UWV" secondAttribute="leading" id="t40-a2-s5J"/>
                                             <constraint firstItem="CWR-dg-gW9" firstAttribute="top" secondItem="lE5-HX-UWV" secondAttribute="top" id="zui-DY-PUQ"/>
@@ -279,8 +279,8 @@
     </objects>
     <resources>
         <image name="每日积分矩形3x.png" width="1125" height="926"/>
-        <image name="积分兑换3x.png" width="90" height="95"/>
-        <image name="积分规则3x.png" width="93" height="95"/>
-        <image name="积分详情3x.png" width="105" height="95"/>
+        <image name="积分兑换3x.png" width="86" height="95"/>
+        <image name="积分规则3x.png" width="74" height="95"/>
+        <image name="积分详情3x.png" width="95" height="95"/>
     </resources>
 </document>

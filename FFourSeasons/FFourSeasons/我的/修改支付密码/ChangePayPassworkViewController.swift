@@ -30,7 +30,7 @@ class ChangePayPassworkViewController: UIViewController,UITextFieldDelegate {
         self.title = "设置修改密码"
         navigationItemBack(title: "    ")
         viewLayerShadow()
-        rightBarItem = navigationBarAddRightItem(_imageName: "打勾.png", target: self, action: #selector(rightBarAction))
+        rightBarItem = navigationBarAddRightItem(_imageName: "黑色确定", target: self, action: #selector(rightBarAction))
         setBackgroundColor()
         setTextFieldDelegate()
     }

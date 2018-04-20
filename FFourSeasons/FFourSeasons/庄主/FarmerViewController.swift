@@ -25,7 +25,7 @@ class FarmerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationItemBack(title: "    ")
+        navigationItemBack(title: "    ")
          viewLayerShadow()
         setBackgroundColor()
         NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: PersonViewControllerLoadDataScoure), object: nil)
