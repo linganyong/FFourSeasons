@@ -25,6 +25,7 @@ class AllClassView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         let view = Bundle.main.loadNibNamed("AllClassView", owner: nil, options: nil)?.first as! AllClassView
         view.setCollectionView(titleArray: titleArray, imageArray: imageArray)
         view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.35);
+        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(cancleAction(_:))))
         return view
     }
     
@@ -68,7 +69,7 @@ class AllClassView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         
     }
     
-    func cancle(){
+    @objc func cancle(){
         //MARK:设置导航栏取消按钮
         UIView.animate(withDuration: 0.25, animations: {
             self.frame = CGRect(x: 0, y: -UIScreen.main.bounds.size.height, width: self.frame.size.width, height: self.frame.size.height)

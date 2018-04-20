@@ -24,7 +24,7 @@ class OrderPaymentViewController: UIViewController{
     @IBOutlet weak var playSelect1ImageView: UIImageView!
     @IBOutlet weak var playSelect2ImageView: UIImageView!
     @IBOutlet weak var playSelect3ImageView: UIImageView!
-    
+    var orderDetails:OrderList?
     //订单字符串
     var orderString : String = ""
     //地址ID
@@ -53,7 +53,7 @@ class OrderPaymentViewController: UIViewController{
         if let flag = notification.object as? Bool {
             if flag {
                 let vc = Bundle.main.loadNibNamed("OrderDetailsViewController", owner: nil, options: nil)?.first as! OrderDetailsViewController
-//                vc.orderDetail = 
+                vc.orderDetail = orderDetails
                 vc.setOrderType(orderType:.WaitForHarvest)
                 vc.loadOrderDetails()
                 vc.setText()
@@ -155,6 +155,7 @@ class OrderPaymentViewController: UIViewController{
                     if let order_no = model?.orderPay.out_trade_no {
                          weakSelf.removeEmptyView()
                         weakSelf.outTradeNo = order_no
+                        weakSelf.orderDetails = model?.orderPay
                     }
                 }
             }

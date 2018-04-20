@@ -108,11 +108,11 @@ class LGYTool: NSObject {
     //MARK:统一设置阴影
     class func viewLayerShadowShadowOffsetHeight(view:UIView) ->Void{
         //添加阴影
-        view.layer.shadowOpacity = 1 //不透明图
-        view.layer.shadowColor = UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 0.15).cgColor
+        view.layer.shadowOpacity = 0.35 //不透明图
+        view.layer.shadowColor = UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 1).cgColor
         view.layer.shadowOffset = CGSize(width: 0, height:0) // 设置阴影的偏移量
         view.layer.shadowRadius = CGFloat(3)
-        view.clipsToBounds = false //添加此句展示效果
+        view.layer.masksToBounds = false //添加此句展示效果
     }
     
     //MARK:统一设置阴影

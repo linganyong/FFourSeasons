@@ -152,6 +152,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 }
                 if let no = cell.modelOrder?.out_trade_no{
                     let vc = Bundle.main.loadNibNamed("OrderPaymentViewController", owner: nil, options: nil)?.first as! OrderPaymentViewController
+                    vc.orderDetails = cell.modelOrder
                     vc.outTradeNo = no
                     self.navigationController?.pushViewController(vc, animated: true)
                 }

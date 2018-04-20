@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OrderPay.h"
+#import "OrderList.h"
 
 @interface Model_api_orderPay : NSObject
 
-@property (nonatomic, retain) OrderPay * orderPay;
+@property (nonatomic, retain) OrderList * orderPay;
 @property (nonatomic, retain) NSString * code;
 @property (nonatomic, assign) long error;
 @property (nonatomic, retain) NSString * msg;

@@ -116,6 +116,10 @@ class SignAddIntegralViewController: UIViewController,UITableViewDelegate,UITabl
                 vc?.animationButtonView.removeFromSuperview()
             }
         }
+        for i in 0...dataScoure.count-1{
+            let tb = pageView.pageViewtableView(index: i)
+            tb?.mj_header.beginRefreshing()
+        }
     }
     
     //MARK:设置pageView

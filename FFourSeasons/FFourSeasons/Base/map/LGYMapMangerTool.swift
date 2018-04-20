@@ -11,7 +11,7 @@ import MapKit
 
 class LGYMapMangerTool: NSObject {
     var maps = [[AnyHashable: Any]]()
-    var endLocation:CLLocationCoordinate2D?
+    var endLocation:CLLocationCoordinate2D? //高德地图
     var endName = ""
     
     
@@ -44,12 +44,15 @@ class LGYMapMangerTool: NSObject {
         self.availableMaps.removeAll()
         let endCoordinate2D = endLocation
         let destinationName = endName
-        let endLat   = String(describing: endCoordinate2D!.latitude)
-        let endLng   = String(describing: endCoordinate2D!.longitude)
+        var endLat   = String(describing: endCoordinate2D!.latitude)
+        var endLng   = String(describing: endCoordinate2D!.longitude)
         let urlScheme = "shareba://"
         let displayName = String(describing: Bundle.main.infoDictionary!["CFBundleDisplayName"])
         //百度地图
         if UIApplication.shared.canOpenURL(URL.init(string: "baidumap://map/")!) {
+            let endCoor = bd09(fromGCJ02: endCoordinate2D!)
+            endLat   = String(describing: endCoor.latitude)
+            endLng   = String(describing: endCoor.longitude)
             var urlString = "baidumap://map/direction?origin={{我的位置}}&destination=latlng:\(endLat),\(endLng)|name:\(destinationName)&mode=transit"
             urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             let dict = ["name" : "百度地图",
@@ -89,6 +92,30 @@ class LGYMapMangerTool: NSObject {
                                             MKLaunchOptionsShowsTrafficKey : true]
             MKMapItem.openMaps(with: items, launchOptions: options)
         }
+    }
+    
+    // 高德坐标转百度坐标
+    func bd09(fromGCJ02 coor: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
+        let x_pi = CLLocationDegrees(3.14159265358979324 * 3000.0 / 180.0)
+        let x: CLLocationDegrees = coor.longitude
+        let y: CLLocationDegrees = coor.latitude
+        let z = CLLocationDegrees(sqrt(x * x + y * y) + 0.00002 * sin(y * x_pi))
+        let theta = CLLocationDegrees(atan2(y, x) + 0.000003 * cos(x * x_pi))
+        let bd_lon = CLLocationDegrees(z * cos(theta) + 0.0065)
+        let bd_lat = CLLocationDegrees(z * sin(theta) + 0.006)
+        return CLLocationCoordinate2DMake(bd_lat, bd_lon)
+    }
+    
+    /// 百度坐标转高德坐标
+    func gcj02(fromBD09 coor: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
+        let x_pi = CLLocationDegrees(3.14159265358979324 * 3000.0 / 180.0)
+        let x = CLLocationDegrees(coor.longitude - 0.0065)
+        let y = CLLocationDegrees(coor.latitude - 0.006)
+        let z = CLLocationDegrees(sqrt(x * x + y * y) - 0.00002 * sin(y * x_pi))
+        let theta = CLLocationDegrees(atan2(y, x) - 0.000003 * cos(x * x_pi))
+        let gg_lon: CLLocationDegrees = z * cos(theta)
+        let gg_lat: CLLocationDegrees = z * sin(theta)
+        return CLLocationCoordinate2DMake(gg_lat, gg_lon)
     }
 
 }

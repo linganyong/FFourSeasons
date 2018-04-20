@@ -21,9 +21,13 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     let backView = UIView()
     let textLabel = TYAttributedLabel()
     var listFarm = Array<Farm>() //其他农场列表
+    var listAnnotation = Array<MAPointAnnotation>() //其他农场MAPointAnnotation列表
+    var listImage:[Int:UIImage] = [:] //其他农场列表
     var firstFarm:Farm? //推荐农场
     var selectFarm:Farm? //点击展开的农场
     var isFirst = true //判断第一次
+    var timer:Timer?
+    let lock = NSLock()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +42,11 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     //MARK:设置地图
     func addMapView() ->Void{
         mapView.frame = CGRect(x: 0, y: 60, width: view.bounds.size.width, height: view.bounds.size.height - 60)
-//        mapView.setZoomLevel(mapZoomLevel, animated: true)
+        //        mapView.setZoomLevel(mapZoomLevel, animated: true)
         view.insertSubview(mapView, at: 0)
         mapView.delegate = self
         AMapServices.shared().enableHTTPS = true
-        
+        mapView.setZoomLevel(mapZoomLevel, animated: true)
         ///如果您需要进入地图就显示定位小蓝点，则需要下面两行代码
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow;
@@ -83,16 +87,16 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     
     @IBAction func addAction(_ sender: UIButton) {
         if mapZoomLevel < 19{
-             mapZoomLevel += 1
+            mapZoomLevel += 1
             mapView.setZoomLevel(mapZoomLevel, animated: true)
         }
-       
+        
     }
     
     @IBAction func reduceAction(_ sender: Any) {
         if mapZoomLevel > 3{
             mapZoomLevel -= 1
-             mapView.setZoomLevel(mapZoomLevel, animated: true)
+            mapView.setZoomLevel(mapZoomLevel, animated: true)
         }
         
     }
@@ -116,47 +120,53 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
             }
             if annotation.lgyTag < 0{
                 annotationView?.image = UIImage(named:"");
-            }else if annotation.lgyTag < 10000 && annotation.lgyTag >= 0{
-                let farm = listFarm[annotation.lgyTag]
-                if farm.imgs != nil{
-                    _ = UIImage.image(fromURL: farm.imgs, placeholder: UIImage.init(named: "农场图标.png")!, shouldCacheImage: false, closure: { [weak annotationView](image) in
-                        if image != nil {
-                            annotationView?.image = image
-                            annotationView?.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-                            annotationView?.backgroundColor = UIColor.white
-                            annotationView?.contentMode = .center
-                            annotationView?.LGyCornerRadius = 25
-                            if annotationView != nil{
-                                LGYTool.viewLayerShadowShadowOffsetHeight(view: annotationView!)
-                                annotationView?.reloadInputViews()
-                            }
-                        }
-                    })
-                }
+            }else if annotation.lgyTag < 10000 && annotation.lgyTag >= 0{ //周边农场
+                //                let farm = listFarm[annotation.lgyTag]
+                self.lock.lock()
+                annotationView?.image =  listImage[annotation.lgyTag]
+                self.lock.unlock()
+                annotationView?.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+                annotationView?.backgroundColor = UIColor.white
+                annotationView?.contentMode = .center
+                annotationView?.LGyCornerRadius = 25
+                LGYTool.viewLayerShadowShadowOffsetHeight(view: annotationView!)
+                annotationView?.lgyTag = annotation.lgyTag
+                annotationView?.reloadInputViews()
+                //                annotationView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelect(view:))))
+                //                }
             }else if annotation.lgyTag == 10000{
                 
             }
-            annotationView?.lgyTag = annotation.lgyTag
+            
             return annotationView
         }
         return nil
     }
-
     
-    
-    //MARK:点击大头标响应
+    //MARK:点击大头标响应,此方法只能点击一次
     func mapView(_ mapView: MAMapView!, didSelect view: MAAnnotationView!) {
-        if view.lgyTag < 0{
-            
-            
-        }else if view.lgyTag < 10000 && view.lgyTag >= 0{
+        if view.lgyTag < 10000 && view.lgyTag >= 0{
             selectFarm = listFarm[view.lgyTag]
             loadGoodData(sid: selectFarm!._id, description: selectFarm!.shop_introduce, title: selectFarm!.shop_name)
-        }else if view.lgyTag == 10000{
-            
+            UIView.animate(withDuration: 0.5, animations: {
+                
+            }, completion: { (finish) in
+                if finish{
+                    
+                }
+            })
         }
-        
     }
+    
+    //    @objc func didSelect(view: MAAnnotationView!){
+    //        if view.lgyTag < 10000 && view.lgyTag >= 0{
+    //            selectFarm = listFarm[view.lgyTag]
+    //            loadGoodData(sid: selectFarm!._id, description: selectFarm!.shop_introduce, title: selectFarm!.shop_name)
+    //            view.setSelected(false, animated: true)
+    //        }
+    //
+    //
+    //    }
     
     //MARK:开始定位
     func startLocationManager() -> Void {
@@ -169,15 +179,15 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        mapView.removeAnnotation(self.userAnnotation)
+        //        mapView.removeAnnotation(self.userAnnotation)
         let location = locations.last!
         let clGeoCoder = CLGeocoder()
         let cl = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         userAnnotation.coordinate = location.coordinate
         clGeoCoder.reverseGeocodeLocation(cl) { (placemarks, error) in
-//            for placeMark: CLPlacemark in placemarks! {
-//
-//            }
+            //            for placeMark: CLPlacemark in placemarks! {
+            //
+            //            }
         }
         
         mapView.addAnnotation(self.userAnnotation)
@@ -202,7 +212,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
                 let model = Model_api_getGoods.yy_model(withJSON: object as Any)
                 if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
                     if let list = model?.goodsList.list{
-                       let view =  DetailsView.show(array: list, superView: weakSelf.view, delegate: weakSelf)
+                        let view =  DetailsView.show(array: list, superView: weakSelf.view, delegate: weakSelf)
                         view.descriptionLabel.text = description
                         view.titleLabel.text = title
                     }
@@ -231,32 +241,74 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
             if let farm = model?.farm{
                 firstFarm = farm
                 setTextLabelText(text: farm.recommendation!)
-//                let cl = CLLocation(latitude: farm.lat, longitude: farm.lng)
-//                let annotation = MAPointAnnotation()
-//                annotation.coordinate = cl.coordinate
-//                annotation.lgyTag = 10000
-//                mapView.addAnnotation(annotation)
+                //                let cl = CLLocation(latitude: farm.lat, longitude: farm.lng)
+                //                let annotation = MAPointAnnotation()
+                //                annotation.coordinate = cl.coordinate
+                //                annotation.lgyTag = 10000
+                //                mapView.addAnnotation(annotation)
             }
             listFarm.removeAll()
             if let farms = model?.farms{
                 var count = 0
+                listFarm.removeAll()
+                listAnnotation.removeAll()
                 for item in farms{ //插入大图标
+                    var flag = true
+                    for object in listFarm{
+                        if object.lat == item.lat && object.lng == item.lng{
+                            flag = false
+                            break;
+                        }
+                    }
+                    if flag{
+                        print(" coordinate ",count,"\n")
+                        print(" coordinate "," lat=",item.lat," - lng=",item.lng)
                         listFarm.append(item)
                         let cl = CLLocation(latitude: item.lat, longitude: item.lng)
                         let annotation = MAPointAnnotation()
                         annotation.lgyTag = count
                         annotation.coordinate = cl.coordinate
-                        mapView.addAnnotation(annotation)
                         
                         count += 1
+                        let index = count;
+                        _ = UIImage.image(fromURL: item.imgs, placeholder: UIImage.init(named: "农场图标.png")!, shouldCacheImage: false, closure: { [weak self](image) in
+                            self?.lock.lock()
+                            annotation.lgyTag = index
+                            if image != nil{
+                                self?.listImage[index] = image
+                            }else{
+                                self?.listImage[index] = UIImage.init(named: "农场图标.png")
+                                
+                            }
+                            self?.lock.unlock()
+//                            self?.listAnnotation.append(annotation)
+                            self?.mapView.addAnnotation(annotation)
+//
+                        })
+                    }
                 }
-                 mapView.setZoomLevel(mapZoomLevel, animated: true)
+                mapView.setZoomLevel(mapZoomLevel, animated: true)
+//                addTimer()
             }
         }else{
             backView.isHidden = true
         }
     }
     
+    func addTimer()->Void{
+        timer?.invalidate()
+        timer = nil
+        timer = Timer(timeInterval: 0.05, target: self, selector: #selector(reloadMap), userInfo: nil, repeats: true)
+        RunLoop.current.add(timer!, forMode: .commonModes)
+    }
+    
+    @objc func reloadMap() -> Void {
+        mapView.addAnnotations(listAnnotation)
+        if listAnnotation.count == listFarm.count{
+            timer?.invalidate()
+        }
+    }
+    //
     @IBAction func selfLocationAction(_ sender: UIButton) {
         ///如果您需要进入地图就显示定位小蓝点，则需要下面两行代码
         mapView.showsUserLocation = true
@@ -277,5 +329,6 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         // Dispose of any resources that can be recreated.
     }
     
-
+    
 }
+
