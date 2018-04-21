@@ -308,7 +308,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         UIApplication.shared.keyWindow?.addSubview(specView)
     }
     
-    //MARK:获取规格ID
+    //MARK:获取规格ID，设置价格
     func specificationDeal(text:String,array:Array<String>) -> Void {
         var spec = ""
         if productModel != nil{
@@ -329,7 +329,6 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
                             }
                         }
                     }
-                   
                     var flag = true
                     for guige in array{ //遍历是否是否为选择规格
                         if !str.contains(guige){
@@ -341,15 +340,24 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
                         spec = str
                         selectSpec = (item?._id)!
                         if productInformation?.goods_type == 0{
-                            productPriceLabel.text = "￥\((item?.price)!)"
+                            //统计总价
+                            if let priceStr = item?.price{
+                                let aPrice = Double(text)!*Double(priceStr)!
+                                productPriceLabel.text = String(format: "￥%.2lf", aPrice)
+                            }
                         }else{
-                            productPriceLabel.text = "\((item?.price)!)积分"
+                            //统计总价
+                            if let priceStr = item?.price{
+                                let aPrice = Double(text)!*Double(priceStr)!
+                                productPriceLabel.text = String(format: "%.2lf 积分", aPrice)
+                            }
                         }
+                        spelabel.text = "已选规格：\(spec)，数量\(text)"
                     }
                     
                 }
             }
-            spelabel.text = "已选规格：\(spec)，数量\(text)"
+            
         }
     }
     

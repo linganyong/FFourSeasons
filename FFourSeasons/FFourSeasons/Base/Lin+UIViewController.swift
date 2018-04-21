@@ -78,15 +78,16 @@ extension UIViewController {
     }
     
     func navigationItemBack(title:String?) ->Void{
+//        if navigationItem.leftBarButtonItems == nil && navigationItem.backBarButtonItem == nil {
 //        let backButton = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(popViewController))
 //        backButton.image = UIImage(named: "左箭头")
-//        navigationItem.backBarButtonItem = backButton
+////        navigationItem.backBarButtonItem = backButton
 //        navigationItem.leftBarButtonItems = [backButton]
-//        self.navigationItem.backBarButtonItem?.title = ""
+////        self.navigationItem.backBarButtonItem?.title = ""
+//        }
         var backBtn = UIBarButtonItem()
-        backBtn.title = title
+        backBtn.title = "  "
         navigationItem.backBarButtonItem = backBtn
-        
         
     }
     

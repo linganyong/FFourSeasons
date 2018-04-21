@@ -7,12 +7,18 @@
 //
 
 import UIKit
+
+protocol AddressViewControllerDelegate {
+    func addressViewController(address:Addresses) -> Void;
+}
+
 class AddressShowViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     var rightBarItem:UIBarButtonItem!
     var defaultSelectRow = -1
     var isDefaultSelect = true //是否可以修改默认
+    var delegate:AddressViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,11 +66,15 @@ class AddressShowViewController: UIViewController,UITableViewDelegate,UITableVie
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isDefaultSelect {
-            defaultSelectRow = indexPath.row
-            tableView.reloadData()
+        if delegate != nil{
+            let address = tableView.lgyDataScoure[indexPath.row] as! Addresses
+            delegate?.addressViewController(address: address)
+            self.navigationController?.popViewController(animated: true)
         }else{
-            
+            if isDefaultSelect {
+                defaultSelectRow = indexPath.row
+                tableView.reloadData()
+            }
         }
     }
     
@@ -131,7 +141,11 @@ class AddressShowViewController: UIViewController,UITableViewDelegate,UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavigationBarStyle(type:.White)
-        self.navigationItem.rightBarButtonItems = [rightBarItem]
+        if isDefaultSelect{
+            self.navigationItem.rightBarButtonItems = [rightBarItem]
+        }else{
+            self.navigationItem.rightBarButtonItems = nil
+        }
       
     }
     

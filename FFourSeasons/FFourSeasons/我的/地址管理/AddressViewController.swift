@@ -8,16 +8,14 @@
 
 import UIKit
 
-protocol AddressViewControllerDelegate {
-    func addressViewController(address:Addresses) -> Void;
-}
+
 
 class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,AddressTableViewCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var showIndexPath:IndexPath?
     var rightBarItem:UIBarButtonItem!
-    var delegate:AddressViewControllerDelegate?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,14 +109,6 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
             }
         }
        
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if delegate != nil{
-            let address = tableView.lgyDataScoure[indexPath.row] as! Addresses
-            delegate?.addressViewController(address: address)
-            self.navigationController?.popViewController(animated: true)
-        }
     }
     
     //MARK:加载数据

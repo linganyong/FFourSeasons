@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,6 +65,7 @@
                                     <constraint firstAttribute="bottom" secondItem="naF-5p-81B" secondAttribute="bottom" id="9Yw-Db-pX6"/>
                                     <constraint firstItem="ysp-v9-aTd" firstAttribute="centerY" secondItem="naF-5p-81B" secondAttribute="centerY" id="BpV-RO-6Rx"/>
                                     <constraint firstItem="naF-5p-81B" firstAttribute="top" secondItem="EfO-0h-5Tu" secondAttribute="top" id="IZ6-h0-4k8"/>
+                                    <constraint firstAttribute="height" constant="66" id="Im1-pr-kHE"/>
                                     <constraint firstItem="AZp-ny-zd6" firstAttribute="centerY" secondItem="naF-5p-81B" secondAttribute="centerY" id="M9G-kV-SrF"/>
                                     <constraint firstItem="6Zh-xo-kXs" firstAttribute="top" secondItem="EfO-0h-5Tu" secondAttribute="top" constant="16" id="a7z-FG-d8D"/>
                                     <constraint firstAttribute="trailing" secondItem="ysp-v9-aTd" secondAttribute="trailing" constant="16" id="bmw-mt-yWn"/>
@@ -125,6 +126,7 @@
                                     <constraint firstItem="hCU-e9-VRt" firstAttribute="centerY" secondItem="IUK-VO-8Jl" secondAttribute="centerY" id="URV-cA-P4c"/>
                                     <constraint firstAttribute="trailing" secondItem="dit-wG-Acl" secondAttribute="trailing" constant="16" id="Whf-pj-h4X"/>
                                     <constraint firstItem="YOG-LW-MbR" firstAttribute="leading" secondItem="hCU-e9-VRt" secondAttribute="trailing" constant="40" id="mev-Ms-QKo"/>
+                                    <constraint firstAttribute="height" constant="66" id="ukD-Xm-yPb"/>
                                     <constraint firstItem="Xsy-Ir-jRK" firstAttribute="top" secondItem="IUK-VO-8Jl" secondAttribute="top" id="v9f-ry-HO7"/>
                                 </constraints>
                             </view>
@@ -178,6 +180,7 @@
                                     <constraint firstAttribute="trailing" secondItem="2YU-dW-Ojc" secondAttribute="trailing" id="hBk-rt-GD6"/>
                                     <constraint firstItem="CrD-Mz-qlY" firstAttribute="centerY" secondItem="2YU-dW-Ojc" secondAttribute="centerY" id="jXt-Ka-WcB"/>
                                     <constraint firstItem="2YU-dW-Ojc" firstAttribute="top" secondItem="EIi-fD-gBO" secondAttribute="top" id="jgL-eX-ocH"/>
+                                    <constraint firstAttribute="height" constant="66.5" id="ra8-96-Dbl"/>
                                     <constraint firstItem="URt-E1-BLo" firstAttribute="leading" secondItem="EIi-fD-gBO" secondAttribute="leading" constant="24" id="yOS-zV-dvl"/>
                                 </constraints>
                             </view>
@@ -186,8 +189,6 @@
                         <constraints>
                             <constraint firstItem="EIi-fD-gBO" firstAttribute="leading" secondItem="jK1-fA-ecA" secondAttribute="leading" id="9xT-V8-gCW"/>
                             <constraint firstAttribute="trailing" secondItem="IUK-VO-8Jl" secondAttribute="trailing" id="BRS-RO-i1S"/>
-                            <constraint firstItem="EIi-fD-gBO" firstAttribute="height" secondItem="EfO-0h-5Tu" secondAttribute="height" id="FGw-BH-0XC"/>
-                            <constraint firstItem="IUK-VO-8Jl" firstAttribute="height" secondItem="EfO-0h-5Tu" secondAttribute="height" id="GUT-Ho-u9V"/>
                             <constraint firstAttribute="trailing" secondItem="EIi-fD-gBO" secondAttribute="trailing" id="HQt-Xq-qPa"/>
                             <constraint firstAttribute="trailing" secondItem="EfO-0h-5Tu" secondAttribute="trailing" id="M0i-hc-G94"/>
                             <constraint firstItem="IUK-VO-8Jl" firstAttribute="leading" secondItem="jK1-fA-ecA" secondAttribute="leading" id="Uk2-v7-WdJ"/>
@@ -228,9 +229,14 @@
                 <viewLayoutGuide key="safeArea" id="wxZ-al-u02"/>
             </view>
             <connections>
+                <outlet property="aliPayView" destination="EfO-0h-5Tu" id="Ty7-ki-4SE"/>
+                <outlet property="aliPayViewHeightLC" destination="Im1-pr-kHE" id="Gqd-CK-F1x"/>
+                <outlet property="integalPayView" destination="EIi-fD-gBO" id="rzO-Kh-1KZ"/>
                 <outlet property="playSelect1ImageView" destination="ysp-v9-aTd" id="DnW-nf-o1P"/>
                 <outlet property="playSelect2ImageView" destination="dit-wG-Acl" id="Csu-U5-jT6"/>
                 <outlet property="playSelect3ImageView" destination="CrD-Mz-qlY" id="rjg-O9-HEh"/>
+                <outlet property="weixinPayView" destination="IUK-VO-8Jl" id="whp-Mb-7HC"/>
+                <outlet property="weixinPayViewHeightLC" destination="ukD-Xm-yPb" id="HA0-0T-NzZ"/>
             </connections>
             <point key="canvasLocation" x="-34.5" y="-73.5"/>
         </viewController>

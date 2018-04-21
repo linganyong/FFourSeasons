@@ -26,9 +26,8 @@ class VIPLaunchView: UIView,UITextFieldDelegate {
     }
     
     func show()->Void{
-        let window = UIApplication.shared.keyWindow
-        self.frame = (window?.bounds)!
-        window?.addSubview(self)
+        self.frame = (viewController?.view.bounds)!
+        viewController?.view.addSubview(self)
     }
     
     @objc func notificationCenter(notification:Notification)->Void{
@@ -46,23 +45,21 @@ class VIPLaunchView: UIView,UITextFieldDelegate {
     }
     
     @IBAction func registerAction(_ sender: UIButton) {
-        let vc = Bundle.main.loadNibNamed("RegisterOrLaunchViewController", owner: nil, options: nil)?.first as! RegisterOrLaunchViewController
-        vc.showViewType = .Reginster
-        vc.isNeedRootPage = false
-        viewController?.present(vc, animated: true) {
-            self.removeFromSuperview()
-        }
+//        let vc = Bundle.main.loadNibNamed("RegisterOrLaunchViewController", owner: nil, options: nil)?.first as! RegisterOrLaunchViewController
+//        vc.showViewType = .Reginster
+//        vc.isNeedRootPage = false
+//        viewController?.present(vc, animated: true) {
+//            self.removeFromSuperview()
+//        }
         
     }
     
     @IBAction func forgetAction(_ sender: UIButton) {
         let vc = Bundle.main.loadNibNamed("ChangePayPassworkViewController", owner: nil, options: nil)?.first as! ChangePayPassworkViewController
-        let na = UINavigationController(rootViewController: vc)
         vc.title = "找回密码"
         vc.type = .LaunchPasswork
-        viewController?.present(na, animated: true) {
-            self.removeFromSuperview()
-        }
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+        self.removeFromSuperview()
         
     }
     

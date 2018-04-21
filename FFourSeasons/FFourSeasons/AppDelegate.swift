@@ -36,8 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     //MARK:设置跟控制器
      func launchScreen() -> Void {
         if (LGYTool.isFrist(str: "app88Rei9slssldk")){
+            
             let vc = Bundle.main.loadNibNamed("RegisterOrLaunchViewController", owner: nil, options: nil)?.first as! RegisterOrLaunchViewController
-            window?.rootViewController = vc
+            let na = UINavigationController(rootViewController: vc)
+            window?.rootViewController = na
         }else{
             let tb = LinTabBarController()
             tb.initChildView()

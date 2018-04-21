@@ -85,6 +85,10 @@ class LGYAFNetworking: NSObject {
     
     //MARK:POST网络请求入口
     class func lgyPost(urlString: String, parameters: [String:Any]?,progress:UIProgressView?,cacheName:String?,responseBlock:((_ responseObject:Any?,_ isError:Bool)->Void)?) ->Void{
+        if Model_user_information.getToken().count == 0 && parameters?["token"] != nil {
+            isTolaunch()
+            return
+        }
         let network = LGYAFNetworking()
         network.addLoadingView()
         if cacheName != nil{
@@ -192,7 +196,8 @@ class LGYAFNetworking: NSObject {
         let vc = UIViewController.currentViewController()
         let toVc = Bundle.main.loadNibNamed("RegisterOrLaunchViewController", owner: nil, options: nil)?.first as! RegisterOrLaunchViewController
         toVc.isNeedRootPage = false
-        vc?.present(toVc, animated: true, completion: {
+        let na = UINavigationController(rootViewController: toVc);
+        vc?.present(na, animated: true, completion: {
             
         })
     }

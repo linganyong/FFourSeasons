@@ -111,9 +111,9 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
         let tb = LinTabBarController()
         tb.initChildView()
         Model_user_information.setToken("")
-        self.present(tb, animated: true, completion: {
+        self.present(tb, animated: true) {
             
-        })
+        }
     }
     
     //MARK:切换登录或注册方法
@@ -172,12 +172,9 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
     @IBAction func forgetPasswordAction(_ sender: UIButton) {
         let vc = Bundle.main.loadNibNamed("ChangePayPassworkViewController", owner: nil, options: nil)?.first as! ChangePayPassworkViewController
-        let na = UINavigationController(rootViewController: vc)
         vc.title = "找回密码"
         vc.type = .LaunchPasswork
-        self.present(na, animated: true) {
-            
-        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     //MARK:把原来保存的账号密码取出来展示，同事修改保存的值
     func setPassworkDataScoure() -> Void {
@@ -262,12 +259,9 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
     @IBAction func registerAgreementAction(_ sender: UIButton) {
         let vc = WebViewController()
-        let na = UINavigationController(rootViewController: vc)
         vc.loadDataRichTextType(type: .AboutAgreement)
         vc.title = "注册协议"
-        self.present(na, animated: true) {
-            
-        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     //MARK:用户登录
     class func api_launch(userName:String,passwork:String) -> Void {
@@ -305,9 +299,9 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
         if passwork != nil && passwork != "" && userName != nil {
             let tb = LinTabBarController()
             tb.initChildView()
-            self.present(tb, animated: true, completion: {
+            self.present(tb, animated: true) {
                 
-            })
+            }
         }
     }
     
@@ -341,11 +335,11 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        setNavigationBarStyle(type: .Clear)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = false
+        super.viewWillDisappear(animated)
     }
 }
 

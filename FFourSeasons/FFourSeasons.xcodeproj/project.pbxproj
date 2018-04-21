@@ -424,7 +424,6 @@
 		9CD62134204FBC87003CD6C4 /* logo3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CD62133204FBC87003CD6C4 /* logo3x.png */; };
 		9CD62139204FC23A003CD6C4 /* QCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD62137204FC23A003CD6C4 /* QCodeViewController.swift */; };
 		9CD6213A204FC23A003CD6C4 /* QCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD62138204FC23A003CD6C4 /* QCodeViewController.xib */; };
-		9CD9BD3A208618B600D2894D /* 购物车+.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CD9BD39208618B500D2894D /* 购物车+.png */; };
 		9CEFBAF4205F9E4E006A6625 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEFBAF3205F9E4D006A6625 /* libc++.tbd */; };
 		9CEFBAF6205F9E68006A6625 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEFBAF5205F9E68006A6625 /* libz.tbd */; };
 		9CEFBAF9205FA926006A6625 /* AddressShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEFBAF8205FA926006A6625 /* AddressShowTableViewCell.swift */; };
@@ -436,6 +435,9 @@
 		9CF3918C2077669700623675 /* OrderDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3918B2077669700623675 /* OrderDetails.m */; };
 		9CF3918F2077676D00623675 /* Model_api_orderList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3918E2077676D00623675 /* Model_api_orderList.m */; };
 		9CF39192207767B700623675 /* OrderPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39191207767B700623675 /* OrderPage.m */; };
+		9CFC619A208AEF5A00888D9A /* quill.bubble.css in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC6197208AEF5900888D9A /* quill.bubble.css */; };
+		9CFC619B208AEF5A00888D9A /* quill.snow.css in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC6198208AEF5A00888D9A /* quill.snow.css */; };
+		9CFC619C208AEF5A00888D9A /* quill.core.css in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC6199208AEF5A00888D9A /* quill.core.css */; };
 		9CFCDD06207630F700ECBA48 /* Farm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCDD05207630F700ECBA48 /* Farm.m */; };
 		9CFCDD092076317400ECBA48 /* Model_api_farm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCDD082076317400ECBA48 /* Model_api_farm.m */; };
 		9CFD551F206E617F0028B1A4 /* 智慧农场3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD551E206E617E0028B1A4 /* 智慧农场3x.png */; };
@@ -949,7 +951,6 @@
 		9CD62133204FBC87003CD6C4 /* logo3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo3x.png; sourceTree = "<group>"; };
 		9CD62137204FC23A003CD6C4 /* QCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QCodeViewController.swift; sourceTree = "<group>"; };
 		9CD62138204FC23A003CD6C4 /* QCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QCodeViewController.xib; sourceTree = "<group>"; };
-		9CD9BD39208618B500D2894D /* 购物车+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "购物车+.png"; sourceTree = "<group>"; };
 		9CEFBAF3205F9E4D006A6625 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		9CEFBAF5205F9E68006A6625 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		9CEFBAF8205FA926006A6625 /* AddressShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressShowTableViewCell.swift; sourceTree = "<group>"; };
@@ -965,6 +966,9 @@
 		9CF3918E2077676D00623675 /* Model_api_orderList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model_api_orderList.m; sourceTree = "<group>"; };
 		9CF39190207767B700623675 /* OrderPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderPage.h; sourceTree = "<group>"; };
 		9CF39191207767B700623675 /* OrderPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderPage.m; sourceTree = "<group>"; };
+		9CFC6197208AEF5900888D9A /* quill.bubble.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = quill.bubble.css; sourceTree = "<group>"; };
+		9CFC6198208AEF5A00888D9A /* quill.snow.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = quill.snow.css; sourceTree = "<group>"; };
+		9CFC6199208AEF5A00888D9A /* quill.core.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = quill.core.css; sourceTree = "<group>"; };
 		9CFCDD04207630F700ECBA48 /* Farm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Farm.h; sourceTree = "<group>"; };
 		9CFCDD05207630F700ECBA48 /* Farm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Farm.m; sourceTree = "<group>"; };
 		9CFCDD072076317400ECBA48 /* Model_api_farm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_farm.h; sourceTree = "<group>"; };
@@ -1084,7 +1088,6 @@
 		9C00BFAA202EBE3700E77EA0 /* 商城 */ = {
 			isa = PBXGroup;
 			children = (
-				9CD9BD39208618B500D2894D /* 购物车+.png */,
 				9C9616C920513BD200D0EB7D /* 评价背景3x.png */,
 				9CBB50B7204953A60018A43B /* 选中.png */,
 				9CBB50B5204952350018A43B /* bg-立即购买3x.png */,
@@ -1201,6 +1204,9 @@
 			isa = PBXGroup;
 			children = (
 				9C0DB9E8206E39AE00F9085D /* WebViewController.swift */,
+				9CFC6197208AEF5900888D9A /* quill.bubble.css */,
+				9CFC6199208AEF5A00888D9A /* quill.core.css */,
+				9CFC6198208AEF5A00888D9A /* quill.snow.css */,
 			);
 			path = Web;
 			sourceTree = "<group>";
@@ -2457,6 +2463,7 @@
 				9CA32D7A2047FA9400FD5DFC /* CouponTableViewCell.xib in Resources */,
 				9C0D9CAE2046854700D271CE /* 组43x.png in Resources */,
 				9C77C50E2027FEC1008B49E2 /* d2b3dbe15d3b76c571be1ed9093b606db6d35649c5c2-W9DKDA.jpg in Resources */,
+				9CFC619A208AEF5A00888D9A /* quill.bubble.css in Resources */,
 				9C77C5192027FEC1008B49E2 /* scroller_1.jpg in Resources */,
 				9C3129902060FBF4006E6102 /* PurchaseImmediatelyTableViewCell.xib in Resources */,
 				9C46BA2020455A1500646A81 /* EverydayFreshViewController.xib in Resources */,
@@ -2465,6 +2472,7 @@
 				9C77C51F2027FEC1008B49E2 /* 抽奖转盘.png in Resources */,
 				9CBB507D204921A50018A43B /* PersonCollectionViewCell.xib in Resources */,
 				9CBB5096204934100018A43B /* 注销3x.png in Resources */,
+				9CFC619C208AEF5A00888D9A /* quill.core.css in Resources */,
 				9C77C4B22027FEC0008B49E2 /* 导航矩形3x.png in Resources */,
 				9C77C5122027FEC1008B49E2 /* 8d7526e0e8bfde2a66a17d96034614afc76ae31b35e6a-bPIMHR.jpg in Resources */,
 				9C10BD6020440294004AAFE3 /* 选择收藏.png in Resources */,
@@ -2630,6 +2638,7 @@
 				9C813A94207F426700FE19EC /* ApplyCustomerServiceViewController.xib in Resources */,
 				9C77C4B92027FEC0008B49E2 /* 右箭头3x.png in Resources */,
 				9CA32D7C2047FDE900FD5DFC /* 优惠券背景3x.png in Resources */,
+				9CFC619B208AEF5A00888D9A /* quill.snow.css in Resources */,
 				9CA32D3D2046CB2B00FD5DFC /* LGYLineSelectViewTableViewCell.xib in Resources */,
 				9CD62134204FBC87003CD6C4 /* logo3x.png in Resources */,
 				9C77C51D2027FEC1008B49E2 /* c4526cf91278555d1eb5d7c6b8b62671215a710d65655-NNVYpN.jpg in Resources */,
@@ -2681,7 +2690,6 @@
 				9C77C51E2027FEC1008B49E2 /* 910dbf29deb6fdcdd3b118e0a00d6d48da66b04f24430-EoDveD.jpg in Resources */,
 				9C04BB7F207CAC4C006EA205 /* ShareViewCell.xib in Resources */,
 				9CFD5529206E61D30028B1A4 /* 百耕园社区3x.png in Resources */,
-				9CD9BD3A208618B600D2894D /* 购物车+.png in Resources */,
 				9C7F39E6207E338A00F5990C /* launcher.png in Resources */,
 				9CA32D8120480DEA00FD5DFC /* MemberAnalysisViewController.xib in Resources */,
 			);

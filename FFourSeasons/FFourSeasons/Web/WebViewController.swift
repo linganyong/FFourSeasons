@@ -23,6 +23,7 @@ class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.frame = self.view.bounds
+        webView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         view.addSubview(webView)
     }
 
@@ -57,7 +58,10 @@ class WebViewController: UIViewController {
     
     //MARK:加载文本
     func loadAuthPage(htmlStr:String){
+//        NSURL.fileURL(withPath: Bundle.main.bundlePath)
         webView.loadHTMLString(htmlStr, baseURL: nil)
+//        webView.loadHTMLString(htmlStr, baseURL:URL(fileURLWithPath: Bundle.main.bundlePath))
+//        webView.loadHTMLString(htmlStr, baseURL: URL(fileURLWithPath: Bundle.main.resourcePath ?? ""))
     }
     
     //MARK:生日特权

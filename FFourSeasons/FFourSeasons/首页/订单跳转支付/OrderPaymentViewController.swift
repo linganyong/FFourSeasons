@@ -20,11 +20,18 @@ class OrderPaymentViewController: UIViewController{
     
     let selectedImageName = "选中3x.png"
     let unSelectedImageName = "椭圆3x.png"
-    var outTradeNo = ""
+    private var outTradeNo = ""
     @IBOutlet weak var playSelect1ImageView: UIImageView!
     @IBOutlet weak var playSelect2ImageView: UIImageView!
+    @IBOutlet weak var weixinPayView: UIView!
     @IBOutlet weak var playSelect3ImageView: UIImageView!
-    var orderDetails:OrderList?
+    
+    @IBOutlet weak var aliPayViewHeightLC: NSLayoutConstraint!
+    @IBOutlet weak var integalPayView: UIView!
+    @IBOutlet weak var aliPayView: UIView!
+    @IBOutlet weak var weixinPayViewHeightLC: NSLayoutConstraint!
+    
+    private var orderDetails:OrderList?
     //订单字符串
     var orderString : String = ""
     //地址ID
@@ -40,7 +47,6 @@ class OrderPaymentViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "支付"
-        self.initPayType()
         setBackgroundColor()
         navigationItemBack(title: nil)
         if addressID != 0{
@@ -63,10 +69,8 @@ class OrderPaymentViewController: UIViewController{
         }
     }
     
-    private func initPayType() {
-        payType = PayType.Point
-        playSelect3ImageView.image = UIImage.init(named: selectedImageName)
-    }
+    
+   
 
     @IBAction func playSelectAction(_ sender: UIButton) {
         playSelect1ImageView.image = UIImage.init(named: unSelectedImageName)
@@ -91,30 +95,7 @@ class OrderPaymentViewController: UIViewController{
         }
     }
     
-//    //MARK:生成支付订单
-//    func loadCreatePayOrder() -> Void {
-//        weak var vc = self
-//        var orderStr = ""
-//        for item in dataScoure! {
-//            if orderStr.count == 0{
-//                orderStr = String.init(format: "%D:%D", item.item_id,item.count)
-//            }else{
-//                orderStr += String.init(format: ";%D:%D", item.item_id,item.count)
-//            }
-//        }
-//        LGYAFNetworking.lgyPost(urlString: APIAddress.api_addOrderPay, parameters: ["token":Model_user_information.getToken()
-//            ,"itemIds":orderStr
-//            ,"addressId":String.init(format: "%D", (defaultAddress?._id)!)], progress: nil) { (object, isError) in
-//                let model = Model_user_information.yy_model(withJSON: object)
-//                if model != nil && LGYAFNetworking.isNetWorkSuccess(str: model?.code){
-//                    vc?.addOrderTrue()
-//                }
-//        }
-//    }
-    
     @IBAction func paymentAction(_ sender: UIButton) {
-        
-        
         if payType == PayType.Point {
             
             if LGYTool.isFrist(str: IsFirstToPayPoint){
@@ -153,22 +134,34 @@ class OrderPaymentViewController: UIViewController{
                         }
                     }
                     if let order_no = model?.orderPay.out_trade_no {
-                         weakSelf.removeEmptyView()
-                        weakSelf.outTradeNo = order_no
-                        weakSelf.orderDetails = model?.orderPay
+                        weakSelf.setOrder(order_no: order_no, order: model?.orderPay)
                     }
                 }
             }
         }
     }
     
-    func setPayType(type:Int){
-        if type == 0{
-            
-        }else{
-            
+    func setOrder(order_no:String,order:OrderList?)->Void{
+        outTradeNo = order_no
+        if let item = order{
+            orderDetails = item
+            if orderDetails?.order_type == 1{
+                payType = PayType.Point
+                playSelect3ImageView.image = UIImage.init(named: selectedImageName)
+                aliPayView.isHidden = true
+                weixinPayView.isHidden = true
+                aliPayViewHeightLC.constant = 0
+                weixinPayViewHeightLC.constant = 0
+            }else{
+                payType = PayType.Alipay
+                playSelect1ImageView.image = UIImage.init(named: selectedImageName)
+                integalPayView.isHidden = true;
+            }
+            removeEmptyView()
         }
+        
     }
+  
     
     
     private func toPay(outTradeNo : String,payPw : String? = nil) {

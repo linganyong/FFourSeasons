@@ -199,7 +199,8 @@ class ChangePayPassworkViewController: UIViewController,UITextFieldDelegate {
                         KeychainConfiguration.save(userName: (passwordItem?.account)!, passwork: "", forKey: ss)
                         let vc = Bundle.main.loadNibNamed("RegisterOrLaunchViewController", owner: nil, options: nil)?.first as! RegisterOrLaunchViewController
                         vc.isNeedRootPage = false
-                        self.present(vc, animated: true, completion: {
+                        let na = UINavigationController(rootViewController: vc);
+                        self.present(na, animated: true, completion: {
                             
                         })
                     }else{

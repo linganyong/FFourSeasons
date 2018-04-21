@@ -147,7 +147,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         if (sender.titleLabel?.text?.contains("支付"))! {
             if let no = orderDetail?.out_trade_no{
                 let vc = Bundle.main.loadNibNamed("OrderPaymentViewController", owner: nil, options: nil)?.first as! OrderPaymentViewController
-                vc.outTradeNo = no
+                vc.setOrder(order_no: no, order: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }

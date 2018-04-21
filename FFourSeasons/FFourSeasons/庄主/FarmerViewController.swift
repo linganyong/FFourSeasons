@@ -81,9 +81,10 @@ class FarmerViewController: UIViewController {
     
     //MARK:会员特权说明
     @IBAction func MemberPrivilegesDetailAction(_ sender: Any) {
-        let vc = MemberPrivilegesDetailViewController()
+        let vc = WebViewController()
+        vc.loadDataRichTextType(type: .PerksVip)
+        vc.title = "会员特权说明"
         self.navigationController?.pushViewController(vc, animated: true)
-        self.tabBarController?.tabBar.isHidden = true
     }
     
     //MARK:充值

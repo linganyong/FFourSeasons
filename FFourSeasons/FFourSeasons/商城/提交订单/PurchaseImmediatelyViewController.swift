@@ -82,8 +82,10 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
     
     //MARK:点击收货联系信息响应
     @IBAction func contactAction(_ sender: Any) {
-        let vc = Bundle.main.loadNibNamed("AddressViewController", owner: nil, options: nil)?.first as! AddressViewController
+        let vc = Bundle.main.loadNibNamed("AddressShowViewController", owner: nil, options: nil)?.first as! AddressShowViewController
         vc.delegate = self
+        vc.title = "选择订单地址"
+        vc.isDefaultSelect = false
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
