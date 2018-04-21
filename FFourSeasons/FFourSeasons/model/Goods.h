@@ -33,4 +33,5 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * remark;
 @property (nonatomic, retain) NSString * real_scale;
+@property (nonatomic, assign) long exchange;
 @end

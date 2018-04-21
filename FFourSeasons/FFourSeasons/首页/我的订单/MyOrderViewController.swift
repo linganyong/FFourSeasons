@@ -14,9 +14,11 @@ let orderWaitPay = "0" //未付款
 let orderPaySuccess = "2" //付款成功
 let orderWaitReceipt = "3" //待收货
 let orderWaitEvaluate = "4" //待评价
-let orderCustomerService = "5" //售后 退款中 退款失败 退款成功
+let orderCustomerService = "5" //售后 加载数据时：同时获取 退款中 退款失败 退款成功
+let orderCustomerFail = "6" //售后失败
+let orderCustomerSuccess = "7" //售后成功
 let orderCancle = "1" //取消订单
-let orderComplete = "6" //已完成
+let orderComplete = "8" //已完成
 
 
 class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MyHarvestTableViewCellDelegate{
@@ -124,10 +126,16 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
             cell.buttonTitle(leftStr: "申请售后", rightStr: "确定收货")
             break
         case orderWaitEvaluate: //待评价
-            cell.buttonTitle(leftStr: nil, rightStr: "评价")
+            cell.buttonTitle(leftStr: "申请售后", rightStr: "评价")
             break
-        case orderCustomerService: //售后
+        case orderCustomerService: //售后申请
+            cell.buttonTitle(leftStr: nil, rightStr: "取消售后")
+            break
+        case orderCustomerFail: //售后失败
             cell.buttonTitle(leftStr: nil, rightStr: nil)
+            break
+        case orderCustomerSuccess: //售后成功
+            cell.buttonTitle(leftStr: nil, rightStr: "确定收货")
             break
         case orderComplete:  //已完成
             cell.buttonTitle(leftStr: nil, rightStr: nil)
@@ -161,6 +169,9 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
         case "取消订单":
             deleteOrder(cell: cell)
             break
+        case "取消售后":
+            cancelService(cell: cell)
+            break
         case "确定收货":
             comfirmOrder(cell: cell)
             break
@@ -178,41 +189,14 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! MyHarvestTableViewCell
-            let vc = Bundle.main.loadNibNamed("OrderDetailsViewController", owner: nil, options: nil)?.first as! OrderDetailsViewController
-        let str = "\(cell.modelOrder!.pay_status)"
-            switch str{
-            case orderWaitPay: //未付款
-                vc.setOrderType(orderType:.WaitForPayment)
-                break
-            case orderCancle: //取消订单
-                vc.setOrderType(orderType: .TransactionCosure)
-                break
-            case orderPaySuccess: //付款成功
-                vc.setOrderType(orderType:.WaitForHarvest)
-                break
-            case orderWaitReceipt: //待收货
-                vc.setOrderType(orderType:.WaitForReceipt)
-                break
-            case orderWaitEvaluate: //待评价
-                vc.setOrderType(orderType:.WaitForEvaluation)
-                break
-            case orderCustomerService: //售后
-                let vc = Bundle.main.loadNibNamed("CustomerServiceApplyResultViewController", owner: nil, options: nil)?.first as! CustomerServiceApplyResultViewController
-                vc.orderDetail = cell.modelOrder
-                vc.setText()
-                vc.loadOrderDetails()
-                self.navigationController?.pushViewController(vc, animated: true)
-                return
-            case orderComplete:  //已完成
-                vc.setOrderType(orderType: .TransactionCompletion)
-                break
-            default:
-                break
-            }
-            vc.orderDetail = cell.modelOrder
-            vc.loadOrderDetails()
-            vc.setText()
-            self.navigationController?.pushViewController(vc, animated: true)
+        let vc = Bundle.main.loadNibNamed("OrderDetailsViewController", owner: nil, options: nil)?.first as! OrderDetailsViewController
+        if let index =  cell.modelOrder?.pay_status{
+            vc.setOrderType(orderType:OrderDetailsType(rawValue: index)!)
+        }
+        vc.orderDetail = cell.modelOrder
+        vc.loadOrderDetails()
+        vc.setText()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func deleteOrder(cell:MyHarvestTableViewCell){
@@ -249,6 +233,22 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 if LGYAFNetworking.isNetWorkSuccess(str: model?.code) {
                     if let weakSelf = self{
                         weakSelf.reloadDataScoure()
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    //MARK:取消售后
+    func cancelService(cell:MyHarvestTableViewCell){
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_cancelService, parameters: ["oId":"\(cell.modelOrder!._id)","token":Model_user_information.getToken()], progress: nil) {[weak self](object, isError) in
+            if !isError{
+                let model = Model_user_information.yy_model(withJSON: object as Any)
+                if let msg = model?.msg {
+                    LGYToastView.show(message: msg)
+                    if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                        self?.reloadDataScoure()
                     }
                 }
             }

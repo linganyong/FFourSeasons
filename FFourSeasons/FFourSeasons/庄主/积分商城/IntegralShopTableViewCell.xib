@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,17 +42,17 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="番茄" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Yf-bD-pmf">
-                        <rect key="frame" x="125.5" y="24" width="195.5" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="番茄" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yf-bD-pmf">
+                        <rect key="frame" x="125.5" y="24" width="195.5" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="3hn-TS-vBl"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="3hn-TS-vBl"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19G-FM-x8f">
-                        <rect key="frame" x="125.5" y="45" width="179.5" height="21"/>
+                        <rect key="frame" x="125.5" y="48" width="179.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="TaU-6W-rKi"/>
                         </constraints>
@@ -88,6 +89,12 @@
                             <action selector="action:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eH3-2i-reD"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="已兑换" translatesAutoresizingMaskIntoConstraints="NO" id="z0n-p2-98p">
+                        <rect key="frame" x="68.5" y="16" width="40.5" height="41"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="z0n-p2-98p" secondAttribute="height" id="2Yv-zT-pNq"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
@@ -99,13 +106,16 @@
                     <constraint firstItem="19G-FM-x8f" firstAttribute="top" secondItem="3Yf-bD-pmf" secondAttribute="bottom" id="NRw-ZS-9QQ"/>
                     <constraint firstItem="Bqh-kS-YSN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="R12-tt-xXT"/>
                     <constraint firstItem="3Yf-bD-pmf" firstAttribute="leading" secondItem="Bqh-kS-YSN" secondAttribute="trailing" constant="16" id="Xt7-VD-eFY"/>
+                    <constraint firstItem="z0n-p2-98p" firstAttribute="width" secondItem="Bqh-kS-YSN" secondAttribute="width" multiplier="1:2.3" id="Ylj-nw-1Nh"/>
                     <constraint firstAttribute="trailingMargin" secondItem="19G-FM-x8f" secondAttribute="trailing" constant="6" id="b8E-cH-LYZ"/>
+                    <constraint firstItem="z0n-p2-98p" firstAttribute="trailing" secondItem="Bqh-kS-YSN" secondAttribute="trailing" id="bta-7t-7Cv"/>
                     <constraint firstItem="19G-FM-x8f" firstAttribute="leading" secondItem="3Yf-bD-pmf" secondAttribute="leading" id="dGo-mz-wZO"/>
                     <constraint firstAttribute="bottom" secondItem="Bqh-kS-YSN" secondAttribute="bottom" constant="8" id="dbw-ph-s2V"/>
                     <constraint firstItem="KXp-sM-dRM" firstAttribute="top" secondItem="Bqh-kS-YSN" secondAttribute="top" id="ech-tt-kAE"/>
                     <constraint firstItem="KXp-sM-dRM" firstAttribute="trailing" secondItem="Bqh-kS-YSN" secondAttribute="trailing" id="gEw-JK-Q3N"/>
                     <constraint firstItem="vDj-G0-Oic" firstAttribute="leading" secondItem="19G-FM-x8f" secondAttribute="leading" id="h5f-p1-Ke2"/>
                     <constraint firstAttribute="trailing" secondItem="Xkb-0A-C6S" secondAttribute="trailing" constant="16" id="nkU-ub-zN1"/>
+                    <constraint firstItem="z0n-p2-98p" firstAttribute="top" secondItem="Bqh-kS-YSN" secondAttribute="top" id="pC5-5L-MDC"/>
                     <constraint firstItem="Bqh-kS-YSN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="sEW-fL-b2Z"/>
                     <constraint firstItem="KXp-sM-dRM" firstAttribute="leading" secondItem="Bqh-kS-YSN" secondAttribute="leading" id="sXE-wz-e22"/>
                     <constraint firstItem="vDj-G0-Oic" firstAttribute="bottom" secondItem="Bqh-kS-YSN" secondAttribute="bottom" constant="-8" id="twH-jM-Dja"/>
@@ -116,6 +126,7 @@
             <connections>
                 <outlet property="backView" destination="KXp-sM-dRM" id="VGg-Kf-e2f"/>
                 <outlet property="buttonRight" destination="Xkb-0A-C6S" id="G9N-8w-WVc"/>
+                <outlet property="canExchangeImageView" destination="z0n-p2-98p" id="QPY-MD-3fU"/>
                 <outlet property="line1Label" destination="3Yf-bD-pmf" id="7Es-1d-8yn"/>
                 <outlet property="line2Label" destination="19G-FM-x8f" id="bN6-WJ-Ght"/>
                 <outlet property="line3Label" destination="vDj-G0-Oic" id="ALZ-yT-H68"/>
@@ -127,4 +138,7 @@
             <point key="canvasLocation" x="101.5" y="97"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="已兑换" width="35" height="29"/>
+    </resources>
 </document>

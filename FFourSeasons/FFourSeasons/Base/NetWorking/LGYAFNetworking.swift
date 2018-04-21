@@ -85,10 +85,10 @@ class LGYAFNetworking: NSObject {
     
     //MARK:POST网络请求入口
     class func lgyPost(urlString: String, parameters: [String:Any]?,progress:UIProgressView?,cacheName:String?,responseBlock:((_ responseObject:Any?,_ isError:Bool)->Void)?) ->Void{
-        if Model_user_information.getToken().count == 0 && parameters?["token"] != nil {
-            isTolaunch()
-            return
-        }
+//        if Model_user_information.getToken().count == 0 && parameters?["token"] != nil {
+//            isTolaunch()
+//            return
+//        }
         let network = LGYAFNetworking()
         network.addLoadingView()
         if cacheName != nil{

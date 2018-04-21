@@ -13,19 +13,23 @@ public enum OrderDetailsType:Int {
     case WaitForReceipt = 2
     case WaitForEvaluation = 3
     case WaitForHarvest = 4
-    case TransactionCompletion = 5
-    case TransactionCosure = 6
+    case ServiceReturnApply = 5
+    case ServiceReturnFail = 6
+    case ServiceReturnSuccess = 7
+    case TransactionCompletion = 8
 }
 
 class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableViewDataSource,UITableViewDelegate {
 
-    @IBOutlet weak var evaluationView: UIView!
+    @IBOutlet weak var buttonMaginTopLC: NSLayoutConstraint!
+    @IBOutlet weak var serviceView: UIView!
+    @IBOutlet weak var seviceLabel: UILabel!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button1: UIButton!
     
     var rightBarItem:UIBarButtonItem!
-    var orderDetailsType:OrderDetailsType = .TransactionCosure
+    var orderDetailsType:OrderDetailsType = .WaitForPayment
     
     @IBOutlet weak var titleTableView: UITableView!
     @IBOutlet weak var productTableView: UITableView!
@@ -59,7 +63,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     func getImage(button:UIButton){
         let img = UIImageView.init(frame:button.bounds)
         img.image = UIImage(named: "背景3x.png")
-        button.addSubview(img)
+        button.insertSubview(img, at: 0)
         button.backgroundColor = UIColor.white
         img.LGyCornerRadius = button.LGyCornerRadius
     }
@@ -77,7 +81,6 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     //MARK:设置viewController的类型
     func setOrderType(orderType:OrderDetailsType) -> Void {
         orderDetailsType = orderType
-        evaluationView.isHidden = true
         getImage(button: button1)
         getImage(button: button2)
         getImage(button: button3)
@@ -86,7 +89,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         viewLayerShadowCornerRadius(view: button3)
         switch orderType {
             
-        case .WaitForHarvest: //待发货  4
+        case .WaitForHarvest: //待发货
 //            self.title = "待发货"
             button1.isHidden = true
             button2.isHidden = true
@@ -97,29 +100,51 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             button1.setTitle("取消订单", for: .normal)
             button2.setTitle("支付订单", for: .normal)
             button3.isHidden = true
+            buttonMaginTopLC.constant = 16
+            serviceView.isHidden = true
             break
-        case .WaitForReceipt: //待收货 4
+        case .WaitForReceipt: //待收货
             self.title = "待收货"
             button1.setTitle("确定收货", for: .normal)
             button2.setTitle("申请退款", for: .normal)
             button3.setTitle("查看物流", for: .normal)
+            buttonMaginTopLC.constant = 16
+            serviceView.isHidden = true
             break
         case .WaitForEvaluation: //待评价 4
-//            self.title = "待评价"
             button1.setTitle("评价", for: .normal)
-            button2.isHidden = true
+            button2.setTitle("申请售后", for: .normal)
+            button3.setTitle("查看物流", for: .normal)
+            buttonMaginTopLC.constant = 16
+            serviceView.isHidden = true
+            break
+        case .ServiceReturnApply: //申请退货
             button3.isHidden = true
+            button2.setTitle("查看物流", for: .normal)
+            button1.setTitle("取消售后", for: .normal)
+            buttonMaginTopLC.constant = 16
+            serviceView.isHidden = true
+            break
+        case .ServiceReturnFail: //退货失败
+            button3.isHidden = true
+            seviceLabel.text  = "申请情况：申请售后失败"
+            button2.setTitle("申请退款", for: .normal)
+            button1.setTitle("确定收货", for: .normal)
+            buttonMaginTopLC.constant = 16
+            serviceView.isHidden = true
+            break
+        case .ServiceReturnSuccess: //退货成功
+            button3.isHidden = true
+            button2.setTitle("查看物流", for: .normal)
+            button1.setTitle("确定收货", for: .normal)
+            seviceLabel.text  = "申请情况：申请通过，重新发货"
             break
         case .TransactionCompletion: //交易完成
-//            self.title = "交易完成"
-//            evaluationView.isHidden = false
-            break
-        case .TransactionCosure: //交易关闭
-//            self.title = "交易关闭"
-            button1.isHidden = true
-            button2.isHidden = true
             button3.isHidden = true
-//            evaluationView.isHidden = true
+            button2.isHidden = true
+            button1.isHidden = true
+            buttonMaginTopLC.constant = 16
+            serviceView.isHidden = true
             break
         }
     }
@@ -157,7 +182,10 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         if (sender.titleLabel?.text?.contains("确定收货"))! {
             comfirmOrder()
         }
-        if (sender.titleLabel?.text?.contains("售后"))! {
+        if (sender.titleLabel?.text?.contains("取消售后"))! {
+            cancelService()
+        }
+        if (sender.titleLabel?.text?.contains("申请售后"))! || (sender.titleLabel?.text?.contains("重新申请"))! {
             let vc = ApplyCustomerServiceViewController()
             vc.orderDetail = orderDetail
             self.navigationController?.pushViewController(vc, animated: true)
@@ -171,28 +199,51 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
   
     //MARK:取消订单
     func deleteOrder(){
-        LGYAFNetworking.lgyPost(urlString: APIAddress.api_cancelOrder, parameters: ["oId":"\(orderDetail!._id)","token":Model_user_information.getToken()], progress: nil) { (object, isError) in
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_cancelOrder, parameters: ["oId":"\(orderDetail!._id)","token":Model_user_information.getToken()], progress: nil) {[weak self] (object, isError) in
             if !isError{
                 let model = Model_user_information.yy_model(withJSON: object as Any)
                 if let msg = model?.msg {
+                    if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                        self?.popViewController()
+                    }
                     LGYToastView.show(message: msg)
                 }
             }
         }
     }
     
-    //MARK:删除订单
+    //MARK:确定收货
     func comfirmOrder(){
-        LGYAFNetworking.lgyPost(urlString: APIAddress.api_confirmOrder, parameters: ["oId":"\(orderDetail!._id)","token":Model_user_information.getToken()], progress: nil) {(object, isError) in
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_confirmOrder, parameters: ["oId":"\(orderDetail!._id)","token":Model_user_information.getToken()], progress: nil) {[weak self](object, isError) in
             if !isError{
                 let model = Model_user_information.yy_model(withJSON: object as Any)
                 if let msg = model?.msg {
                     LGYToastView.show(message: msg)
+                    if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                        self?.loadOrderDetails()
+                    }
                 }
             }
             
         }
     }
+    
+    //MARK:取消售后
+    func cancelService(){
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_cancelService, parameters: ["oId":"\(orderDetail!._id)","token":Model_user_information.getToken()], progress: nil) {[weak self](object, isError) in
+            if !isError{
+                let model = Model_user_information.yy_model(withJSON: object as Any)
+                if let msg = model?.msg {
+                    LGYToastView.show(message: msg)
+                    if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                        self?.loadOrderDetails()
+                    }
+                }
+            }
+            
+        }
+    }
+    
     
     
     //MARK:申请售后点击响应
@@ -307,6 +358,9 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     func setTitleDataScoure(item:OrderList)->Void{
         orderDetail = item
         titleTableView.reloadData()
+        if let index = orderDetail?.pay_status{
+            setOrderType(orderType:OrderDetailsType(rawValue: index)!)
+        }
     }
  
     override func didReceiveMemoryWarning() {

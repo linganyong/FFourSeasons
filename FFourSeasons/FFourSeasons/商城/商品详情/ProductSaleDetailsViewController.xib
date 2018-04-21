@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -365,8 +364,18 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fs-2I-miv">
                         <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drI-2d-UoV">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ELy-nN-9lE"/>
+                                </constraints>
+                                <state key="normal" image="购物车+"/>
+                                <connections>
+                                    <action selector="shoppingCarAction:" destination="SDz-t6-8zU" eventType="touchUpInside" id="BsU-g1-DJe"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxw-eJ-xOb">
-                                <rect key="frame" x="94" y="0.0" width="281" height="44"/>
+                                <rect key="frame" x="100" y="0.0" width="275" height="44"/>
                                 <color key="backgroundColor" red="0.16470588235294117" green="0.78823529411764703" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="立即购买">
@@ -374,13 +383,6 @@
                                 </state>
                                 <connections>
                                     <action selector="purchaseAction:" destination="SDz-t6-8zU" eventType="touchUpInside" id="mmT-go-RVA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drI-2d-UoV">
-                                <rect key="frame" x="0.0" y="0.0" width="94" height="44"/>
-                                <state key="normal" image="购物车+"/>
-                                <connections>
-                                    <action selector="shoppingCarAction:" destination="SDz-t6-8zU" eventType="touchUpInside" id="BsU-g1-DJe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -394,7 +396,6 @@
                             <constraint firstItem="Dxw-eJ-xOb" firstAttribute="leading" secondItem="drI-2d-UoV" secondAttribute="trailing" id="g8T-nG-Wxg"/>
                             <constraint firstItem="Dxw-eJ-xOb" firstAttribute="bottom" secondItem="Dt2-Yi-dSI" secondAttribute="bottom" id="qQ0-CR-6qT"/>
                             <constraint firstItem="Dt2-Yi-dSI" firstAttribute="bottom" secondItem="drI-2d-UoV" secondAttribute="bottom" id="qXD-Yk-rBe"/>
-                            <constraint firstItem="Dxw-eJ-xOb" firstAttribute="width" secondItem="1fs-2I-miv" secondAttribute="width" multiplier="3:4" id="xUQ-UV-81m"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dt2-Yi-dSI"/>
                     </view>
@@ -433,7 +434,9 @@
                 <outlet property="productInformationView" destination="ukp-t6-bdR" id="KyD-n7-gWr"/>
                 <outlet property="productNameLabel" destination="h4T-le-yYc" id="Tbs-QQ-AJO"/>
                 <outlet property="productPriceLabel" destination="mHO-CT-Dx8" id="0sw-hn-CjP"/>
+                <outlet property="scaleBtn" destination="Dxw-eJ-xOb" id="MDr-db-Ckm"/>
                 <outlet property="selectSpecificationsView" destination="J8W-td-1Zd" id="N7y-fj-UGe"/>
+                <outlet property="shopCarBtnWidthLC" destination="ELy-nN-9lE" id="xKB-sm-jIG"/>
                 <outlet property="specificationsTextLabel" destination="iet-YZ-1fn" id="PJV-t8-H1d"/>
                 <outlet property="spelabel" destination="t2G-Sq-yHR" id="qCy-P4-CEu"/>
             </connections>

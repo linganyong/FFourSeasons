@@ -68,7 +68,8 @@
 #import "Comment.h"
 #import "CommentPage.h"
 #import "Model_api_comment.h"
-
+#import "CouponDetail.h"
+#import "Model_api_couponList.h"
 
 //import view
 #import "BRAddressPickerView.h"

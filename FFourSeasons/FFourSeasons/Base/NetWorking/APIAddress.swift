@@ -9,9 +9,9 @@
 import UIKit
 
 class APIAddress: NSObject {
-    private class func api_domainName()->String{
+     class func api_domainName()->String{
 //        return "https://huayanchuang.com"
-//        return "http://192.168.1.24:8080"
+//        return "http://192.168.1.19:8080"
         return "http://123.207.168.146"
     }
     
@@ -215,5 +215,24 @@ class APIAddress: NSObject {
      */
     static let api_customerService = String(format: "%@/api/customerService", arguments: [api_domainName()])
     
+    /*
+     售后申请
+     */
+    static let api_cancelService = String(format: "%@/api/cancelService", arguments: [api_domainName()])
+    
+    /*
+     邀请码
+     */
+    static let api_inviteCode = String(format: "%@/api/inviteCode", arguments: [api_domainName()])
+    
+    /*
+     优惠券
+     */
+    static let api_couponList = String(format: "%@/api/couponList", arguments: [api_domainName()])
+    
+    /*
+     兑换优惠券
+     */
+    static let api_exchangeCoupon = String(format: "%@/api/exchangeCoupon", arguments: [api_domainName()])
     
 }

@@ -205,7 +205,7 @@ class ApplyCustomerServiceViewController: UIViewController,UITextViewDelegate,UI
     }
     
     func applyCustomerServiceSuccess()->Void{
-        let vc = Bundle.main.loadNibNamed("CustomerServiceApplyResultViewController", owner: nil, options: nil)?.first as! CustomerServiceApplyResultViewController
+        let vc = Bundle.main.loadNibNamed("CustomerServiceApplyResultViewController", owner: nil, options: nil)?.first as! OrderDetailsViewController
         vc.orderDetail = orderDetail
         vc.setText()
         vc.loadOrderDetails()

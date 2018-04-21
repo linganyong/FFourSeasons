@@ -23,7 +23,7 @@ class IntegralShopViewController: UIViewController,UITableViewDataSource,UITable
     func setTableView() -> Void {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 100
+        tableView.rowHeight = 120
         tableView.separatorColor = UIColor.clear
         tableView.register(UINib.init(nibName: "IntegralShopTableViewCell", bundle: nil), forCellReuseIdentifier: "IntegralShopTableViewCell")
         tableView.lgyDataScoure = Array<String>()

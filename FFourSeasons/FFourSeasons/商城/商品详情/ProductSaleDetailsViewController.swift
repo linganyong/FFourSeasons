@@ -18,14 +18,14 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     var productGuiGe:NSArray?
     static let lock = NSLock()
     var comment:Comment?
-    
     @IBOutlet weak var commentMaginLC: NSLayoutConstraint!
     @IBOutlet weak var commentHeightLC: NSLayoutConstraint!
     @IBOutlet weak var headerScollerView: LCycleView!
     @IBOutlet weak var backScrollView: UIScrollView!
     @IBOutlet weak var payBackView: UIView!
     
-  
+    @IBOutlet weak var scaleBtn: UIButton!
+    
     @IBOutlet weak var spelabel: UILabel!
     @IBOutlet weak var productDetailTableViewLC: NSLayoutConstraint!
     @IBOutlet weak var productDetailTableView: UITableView!
@@ -40,6 +40,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     @IBOutlet weak var line4_1Label: UILabel! //配送范围
     @IBOutlet weak var selectSpecificationsView: UIView!
     
+    @IBOutlet weak var shopCarBtnWidthLC: NSLayoutConstraint!
     @IBOutlet weak var commentView: UIView!
     @IBOutlet weak var commentImageView: UIImageView!
     @IBOutlet weak var commentNameLabel: UILabel!
@@ -68,7 +69,13 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
          navigationItemBack(title: "    ")
 //       self.edgesForExtendedLayout = .init(rawValue: 64)
         setBackgroundColor()
+         rightBarItem = navigationBarAddRightItem(_imageName: "购物车", target: self, action: #selector(rightBarAction))
 
+    }
+    
+    func hiddenShopCarBtn() -> Void {
+        shopCarBtnWidthLC.constant = 0
+        self.view.layoutIfNeeded()
     }
     
     //MARK:设置
@@ -82,18 +89,19 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     //MARK:导航栏右边按钮响应事件
     @objc func rightBarAction() ->Void{
-        if isCollection == 1 {
-            isCollection = 2
-            
-        }else if isCollection == 2{
-            isCollection = 1
-        }
-        var str = "选择收藏.png"
-        if isCollection == 2{
-            str = "已经收藏.png"
-        }
-        rightBarItem.image = UIImage(named: str)?.withRenderingMode(.alwaysOriginal)
-        
+//        if isCollection == 1 {
+//            isCollection = 2
+//
+//        }else if isCollection == 2{
+//            isCollection = 1
+//        }
+//        var str = "选择收藏.png"
+//        if isCollection == 2{
+//            str = "已经收藏.png"
+//        }
+//        rightBarItem.image = UIImage(named: str)?.withRenderingMode(.alwaysOriginal)
+        let vc = Bundle.main.loadNibNamed("ShopCarViewController", owner: nil, options: nil)?.first as! ShopCarViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK:设置阴影
@@ -123,6 +131,9 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             if productInformation?.goods_type == 0{
                 productPriceLabel.text = String(format: "￥%@", (productInformation?.price)!)
             }else{
+                self.navigationItem.rightBarButtonItems = nil
+                hiddenShopCarBtn()
+                scaleBtn.setTitle("立即兑换", for: .normal)
                 productPriceLabel.text = String(format: "%@积分", (productInformation?.price)!)
             }
             if  productInformation?.sale == nil{
@@ -398,7 +409,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     //MARK:立即购买
     @IBAction func purchaseAction(_ sender: Any) {
         if selectSpec == 0 {
-            LGYToastView.show(message: "请选择规格")
+            specificationsViewAction()
             return
         }
         let vc = PurchaseImmediatelyViewController()
@@ -449,7 +460,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         self.navigationController?.navigationBar.setBackgroundImage(bgImage, for: .default)
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-//         self.navigationItem.rightBarButtonItems = nil
+         self.navigationItem.rightBarButtonItems = nil
     }
     
     //MARK:加载评论

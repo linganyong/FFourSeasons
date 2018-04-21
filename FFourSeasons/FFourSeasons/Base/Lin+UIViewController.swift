@@ -132,6 +132,15 @@ extension UIViewController {
         return rightItem
     }
 
+    //MARK:添加由边导航控件
+    func navigationBarAddRightItem(title:String,target:Any, action: Selector?,textSize:CGFloat) ->UIBarButtonItem {
+        var rightItem = UIBarButtonItem()
+        rightItem = UIBarButtonItem(image: nil, style: .plain, target: target, action: action)
+        rightItem.title = title
+        self.navigationItem.rightBarButtonItems = [rightItem]
+        rightItem.setTitleTextAttributes([NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: textSize)], for: .normal)
+        return rightItem
+    }
     
     
     //MARK:设置导航栏颜色

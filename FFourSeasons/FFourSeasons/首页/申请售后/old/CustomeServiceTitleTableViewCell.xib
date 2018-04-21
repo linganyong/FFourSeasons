@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +21,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创建时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weT-TD-p1D">
-                        <rect key="frame" x="32" y="0.0" width="90" height="73.5"/>
+                        <rect key="frame" x="20" y="0.0" width="90" height="73.5"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="fbq-4Y-nqz"/>
                         </constraints>
@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018年02月28日10:06:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GR-zD-mB3">
-                        <rect key="frame" x="122" y="11" width="143.5" height="52"/>
+                        <rect key="frame" x="110" y="11" width="143.5" height="52"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="143.5" id="2Hp-RT-nKp"/>
                         </constraints>
@@ -42,7 +42,7 @@
                 <constraints>
                     <constraint firstItem="0GR-zD-mB3" firstAttribute="leading" secondItem="weT-TD-p1D" secondAttribute="trailing" id="0Xu-Od-bHN"/>
                     <constraint firstAttribute="bottomMargin" secondItem="0GR-zD-mB3" secondAttribute="bottom" id="DQg-WF-xXC"/>
-                    <constraint firstItem="weT-TD-p1D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="HsD-mS-ziL"/>
+                    <constraint firstItem="weT-TD-p1D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="HsD-mS-ziL"/>
                     <constraint firstAttribute="bottom" secondItem="weT-TD-p1D" secondAttribute="bottom" id="OZG-2j-E5f"/>
                     <constraint firstItem="weT-TD-p1D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cUn-Ge-CV9"/>
                     <constraint firstItem="0GR-zD-mB3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="rvF-id-b5A"/>

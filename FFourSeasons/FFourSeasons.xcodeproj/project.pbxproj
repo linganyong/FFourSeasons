@@ -438,6 +438,11 @@
 		9CFC619A208AEF5A00888D9A /* quill.bubble.css in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC6197208AEF5900888D9A /* quill.bubble.css */; };
 		9CFC619B208AEF5A00888D9A /* quill.snow.css in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC6198208AEF5A00888D9A /* quill.snow.css */; };
 		9CFC619C208AEF5A00888D9A /* quill.core.css in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC6199208AEF5A00888D9A /* quill.core.css */; };
+		9CFC619F208B479600888D9A /* CouponRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC619E208B479600888D9A /* CouponRuleView.swift */; };
+		9CFC61A1208B47B300888D9A /* CouponRuleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC61A0208B47B300888D9A /* CouponRuleView.xib */; };
+		9CFC61A3208B5E9B00888D9A /* 选中优惠券背景3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC61A2208B5E9B00888D9A /* 选中优惠券背景3x.png */; };
+		9CFC61A6208B677300888D9A /* CouponDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC61A5208B677300888D9A /* CouponDetail.m */; };
+		9CFC61A9208B686F00888D9A /* Model_api_couponList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC61A8208B686F00888D9A /* Model_api_couponList.m */; };
 		9CFCDD06207630F700ECBA48 /* Farm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCDD05207630F700ECBA48 /* Farm.m */; };
 		9CFCDD092076317400ECBA48 /* Model_api_farm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCDD082076317400ECBA48 /* Model_api_farm.m */; };
 		9CFD551F206E617F0028B1A4 /* 智慧农场3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD551E206E617E0028B1A4 /* 智慧农场3x.png */; };
@@ -969,6 +974,13 @@
 		9CFC6197208AEF5900888D9A /* quill.bubble.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = quill.bubble.css; sourceTree = "<group>"; };
 		9CFC6198208AEF5A00888D9A /* quill.snow.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = quill.snow.css; sourceTree = "<group>"; };
 		9CFC6199208AEF5A00888D9A /* quill.core.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = quill.core.css; sourceTree = "<group>"; };
+		9CFC619E208B479600888D9A /* CouponRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponRuleView.swift; sourceTree = "<group>"; };
+		9CFC61A0208B47B300888D9A /* CouponRuleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponRuleView.xib; sourceTree = "<group>"; };
+		9CFC61A2208B5E9B00888D9A /* 选中优惠券背景3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选中优惠券背景3x.png"; sourceTree = "<group>"; };
+		9CFC61A4208B677300888D9A /* CouponDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CouponDetail.h; sourceTree = "<group>"; };
+		9CFC61A5208B677300888D9A /* CouponDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CouponDetail.m; sourceTree = "<group>"; };
+		9CFC61A7208B686F00888D9A /* Model_api_couponList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_couponList.h; sourceTree = "<group>"; };
+		9CFC61A8208B686F00888D9A /* Model_api_couponList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model_api_couponList.m; sourceTree = "<group>"; };
 		9CFCDD04207630F700ECBA48 /* Farm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Farm.h; sourceTree = "<group>"; };
 		9CFCDD05207630F700ECBA48 /* Farm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Farm.m; sourceTree = "<group>"; };
 		9CFCDD072076317400ECBA48 /* Model_api_farm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_farm.h; sourceTree = "<group>"; };
@@ -1139,6 +1151,7 @@
 		9C0D9C8320465F2100D271CE /* 庄主 */ = {
 			isa = PBXGroup;
 			children = (
+				9CFC61A2208B5E9B00888D9A /* 选中优惠券背景3x.png */,
 				9CFD552B206E648D0028B1A4 /* 分店查找3x.png */,
 				9CFD552A206E648C0028B1A4 /* 积分商城3x.png */,
 				9C94114A205A66F8002A29F9 /* 农场图标.png */,
@@ -1991,6 +2004,10 @@
 				9C04BB88207CEAB6006EA205 /* Model_api_comment.m */,
 				9C04BB8A207CEB05006EA205 /* CommentPage.h */,
 				9C04BB8B207CEB05006EA205 /* CommentPage.m */,
+				9CFC61A4208B677300888D9A /* CouponDetail.h */,
+				9CFC61A5208B677300888D9A /* CouponDetail.m */,
+				9CFC61A7208B686F00888D9A /* Model_api_couponList.h */,
+				9CFC61A8208B686F00888D9A /* Model_api_couponList.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2077,6 +2094,7 @@
 		9CA32D722047FA1200FD5DFC /* 优惠券 */ = {
 			isa = PBXGroup;
 			children = (
+				9CFC619D208B475800888D9A /* 规则说明 */,
 				9CA32D732047FA7200FD5DFC /* CouponViewController.swift */,
 				9CA32D742047FA7200FD5DFC /* CouponViewController.xib */,
 				9CA32D772047FA9400FD5DFC /* CouponTableViewCell.swift */,
@@ -2321,6 +2339,15 @@
 			path = "设置默认地址";
 			sourceTree = "<group>";
 		};
+		9CFC619D208B475800888D9A /* 规则说明 */ = {
+			isa = PBXGroup;
+			children = (
+				9CFC619E208B479600888D9A /* CouponRuleView.swift */,
+				9CFC61A0208B47B300888D9A /* CouponRuleView.xib */,
+			);
+			path = "规则说明";
+			sourceTree = "<group>";
+		};
 		F490176539CA62D9B536CD16 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2527,6 +2554,7 @@
 				9CBB50A9204949620018A43B /* Launcherlogo.png in Resources */,
 				9C77C4D92027FEC1008B49E2 /* 支付码@2x.png in Resources */,
 				9C77C5262027FFAF008B49E2 /* MarketViewController.xib in Resources */,
+				9CFC61A3208B5E9B00888D9A /* 选中优惠券背景3x.png in Resources */,
 				9C77C5002027FEC1008B49E2 /* f17500e04e03518947918b1370942b4e97d6a30137667-qeCBTe.jpg in Resources */,
 				9C58AACE204FEEB200594011 /* AllCommentsTableViewCell.xib in Resources */,
 				9C58AAD920510AAA00594011 /* OrderDetailsViewController.xib in Resources */,
@@ -2611,6 +2639,7 @@
 				9C813A9E20804A3300FE19EC /* TableViewCell.xib in Resources */,
 				9CB13D73202AA012001E5FC4 /* MyHarvestTableViewCell.xib in Resources */,
 				9C77C5182027FEC1008B49E2 /* u835.jpg in Resources */,
+				9CFC61A1208B47B300888D9A /* CouponRuleView.xib in Resources */,
 				9C77C4202027F96D008B49E2 /* PYSearch.bundle in Resources */,
 				9CA32D442046CECB00FD5DFC /* LGYAlertView.xib in Resources */,
 				9C77C5212027FEC1008B49E2 /* 27cdcaf76c1a27b7f3af9405a5c4ad2dc1363f94a04a-5i3Gs3.jpg in Resources */,
@@ -2902,6 +2931,7 @@
 				9CB13D75202AA771001E5FC4 /* LGY+ImageView.swift in Sources */,
 				9C77C4262027F96D008B49E2 /* Lin+String.swift in Sources */,
 				9CA32D392046C2A700FD5DFC /* LGYLineSelectView.swift in Sources */,
+				9CFC619F208B479600888D9A /* CouponRuleView.swift in Sources */,
 				9C46BA272045625600646A81 /* MyOrderViewController.swift in Sources */,
 				9C10BD792044F164004AAFE3 /* PurchaseImmediatelyViewController.swift in Sources */,
 				9978F22C207698850031CAE3 /* OrderPay.m in Sources */,
@@ -2953,6 +2983,7 @@
 				9C77C4212027F96D008B49E2 /* NSBundle+PYSearchExtension.m in Sources */,
 				9C77C3AE2027F1FF008B49E2 /* AppDelegate.swift in Sources */,
 				9CA32D752047FA7200FD5DFC /* CouponViewController.swift in Sources */,
+				9CFC61A6208B677300888D9A /* CouponDetail.m in Sources */,
 				9C04BB80207CAC4C006EA205 /* ShareViewCell.swift in Sources */,
 				9CEFBAFE205FA97C006A6625 /* AddressShowViewController.swift in Sources */,
 				9CC79B4B202DA1EF00C43E08 /* RegisterView.swift in Sources */,
@@ -2976,6 +3007,7 @@
 				9CA32DC42048F63C00FD5DFC /* MyWalletViewController.swift in Sources */,
 				9CBB50712048FCBE0018A43B /* ChangePayPassworkViewController.swift in Sources */,
 				9CBD4805206B2E63005C3EB0 /* GoodsList.m in Sources */,
+				9CFC61A9208B686F00888D9A /* Model_api_couponList.m in Sources */,
 				9C813A97207F4D1A00FE19EC /* ApplyCustomerServiceImageCollectionViewCell.swift in Sources */,
 				9C31298F2060FBF4006E6102 /* PurchaseImmediatelyTableViewCell.swift in Sources */,
 				9C77C4282027F96D008B49E2 /* BaseHeader.swift in Sources */,

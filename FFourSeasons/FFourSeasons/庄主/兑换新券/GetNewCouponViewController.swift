@@ -11,26 +11,48 @@ import UIKit
 class GetNewCouponViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
-    
     var rightBarItem:UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "兑换新券"
         navigationItemBack(title: "    ")
-        rightBarItem = navigationBarAddRightItem(_imageName: "打勾白色.png", target: self, action: #selector(rightBarAction))
+        rightBarItem = navigationBarAddRightItem(_imageName: "白色确定", target: self, action: #selector(rightBarAction))
         textField.delegate = self
         setBackgroundColor()
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
         return true
     }
+    //MARK:加载优惠券
+    func loadExchangeCoupon(code:String) -> Void {
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_exchangeCoupon, parameters: ["token":Model_user_information.getToken(),"uuid":code], progress: nil) { (object, isError) in
+            if !isError{
+                if let model = Model_user_information.yy_model(withJSON: object){
+                    if LGYAFNetworking.isNetWorkSuccess(str: model.code){
+                        self.navigationController?.popViewController(animated: true)
+                        LGYToastView.show(message: "恭喜您，兑换成功！")
+                    }else{
+                        if let msg = model.msg{
+                            LGYToastView.show(message: msg)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     
     //MARK:导航栏右边按钮响应事件
     @objc func rightBarAction() ->Void{
-        _ = LGYAlertViewSimple.show(title: "恭喜您兑换成功", buttonStr: "确定")
+        if textField.text?.count == 0{
+            LGYToastView.show(message: "请输入兑换码！")
+            return
+        }
+         loadExchangeCoupon(code: textField.text!)
     }
     
     override func viewDidAppear(_ animated: Bool) {

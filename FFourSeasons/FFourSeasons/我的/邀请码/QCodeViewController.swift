@@ -16,24 +16,27 @@ class QCodeViewController: UIViewController,ShareViewDelegate {
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var cardImageView: UIImageView!
     @IBOutlet weak var codeCopyBackView: UIView!
-    var cardText = "123456789"
+    var shareTitle:String?
+    var shareConnet:String?
+    var shareImage:UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "邀请码"
         navigationItemBack(title: "    ")
-        
-        let cardName = "123456789"
-        let avatar = UIImage(named: "相机.jpg")
-        HMScannerController.cardImage(withCardName: cardName, avatar: avatar, scale: 0.2) { (image) -> Void in
-            self.cardImageView.image = image
-           
-        }
-        
-          rightBarItem = navigationBarAddRightItem(title: "邀请码兑换", target: self, action: #selector(rightBarAction))
+        rightBarItem = navigationBarAddRightItem(title: "邀请码兑换", target: self, action: #selector(rightBarAction))
         setBackgroundColor()
+        loadInviteCode()
     }
 
+    func setInviteCode(code:String){
+        //设置二维码
+        HMScannerController.cardImage(withCardName: "/\(code)", avatar: nil, scale: 0.2) { (image) -> Void in
+            self.cardImageView.image = image
+        }
+        codeLabel.text = code
+    }
+    
     @IBAction func copyAction(_ sender: UIButton) {
         LGYToastView.show(message: "复制成功！")
          UIPasteboard.general.string = self.codeLabel.text
@@ -63,7 +66,7 @@ class QCodeViewController: UIViewController,ShareViewDelegate {
     
     
     //MARK:微信分享到回话调用入口
-    func weixinShareAction(title:String?,description:String?,imageName:String?,pageUrlStr:String?,isWXSceneSession:Bool) {
+    func weixinShareAction(title:String?,description:String?,image:UIImage,pageUrlStr:String?,isWXSceneSession:Bool) {
         let message = WXMediaMessage()
         if title != nil {
             message.title = title
@@ -71,9 +74,7 @@ class QCodeViewController: UIViewController,ShareViewDelegate {
         if description != nil {
             message.description = description!
         }
-        if imageName != nil{
-            message.setThumbImage(UIImage(named: imageName!))
-        }
+         message.setThumbImage(image)
         let webPageObject = WXWebpageObject()
         if pageUrlStr != nil {
             webPageObject.webpageUrl = pageUrlStr
@@ -94,11 +95,46 @@ class QCodeViewController: UIViewController,ShareViewDelegate {
     //MARK:ShareViewDelegate pro 分享代理回调
     func shareView(shareView: ShareView, selectIndex: NSInteger) {
         shapeView?.cancle()
-        if selectIndex == 0{
-            weixinShareAction(title: "分享", description: "这是一段描述",imageName: "icon.jpeg",pageUrlStr:"https://www.baidu.com",isWXSceneSession: true)
-        }else{
-            weixinShareAction(title: "分享", description: "这是一段描述",imageName: "icon.jpeg",pageUrlStr:"https://www.baidu.com",isWXSceneSession: false)
+        if let code = codeLabel.text {
+            let url = "\(APIAddress.api_domainName())/share?code=\(code)"
+            if selectIndex == 0{
+                weixinShareAction(title: shareTitle, description: shareConnet,image: shareImage!,pageUrlStr:url,isWXSceneSession: true)
+            }else{
+                weixinShareAction(title:shareTitle, description:shareConnet,image: shareImage!,pageUrlStr:url,isWXSceneSession: false)
+            }
         }
+    }
+    
+    //MARK:加载邀请码
+    func loadInviteCode() -> Void {
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_inviteCode, parameters: ["token":Model_user_information.getToken()], progress: nil) { [weak self](object, isError) in
+            if !isError{
+                if let weakSelf = self, let dic = object as? NSDictionary{
+                    if let inviteCode = dic["inviteCode"] as? String{
+                        weakSelf.setInviteCode(code:inviteCode)
+                    }
+                    if let item = dic["data"] as? NSDictionary { //分享
+                        if let title = item["title"] as? String //分享标题
+                            , let mesg = item["content"] as? String //分享内容
+                            ,let icon = item["icon"] as? String //分享内容
+                        {
+                            weakSelf.getShare(title: title, mesg: mesg, icon: icon)
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    func getShare(title:String,mesg:String,icon:String)->Void{
+        shareImage = UIImage.image(fromURL: icon, placeholder: UIImage(named: "icon.jpeg")!, closure: {[weak self] (image) in
+            if image != nil{
+                self?.shareImage = image;
+            }
+        })
+        shareTitle = title
+        shareConnet = mesg
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -8,23 +8,36 @@
 
 import UIKit
 
+protocol CouponViewControllerDelegate {
+    func couponViewController()->Void
+}
+
 class CouponViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
      var rightBarItem:UIBarButtonItem!
-    
+    var isCanSelect = false
+    var delegate:CouponViewControllerDelegate?
+    var dataScoure = Array<CouponDetail>()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "优惠券"
         setTableView()
         navigationItemBack(title: "      ")
-        rightBarItem = navigationBarAddRightItem(title: "兑换新券", target: self, action: #selector(rightBarAction))
+        if !isCanSelect{
+            rightBarItem = navigationBarAddRightItem(title: "兑换新券", target: self, action: #selector(rightBarAction),textSize:15)
+        }
         setBackgroundColor()
+        
     }
     
     @objc func rightBarAction() -> Void {
-        let vc = Bundle.main.loadNibNamed("GetNewCouponViewController", owner: nil, options: nil)?.first as! GetNewCouponViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        if isCanSelect {
+            delegate?.couponViewController()
+        }else{
+            let vc = Bundle.main.loadNibNamed("GetNewCouponViewController", owner: nil, options: nil)?.first as! GetNewCouponViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func setTableView() -> Void {
@@ -33,28 +46,55 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
         tableView.delegate = self
         tableView.rowHeight = height
         tableView.separatorColor = UIColor.clear
+        tableView.tableFooterView = UIView()
         tableView.register(UINib.init(nibName: "CouponTableViewCell", bundle: nil), forCellReuseIdentifier: "CouponTableViewCell")
+        weak var weakSelf = self
+        tableView.mj_footer = MJRefreshBackNormalFooter.init(refreshingBlock:{
+             weakSelf?.loadCouponList()
+        })
         
     }
     
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return dataScoure.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CouponTableViewCell", for: indexPath) as! CouponTableViewCell
         cell.selectionStyle = .none
-        
+        cell.setItem(item: dataScoure[indexPath.row])
         return cell
         
     }
     
+    //MARK:加载优惠券
+    func loadCouponList() -> Void {
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_couponList, parameters: ["token":Model_user_information.getToken()], progress: nil){  [weak self](object, isError) in
+            if !isError{
+                if let model = Model_api_couponList.yy_model(withJSON: object as Any) {
+                    if LGYAFNetworking.isNetWorkSuccess(str: model.code){
+                        if let weakSelf = self,let array = model.data{
+                            weakSelf.dataScoure = array;
+                            weakSelf.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isCanSelect{
+             rightBarItem = navigationBarAddRightItem(_imageName: "黑色确定", target: self, action: #selector(rightBarAction))
+        }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
          setNavigationBarStyle(type:.Default)
+        loadCouponList()
     }
     
     override func viewWillAppear(_ animated: Bool) {

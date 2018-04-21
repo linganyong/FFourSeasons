@@ -14,6 +14,7 @@ protocol IntegralShopTableViewCellDelegate {
 
 class IntegralShopTableViewCell: UITableViewCell {
  
+    @IBOutlet weak var canExchangeImageView: UIImageView!
     @IBOutlet weak var maginLeftLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var maginTopLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var maginBottomLayoutConstraint: NSLayoutConstraint!
@@ -39,6 +40,11 @@ class IntegralShopTableViewCell: UITableViewCell {
             productImageView.lGYImageFromURL(imageUrl: model!.small_icon!, placeholderImageName: "loading.png")
         }else{
              productImageView.image = nil
+        }
+        if item.exchange == 0{
+            canExchangeImageView.isHidden = true
+        }else{
+            canExchangeImageView.isHidden = false
         }
         line1Label.text = model?.title
         line3Label.text = String.init(format: "所需积分 %@", model!.price)

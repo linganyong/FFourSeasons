@@ -24,7 +24,6 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
     @IBOutlet weak var playSelect4ImageView: UIImageView!
     @IBOutlet weak var playSelect5ImageView: UIImageView!
     @IBOutlet weak var liuYanTF: UITextField!
-    @IBOutlet weak var faPiaoTF: UITextField!
 //    @IBOutlet weak var maginTop: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeightLC: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
@@ -43,7 +42,6 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
     }
 
     func textField()->Void{
-        faPiaoTF.delegate = self
         liuYanTF.delegate = self    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -206,10 +204,10 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
             defaultAddress = item
             contactNameLabel.text = "收货人：" + defaultAddress!.name
             contactPhonelabel.text = defaultAddress?.phone
-            contactAddressLabel.text = "地址：" + defaultAddress!.located.replacingOccurrences(of: "/", with: "") + defaultAddress!.address
+            contactAddressLabel.text = "收货地址：" + defaultAddress!.located.replacingOccurrences(of: "/", with: "") + defaultAddress!.address
         }else {
             contactNameLabel.text = "收货人：暂无"
-            contactAddressLabel.text = "地址：暂无"
+            contactAddressLabel.text = "收货地址：暂无"
             contactPhonelabel.text = "电话：暂无"
         }
         
