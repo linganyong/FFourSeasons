@@ -23,7 +23,7 @@ let orderComplete = "8" //已完成
 
 class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MyHarvestTableViewCellDelegate{
     let pageView = LGYPageView()
-    
+    let titleArray = ["全部","待发货","待收货","待评价","售后"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,11 +37,11 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func setPageView() -> Void {
         pageView.frame = CGRect(x: 0, y: 64, width: self.view.frame.width, height: self.view.frame.height-64)
         self.view .addSubview(pageView)
-        pageView.addContent(titleArray: ["全部","待付款","待发货","待收货","待评价","售后"], height: 30, isHiddenHeader: false)
+        pageView.addContent(titleArray:titleArray , height: 30, isHiddenHeader: false)
         pageView.headerBtnStyle(defaultTextColor: UIColor.init(red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1), selectTextColor: UIColor.init(red: 42/255.0, green: 201/255.0, blue: 140/255.0, alpha: 1), headerBtnWidth: self.view.frame.size.width/6, headerLineHeight: 1,textFront: 12)
          pageView.setLineViewWidth(width: 40)
         weak var vc = self
-        for i in 0...5{
+        for i in 0..<titleArray.count{
             let tb = pageView.pageViewtableView(index: i)
             tb?.delegate = self
             tb?.rowHeight = self.view.frame.size.width/4+16
@@ -57,19 +57,19 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 case 0:
                     tb?.lgyTypeKey = orderAll
                     break
+//                case 1:
+//                    tb?.lgyTypeKey = orderWaitPay //未付款
+//                    break
                 case 1:
-                    tb?.lgyTypeKey = orderWaitPay //未付款
-                    break
-                case 2:
                     tb?.lgyTypeKey = orderPaySuccess //付款成功
                     break
-                case 3: //
+                case 2: //
                     tb?.lgyTypeKey = orderWaitReceipt //待收货
                     break
-                case 4: //
+                case 3: //
                     tb?.lgyTypeKey = orderWaitEvaluate //待评价
                     break
-                case 5: //
+                case 4: //
                     tb?.lgyTypeKey = orderCustomerService //售后
                     break
                 case 6: //
@@ -257,7 +257,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func reloadDataScoure(){
-        for i in 0...5{
+        for i in 0..<titleArray.count{
             let tb = pageView.pageViewtableView(index: i)
             tb?.lgyPageIndex = 1
             loadDataScoure(tableView: tb!)

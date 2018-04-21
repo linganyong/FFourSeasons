@@ -11,8 +11,8 @@ import UIKit
 public enum OrderDetailsType:Int {
     case WaitForPayment = 1
     case WaitForReceipt = 2
-    case WaitForEvaluation = 3
-    case WaitForHarvest = 4
+    case WaitForEvaluation = 4
+    case WaitForHarvest = 3
     case ServiceReturnApply = 5
     case ServiceReturnFail = 6
     case ServiceReturnSuccess = 7
@@ -94,6 +94,8 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             button1.isHidden = true
             button2.isHidden = true
             button3.isHidden = true
+            buttonMaginTopLC.constant = 16
+            serviceView.isHidden = true
             break
         case .WaitForPayment: //待付款
 //            self.title = "待付款"
