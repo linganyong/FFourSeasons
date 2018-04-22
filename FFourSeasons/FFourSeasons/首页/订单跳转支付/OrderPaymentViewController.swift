@@ -40,6 +40,8 @@ class OrderPaymentViewController: UIViewController{
     var liuyan : String = ""
     //总价
     var totalPrice : String = ""
+    //优惠券id
+    var cId : String = "0"
     
     //支付类型，默认为积分支付
     var payType : PayType = PayType.Point
@@ -123,6 +125,7 @@ class OrderPaymentViewController: UIViewController{
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_addOrderPay, parameters: ["token":Model_user_information.getToken(),
              "itemIds":self.orderString,
              "addressId":self.addressID,
+             "cId":cId,
              "msg":self.liuyan], progress: nil) { [weak self] (object, isError) in
             if let weakSelf = self {
                 if !isError {

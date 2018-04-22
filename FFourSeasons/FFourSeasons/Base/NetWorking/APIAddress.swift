@@ -216,7 +216,7 @@ class APIAddress: NSObject {
     static let api_customerService = String(format: "%@/api/customerService", arguments: [api_domainName()])
     
     /*
-     售后申请
+     取消售后
      */
     static let api_cancelService = String(format: "%@/api/cancelService", arguments: [api_domainName()])
     
@@ -226,6 +226,11 @@ class APIAddress: NSObject {
     static let api_inviteCode = String(format: "%@/api/inviteCode", arguments: [api_domainName()])
     
     /*
+     兑换优惠券
+     */
+    static let api_exchangeCoupon = String(format: "%@/api/exchangeCoupon", arguments: [api_domainName()])
+    
+    /*
      优惠券
      */
     static let api_couponList = String(format: "%@/api/couponList", arguments: [api_domainName()])
@@ -233,6 +238,11 @@ class APIAddress: NSObject {
     /*
      兑换优惠券
      */
-    static let api_exchangeCoupon = String(format: "%@/api/exchangeCoupon", arguments: [api_domainName()])
+    static let api_bindInvite = String(format: "%@/api/bindInvite", arguments: [api_domainName()])
+    
+    /*
+     物流
+     */
+    static let api_query = String(format: "%@/api/query", arguments: [api_domainName()])
     
 }

@@ -19,6 +19,10 @@ class MainPageMenuView: UIView {
     
     //MARK:庄园响应
     @IBAction func menuAction1(_ sender: Any) {
+        if Model_user_information.getToken().count == 0 {
+            viewController?.isTolaunch()
+            return
+        }
         let vc = Bundle.main.loadNibNamed("HundredFarmingGardenViewController", owner: nil, options: nil)?.first as! HundredFarmingGardenViewController
         viewController?.navigationController?.pushViewController(vc, animated: true)
          viewController?.tabBarController?.tabBar.isHidden = true
@@ -26,6 +30,10 @@ class MainPageMenuView: UIView {
     
     //MARK:积分支付响应
     @IBAction func menuAction2(_ sender: Any) {
+        if Model_user_information.getToken().count == 0 {
+            viewController?.isTolaunch()
+            return
+        }
         let vc = Bundle.main.loadNibNamed("SignAddIntegralViewController", owner: nil, options: nil)?.first as! SignAddIntegralViewController
         viewController?.navigationController?.pushViewController(vc, animated: true)
 //        _ = LGYAlertViewSimple.show(title: "功能即将上线！", buttonStr: "确定")
@@ -33,6 +41,10 @@ class MainPageMenuView: UIView {
     
     //MARK:周边农场
     @IBAction func menuAction3(_ sender: Any) {
+        if Model_user_information.getToken().count == 0 {
+            viewController?.isTolaunch()
+            return
+        }
         let vc = Bundle.main.loadNibNamed("SurroundingFarmsViewController", owner: nil, options: nil)?.first as! SurroundingFarmsViewController
         viewController?.navigationController?.pushViewController(vc, animated: true)
         viewController?.tabBarController?.tabBar.isHidden = true
@@ -40,6 +52,10 @@ class MainPageMenuView: UIView {
     
     //MARK:我的订单响应
     @IBAction func menuAction4(_ sender: Any) {
+        if Model_user_information.getToken().count == 0 {
+            viewController?.isTolaunch()
+            return
+        }
         let vc = MyOrderViewController()
         viewController?.navigationController?.pushViewController(vc, animated: true)
         viewController?.tabBarController?.tabBar.isHidden = true

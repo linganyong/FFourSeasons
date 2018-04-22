@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CouponViewControllerDelegate {
-    func couponViewController()->Void
+    func couponViewController(selectItem:CouponDetail)->Void
 }
 
 class CouponViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
@@ -18,22 +18,24 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
     var isCanSelect = false
     var delegate:CouponViewControllerDelegate?
     var dataScoure = Array<CouponDetail>()
+    var selectItem:CouponDetail?
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "优惠券"
         setTableView()
         navigationItemBack(title: "      ")
-        if !isCanSelect{
-            rightBarItem = navigationBarAddRightItem(title: "兑换新券", target: self, action: #selector(rightBarAction),textSize:15)
-        }
+        
         setBackgroundColor()
         
     }
     
     @objc func rightBarAction() -> Void {
         if isCanSelect {
-            delegate?.couponViewController()
+              self.navigationController?.popViewController(animated: true)
+            delegate?.couponViewController(selectItem: selectItem!)
+            
         }else{
             let vc = Bundle.main.loadNibNamed("GetNewCouponViewController", owner: nil, options: nil)?.first as! GetNewCouponViewController
             self.navigationController?.pushViewController(vc, animated: true)
@@ -64,6 +66,7 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CouponTableViewCell", for: indexPath) as! CouponTableViewCell
         cell.selectionStyle = .none
+        cell.isCanSelect = isCanSelect
         cell.setItem(item: dataScoure[indexPath.row])
         return cell
         
@@ -87,6 +90,7 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isCanSelect{
+            selectItem = dataScoure[indexPath.row]
              rightBarItem = navigationBarAddRightItem(_imageName: "黑色确定", target: self, action: #selector(rightBarAction))
         }
     }
@@ -95,12 +99,18 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
         super.viewDidAppear(animated)
          setNavigationBarStyle(type:.Default)
         loadCouponList()
+        if !isCanSelect {
+            rightBarItem = navigationBarAddRightItem(title: "兑换新券", target: self, action: #selector(rightBarAction),textSize:15)
+        }else if selectItem != nil{
+            rightBarItem = navigationBarAddRightItem(_imageName: "黑色确定", target: self, action: #selector(rightBarAction))
+        }else{
+             self.navigationItem.rightBarButtonItems = nil
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
          setNavigationBarStyle(type:.Default)
-        self.navigationItem.rightBarButtonItems = [rightBarItem]
         
     }
     

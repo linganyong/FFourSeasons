@@ -9,7 +9,7 @@
 import UIKit
 
 public enum OrderDetailsType:Int {
-    case WaitForPayment = 1
+    case WaitForPayment = 0
     case WaitForReceipt = 2
     case WaitForEvaluation = 4
     case WaitForHarvest = 3
@@ -21,6 +21,8 @@ public enum OrderDetailsType:Int {
 
 class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableViewDataSource,UITableViewDelegate {
 
+    @IBOutlet weak var couponTitleLabelHeightLC: NSLayoutConstraint!
+    @IBOutlet weak var couponTitleLabel: UILabel!
     @IBOutlet weak var buttonMaginTopLC: NSLayoutConstraint!
     @IBOutlet weak var serviceView: UIView!
     @IBOutlet weak var seviceLabel: UILabel!
@@ -159,6 +161,15 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             addressLabel.text = "地址:\(orderDetail!.receive_address!)"
             yunFeiLabel.text = "￥\(orderDetail!.freight!)"
             priceLabel.text = "￥\(orderDetail!.price!)"
+            if let msg = orderDetail?.coupon_msg{
+                if msg.count > 0{
+                    couponTitleLabel.text = msg;
+                    couponTitleLabelHeightLC.constant = 41;
+                }else{
+                    couponTitleLabel.text = nil;
+                    couponTitleLabelHeightLC.constant = 11;
+                }
+            }
         }else{
             nameLabel.text = ""
             telLabel.text = ""
@@ -166,6 +177,8 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             yunFeiLabel.text = "￥0"
             priceLabel.text = "￥0"
         }
+        
+       
         
     }
 

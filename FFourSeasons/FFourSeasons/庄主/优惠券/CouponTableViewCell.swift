@@ -23,31 +23,15 @@ class CouponTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.isSelected = false
-        self.addObserver(self, forKeyPath: "selected", options: .new, context: nil)
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if !isCanSelect{
-            return
-        }
-        if (keyPath?.elementsEqual("selected"))!{
-            if Bool(truncating: change![NSKeyValueChangeKey.newKey] as! NSNumber) {
-                backImageView.image = UIImage.init(named: "选中优惠券背景3x.png")
-            }else{
-                backImageView.image = UIImage.init(named: "优惠券背景3x.png")
-            }
-            
-        }
-    }
-    
-    deinit {
-        self.removeObserver(self, forKeyPath: "selected")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        if selected {
+            backImageView.image = UIImage.init(named: "选中优惠券背景3x.png")
+        }else{
+            backImageView.image = UIImage.init(named: "优惠券背景3x.png")
+        }
     }
     
     @IBAction func action(_ sender: UIButton) {

@@ -37,4 +37,5 @@
 @property (nonatomic, retain) NSString * send_goods_time;
 @property (nonatomic, retain) NSString * trade_no;
 @property (nonatomic, retain) NSString * updated_time;
+@property (nonatomic, retain) NSString *coupon_msg;
 @end

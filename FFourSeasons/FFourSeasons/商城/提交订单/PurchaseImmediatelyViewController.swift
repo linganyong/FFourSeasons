@@ -8,9 +8,17 @@
 
 import UIKit
 
-class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,AddressViewControllerDelegate,UITextFieldDelegate {
-   
+enum CouponType:Int {
+    case None = -1;
+    case Price = 0;//代扣
+//    case Other = 1; //折扣
+}
 
+class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,AddressViewControllerDelegate,CouponViewControllerDelegate,UITextFieldDelegate {
+   
+    @IBOutlet weak var couponTitleHeightLC: NSLayoutConstraint!
+    @IBOutlet weak var couponCountLabel: UILabel!
+    @IBOutlet weak var couponTitleLabel: UILabel!
     var dataScoure:Array<CartList>?
     var defaultAddress:Addresses?
     @IBOutlet weak var payMoneyLabel: UILabel!
@@ -18,11 +26,8 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
     @IBOutlet weak var totalFreightLabel: UILabel!
     @IBOutlet weak var contactAddressLabel: UILabel!
     @IBOutlet weak var contactPhonelabel: UILabel!
-    @IBOutlet weak var playSelect1ImageView: UIImageView!
-    @IBOutlet weak var playSelect2ImageView: UIImageView!
-    @IBOutlet weak var playSelect3ImageView: UIImageView!
-    @IBOutlet weak var playSelect4ImageView: UIImageView!
-    @IBOutlet weak var playSelect5ImageView: UIImageView!
+    var selectCouponItem:CouponDetail?
+    var orderItemStr:String? //产品规格id和数量格式化
     @IBOutlet weak var liuYanTF: UITextField!
 //    @IBOutlet weak var maginTop: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeightLC: NSLayoutConstraint!
@@ -39,6 +44,7 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
         loadAddressList()
         textField()
         addEmptyView(frame: nil)
+        setCoupon(count: "")
     }
 
     func textField()->Void{
@@ -57,6 +63,7 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
         tableView.register(UINib.init(nibName: "PurchaseImmediatelyTableViewCell", bundle: nil), forCellReuseIdentifier: "PurchaseImmediatelyTableViewCell")
     }
     
+  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if dataScoure == nil{
            return 0
@@ -116,14 +123,53 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
         }
         vc.liuyan = liuyan
         vc.totalPrice = totalPrice
+        var cId = "0"
+        if let _id = selectCouponItem?._id{
+            cId = "\(_id)"
+        }
+        vc.cId = cId
         vc.getOrderAction()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    //MARK:设置优惠券折扣
+    func setCoupon(count:String) -> Void {
+        if count.count > 0 && Double(count)! > 0.0{
+            couponTitleLabel.text = "已优惠："
+            couponTitleHeightLC.constant = 41
+            couponCountLabel.text = "￥\(count)"
+        }else{
+            couponTitleLabel.text = ""
+            couponTitleHeightLC.constant = 11
+            couponCountLabel.text = ""
+        }
+        
+    }
+    @IBAction func selectCouponAction(_ sender: UIButton) {
+        let vc = Bundle.main.loadNibNamed("CouponViewController", owner: nil, options: nil)?.first as! CouponViewController
+        vc.delegate = self
+        vc.isCanSelect = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func couponViewController(selectItem: CouponDetail) {
+        selectCouponItem = selectItem
+        loadAddOrder(orderStr: orderItemStr!)
+    }
+    
     func loadAddOrder(orderStr:String){
+        orderItemStr = orderStr
+        var cId = "0"
+        if let _id = selectCouponItem?._id{
+            cId = "\(_id)"
+        }
         self.orderString = orderStr
         weak var vc = self
-        LGYAFNetworking.lgyPost(urlString: APIAddress.api_addOrder, parameters: ["token":Model_user_information.getToken(),"itemIds":orderStr], progress: nil) { (object, isError) in
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_addOrder
+        , parameters: ["token":Model_user_information.getToken()
+        ,"cId":cId
+        ,"itemIds":orderStr]
+        , progress: nil) { (object, isError) in
             let model = Model_api_addOrder.yy_model(withJSON: object)
             vc?.setData(model: model)
         }
@@ -139,38 +185,13 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
             totalFreightLabel.text =  String.init(format: "￥%@",(model?.totalFreight)!)
             payMoneyLabel.text = String.init(format: "￥%@", (model?.payMoney)!)
             self.totalPrice = model!.payMoney!
+            if let str = model?.couponMoney{
+                setCoupon(count: str)
+            }
+            
         }
     }
     
-    
-    //MARK:设置支付方式
-    @IBAction func playSelectAction(_ sender: UIButton) {
-        playSelect1ImageView.image = UIImage.init(named: "椭圆3x.png")
-        playSelect2ImageView.image = UIImage.init(named: "椭圆3x.png")
-        playSelect3ImageView.image = UIImage.init(named: "椭圆3x.png")
-        playSelect4ImageView.image = UIImage.init(named: "椭圆3x.png")
-        playSelect5ImageView.image = UIImage.init(named: "椭圆3x.png")
-        let str = "选中3x.png"
-        switch sender.LGYLabelKey {
-        case "1"?:
-            playSelect1ImageView.image = UIImage.init(named: str)
-            break
-        case "2"?:
-            playSelect2ImageView.image = UIImage.init(named: str)
-            break
-        case "3"?:
-            playSelect3ImageView.image = UIImage.init(named: str)
-            break
-        case "4"?:
-            playSelect4ImageView.image = UIImage.init(named: str)
-            break
-        case "5"?:
-            playSelect5ImageView.image = UIImage.init(named: str)
-            break
-        default:
-            break
-        }
-    }
 
     //MARK:获取地址信息
     func loadAddressList() ->Void {

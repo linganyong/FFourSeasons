@@ -53,6 +53,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItemBack(title: "    ")
         setCornerRadiusAndShadowView()
         launchView.viewStyle(vController: self)
         registerView.viewStyle(vController: self)

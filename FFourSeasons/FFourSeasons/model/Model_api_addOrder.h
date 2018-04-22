@@ -18,4 +18,5 @@
 @property (nonatomic, retain) NSArray<CartList *> * list;
 @property (nonatomic, retain) NSString *payMoney;
 @property (nonatomic, retain) NSString *totalFreight;
+@property (nonatomic, retain) NSString *couponMoney;
 @end

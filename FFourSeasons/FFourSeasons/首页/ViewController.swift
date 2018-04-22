@@ -393,13 +393,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
         }
     }
-    //MARK:兑换优惠券
+    //MARK:绑定好友
     func loadBindInvite(code:String) -> Void {
-        LGYAFNetworking.lgyPost(urlString: APIAddress.api_exchangeCoupon, parameters: ["token":Model_user_information.getToken(),"code":code], progress: nil) { (object, isError) in
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_bindInvite, parameters: ["token":Model_user_information.getToken(),"code":code], progress: nil) { (object, isError) in
             if !isError{
                 if let model = Model_user_information.yy_model(withJSON: object){
                     if LGYAFNetworking.isNetWorkSuccess(str: model.code){
-                        LGYToastView.show(message: "恭喜您，兑换成功！")
+                        LGYToastView.show(message: "恭喜您，绑定好友成功！")
                     }else{
                         if let msg = model.msg{
                             LGYToastView.show(message: msg)
