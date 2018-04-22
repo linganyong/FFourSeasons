@@ -65,8 +65,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     //MARK:导航栏右边按钮响应事件
     @objc func rightBarAction() ->Void{
-        let scanner = HMScannerController.scanner(withCardName: "123456789", avatar: nil) { (stringValue) -> Void in
-          
+        if Model_user_information.getToken().count == 0 {
+            isTolaunch()
+            return
+        }
+        let scanner = HMScannerController.scanner(withCardName: "123456789", avatar: nil) {[weak self] (stringValue) -> Void in
+            if let weakSelf = self{
+                if (stringValue?.contains("/"))!{
+                    weakSelf.loadBindInvite(code: (stringValue?.replacingOccurrences(of: "/", with: ""))!)
+                }else{
+                    weakSelf.loadExchangeCoupon(code: (stringValue?.replacingOccurrences(of: "/", with: ""))!)
+                }
+            }
         }
         self.showDetailViewController(scanner!, sender: nil)
     }
@@ -366,5 +376,38 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: leftLocationView)
     }
     
+    
+    //MARK:兑换优惠券
+    func loadExchangeCoupon(code:String) -> Void {
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_exchangeCoupon, parameters: ["token":Model_user_information.getToken(),"uuid":code], progress: nil) { (object, isError) in
+            if !isError{
+                if let model = Model_user_information.yy_model(withJSON: object){
+                    if LGYAFNetworking.isNetWorkSuccess(str: model.code){
+                        LGYToastView.show(message: "恭喜您，兑换成功！")
+                    }else{
+                        if let msg = model.msg{
+                            LGYToastView.show(message: msg)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //MARK:兑换优惠券
+    func loadBindInvite(code:String) -> Void {
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_exchangeCoupon, parameters: ["token":Model_user_information.getToken(),"code":code], progress: nil) { (object, isError) in
+            if !isError{
+                if let model = Model_user_information.yy_model(withJSON: object){
+                    if LGYAFNetworking.isNetWorkSuccess(str: model.code){
+                        LGYToastView.show(message: "恭喜您，兑换成功！")
+                    }else{
+                        if let msg = model.msg{
+                            LGYToastView.show(message: msg)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 

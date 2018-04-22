@@ -46,11 +46,11 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
     
     //MARK:判断是否需要登录
     func needLaunch() -> Void {
-        if Model_user_information.getToken().count > 0{
-            loadDataScoure()
-        }else{
+//        if Model_user_information.getToken().count > 0{
+//            loadDataScoure()
+//        }else{
             NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: NotificationCenterLaunch), object: nil)
-        }
+//        }
     }
     
     @objc func notificationCenter(notification:Notification)->Void{
@@ -93,8 +93,13 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if Model_user_information.getToken().count == 0 {
+            isTolaunch()
+            return
+        }
         switch indexPath.row {
         case 0: //庄园
+            
             let vc = Bundle.main.loadNibNamed("HundredFarmingGardenViewController", owner: nil, options: nil)?.first as! UIViewController
             self.navigationController?.pushViewController(vc, animated: true)
             break
@@ -127,6 +132,10 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
     
     //MARK:个人资料点击响应
     @objc func personViewTapAction() -> Void {
+        if Model_user_information.getToken().count == 0 {
+            isTolaunch()
+            return
+        }
         let vc = Bundle.main.loadNibNamed("PersioninformationViewController", owner: nil, options: nil)?.first as! PersioninformationViewController
         self.navigationController?.pushViewController(vc, animated: true)
          self.tabBarController?.tabBar.isHidden = true
@@ -134,6 +143,10 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
     
     //MARK:头像点击响应
     @objc func personImageViewTapAction() -> Void {
+        if Model_user_information.getToken().count == 0 {
+            isTolaunch()
+            return
+        }
         let imageV = UIImageView.init(image: persionImageView.image)
         let window = UIApplication.shared.keyWindow
         imageV.tag = 10000
@@ -160,6 +173,10 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
     
     //MARK:会员成长值点击响应
     @IBAction func MemberGrowth(_ sender: UIButton) {
+        if Model_user_information.getToken().count == 0 {
+            isTolaunch()
+            return
+        }
         let vc = WebViewController()
         vc.loadDataRichTextType(type: .AboutRule)
         vc.title = "会员积分规则"
@@ -168,6 +185,10 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
     
     //MARK:我的钱包
     @IBAction func myWalletAction(_ sender: UIButton) {
+        if Model_user_information.getToken().count == 0 {
+            isTolaunch()
+            return
+        }
         let vc = Bundle.main.loadNibNamed("MyWalletViewController", owner: nil, options: nil)?.first as! MyWalletViewController
         self.navigationController?.pushViewController(vc, animated: true)
          self.tabBarController?.tabBar.isHidden = true
@@ -175,6 +196,10 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
     
     //MARK:支付码
     @IBAction func paymentCodeAction(_ sender: Any) {
+        if Model_user_information.getToken().count == 0 {
+            isTolaunch()
+            return
+        }
         let vc = Bundle.main.loadNibNamed("PaymentCodeViewController", owner: nil, options: nil)?.first as! PaymentCodeViewController
         self.navigationController?.pushViewController(vc, animated: true)
          self.tabBarController?.tabBar.isHidden = true
@@ -238,7 +263,9 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
         self.tabBarController?.tabBar.isHidden = false
-        loadDataScoure()
+        if Model_user_information.getToken().count > 5{
+            loadDataScoure()
+        }
     }
     
    

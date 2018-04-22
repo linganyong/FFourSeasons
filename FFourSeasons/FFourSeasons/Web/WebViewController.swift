@@ -58,9 +58,11 @@ class WebViewController: UIViewController {
     
     //MARK:加载文本
     func loadAuthPage(htmlStr:String){
-//        NSURL.fileURL(withPath: Bundle.main.bundlePath)
-        webView.loadHTMLString(htmlStr, baseURL: nil)
-//        webView.loadHTMLString(htmlStr, baseURL:URL(fileURLWithPath: Bundle.main.bundlePath))
+        let css = "<link rel=\"stylesheet\" type=\"text/css\" href=\"quillbubble.css\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"qquillcore.css\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"quillsnow.css\">\n"  //添加css样式引用
+        let thmlText = "\(css)<div class=\"ql-editor\">\(htmlStr)</div>"
+////      NSURL.fileURL(withPath: Bundle.main.bundlePath)
+//        webView.loadHTMLString(thmlText, baseURL: nil)
+        webView.loadHTMLString(thmlText, baseURL:  NSURL.fileURL(withPath: Bundle.main.bundlePath))
 //        webView.loadHTMLString(htmlStr, baseURL: URL(fileURLWithPath: Bundle.main.resourcePath ?? ""))
     }
     

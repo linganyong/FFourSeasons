@@ -399,5 +399,15 @@ extension UIViewController {
         whiteView?.removeFromSuperview()
     }
     
+    //MARK:跳转到登录
+    func isTolaunch(){
+        let toVc = Bundle.main.loadNibNamed("RegisterOrLaunchViewController", owner: nil, options: nil)?.first as! RegisterOrLaunchViewController
+        toVc.isNeedRootPage = false
+        let na = UINavigationController(rootViewController: toVc);
+        self.present(na, animated: true, completion: {
+            
+        })
+    }
+    
 }
 

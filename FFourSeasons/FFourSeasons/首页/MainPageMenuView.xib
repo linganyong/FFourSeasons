@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,14 +62,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cce-HD-efb">
                             <rect key="frame" x="90" y="0.0" width="89.5" height="651"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="支付码3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="ovb-Qy-vog">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="签到赢积分3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="ovb-Qy-vog">
                                     <rect key="frame" x="29.5" y="4" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="0nA-N5-veR"/>
                                         <constraint firstAttribute="width" secondItem="ovb-Qy-vog" secondAttribute="height" id="WfU-kX-fTO"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分支付" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8C-E6-YsY">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="签到" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8C-E6-YsY">
                                     <rect key="frame" x="6" y="36" width="75.5" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="7rS-bs-X5c"/>
@@ -196,8 +196,8 @@
     </objects>
     <resources>
         <image name="周边3x.png" width="68" height="91"/>
-        <image name="支付码3x.png" width="75" height="75"/>
         <image name="百耕园3x.png" width="90" height="90"/>
+        <image name="签到赢积分3x.png" width="41" height="46"/>
         <image name="订单3x.png" width="74" height="91"/>
     </resources>
 </document>

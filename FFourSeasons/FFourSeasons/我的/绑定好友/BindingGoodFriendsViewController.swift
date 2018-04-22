@@ -38,7 +38,11 @@ class BindingGoodFriendsViewController: UIViewController,UITextFieldDelegate {
     
     //MARK:导航栏右边按钮响应事件
     @objc func rightBarAction() ->Void{
-        _ = LGYAlertViewSimple.show(title: "恭喜您成功和rainy绑定", buttonStr: "确定")
+        if textField.text?.count == 0{
+            LGYToastView.show(message: "请输入兑换码！")
+            return
+        }
+        loadBindInvite(code: textField.text!)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,4 +66,20 @@ class BindingGoodFriendsViewController: UIViewController,UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK:兑换优惠券
+    func loadBindInvite(code:String) -> Void {
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_exchangeCoupon, parameters: ["token":Model_user_information.getToken(),"code":code], progress: nil) { (object, isError) in
+            if !isError{
+                if let model = Model_user_information.yy_model(withJSON: object){
+                    if LGYAFNetworking.isNetWorkSuccess(str: model.code){
+                        LGYToastView.show(message: "恭喜您，兑换成功！")
+                    }else{
+                        if let msg = model.msg{
+                            LGYToastView.show(message: msg)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

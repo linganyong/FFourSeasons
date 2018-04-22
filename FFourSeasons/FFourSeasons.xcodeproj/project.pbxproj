@@ -435,9 +435,9 @@
 		9CF3918C2077669700623675 /* OrderDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3918B2077669700623675 /* OrderDetails.m */; };
 		9CF3918F2077676D00623675 /* Model_api_orderList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF3918E2077676D00623675 /* Model_api_orderList.m */; };
 		9CF39192207767B700623675 /* OrderPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF39191207767B700623675 /* OrderPage.m */; };
-		9CFC619A208AEF5A00888D9A /* quill.bubble.css in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC6197208AEF5900888D9A /* quill.bubble.css */; };
-		9CFC619B208AEF5A00888D9A /* quill.snow.css in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC6198208AEF5A00888D9A /* quill.snow.css */; };
-		9CFC619C208AEF5A00888D9A /* quill.core.css in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC6199208AEF5A00888D9A /* quill.core.css */; };
+		9CFC619A208AEF5A00888D9A /* quillbubble.css in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC6197208AEF5900888D9A /* quillbubble.css */; };
+		9CFC619B208AEF5A00888D9A /* quillsnow.css in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC6198208AEF5A00888D9A /* quillsnow.css */; };
+		9CFC619C208AEF5A00888D9A /* quillcore.css in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC6199208AEF5A00888D9A /* quillcore.css */; };
 		9CFC619F208B479600888D9A /* CouponRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC619E208B479600888D9A /* CouponRuleView.swift */; };
 		9CFC61A1208B47B300888D9A /* CouponRuleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC61A0208B47B300888D9A /* CouponRuleView.xib */; };
 		9CFC61A3208B5E9B00888D9A /* 选中优惠券背景3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC61A2208B5E9B00888D9A /* 选中优惠券背景3x.png */; };
@@ -971,9 +971,9 @@
 		9CF3918E2077676D00623675 /* Model_api_orderList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model_api_orderList.m; sourceTree = "<group>"; };
 		9CF39190207767B700623675 /* OrderPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderPage.h; sourceTree = "<group>"; };
 		9CF39191207767B700623675 /* OrderPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderPage.m; sourceTree = "<group>"; };
-		9CFC6197208AEF5900888D9A /* quill.bubble.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = quill.bubble.css; sourceTree = "<group>"; };
-		9CFC6198208AEF5A00888D9A /* quill.snow.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = quill.snow.css; sourceTree = "<group>"; };
-		9CFC6199208AEF5A00888D9A /* quill.core.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = quill.core.css; sourceTree = "<group>"; };
+		9CFC6197208AEF5900888D9A /* quillbubble.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = quillbubble.css; sourceTree = "<group>"; };
+		9CFC6198208AEF5A00888D9A /* quillsnow.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = quillsnow.css; sourceTree = "<group>"; };
+		9CFC6199208AEF5A00888D9A /* quillcore.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = quillcore.css; sourceTree = "<group>"; };
 		9CFC619E208B479600888D9A /* CouponRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponRuleView.swift; sourceTree = "<group>"; };
 		9CFC61A0208B47B300888D9A /* CouponRuleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponRuleView.xib; sourceTree = "<group>"; };
 		9CFC61A2208B5E9B00888D9A /* 选中优惠券背景3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选中优惠券背景3x.png"; sourceTree = "<group>"; };
@@ -1216,10 +1216,10 @@
 		9C0DB9E7206E398200F9085D /* Web */ = {
 			isa = PBXGroup;
 			children = (
+				9CFC6197208AEF5900888D9A /* quillbubble.css */,
+				9CFC6199208AEF5A00888D9A /* quillcore.css */,
+				9CFC6198208AEF5A00888D9A /* quillsnow.css */,
 				9C0DB9E8206E39AE00F9085D /* WebViewController.swift */,
-				9CFC6197208AEF5900888D9A /* quill.bubble.css */,
-				9CFC6199208AEF5A00888D9A /* quill.core.css */,
-				9CFC6198208AEF5A00888D9A /* quill.snow.css */,
 			);
 			path = Web;
 			sourceTree = "<group>";
@@ -2490,7 +2490,7 @@
 				9CA32D7A2047FA9400FD5DFC /* CouponTableViewCell.xib in Resources */,
 				9C0D9CAE2046854700D271CE /* 组43x.png in Resources */,
 				9C77C50E2027FEC1008B49E2 /* d2b3dbe15d3b76c571be1ed9093b606db6d35649c5c2-W9DKDA.jpg in Resources */,
-				9CFC619A208AEF5A00888D9A /* quill.bubble.css in Resources */,
+				9CFC619A208AEF5A00888D9A /* quillbubble.css in Resources */,
 				9C77C5192027FEC1008B49E2 /* scroller_1.jpg in Resources */,
 				9C3129902060FBF4006E6102 /* PurchaseImmediatelyTableViewCell.xib in Resources */,
 				9C46BA2020455A1500646A81 /* EverydayFreshViewController.xib in Resources */,
@@ -2499,7 +2499,7 @@
 				9C77C51F2027FEC1008B49E2 /* 抽奖转盘.png in Resources */,
 				9CBB507D204921A50018A43B /* PersonCollectionViewCell.xib in Resources */,
 				9CBB5096204934100018A43B /* 注销3x.png in Resources */,
-				9CFC619C208AEF5A00888D9A /* quill.core.css in Resources */,
+				9CFC619C208AEF5A00888D9A /* quillcore.css in Resources */,
 				9C77C4B22027FEC0008B49E2 /* 导航矩形3x.png in Resources */,
 				9C77C5122027FEC1008B49E2 /* 8d7526e0e8bfde2a66a17d96034614afc76ae31b35e6a-bPIMHR.jpg in Resources */,
 				9C10BD6020440294004AAFE3 /* 选择收藏.png in Resources */,
@@ -2667,7 +2667,7 @@
 				9C813A94207F426700FE19EC /* ApplyCustomerServiceViewController.xib in Resources */,
 				9C77C4B92027FEC0008B49E2 /* 右箭头3x.png in Resources */,
 				9CA32D7C2047FDE900FD5DFC /* 优惠券背景3x.png in Resources */,
-				9CFC619B208AEF5A00888D9A /* quill.snow.css in Resources */,
+				9CFC619B208AEF5A00888D9A /* quillsnow.css in Resources */,
 				9CA32D3D2046CB2B00FD5DFC /* LGYLineSelectViewTableViewCell.xib in Resources */,
 				9CD62134204FBC87003CD6C4 /* logo3x.png in Resources */,
 				9C77C51D2027FEC1008B49E2 /* c4526cf91278555d1eb5d7c6b8b62671215a710d65655-NNVYpN.jpg in Resources */,

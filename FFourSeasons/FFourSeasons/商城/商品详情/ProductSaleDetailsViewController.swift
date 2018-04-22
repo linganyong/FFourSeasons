@@ -373,11 +373,19 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     }
     
     @IBAction func allCommentsAction(_ sender: Any) {
+        if Model_user_information.getToken().count == 0 {
+            isTolaunch()
+            return
+        }
         let vc = Bundle.main.loadNibNamed("AllCommentsViewController", owner: nil, options: nil)?.first as! AllCommentsViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     //MARK:买家评论点击响应
     @objc func commentViewAction() -> Void {
+        if Model_user_information.getToken().count == 0 {
+            isTolaunch()
+            return
+        }
         let vc = Bundle.main.loadNibNamed("AllCommentsViewController", owner: nil, options: nil)?.first as! AllCommentsViewController
         vc.gId = productInformation!._id
         vc.loadComment(gId: String.init(format: "%D", (productInformation?._id)!), pageNumber: "1")
@@ -387,6 +395,10 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     //MARK:购物车
     @IBAction func shoppingCarAction(_ sender: Any) {
+        if Model_user_information.getToken().count == 0 {
+            isTolaunch()
+            return
+        }
         if selectSpec == 0 {
 //            specificationsViewAction()
             LGYToastView.show(message: "请选择规格")
@@ -408,6 +420,10 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     //MARK:立即购买
     @IBAction func purchaseAction(_ sender: Any) {
+        if Model_user_information.getToken().count == 0 {
+            isTolaunch()
+            return
+        }
         if selectSpec == 0 {
             specificationsViewAction()
             return
