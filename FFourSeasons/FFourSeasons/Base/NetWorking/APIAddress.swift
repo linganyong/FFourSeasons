@@ -46,7 +46,12 @@ class APIAddress: NSObject {
     static let api_goodsDetail = String(format: "%@/api/goodsDetail", arguments: [api_domainName()])
     
     /*
-     商品评论 已完成
+     商品提交评论 已完成
+     */
+    static let api_comment = String(format: "%@/api/comment", arguments: [api_domainName()])
+    
+    /*
+     商品评论列表 已完成
      */
     static let api_commentList = String(format: "%@/api/commentList", arguments: [api_domainName()])
     

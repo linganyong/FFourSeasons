@@ -330,9 +330,10 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             vc?.specificationDeal(text: text, array: array!)
             vc?.specView.removeFromSuperview()
         }
-        let array = NSArray.yy_modelArray(with: Spec_json.classForCoder(), json: productInformation?.spec_json)
-        specView.collectionViewStyle(array:array as? Array<Spec_json>)
-        UIApplication.shared.keyWindow?.addSubview(specView)
+        if let array = NSArray.yy_modelArray(with: Spec_json.classForCoder(), json: productInformation?.spec_json as Any){
+            specView.collectionViewStyle(array:array as? Array<Spec_json>)
+            UIApplication.shared.keyWindow?.addSubview(specView)
+        }
     }
     
     //MARK:获取规格ID，设置价格
@@ -404,7 +405,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         }
         let vc = Bundle.main.loadNibNamed("AllCommentsViewController", owner: nil, options: nil)?.first as! AllCommentsViewController
         vc.gId = productInformation!._id
-        vc.loadComment(gId: String.init(format: "%D", (productInformation?._id)!), pageNumber: "1")
+        vc.loadCommentList(gId: String.init(format: "%D", (productInformation?._id)!), pageNumber: "1")
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -422,13 +423,16 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             if productInformation == nil || selectCountText.count < 0{
                 return
             }
-            LGYAFNetworking.lgyPost(urlString: APIAddress.api_addCart, parameters: ["itemId":String.init(format: "%D", selectSpec),"count":selectCountText], progress: nil, responseBlock: { (object, isError) in
+            LGYAFNetworking.lgyPost(urlString: APIAddress.api_addCart, parameters: ["itemId":String.init(format: "%D", selectSpec)
+                ,"count":selectCountText
+                ,"token":Model_user_information.getToken()], progress: nil, responseBlock: { (object, isError) in
                 if !isError {
-                    let model = Model_user_information.yy_model(withJSON: object)
-                    if model == nil{
-                        return
+                    if let model = Model_user_information.yy_model(withJSON: object as Any){
+                        if let msg = model.msg{
+                            LGYToastView.show(message:msg)
+                        }
                     }
-                    LGYToastView.show(message: (model?.msg)!)
+                    
                 }
             })
         }

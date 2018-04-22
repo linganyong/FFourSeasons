@@ -77,7 +77,7 @@ class MarkProductTableViewCell: UITableViewCell {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             if  let product = formatter.date(from: date){
-                if now.timeIntervalSince(product) > 24*60*60*14{
+                if now.timeIntervalSince(product) <= 24*60*60*14{
                     return true
                 }
             }

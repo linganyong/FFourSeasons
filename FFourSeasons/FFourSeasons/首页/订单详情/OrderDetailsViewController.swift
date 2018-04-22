@@ -196,7 +196,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             let vc = WuliuViewController()
             vc.number = orderDetail?.logistic
 //            print(orderDetail?.logistic_msg)
-//            vc.dictionary = jsonToDic(jsonString: orderDetail?.logistic_msg) 
+//            vc.dictionary = jsonToDic(jsonString: orderDetail?.logistic_msg)
             if let url = headerImageUrl {
                  vc.headerImageUrl = url
             }
@@ -218,6 +218,13 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         }
         if (sender.titleLabel?.text?.contains("评价"))! {
             let vc = Bundle.main.loadNibNamed("EvaluateViewController", owner: nil, options: nil)?.first as! EvaluateViewController
+            if let oId = orderDetail?._id{
+                vc.oId = "\(oId)"
+            }
+            if let list = orderDetail?.detail{
+                vc.productLsit = list
+            }
+            vc.setTableView()
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

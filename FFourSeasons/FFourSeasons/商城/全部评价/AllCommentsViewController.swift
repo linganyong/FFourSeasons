@@ -33,13 +33,13 @@ class AllCommentsViewController: UIViewController,UITableViewDelegate,UITableVie
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             if vc != nil{
                 tb!.lgyPageIndex = 1
-                vc!.loadComment(gId: "\(vc!.gId)", pageNumber: "\((tb!.lgyPageIndex)!)")
+                vc!.loadCommentList(gId: "\(vc!.gId)", pageNumber: "\((tb!.lgyPageIndex)!)")
             }
         })
         tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
             if vc != nil{
             tb!.lgyPageIndex = 1+(tb!.lgyPageIndex)!
-            vc!.loadComment(gId: "\(vc!.gId)", pageNumber: "\((tb!.lgyPageIndex)!)")
+            vc!.loadCommentList(gId: "\(vc!.gId)", pageNumber: "\((tb!.lgyPageIndex)!)")
             }
         })
     }
@@ -66,10 +66,13 @@ class AllCommentsViewController: UIViewController,UITableViewDelegate,UITableVie
         return cell
     }
     
-     func loadComment(gId:String,pageNumber:String){
+     func loadCommentList(gId:String,pageNumber:String){
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_commentList, parameters: ["gId":gId,"pageNumber":pageNumber,"token":Model_user_information.getToken()], progress: nil) {[weak self] (object, isError) in
             if !isError {
                 if let weakSelf = self{
+                    if pageNumber == "1"{
+                        weakSelf.commentList.removeAll()
+                    }
                     let model = Model_api_comment.yy_model(withJSON: object as Any)
                     if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
                         if let array = model?.page.list{
@@ -83,9 +86,18 @@ class AllCommentsViewController: UIViewController,UITableViewDelegate,UITableVie
                     }
                 }
             }
+            self?.tableView?.mj_header?.endRefreshing()
+            self?.tableView?.mj_footer?.endRefreshing()
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if tableView.lgyTypeKey == nil{
+            tableView.lgyTypeKey = "9"
+            tableView.mj_header.beginRefreshing()
+        }
+    }
     
     
     override func didReceiveMemoryWarning() {

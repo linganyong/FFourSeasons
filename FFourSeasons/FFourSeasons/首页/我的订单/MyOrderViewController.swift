@@ -180,6 +180,17 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
             vc.orderDetail = cell.modelOrder
             self.navigationController?.pushViewController(vc, animated: true)
             break;
+        case "评价":
+            let vc = Bundle.main.loadNibNamed("EvaluateViewController", owner: nil, options: nil)?.first as! EvaluateViewController
+            if let oId = cell.modelOrder?._id{
+                vc.oId = "\(oId)"
+            }
+            if let list = cell.modelOrder?.detail{
+                vc.productLsit = list
+            }
+            vc.setTableView()
+            self.navigationController?.pushViewController(vc, animated: true)
+            break;
         default:
             break
         }

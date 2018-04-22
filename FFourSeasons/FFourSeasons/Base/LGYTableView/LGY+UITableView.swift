@@ -38,7 +38,7 @@ extension UITableView {
         }
     }
     
-    //MARK:分页第几页
+    //MARK:类型
     var lgyTypeKey: String? {
         get {
             return objc_getAssociatedObject(self, &LGYtypeKey) as? String
