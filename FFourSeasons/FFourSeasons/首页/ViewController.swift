@@ -190,9 +190,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         if indexPath.row > 1{
              self.tabBarController?.tabBar.isHidden = true
             let cell = tableView.cellForRow(at: indexPath) as! MainPageProductTableViewCell
-            let na = Bundle.main.loadNibNamed("ProductSaleDetailsViewController", owner: nil, options: nil)![0] as! ProductSaleDetailsViewController
-            na.addContentProductSaleInformaiton(product: cell.model,productId: (cell.model?._id)!)
-            self.navigationController?.pushViewController(na, animated: true)
+            if let na = Bundle.main.loadNibNamed("ProductSaleDetailsViewController", owner: nil, options: nil)![0] as? ProductSaleDetailsViewController{
+                na.addContentProductSaleInformaiton(product: cell.model,productId: (cell.model?._id)!)
+                self.navigationController?.pushViewController(na, animated: true)
+            }
+            
             
         }
     }

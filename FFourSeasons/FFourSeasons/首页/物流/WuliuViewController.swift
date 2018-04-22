@@ -51,7 +51,7 @@ class WuliuViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: "WuliuTableViewCell", for: indexPath) as! WuliuTableViewCell
         cell.selectionStyle = .none
         let dic = dataScoure[indexPath.row]
-        if indexPath.row == 0{
+        if indexPath.row != 0{
             cell.showImageView.image = UIImage(named:"物流")
         }else{
             cell.showImageView.image = UIImage(named:"物流最新")

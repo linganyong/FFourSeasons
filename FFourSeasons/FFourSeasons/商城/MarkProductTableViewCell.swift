@@ -37,7 +37,7 @@ class MarkProductTableViewCell: UITableViewCell {
     func setModel(item:Goods) -> Void {
         model = item
         var str:String?
-        if item.status == 1{
+        if isNew(){
             str = "新"
         }
         setDataScoure(imageUrl: item.small_icon,line1Str: item.title, line2Str: item.profile, line3str:String(format: "￥%@",(item.price)!), loStr: str)
@@ -67,9 +67,22 @@ class MarkProductTableViewCell: UITableViewCell {
         groundView.LGyCornerRadius = 10
         
         LGYTool.viewLayerShadowCornerRadius(view: backView,cornerRadius: 10) //添加阴影
-        
 
+    }
     
+    
+    func isNew()->Bool{
+        let now = Date()
+        if let date = model?.created_time{
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            if  let product = formatter.date(from: date){
+                if now.timeIntervalSince(product) > 24*60*60*14{
+                    return true
+                }
+            }
+        }
+        return false
     }
     
 }

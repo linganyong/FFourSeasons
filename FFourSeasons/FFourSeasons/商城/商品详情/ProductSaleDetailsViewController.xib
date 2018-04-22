@@ -428,6 +428,8 @@
                 <outlet property="line3_1Label" destination="URD-s8-X5a" id="z3y-Io-2ft"/>
                 <outlet property="line4_1Label" destination="PUY-GN-QgL" id="mOI-cf-WJh"/>
                 <outlet property="payBackView" destination="1fs-2I-miv" id="GQG-JZ-I7b"/>
+                <outlet property="payBackViewHeightLC" destination="7vc-b4-Fq6" id="MfZ-Sd-w1q"/>
+                <outlet property="productDetailMaginBtn" destination="Dkh-Nz-jpL" id="rxe-fH-gZ3"/>
                 <outlet property="productDetailTableView" destination="elI-hg-mJN" id="dGV-Yi-L7K"/>
                 <outlet property="productDetailTableViewLC" destination="6eW-et-DAg" id="5AX-Qn-h53"/>
                 <outlet property="productDetailView" destination="iaQ-eo-eme" id="xKh-NB-I46"/>
@@ -436,7 +438,10 @@
                 <outlet property="productPriceLabel" destination="mHO-CT-Dx8" id="0sw-hn-CjP"/>
                 <outlet property="scaleBtn" destination="Dxw-eJ-xOb" id="MDr-db-Ckm"/>
                 <outlet property="selectSpecificationsView" destination="J8W-td-1Zd" id="N7y-fj-UGe"/>
+                <outlet property="sepcViewHeightLC" destination="Qpi-hd-m6B" id="BfT-Y8-Gdm"/>
+                <outlet property="shapCarBtn" destination="drI-2d-UoV" id="oTu-dB-GMo"/>
                 <outlet property="shopCarBtnWidthLC" destination="ELy-nN-9lE" id="xKB-sm-jIG"/>
+                <outlet property="specViewMaginTopLC" destination="z9g-0Q-dVe" id="AbT-eE-JQc"/>
                 <outlet property="specificationsTextLabel" destination="iet-YZ-1fn" id="PJV-t8-H1d"/>
                 <outlet property="spelabel" destination="t2G-Sq-yHR" id="qCy-P4-CEu"/>
             </connections>

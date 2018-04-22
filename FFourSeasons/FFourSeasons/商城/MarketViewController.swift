@@ -204,7 +204,6 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("lgyDataScoure 3",tableView.tag,tableView.lgyDataScoure.count)
         return tableView.lgyDataScoure.count;
     }
     
@@ -217,6 +216,7 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
         return cell
     }
     
+   
     
     func markProductTableViewCell(cell: MarkProductTableViewCell) {
         
@@ -224,10 +224,12 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! MarkProductTableViewCell
-        let na = Bundle.main.loadNibNamed("ProductSaleDetailsViewController", owner: nil, options: nil)![0] as! ProductSaleDetailsViewController
-        na.addContentProductSaleInformaiton(product:cell.model!, productId: (cell.model?._id)!)
-        self.navigationController?.pushViewController(na, animated: true)
-        self.tabBarController?.tabBar.isHidden = true
+        if let na = Bundle.main.loadNibNamed("ProductSaleDetailsViewController", owner: nil, options: nil)![0] as? ProductSaleDetailsViewController{
+            na.addContentProductSaleInformaiton(product:cell.model!, productId: (cell.model?._id)!)
+            self.navigationController?.pushViewController(na, animated: true)
+            self.tabBarController?.tabBar.isHidden = true
+        }
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {

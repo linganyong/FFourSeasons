@@ -9,12 +9,16 @@
 import UIKit
 
 class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource{
+    @IBOutlet weak var specViewMaginTopLC: NSLayoutConstraint!
     
     var goods_detailArray:Array<String>?
     var goods_detailImageHeight:[Int : CGFloat] = [:]
     var rightBarItem:UIBarButtonItem!
     var productInformation:Goods?
     var productModel:Model_api_goodsDetail?
+    @IBOutlet weak var productDetailMaginBtn: NSLayoutConstraint!
+    @IBOutlet weak var sepcViewHeightLC: NSLayoutConstraint!
+    @IBOutlet weak var shapCarBtn: UIButton!
     var productGuiGe:NSArray?
     static let lock = NSLock()
     var comment:Comment?
@@ -35,6 +39,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     @IBOutlet weak var line2_2Label: UILabel! //赠送购物点
     @IBOutlet weak var line2_3Label: UILabel! //销售量
     @IBOutlet weak var line2_4Label: UILabel! //店铺地址
+    @IBOutlet weak var payBackViewHeightLC: NSLayoutConstraint!
     @IBOutlet weak var line3_1Label: UILabel! //快递
 
     @IBOutlet weak var line4_1Label: UILabel! //配送范围
@@ -131,6 +136,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             if productInformation?.goods_type == 0{
                 productPriceLabel.text = String(format: "￥%@", (productInformation?.price)!)
             }else{
+                //判断是积分类型产品
                 self.navigationItem.rightBarButtonItems = nil
                 hiddenShopCarBtn()
                 scaleBtn.setTitle("立即兑换", for: .normal)
@@ -153,6 +159,16 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             if productInformation?.goods_detail != nil {
                 goods_detailArray = productInformation?.goods_detail.split(separator: ";").map(String.init)
                 setDetails()
+            }
+            
+            //设置展示类的产品
+            if productInformation?.status == 0{
+                payBackView.isHidden = true
+                selectSpecificationsView.isHidden = true
+                sepcViewHeightLC.constant = 0
+                payBackViewHeightLC.constant = 0
+                specViewMaginTopLC.constant = 0
+                self.view.layoutIfNeeded()
             }
         }
         
@@ -467,7 +483,11 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         //要下面两句才能使scrollview展示正确
         backScrollView.setContentOffset(CGPoint.init(x: 0, y: -64), animated: true)
         self.view.layoutIfNeeded()
-//         self.navigationItem.rightBarButtonItems = [rightBarItem]
+        if productInformation?.status == 1{
+            self.navigationItem.rightBarButtonItems = [rightBarItem]
+        }else{
+            self.navigationItem.rightBarButtonItems = nil
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
