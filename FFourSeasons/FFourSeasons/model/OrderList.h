@@ -37,5 +37,7 @@
 @property (nonatomic, retain) NSString * send_goods_time;
 @property (nonatomic, retain) NSString * trade_no;
 @property (nonatomic, retain) NSString * updated_time;
-@property (nonatomic, retain) NSString *coupon_msg;
+@property (nonatomic, retain) NSString *coupon_msg; //优惠券信息
+@property (nonatomic, retain) NSString *logistic; // 物流单号
+@property (nonatomic, retain) NSString *logistic_msg;// 物流信息
 @end

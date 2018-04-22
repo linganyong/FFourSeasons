@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FFourSeasons/AppDelegate.swift"
-            timestampString = "546073635.732608"
+            timestampString = "546091893.874149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "144"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FFourSeasons/AppDelegate.swift"
-            timestampString = "546073635.732691"
+            timestampString = "546091893.8743449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "161"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FFourSeasons/AppDelegate.swift"
-            timestampString = "546073635.7327501"
+            timestampString = "546091893.874495"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
@@ -101,38 +101,6 @@
             startingLineNumber = "76"
             endingLineNumber = "76"
             landmarkName = "emptyView()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FFourSeasons/AppDelegate.swift"
-            timestampString = "546073635.732885"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "launchScreen()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FFourSeasons/&#x9996;&#x9875;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;/OrderDetailsViewController.swift"
-            timestampString = "546073635.7329479"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "setOrderType(orderType:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

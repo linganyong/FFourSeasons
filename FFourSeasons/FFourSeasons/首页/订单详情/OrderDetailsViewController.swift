@@ -10,7 +10,7 @@ import UIKit
 
 public enum OrderDetailsType:Int {
     case WaitForPayment = 0
-    case WaitForReceipt = 2
+    case WaitForSend = 2
     case WaitForEvaluation = 4
     case WaitForHarvest = 3
     case ServiceReturnApply = 5
@@ -48,6 +48,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     @IBOutlet weak var nameLabel: UILabel!
     var titleLeftDataScoue = Array<String>()
     var titleRightDataScoue = Array<String>()
+    var headerImageUrl:String? //获取物流头部展示的图片的url
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +92,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         viewLayerShadowCornerRadius(view: button3)
         switch orderType {
             
-        case .WaitForHarvest: //待发货
+        case .WaitForSend: //待发货
 //            self.title = "待发货"
             button1.isHidden = true
             button2.isHidden = true
@@ -107,7 +108,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             buttonMaginTopLC.constant = 16
             serviceView.isHidden = true
             break
-        case .WaitForReceipt: //待收货
+        case .WaitForHarvest: //待收货
             self.title = "待收货"
             button1.setTitle("确定收货", for: .normal)
             button2.setTitle("申请退款", for: .normal)
@@ -191,6 +192,16 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
+        if (sender.titleLabel?.text?.contains("物流"))! {
+            let vc = WuliuViewController()
+            vc.number = orderDetail?.logistic
+//            print(orderDetail?.logistic_msg)
+//            vc.dictionary = jsonToDic(jsonString: orderDetail?.logistic_msg) 
+            if let url = headerImageUrl {
+                 vc.headerImageUrl = url
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         if (sender.titleLabel?.text?.contains("取消订单"))! {
             deleteOrder()
         }
@@ -211,6 +222,24 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         }
         
     }
+    
+    /*!
+     * @brief 把格式化的JSON格式的字符串转换成字典
+     * @param jsonString JSON格式的字符串
+     * @return 返回字典
+     */
+    func jsonToDic(jsonString: String?)->[AnyHashable: Any]? {
+    if jsonString == nil {
+        return nil
+    }
+    let jsonData: Data? = jsonString?.data(using: .utf8)
+    var dic: [AnyHashable: Any]? = nil
+    if let aData = jsonData {
+        dic = try! JSONSerialization.jsonObject(with: aData, options: .mutableContainers) as? [AnyHashable: Any]
+    }
+    return dic
+}
+    
   
     //MARK:取消订单
     func deleteOrder(){
@@ -340,6 +369,10 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomeServiceProductTableViewCell", for: indexPath) as! CustomeServiceProductTableViewCell
         cell.selectionStyle = .none
         let model = productDataScoure[indexPath.row]
+        //获取物流头部展示的图片的url
+        if headerImageUrl == nil{
+            headerImageUrl = model.small_icon
+        }
         cell.setDataScoure(name: model.title!, priceStr:  "￥\(model.price!)", countStr: "x\( model.count)", imageUrl: model.small_icon)
         return cell
     }

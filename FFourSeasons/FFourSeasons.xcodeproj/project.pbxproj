@@ -447,6 +447,7 @@
 		9CFC61AE208C86D000888D9A /* WuliuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC61AC208C86D000888D9A /* WuliuViewController.xib */; };
 		9CFC61B1208C8E7D00888D9A /* WuliuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC61AF208C8E7D00888D9A /* WuliuTableViewCell.swift */; };
 		9CFC61B2208C8E7D00888D9A /* WuliuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC61B0208C8E7D00888D9A /* WuliuTableViewCell.xib */; };
+		9CFC61B4208CAF8800888D9A /* Lin+Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC61B3208CAF8800888D9A /* Lin+Label.swift */; };
 		9CFCDD06207630F700ECBA48 /* Farm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCDD05207630F700ECBA48 /* Farm.m */; };
 		9CFCDD092076317400ECBA48 /* Model_api_farm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCDD082076317400ECBA48 /* Model_api_farm.m */; };
 		9CFD551F206E617F0028B1A4 /* 智慧农场3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD551E206E617E0028B1A4 /* 智慧农场3x.png */; };
@@ -989,6 +990,7 @@
 		9CFC61AC208C86D000888D9A /* WuliuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WuliuViewController.xib; sourceTree = "<group>"; };
 		9CFC61AF208C8E7D00888D9A /* WuliuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WuliuTableViewCell.swift; sourceTree = "<group>"; };
 		9CFC61B0208C8E7D00888D9A /* WuliuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WuliuTableViewCell.xib; sourceTree = "<group>"; };
+		9CFC61B3208CAF8800888D9A /* Lin+Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lin+Label.swift"; sourceTree = "<group>"; };
 		9CFCDD04207630F700ECBA48 /* Farm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Farm.h; sourceTree = "<group>"; };
 		9CFCDD05207630F700ECBA48 /* Farm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Farm.m; sourceTree = "<group>"; };
 		9CFCDD072076317400ECBA48 /* Model_api_farm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_farm.h; sourceTree = "<group>"; };
@@ -1524,6 +1526,7 @@
 				9C77C5822028721F008B49E2 /* VIew */,
 				9C77C4062027F96D008B49E2 /* Lin+UIViewController.swift */,
 				9C77C4072027F96D008B49E2 /* Lin+String.swift */,
+				9CFC61B3208CAF8800888D9A /* Lin+Label.swift */,
 				9C77C4082027F96D008B49E2 /* LGYViewITool.swift */,
 				9C77C4092027F96D008B49E2 /* BaseHeader.swift */,
 				9C77C40F2027F96D008B49E2 /* LinTabBarController.swift */,
@@ -2878,6 +2881,7 @@
 				9C17DEEA202BFC1F0073AAA3 /* LuckDrawViewController.swift in Sources */,
 				9C060DA1207A4AD2007EC640 /* Model_api_searchGoods.m in Sources */,
 				9CA32D4F204793D900FD5DFC /* BranchShopTableViewCell.swift in Sources */,
+				9CFC61B4208CAF8800888D9A /* Lin+Label.swift in Sources */,
 				9C0DB9E1206E0F6800F9085D /* Model_api_addressList.m in Sources */,
 				9C77C42D2027F96D008B49E2 /* LGYTool.swift in Sources */,
 				9C062F202082266F000B1172 /* LGYTextField.swift in Sources */,

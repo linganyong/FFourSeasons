@@ -13,7 +13,9 @@ class WuliuViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     @IBOutlet weak var deslabel: UILabel!
     @IBOutlet weak var titlelabel: UILabel!
     @IBOutlet weak var headerImageView: UIImageView!
-    
+    var dataScoure = Array<[AnyHashable: Any]>()
+    var number:String? //物流单号
+    var headerImageUrl:String? //头像
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,57 +23,92 @@ class WuliuViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         self.title = "物流信息"
         navigationItemBack(title: "    ")
         setTableView()
+        addEmptyView(frame: nil)
     }
+    
+    
 
     func setTableView() -> Void {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 120
+        tableView.rowHeight = 60
         tableView.separatorColor = UIColor.clear
-        tableView.register(UINib.init(nibName: "IntegralShopTableViewCell", bundle: nil), forCellReuseIdentifier: "IntegralShopTableViewCell")
-        tableView.lgyDataScoure = Array<String>()
-        loadIntegralShop(tableView: tableView)
+        tableView.tableFooterView = UIView()
+        tableView.register(UINib.init(nibName: "WuliuTableViewCell", bundle: nil), forCellReuseIdentifier: "WuliuTableViewCell")
+        if let code = number{
+            loadQuery(number: code)
+        }
+        if let url = headerImageUrl{
+            headerImageView.imageFromURL(url, placeholder: UIImage(named: "loading.png")!)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableView.lgyDataScoure.count
+        return dataScoure.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "IntegralShopTableViewCell", for: indexPath) as! IntegralShopTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WuliuTableViewCell", for: indexPath) as! WuliuTableViewCell
         cell.selectionStyle = .none
-        let good = tableView.lgyDataScoure[indexPath.row] as! Goods
-        cell.setDataScoure(item: good, delegate: self)
+        let dic = dataScoure[indexPath.row]
+        if indexPath.row == 0{
+            cell.showImageView.image = UIImage(named:"物流")
+        }else{
+            cell.showImageView.image = UIImage(named:"物流最新")
+        }
+        if let date = dic["time"] as? String{
+            cell.dateLabel.text = date
+            cell.dateLabel.changeRange(range: NSRange.init(location: 10, length: date.count - 10), color: nil, textSize: 12)
+        }
+        if let msg = dic["status"] as? String{
+            cell.detailLabel.text = msg
+        }
+        
+        
         
         return cell
         
     }
     
     //MARK:加载数据
-    func loadIntegralShop(tableView:UITableView) ->Void {
-        weak var tb = tableView
-        LGYAFNetworking.lgyPost(urlString: APIAddress.api_integralShop, parameters: ["pageNumber":String.init(format: "%D", (tb?.lgyPageIndex)!)
-            ,"token":Model_user_information.getToken()], progress: nil) { (object, isError) in
+    func loadQuery(number:String) ->Void {
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_query, parameters: ["number":number
+            ,"token":Model_user_information.getToken()], progress: nil) { [weak self](object, isError) in
                 if !isError {
-                    if isError{
-                        return
+                    let model = Model_user_information.yy_model(withJSON: object as Any)
+                    if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                        self?.setData(object: object as! [AnyHashable : Any])
                     }
-                    let model = Model_api_integralShop.yy_model(withJSON: object as Any)
-                    if model?.goodsList != nil {
-                        if model?.goodsList.list != nil {
-                            if tb?.lgyPageIndex == 1{
-                                tb?.lgyDataScoure.removeAll();
-                            }
-                            for item in (model?.goodsList.list)!{
-                                tb?.lgyDataScoure.append(item)
-                            }
-                        }
-                    }
-                    tb?.reloadData();
-                    tb?.mj_header?.endRefreshing()
-                    tb?.mj_footer?.endRefreshing()
-                    
                 }
+        }
+    }
+    
+    
+    func setData(object:[AnyHashable: Any]){
+        var name = ""
+        if let express = object["express"] as? [AnyHashable: Any]{
+            if let ss = express["name"] as? String{
+                name = ss
+                removeEmptyView()
+            }
+        }
+        if let dic = object["result"] as? [AnyHashable: Any] {
+            if let result = dic["result"] as? [AnyHashable: Any]{
+                if let list = result["list"] as? Array<[AnyHashable: Any]>{
+                    dataScoure = list;
+                    tableView.reloadData()
+                }
+                if let _number = result["number"] as? String{
+                    deslabel.text = "\(name)-\(_number)"
+                }
+            }
+            if let status = dic["status"] as? String {
+                if status == "0" {
+                    titlelabel.text = "已签收"
+                }else{
+                    titlelabel.text = "派送中"
+                }
+            }
         }
     }
     
