@@ -38,7 +38,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
         pageView.frame = CGRect(x: 0, y: 64, width: self.view.frame.width, height: self.view.frame.height-64)
         self.view .addSubview(pageView)
         pageView.addContent(titleArray:titleArray , height: 30, isHiddenHeader: false)
-        pageView.headerBtnStyle(defaultTextColor: UIColor.init(red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1), selectTextColor: UIColor.init(red: 42/255.0, green: 201/255.0, blue: 140/255.0, alpha: 1), headerBtnWidth: self.view.frame.size.width/6, headerLineHeight: 1,textFront: 12)
+        pageView.headerBtnStyle(defaultTextColor: UIColor.init(red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1), selectTextColor: UIColor.init(red: 42/255.0, green: 201/255.0, blue: 140/255.0, alpha: 1), headerBtnWidth: self.view.frame.size.width/CGFloat(titleArray.count), headerLineHeight: 1,textFront: 12)
          pageView.setLineViewWidth(width: 40)
         weak var vc = self
         for i in 0..<titleArray.count{

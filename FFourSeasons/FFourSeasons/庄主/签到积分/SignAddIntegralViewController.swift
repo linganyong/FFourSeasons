@@ -240,6 +240,7 @@ class SignAddIntegralViewController: UIViewController,UITableViewDelegate,UITabl
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setNavigationBarStyle(type: .Clear)
+        self.view.layoutIfNeeded()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -28,7 +28,7 @@ class MainPageMenuView: UIView {
          viewController?.tabBarController?.tabBar.isHidden = true
     }
     
-    //MARK:积分支付响应
+    //MARK:签到响应
     @IBAction func menuAction2(_ sender: Any) {
         if Model_user_information.getToken().count == 0 {
             viewController?.isTolaunch()
@@ -36,6 +36,7 @@ class MainPageMenuView: UIView {
         }
         let vc = Bundle.main.loadNibNamed("SignAddIntegralViewController", owner: nil, options: nil)?.first as! SignAddIntegralViewController
         viewController?.navigationController?.pushViewController(vc, animated: true)
+         viewController?.tabBarController?.tabBar.isHidden = true
 //        _ = LGYAlertViewSimple.show(title: "功能即将上线！", buttonStr: "确定")
     }
     
