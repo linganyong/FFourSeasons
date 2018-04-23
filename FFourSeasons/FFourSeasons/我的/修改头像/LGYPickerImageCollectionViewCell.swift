@@ -14,7 +14,7 @@ class LGYPickerImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var prictureImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+       prictureImageView.layer.masksToBounds = true
     }
 
 }

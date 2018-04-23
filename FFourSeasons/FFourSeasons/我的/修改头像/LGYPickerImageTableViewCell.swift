@@ -17,7 +17,7 @@ class LGYPickerImageTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        prictureImageView.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

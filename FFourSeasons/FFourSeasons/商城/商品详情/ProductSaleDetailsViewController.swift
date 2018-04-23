@@ -55,6 +55,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     @IBOutlet weak var productDetailView: UIView!
     @IBOutlet weak var productDetailImageView: UIImageView!
     var timer:Timer?
+    var selectType = 0 // 0代表没有选，1代表点击了购物车，2代表点击了即将购买
     
     var isCollection = 1 //1 表示未收藏，2表示已经收藏
     var selectSpec = 0 //选择的规格
@@ -67,7 +68,6 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         view.layoutIfNeeded()
         viewShadowColor()
        
-        addCommentInformation()
         addViewTapGestureRecognizerAction()
         viewStyle()
         self.title = "产品详情"
@@ -145,7 +145,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             if  productInformation?.sale == nil{
                 productInformation?.sale = 0
             }
-            line2_3Label.text = String(format: "累计销售%D笔", (productInformation?.sale)!)
+            line2_3Label.text = String(format: "累计销售%D笔", (productInformation?.real_sale)!)
             line2_4Label.text = String(format: "%@", (productInformation?.origin_place)!)
             line4_1Label.text = String(format: "配送范围：%@", (productInformation?.delivery_address)!)
             line3_1Label.text = productInformation?.remark
@@ -307,14 +307,6 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         
     }
     
-    //MARK:设置评论内容
-    func addCommentInformation() -> Void {
-        commentImageView.imageFromURL("http://img1.360buyimg.com/n6/jfs/t8368/109/929691645/455254/ebb7a902/59b10b85N9795cd8f.jpg", placeholder: UIImage.init(named: "loading.png")!)
-        commentNameLabel.text = "七夕e分手"
-        commentDescribeLabel.text = "有道翻译提供即时免费的中文、英语、日语、韩语、法语、俄语、西班牙语、葡萄牙语、越南语全文翻译、网页翻译、文档翻译服务。"
-        specificationsTextLabel.text = "规格：黑色       数量：1株"
-    }
-    
     //MARK:选择规格点击响应
     @objc func specificationsViewAction() -> Void {
         specView.frame = UIScreen.main.bounds
@@ -385,8 +377,14 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
                     
                 }
             }
-            
         }
+        //点击购物车或者立即购买弹出选择规格时
+        if selectType == 1{
+            addToShop()
+        }else if selectType == 2{
+            goToBuy()
+        }
+        selectType = 0
     }
     
     @IBAction func allCommentsAction(_ sender: Any) {
@@ -417,15 +415,22 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             return
         }
         if selectSpec == 0 {
-//            specificationsViewAction()
-            LGYToastView.show(message: "请选择规格")
+            selectType = 1
+            specificationsViewAction()
+            return
         }else{
-            if productInformation == nil || selectCountText.count < 0{
-                return
-            }
-            LGYAFNetworking.lgyPost(urlString: APIAddress.api_addCart, parameters: ["itemId":String.init(format: "%D", selectSpec)
-                ,"count":selectCountText
-                ,"token":Model_user_information.getToken()], progress: nil, responseBlock: { (object, isError) in
+            addToShop()
+        }
+    }
+    
+    //MARK:点击购物车
+    func addToShop()->Void{
+        if productInformation == nil || selectCountText.count < 0 || selectSpec == 0{
+            return
+        }
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_addCart, parameters: ["itemId":String.init(format: "%D", selectSpec)
+            ,"count":selectCountText
+            ,"token":Model_user_information.getToken()], progress: nil, responseBlock: { (object, isError) in
                 if !isError {
                     if let model = Model_user_information.yy_model(withJSON: object as Any){
                         if let msg = model.msg{
@@ -434,8 +439,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
                     }
                     
                 }
-            })
-        }
+        })
     }
     
     //MARK:立即购买
@@ -445,7 +449,15 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             return
         }
         if selectSpec == 0 {
+            selectType = 2
             specificationsViewAction()
+            return
+        }
+        goToBuy()
+    }
+    
+    func goToBuy()->Void{
+        if selectSpec == 0{
             return
         }
         let vc = PurchaseImmediatelyViewController()
@@ -465,25 +477,18 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         NSLog("%lf", scrollView.contentOffset.y)
         if scrollView.contentOffset.y <= 150.0 && scrollView.contentOffset.y >= -64{
-            let alpha = (scrollView.contentOffset.y+64)/150.0
-            
-            self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(color: UIColor.init(red: 255/255.0, green: 255/255.0, blue:255/255.0, alpha: alpha)), for: .default)
+            let alpha = (scrollView.contentOffset.y+64)/150.0; self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(color: UIColor.init(red: 255/255.0, green: 255/255.0, blue:255/255.0, alpha: alpha)), for: .default)
             self.view.layoutIfNeeded()
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-//    self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(color: UIColor.init(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0.0)), for: .default)
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-          self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(color: UIColor.init(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0.0)), for: .default)
-        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
-        self.navigationController?.navigationBar.tintColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
+        setNavigationBarStyle(type: .Alpha)
         //要下面两句才能使scrollview展示正确
         backScrollView.setContentOffset(CGPoint.init(x: 0, y: -64), animated: true)
         self.view.layoutIfNeeded()
@@ -496,10 +501,6 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        let bgImage = UIImage(named: "导航矩形3x.png")?.resizableImage(withCapInsets:  UIEdgeInsets(), resizingMode: .stretch)
-        self.navigationController?.navigationBar.setBackgroundImage(bgImage, for: .default)
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
          self.navigationItem.rightBarButtonItems = nil
     }
     
@@ -523,8 +524,15 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             }
         }
     }
-    
+    //MAARK:设置评论
     func setComment()->Void{
+        commentNameLabel.text = nil
+        commentImageView.image =  nil
+        commentDescribeLabel.text = nil
+        specificationsTextLabel.text = nil
+        commentView.isHidden = true
+        commentHeightLC.constant = 0
+        commentMaginLC.constant = 0
         if comment != nil{
             commentView.isHidden = false
             commentNameLabel.text = comment?.nick_name
@@ -537,14 +545,6 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             specificationsTextLabel.text = comment?.created_time
             commentHeightLC.constant = 117
             commentMaginLC.constant = 16
-        }else{
-            commentNameLabel.text = nil
-            commentImageView.image =  nil
-            commentDescribeLabel.text = nil
-            specificationsTextLabel.text = nil
-            commentView.isHidden = true
-            commentHeightLC.constant = 0
-            commentMaginLC.constant = 0
         }
     }
     

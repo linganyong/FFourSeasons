@@ -92,9 +92,9 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
     func setPageView() ->Void{
         self.view.layoutIfNeeded()
         pageView.frame = CGRect(x: 0, y: 64, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 64 - 52)
-        pageView.addContent(titleArray: titleDataScoure, height: 21, maginLeft: 10)
+        pageView.addContent(titleArray: titleDataScoure, height: 26, maginLeft: 10)
        pageView.setBackgroundColor(defaultBackgroundColor: UIColor.clear, selectBackgroundColor: UIColor.init(red: 42/255.0, green: 201/255.0, blue: 140/255.0, alpha: 1))
-        pageView.headerBtnStyle(defaultTextColor: UIColor.black, selectTextColor: UIColor.white, headerBtnMagin: 20, headerLineHeight: 0, textFront: 12)
+        pageView.headerBtnStyle(defaultTextColor: UIColor.black, selectTextColor: UIColor.white, headerBtnMagin: 20, headerLineHeight: 0, textFront: 15)
         pageView.layoutIfNeeded()
         for i in 0..<titleDataScoure.count{
             let tb = pageView.pageViewtableView(index: i)

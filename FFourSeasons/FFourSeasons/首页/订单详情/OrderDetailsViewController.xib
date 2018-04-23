@@ -185,7 +185,7 @@
                                     <constraint firstAttribute="height" constant="30" id="ddD-tu-g3A"/>
                                     <constraint firstAttribute="width" constant="74" id="oTO-Gv-yqx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="确认收货" backgroundImage="button:v9A-jP-YsN:backgroundImage">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -200,7 +200,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SzE-Gx-GKf">
                                 <rect key="frame" x="189" y="365" width="74" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="申请售后" backgroundImage="button:v9A-jP-YsN:backgroundImage">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -215,7 +215,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwr-Dr-7aL">
                                 <rect key="frame" x="107" y="365" width="74" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="查看物流" backgroundImage="button:v9A-jP-YsN:backgroundImage">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

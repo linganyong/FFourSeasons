@@ -235,6 +235,9 @@ class CustomerServiceViewController: UIViewController,UITextViewDelegate,UITable
             ,"imgs":""], progress: nil, cacheName: nil) { (object, isError) in
             if !isError {
                 let model = Model_user_information.yy_model(withJSON: object as Any)
+                if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                    MyOrderViewControllerisNeedLoad = true
+                }
                 if let msg = model?.msg{
                     LGYToastView.show(message: msg)
                 }

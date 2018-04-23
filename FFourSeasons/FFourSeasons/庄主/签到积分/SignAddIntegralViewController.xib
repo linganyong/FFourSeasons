@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,7 +33,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6G-fH-tGB">
                                         <rect key="frame" x="22" y="9" width="85" height="50"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="积分详情3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y0n-0M-1iO">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="积分详情3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y0n-0M-1iO">
                                                 <rect key="frame" x="28" y="0.0" width="28" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="28" id="0WS-4L-q65"/>
@@ -79,7 +79,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lE5-HX-UWV">
                                         <rect key="frame" x="129" y="9" width="85" height="50"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="积分规则3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="CWR-dg-gW9">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="积分规则3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="CWR-dg-gW9">
                                                 <rect key="frame" x="28.5" y="0.0" width="28" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="28" id="gRd-hP-fz4"/>
@@ -122,7 +122,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPp-Cj-COW">
                                         <rect key="frame" x="236" y="9" width="85" height="50"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="积分兑换3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="frX-9O-KLk">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="积分兑换3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="frX-9O-KLk">
                                                 <rect key="frame" x="29" y="0.0" width="28" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="28" id="1Eh-6g-l2P"/>

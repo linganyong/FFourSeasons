@@ -20,6 +20,7 @@ let orderCustomerSuccess = "7" //售后成功
 let orderCancle = "1" //取消订单
 let orderComplete = "8" //已完成
 
+var MyOrderViewControllerisNeedLoad = true
 
 class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MyHarvestTableViewCellDelegate{
     let pageView = LGYPageView()
@@ -227,10 +228,17 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if MyOrderViewControllerisNeedLoad{
+            MyOrderViewControllerisNeedLoad = false
+            reloadDataScoure()
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavigationBarStyle(type: .Default)
-        reloadDataScoure()
     }
     
     

@@ -85,6 +85,7 @@ class FarmerViewController: UIViewController {
         vc.loadDataRichTextType(type: .PerksVip)
         vc.title = "会员特权说明"
         self.navigationController?.pushViewController(vc, animated: true)
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     //MARK:充值

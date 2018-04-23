@@ -10,7 +10,7 @@ import UIKit
 
  extension UILabel {
     
-    
+    //MARK:设置部分字体颜色
     func changeRange(range:NSRange,color:UIColor?,textSize:CGFloat){
         let text = NSMutableAttributedString(string: self.text!)
         if let co = color{
@@ -22,5 +22,18 @@ import UIKit
         self.attributedText = text
     }
     
+/**
+     *  设置行间距和字间距
+     *  @param lineSpace 行间距
+     *  @return 富文本
+     */
+func setlineSpace(lineSpace: CGFloat) -> Void {
+    let attributedString:NSMutableAttributedString = NSMutableAttributedString(string:self.text!)
+    let paragraphStyle:NSMutableParagraphStyle = NSMutableParagraphStyle()
+    paragraphStyle.lineSpacing = lineSpace //大小调整
+//    attributedString.addAttributes(<#T##attrs: [NSAttributedStringKey : Any]##[NSAttributedStringKey : Any]#>, range: <#T##NSRange#>)
+    attributedString.addAttribute(kCTParagraphStyleAttributeName as NSAttributedStringKey, value: paragraphStyle, range: NSMakeRange(0, self.text!.count))
+    self.attributedText = attributedString
+}
 
 }

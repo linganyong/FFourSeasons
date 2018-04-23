@@ -9,10 +9,10 @@
 import UIKit
 
 
-class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttributedLabelDelegate,CLLocationManagerDelegate,DetailsViewDelegate {
+class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttributedLabelDelegate,CLLocationManagerDelegate,DetailsViewDelegate,LGYMAAnnotationViewDelegate {
     
     @IBOutlet weak var myLocationBtn: UIButton!
-    var mapZoomLevel = CGFloat(10.5)
+    var mapZoomLevel = CGFloat(12.5)
     ///初始化地图
     let mapView = MAMapView()
     let locationManager = CLLocationManager()
@@ -20,13 +20,10 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     let tool = LGYMapMangerTool() //启动导航
     let backView = UIView()
     let textLabel = TYAttributedLabel()
-    var listFarm = Array<Farm>() //其他农场列表
-    var listAnnotation = Array<MAPointAnnotation>() //其他农场MAPointAnnotation列表
-    var listImage:[Int:UIImage] = [:] //其他农场列表
+    var listFarm = Array<Farm>() //其他农场列
     var firstFarm:Farm? //推荐农场
     var selectFarm:Farm? //点击展开的农场
     var isFirst = true //判断第一次
-    var timer:Timer?
     let lock = NSLock()
     
     override func viewDidLoad() {
@@ -112,32 +109,25 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
             }
             return nil
         }
-        if (annotation.isKind(of: MAPointAnnotation.classForCoder())) {
+        if (annotation.isKind(of: LGYMAPointAnnotation.classForCoder())) {
+           
             let pointReuseIndentifier = "pointReuseIndentifier"
-            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: pointReuseIndentifier) as? MAPinAnnotationView
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: pointReuseIndentifier) as? LGYMAAnnotationView
             if annotationView == nil {
-                annotationView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: pointReuseIndentifier)
+                annotationView = LGYMAAnnotationView(annotation: annotation, reuseIdentifier: pointReuseIndentifier)
             }
-            if annotation.lgyTag < 0{
-                annotationView?.image = UIImage(named:"");
-            }else if annotation.lgyTag < 10000 && annotation.lgyTag >= 0{ //周边农场
-                //                let farm = listFarm[annotation.lgyTag]
-                self.lock.lock()
-                annotationView?.image =  listImage[annotation.lgyTag]
-                self.lock.unlock()
-                annotationView?.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-                annotationView?.backgroundColor = UIColor.white
-                annotationView?.contentMode = .center
-                annotationView?.LGyCornerRadius = 25
-                LGYTool.viewLayerShadowShadowOffsetHeight(view: annotationView!)
-                annotationView?.lgyTag = annotation.lgyTag
-                annotationView?.reloadInputViews()
-                //                annotationView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelect(view:))))
-                //                }
-            }else if annotation.lgyTag == 10000{
-                
+            if let myAnnotation = annotation as? LGYMAPointAnnotation,let view = annotationView{
+                view.image =  myAnnotation.image;
+                view.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+                view.backgroundColor = UIColor.white
+                view.contentMode = .center
+                view.farm = myAnnotation.farm
+                view.LGyCornerRadius = 25
+                LGYTool.viewLayerShadowShadowOffsetHeight(view: view)
+                view.setDelegate(delegete: self)
+                view.reloadInputViews()
+//
             }
-            
             return annotationView
         }
         return nil
@@ -145,28 +135,14 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     
     //MARK:点击大头标响应,此方法只能点击一次
     func mapView(_ mapView: MAMapView!, didSelect view: MAAnnotationView!) {
-        if view.lgyTag < 10000 && view.lgyTag >= 0{
-            selectFarm = listFarm[view.lgyTag]
-            loadGoodData(sid: selectFarm!._id, description: selectFarm!.shop_introduce, title: selectFarm!.shop_name)
-            UIView.animate(withDuration: 0.5, animations: {
-                
-            }, completion: { (finish) in
-                if finish{
-                    
-                }
-            })
-        }
+//        tapAnnotationView(annota:view as! LGYMAAnnotationView)
     }
     
-    //    @objc func didSelect(view: MAAnnotationView!){
-    //        if view.lgyTag < 10000 && view.lgyTag >= 0{
-    //            selectFarm = listFarm[view.lgyTag]
-    //            loadGoodData(sid: selectFarm!._id, description: selectFarm!.shop_introduce, title: selectFarm!.shop_name)
-    //            view.setSelected(false, animated: true)
-    //        }
-    //
-    //
-    //    }
+    func lgyMAAnnotationViewFarm(farm: Farm) {
+        selectFarm = farm
+        loadGoodData(sid: selectFarm!._id, description: selectFarm!.shop_introduce, title: selectFarm!.shop_name)
+    }
+
     
     //MARK:开始定位
     func startLocationManager() -> Void {
@@ -249,9 +225,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
             }
             listFarm.removeAll()
             if let farms = model?.farms{
-                var count = 0
                 listFarm.removeAll()
-                listAnnotation.removeAll()
                 for item in farms{ //插入大图标
                     var flag = true
                     for object in listFarm{
@@ -261,27 +235,20 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
                         }
                     }
                     if flag{
-                        print(" coordinate ",count,"\n")
-                        print(" coordinate "," lat=",item.lat," - lng=",item.lng)
                         listFarm.append(item)
                         let cl = CLLocation(latitude: item.lat, longitude: item.lng)
-                        let annotation = MAPointAnnotation()
-                        annotation.lgyTag = count
+                        let annotation = LGYMAPointAnnotation()
                         annotation.coordinate = cl.coordinate
-                        
-                        count += 1
-                        let index = count;
+                        annotation.farm = item;
                         _ = UIImage.image(fromURL: item.imgs, placeholder: UIImage.init(named: "农场图标.png")!, shouldCacheImage: false, closure: { [weak self](image) in
                             self?.lock.lock()
-                            annotation.lgyTag = index
                             if image != nil{
-                                self?.listImage[index] = image
+                                annotation.image = image
                             }else{
-                                self?.listImage[index] = UIImage.init(named: "农场图标.png")
+                                annotation.image = UIImage.init(named: "农场图标.png")
                                 
                             }
                             self?.lock.unlock()
-//                            self?.listAnnotation.append(annotation)
                             self?.mapView.addAnnotation(annotation)
 //
                         })
@@ -295,19 +262,6 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         }
     }
     
-    func addTimer()->Void{
-        timer?.invalidate()
-        timer = nil
-        timer = Timer(timeInterval: 0.05, target: self, selector: #selector(reloadMap), userInfo: nil, repeats: true)
-        RunLoop.current.add(timer!, forMode: .commonModes)
-    }
-    
-    @objc func reloadMap() -> Void {
-        mapView.addAnnotations(listAnnotation)
-        if listAnnotation.count == listFarm.count{
-            timer?.invalidate()
-        }
-    }
     //
     @IBAction func selfLocationAction(_ sender: UIButton) {
         ///如果您需要进入地图就显示定位小蓝点，则需要下面两行代码

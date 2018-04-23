@@ -18,10 +18,10 @@ class HundredFarmingGardenViewController: UIViewController,UITableViewDelegate,U
     
     
     
+    @IBOutlet weak var headImageView: UIImageView!
     @IBAction func menuAction(_ sender: UIButton) {
         _ = LGYAlertViewSimple.show(title: "功能即将上线！", buttonStr: "确定")
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class HundredFarmingGardenViewController: UIViewController,UITableViewDelegate,U
         self.title = "庄园"
         navigationItemBack(title: "    ")
         setBackgroundColor()
-        
+        headImageView.layer.masksToBounds = true
     }
     
  

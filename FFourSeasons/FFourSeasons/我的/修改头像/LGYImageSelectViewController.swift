@@ -136,8 +136,8 @@ class LGYImageSelectViewController: UIViewController,UICollectionViewDelegate,UI
                 cell.width.constant = cell.frame.size.width/3
                  cell.prictureImageView.image = UIImage.init(named: "相机.jpg")
             }else{
-                
-                getImage(asset: dataScoure[indexPath.row-1] as! PHAsset, original: false, block: {(image) in
+                let count = dataScoure.count - 1 - (indexPath.row-1)
+                getImage(asset: dataScoure[count] as! PHAsset, original: false, block: {(image) in
                     cell.prictureImageView.image = image
                     
                 })
@@ -152,9 +152,11 @@ class LGYImageSelectViewController: UIViewController,UICollectionViewDelegate,UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         if !isNeedCut{ //这里是不需要截取图片
             if indexPath.row > 0{
-                getImage(asset: dataScoure[indexPath.row-1] as! PHAsset, original: true, block: {[weak self](image) in
+                let count = dataScoure.count - 1 - (indexPath.row-1)
+                getImage(asset: dataScoure[count] as! PHAsset, original: true, block: {[weak self](image) in
                     if let weakSelf = self{
                         weakSelf.delegate?.lgyImageSelectViewController(viewController: weakSelf, image:image!, imagePath: "")
                     }
@@ -167,7 +169,8 @@ class LGYImageSelectViewController: UIViewController,UICollectionViewDelegate,UI
         //下面是需要截取图片
         if selectMenuIndex == 0{
             if indexPath.row > 0{
-                getImage(asset: dataScoure[indexPath.row-1] as! PHAsset, original: true, block: {[weak self](image) in
+                let count = dataScoure.count - 1 - (indexPath.row-1)
+                getImage(asset: dataScoure[count] as! PHAsset, original: true, block: {[weak self](image) in
                     let clipView = YSHYClipViewController(image: image)
                     clipView?.delegate = self
                     clipView?.clipType = SQUARECLIP
@@ -266,6 +269,9 @@ class LGYImageSelectViewController: UIViewController,UICollectionViewDelegate,UI
     }
     
     func clipViewController(_ clipViewController: YSHYClipViewController!, finishClipImage editImage: UIImage!) {
+        if isNeedCut{
+            self.navigationController?.popViewController(animated: true)
+        }
         delegate?.lgyImageSelectViewController(viewController: self, image: editImage, imagePath: "")
     }
 
@@ -314,7 +320,7 @@ class LGYImageSelectViewController: UIViewController,UICollectionViewDelegate,UI
         selectMenuIndex = indexPath.row
         let dic:NSDictionary = dataScoureMenu[indexPath.row]
         tableViewHeightLC.constant = 0
-        dataScoure = NSMutableArray.init(array: dic.object(forKey: "value") as! NSArray)
+        let dataScoure = NSMutableArray.init(array: dic.object(forKey: "value") as! NSArray)
         menuButton.setTitle(dic.object(forKey: "title") as? String, for: .normal)
         collectionView.reloadData()
     }

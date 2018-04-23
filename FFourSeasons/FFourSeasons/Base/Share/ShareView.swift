@@ -88,7 +88,7 @@ class ShareView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShareViewCell", for: indexPath) as! ShareViewCell
-            cell.backgroundColor = UIColor(red: 249/255.0, green: 131/255.0, blue: 249/255.0, alpha: 1)
+//            cell.backgroundColor = UIColor(red: 249/255.0, green: 131/255.0, blue: 249/255.0, alpha: 1)
             cell.setDataScoure(imageUrl: dataImageScoure[indexPath.row])
             return cell
         }

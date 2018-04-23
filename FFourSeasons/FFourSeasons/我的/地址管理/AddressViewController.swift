@@ -21,7 +21,7 @@ class AddressViewController: UIViewController,UITableViewDelegate,UITableViewDat
         super.viewDidLoad()
         setTableView()
         navigationItemBack(title: "    ")
-        self.title = "地址管理"
+        self.title = "收货地址管理"
         rightBarItem = navigationBarAddRightItem(_imageName: "加.png", target: self, action: #selector(rightBarAction))
         setBackgroundColor()
     }

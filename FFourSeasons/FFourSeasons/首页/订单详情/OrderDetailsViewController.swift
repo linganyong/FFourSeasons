@@ -17,6 +17,7 @@ public enum OrderDetailsType:Int {
     case ServiceReturnFail = 6
     case ServiceReturnSuccess = 7
     case TransactionCompletion = 8
+    case OrderCancle = 1
 }
 
 class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableViewDataSource,UITableViewDelegate {
@@ -135,8 +136,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             seviceLabel.text  = "申请情况：申请售后失败"
             button2.setTitle("申请退款", for: .normal)
             button1.setTitle("确定收货", for: .normal)
-            buttonMaginTopLC.constant = 16
-            serviceView.isHidden = true
+            seviceLabel.text  = "申请情况：申请失败"
             break
         case .ServiceReturnSuccess: //退货成功
             button3.isHidden = true
@@ -145,6 +145,13 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             seviceLabel.text  = "申请情况：申请通过，重新发货"
             break
         case .TransactionCompletion: //交易完成
+            button3.isHidden = true
+            button2.isHidden = true
+             button1.setTitle("查看物流", for: .normal)
+            buttonMaginTopLC.constant = 16
+            serviceView.isHidden = true
+            break
+        default:
             button3.isHidden = true
             button2.isHidden = true
             button1.isHidden = true
@@ -257,6 +264,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
                 let model = Model_user_information.yy_model(withJSON: object as Any)
                 if let msg = model?.msg {
                     if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                        MyOrderViewControllerisNeedLoad = true
                         self?.popViewController()
                     }
                     LGYToastView.show(message: msg)
@@ -273,6 +281,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
                 if let msg = model?.msg {
                     LGYToastView.show(message: msg)
                     if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                        MyOrderViewControllerisNeedLoad = true
                         self?.loadOrderDetails()
                     }
                 }
@@ -289,6 +298,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
                 if let msg = model?.msg {
                     LGYToastView.show(message: msg)
                     if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
+                        MyOrderViewControllerisNeedLoad = true
                         self?.loadOrderDetails()
                     }
                 }

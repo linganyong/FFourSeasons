@@ -239,10 +239,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        setNavigationBarStyle(type: .Default)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         self.navigationItem.rightBarButtonItems = nil
     }
     

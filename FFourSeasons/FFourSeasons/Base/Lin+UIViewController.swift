@@ -14,7 +14,8 @@ private var LGYViewControllerTagKey:NSInteger?
 enum NavigationBarStyle:Int{
     case Default = 1;
     case White = 2;
-    case Clear = 3
+    case Clear = 3;
+    case Alpha = 4;
 }
 
 extension UIViewController {
@@ -157,6 +158,12 @@ extension UIViewController {
         case .Clear:
             backgroundImage = UIImage.init(color: UIColor.clear);
             tintColor = UIColor.white;
+            setNaviagtionShadowOffset(color: UIColor.clear)
+            UIApplication.shared.statusBarStyle = .lightContent
+            break
+        case .Alpha:
+            backgroundImage = UIImage.init(color: UIColor.clear);
+            tintColor = UIColor.black;
             setNaviagtionShadowOffset(color: UIColor.clear)
             UIApplication.shared.statusBarStyle = .lightContent
             break

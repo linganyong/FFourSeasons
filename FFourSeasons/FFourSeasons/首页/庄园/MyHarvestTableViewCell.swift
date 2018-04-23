@@ -84,7 +84,7 @@ class MyHarvestTableViewCell: UITableViewCell {
                 line2Label.text = "待付款"
                 break
             case orderCancle: //取消订单
-                line2Label.text = "已取消"
+                line2Label.text = "交易关闭"
                 break
             case orderPaySuccess: //付款成功
                 line2Label.text = "待发货"
@@ -96,10 +96,16 @@ class MyHarvestTableViewCell: UITableViewCell {
                 line2Label.text = "待评价"
                 break
             case orderCustomerService: //售后
-                line2Label.text = "售后"
+                line2Label.text = "申请售后中"
+                break
+            case orderCustomerFail: //售后
+                line2Label.text = "售后审核失败"
+                break
+            case orderCustomerSuccess: //售后
+                line2Label.text = "售后审核成功"
                 break
             case orderComplete:  //已完成
-                line2Label.text = "完成"
+                line2Label.text = "交易完成"
                 break
             default:
                 break

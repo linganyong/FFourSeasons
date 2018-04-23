@@ -31,7 +31,7 @@ class WuliuViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     func setTableView() -> Void {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 60
+        tableView.rowHeight = 70
         tableView.separatorColor = UIColor.clear
         tableView.tableFooterView = UIView()
         tableView.register(UINib.init(nibName: "WuliuTableViewCell", bundle: nil), forCellReuseIdentifier: "WuliuTableViewCell")
@@ -62,6 +62,7 @@ class WuliuViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         }
         if let msg = dic["status"] as? String{
             cell.detailLabel.text = msg
+            cell.detailLabel.setlineSpace(lineSpace: 4)
         }
         
         

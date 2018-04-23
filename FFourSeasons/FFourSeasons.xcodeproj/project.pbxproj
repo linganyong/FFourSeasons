@@ -152,8 +152,6 @@
 		9C58AADB20510C1000594011 /* 按钮背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C58AADA20510C1000594011 /* 按钮背景.png */; };
 		9C58AADE20511B8200594011 /* CustomerServiceApplyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58AADC20511B8200594011 /* CustomerServiceApplyResultViewController.swift */; };
 		9C58AADF20511B8200594011 /* CustomerServiceApplyResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C58AADD20511B8200594011 /* CustomerServiceApplyResultViewController.xib */; };
-		9C5CBF0F207661350078F17B /* Lin+MAPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CBF0E207661350078F17B /* Lin+MAPointAnnotation.swift */; };
-		9C5CBF1120766D7C0078F17B /* Lin+MAAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CBF1020766D7C0078F17B /* Lin+MAAnnotationView.swift */; };
 		9C5CBF16207677FE0078F17B /* Model_api_getGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CBF15207677FE0078F17B /* Model_api_getGoods.m */; };
 		9C5CBF19207678E20078F17B /* FarmGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CBF18207678E20078F17B /* FarmGoodsList.m */; };
 		9C5CBF1C207679370078F17B /* FarmGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5CBF1B207679370078F17B /* FarmGoods.m */; };
@@ -285,7 +283,6 @@
 		9C9064912061FA63006158AC /* LGYMaxCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9064902061FA63006158AC /* LGYMaxCollectionViewFlowLayout.swift */; };
 		9C941144205A2820002A29F9 /* SurroundingFarmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C941142205A2820002A29F9 /* SurroundingFarmsViewController.swift */; };
 		9C941145205A2820002A29F9 /* SurroundingFarmsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C941143205A2820002A29F9 /* SurroundingFarmsViewController.xib */; };
-		9C941147205A5D6D002A29F9 /* LGY+MAAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C941146205A5D6D002A29F9 /* LGY+MAAnnotation.swift */; };
 		9C94114B205A66F9002A29F9 /* 农场图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C94114A205A66F8002A29F9 /* 农场图标.png */; };
 		9C94115A205A89AB002A29F9 /* ClickTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C941158205A89AA002A29F9 /* ClickTextView.m */; };
 		9C94119F205BAD66002A29F9 /* LGYMapMangerTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94119E205BAD66002A29F9 /* LGYMapMangerTool.swift */; };
@@ -450,6 +447,8 @@
 		9CFC61B4208CAF8800888D9A /* Lin+Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC61B3208CAF8800888D9A /* Lin+Label.swift */; };
 		9CFC61B7208CD0A100888D9A /* EvaluateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC61B5208CD0A100888D9A /* EvaluateTableViewCell.swift */; };
 		9CFC61B8208CD0A100888D9A /* EvaluateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC61B6208CD0A100888D9A /* EvaluateTableViewCell.xib */; };
+		9CFC61C0208E607500888D9A /* LGYMAAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC61BF208E607500888D9A /* LGYMAAnnotationView.swift */; };
+		9CFC61C2208E617B00888D9A /* LGYMAPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC61C1208E617B00888D9A /* LGYMAPointAnnotation.swift */; };
 		9CFCDD06207630F700ECBA48 /* Farm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCDD05207630F700ECBA48 /* Farm.m */; };
 		9CFCDD092076317400ECBA48 /* Model_api_farm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCDD082076317400ECBA48 /* Model_api_farm.m */; };
 		9CFD551F206E617F0028B1A4 /* 智慧农场3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD551E206E617E0028B1A4 /* 智慧农场3x.png */; };
@@ -659,8 +658,6 @@
 		9C58AADA20510C1000594011 /* 按钮背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按钮背景.png"; sourceTree = "<group>"; };
 		9C58AADC20511B8200594011 /* CustomerServiceApplyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerServiceApplyResultViewController.swift; sourceTree = "<group>"; };
 		9C58AADD20511B8200594011 /* CustomerServiceApplyResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceApplyResultViewController.xib; sourceTree = "<group>"; };
-		9C5CBF0E207661350078F17B /* Lin+MAPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lin+MAPointAnnotation.swift"; sourceTree = "<group>"; };
-		9C5CBF1020766D7C0078F17B /* Lin+MAAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lin+MAAnnotationView.swift"; sourceTree = "<group>"; };
 		9C5CBF14207677FE0078F17B /* Model_api_getGoods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_getGoods.h; sourceTree = "<group>"; };
 		9C5CBF15207677FE0078F17B /* Model_api_getGoods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model_api_getGoods.m; sourceTree = "<group>"; };
 		9C5CBF17207678E20078F17B /* FarmGoodsList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmGoodsList.h; sourceTree = "<group>"; };
@@ -811,7 +808,6 @@
 		9C9064902061FA63006158AC /* LGYMaxCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYMaxCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		9C941142205A2820002A29F9 /* SurroundingFarmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurroundingFarmsViewController.swift; sourceTree = "<group>"; };
 		9C941143205A2820002A29F9 /* SurroundingFarmsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurroundingFarmsViewController.xib; sourceTree = "<group>"; };
-		9C941146205A5D6D002A29F9 /* LGY+MAAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LGY+MAAnnotation.swift"; sourceTree = "<group>"; };
 		9C94114A205A66F8002A29F9 /* 农场图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "农场图标.png"; sourceTree = "<group>"; };
 		9C941158205A89AA002A29F9 /* ClickTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClickTextView.m; sourceTree = "<group>"; };
 		9C941159205A89AA002A29F9 /* ClickTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClickTextView.h; sourceTree = "<group>"; };
@@ -995,6 +991,8 @@
 		9CFC61B3208CAF8800888D9A /* Lin+Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lin+Label.swift"; sourceTree = "<group>"; };
 		9CFC61B5208CD0A100888D9A /* EvaluateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateTableViewCell.swift; sourceTree = "<group>"; };
 		9CFC61B6208CD0A100888D9A /* EvaluateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluateTableViewCell.xib; sourceTree = "<group>"; };
+		9CFC61BF208E607500888D9A /* LGYMAAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYMAAnnotationView.swift; sourceTree = "<group>"; };
+		9CFC61C1208E617B00888D9A /* LGYMAPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYMAPointAnnotation.swift; sourceTree = "<group>"; };
 		9CFCDD04207630F700ECBA48 /* Farm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Farm.h; sourceTree = "<group>"; };
 		9CFCDD05207630F700ECBA48 /* Farm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Farm.m; sourceTree = "<group>"; };
 		9CFCDD072076317400ECBA48 /* Model_api_farm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_farm.h; sourceTree = "<group>"; };
@@ -1542,8 +1540,6 @@
 				9C77C40B2027F96D008B49E2 /* 钥匙串保存数据 */,
 				9C77C4112027F96D008B49E2 /* Bugly */,
 				9C77C4142027F96D008B49E2 /* LCycleView */,
-				9C5CBF0E207661350078F17B /* Lin+MAPointAnnotation.swift */,
-				9C5CBF1020766D7C0078F17B /* Lin+MAAnnotationView.swift */,
 				9C060D9D207A0C5E007EC640 /* Lin+UIImage.swift */,
 				9C062F1F2082266F000B1172 /* LGYTextField.swift */,
 				9C76DF60208A191F002EEC27 /* Lin+UIImageView.swift */,
@@ -1881,7 +1877,8 @@
 			children = (
 				9C941142205A2820002A29F9 /* SurroundingFarmsViewController.swift */,
 				9C941143205A2820002A29F9 /* SurroundingFarmsViewController.xib */,
-				9C941146205A5D6D002A29F9 /* LGY+MAAnnotation.swift */,
+				9CFC61BF208E607500888D9A /* LGYMAAnnotationView.swift */,
+				9CFC61C1208E617B00888D9A /* LGYMAPointAnnotation.swift */,
 			);
 			path = "周边农场";
 			sourceTree = "<group>";
@@ -2871,6 +2868,7 @@
 				9CA32D682047D5F400FD5DFC /* AnimationButtonView.swift in Sources */,
 				9C77C57F20286F3A008B49E2 /* ImageVIewExtension.swift in Sources */,
 				9C9616D720562ACF00D0EB7D /* APIAddress.swift in Sources */,
+				9CFC61C0208E607500888D9A /* LGYMAAnnotationView.swift in Sources */,
 				9C0DB9C7206BC1ED00F9085D /* Model_api_index.m in Sources */,
 				9CD620FA204E5A2C003CD6C4 /* LGYImageSelectViewController.swift in Sources */,
 				9CC9D1A0204FD21D00AED4CD /* LGYAlertViewSimple.swift in Sources */,
@@ -2895,7 +2893,6 @@
 				9CA32D322046AC3000FD5DFC /* BindingPhoneViewController.swift in Sources */,
 				9C3CB1692068E1A8001DA039 /* ShareView.swift in Sources */,
 				9CABC3F9202EDD1F00C1EE38 /* AllClassCollectionViewCell.swift in Sources */,
-				9C5CBF1120766D7C0078F17B /* Lin+MAAnnotationView.swift in Sources */,
 				9C77C42C2027F96D008B49E2 /* LinTabBarController.swift in Sources */,
 				9CA32D402046CD8900FD5DFC /* CallPhoneView.swift in Sources */,
 				9C0DB9C1206BA0F100F9085D /* Spec.m in Sources */,
@@ -2912,7 +2909,6 @@
 				9C9616BF20512A1100D0EB7D /* OrderPaymentViewController.swift in Sources */,
 				9C00BFB4202ECD9600E77EA0 /* SearchProductViewController.swift in Sources */,
 				9C0DB9E6206E351900F9085D /* Shufflings.m in Sources */,
-				9C941147205A5D6D002A29F9 /* LGY+MAAnnotation.swift in Sources */,
 				9C77C42B2027F96D008B49E2 /* Lin+UIButton.swift in Sources */,
 				9C813A9D20804A3300FE19EC /* TableViewCell.swift in Sources */,
 				9C77C3B02027F1FF008B49E2 /* ViewController.swift in Sources */,
@@ -2988,6 +2984,7 @@
 				9CFD55532071055A0028B1A4 /* IntegralItem.m in Sources */,
 				9CFD554A207102340028B1A4 /* Model_api_signIn.m in Sources */,
 				9CFD554D207104730028B1A4 /* Model_api_signInList.m in Sources */,
+				9CFC61C2208E617B00888D9A /* LGYMAPointAnnotation.swift in Sources */,
 				9C04BB89207CEAB6006EA205 /* Model_api_comment.m in Sources */,
 				9CBD4811206B872F005C3EB0 /* SubTag.m in Sources */,
 				9CD62104204E7889003CD6C4 /* LGYPickerImageTableViewCell.swift in Sources */,
@@ -3029,7 +3026,6 @@
 				9C46BA2320455A6B00646A81 /* EverydayFreshTableViewCell.swift in Sources */,
 				9CFC61AD208C86D000888D9A /* WuliuViewController.swift in Sources */,
 				9CF3918C2077669700623675 /* OrderDetails.m in Sources */,
-				9C5CBF0F207661350078F17B /* Lin+MAPointAnnotation.swift in Sources */,
 				9C58AACD204FEEB200594011 /* AllCommentsTableViewCell.swift in Sources */,
 				9CA32D4A2047938D00FD5DFC /* BranchShopViewController.swift in Sources */,
 				9C00BFA5202E959600E77EA0 /* LGYMarkPageView.swift in Sources */,
