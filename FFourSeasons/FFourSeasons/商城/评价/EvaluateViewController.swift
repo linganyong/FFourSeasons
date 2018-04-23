@@ -43,11 +43,11 @@ class EvaluateViewController: UIViewController,UITableViewDelegate,UITableViewDa
         //一条条商品上传
         for i in 0..<productLsit.count{
             if let cell = tableView.cellForRow(at: IndexPath.init(row: i, section: 0)) as? EvaluateTableViewCell{
-                if let gid = cell.model?.g_id,let text = cell.desTextView.text {
+                if let gid = cell.model?.g_id,let text = cell.desTextView.text,let did = cell.model?._id{
                     if text.count > 0{
                         flag = false
                         isSend = true
-                        loadComment(gId:gid, oId: oId, dId: "0", ccontent: text)
+                        loadComment(gId:gid, oId: oId, dId:"\(did)", ccontent: text)
                     }
                 }
                

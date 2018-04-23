@@ -156,6 +156,8 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     
     
     func setText(){
+        couponTitleLabel.text = nil;
+        couponTitleLabelHeightLC.constant = 11;
         if orderDetail != nil{
             nameLabel.text = "姓名:\(orderDetail!.receive_name!)"
             telLabel.text = "电话:\(orderDetail!.receive_phone!)"
@@ -166,9 +168,6 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
                 if msg.count > 0{
                     couponTitleLabel.text = msg;
                     couponTitleLabelHeightLC.constant = 41;
-                }else{
-                    couponTitleLabel.text = nil;
-                    couponTitleLabelHeightLC.constant = 11;
                 }
             }
         }else{
@@ -218,6 +217,9 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         }
         if (sender.titleLabel?.text?.contains("评价"))! {
             let vc = Bundle.main.loadNibNamed("EvaluateViewController", owner: nil, options: nil)?.first as! EvaluateViewController
+            if let oId = orderDetail?._id{
+                vc.oId = "\(oId)"
+            }
             if let oId = orderDetail?._id{
                 vc.oId = "\(oId)"
             }

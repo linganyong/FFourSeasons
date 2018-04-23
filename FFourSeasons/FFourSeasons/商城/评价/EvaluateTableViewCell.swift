@@ -19,6 +19,7 @@ class EvaluateTableViewCell: UITableViewCell,UITextViewDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        iconImageView.layer.masksToBounds = true
         LGYTool.viewLayerShadow(view: imageBackView)
         setTextView()
     }

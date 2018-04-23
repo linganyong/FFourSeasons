@@ -32,7 +32,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="144608a14aba3c35cb8b56e94f87dba17a12e10f484ee-COP9gV.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zrw-km-CxP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="144608a14aba3c35cb8b56e94f87dba17a12e10f484ee-COP9gV.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zrw-km-CxP">
                                 <rect key="frame" x="20" y="30" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="NiM-ca-X9i"/>
