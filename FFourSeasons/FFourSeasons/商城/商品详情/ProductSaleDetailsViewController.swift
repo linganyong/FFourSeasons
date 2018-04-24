@@ -67,7 +67,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         super.viewDidLoad()
         view.layoutIfNeeded()
         viewShadowColor()
-       
+       setComment()
         addViewTapGestureRecognizerAction()
         viewStyle()
         self.title = "产品详情"
@@ -162,7 +162,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             }
             
             //设置展示类的产品
-            if productInformation?.status == 0{
+            if productInformation?.goods_state == 0{
                 payBackView.isHidden = true
                 selectSpecificationsView.isHidden = true
                 sepcViewHeightLC.constant = 0
@@ -275,7 +275,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             }
            vc?.setDataScoure(object: object)
         }
-        loadComment(gId:"\(productId)",pageNumber:"1")
+        
     }
     
     func setDataScoure(object:Any?) -> Void {
@@ -373,6 +373,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
                             }
                         }
                         spelabel.text = "已选规格：\(spec)，数量\(text)"
+//                        loadComment(gId:"\(selectSpec)",pageNumber:"1")
                     }
                     
                 }
@@ -402,7 +403,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
             return
         }
         let vc = Bundle.main.loadNibNamed("AllCommentsViewController", owner: nil, options: nil)?.first as! AllCommentsViewController
-        vc.gId = productInformation!._id
+        vc.gId = selectSpec
         vc.loadCommentList(gId: String.init(format: "%D", (productInformation?._id)!), pageNumber: "1")
         self.navigationController?.pushViewController(vc, animated: true)
         
@@ -465,6 +466,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         item.price = productInformation!.price
         item.item_url = productInformation?.small_icon
         item.count = Int(selectCountText)!
+        item.item_id = selectSpec
         item.name = productInformation?.title
         item.goods_type = (productInformation?.goods_type)!
         vc.dataScoure = [item]

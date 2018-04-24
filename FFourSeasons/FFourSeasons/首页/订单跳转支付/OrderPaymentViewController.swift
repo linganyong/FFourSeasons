@@ -51,9 +51,7 @@ class OrderPaymentViewController: UIViewController{
         self.title = "支付"
         setBackgroundColor()
         navigationItemBack(title: nil)
-        if addressID != 0{
-            addEmptyView(frame: nil)
-        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(notificationCenter(notification:)), name: NSNotification.Name(rawValue: NotificationCenterOrderPayment), object: nil)
     }
     
@@ -122,6 +120,9 @@ class OrderPaymentViewController: UIViewController{
     }
     
      func getOrderAction() {
+        if addressID != 0{
+            addEmptyView(frame: nil)
+        }
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_addOrderPay, parameters: ["token":Model_user_information.getToken(),
              "itemIds":self.orderString,
              "addressId":self.addressID,
@@ -130,15 +131,18 @@ class OrderPaymentViewController: UIViewController{
             if let weakSelf = self {
                 if !isError {
                     let model = Model_api_orderPay.yy_model(withJSON: object as Any)
-                    if let errMsg = model?.msg {
-                        if !(LGYAFNetworking.isNetWorkSuccess(str: model?.code)) {
+                    if !(LGYAFNetworking.isNetWorkSuccess(str: model?.code)) {
+                        if let errMsg = model?.msg {
                             LGYToastView.show(message: errMsg)
-                            return
                         }
+                        weakSelf.navigationController?.popViewController(animated: true)
+                        return
                     }
                     if let order_no = model?.orderPay.out_trade_no {
                         weakSelf.setOrder(order_no: order_no, order: model?.orderPay)
                     }
+                }else{
+                    weakSelf.navigationController?.popViewController(animated: true)
                 }
             }
         }

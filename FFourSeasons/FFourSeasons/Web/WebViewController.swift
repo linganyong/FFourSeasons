@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 enum RichTextType:Int {
     case AboutProblem = 1 //常见问题
@@ -17,7 +18,7 @@ enum RichTextType:Int {
 }
 
 class WebViewController: UIViewController {
-    let webView = UIWebView()
+    let webView = WKWebView()
     var loadType:RichTextType?
     
     override func viewDidLoad() {
@@ -31,7 +32,7 @@ class WebViewController: UIViewController {
     func loadAuthPage(urlString:String){
         let url = NSURL(string:urlString)
         let request = NSURLRequest(url:url! as URL)
-        webView.loadRequest(request as URLRequest)
+        webView.load(request as URLRequest)
     }
     
     func loadDataRichTextType(type:RichTextType) -> Void {

@@ -110,7 +110,12 @@ class MyHarvestTableViewCell: UITableViewCell {
             default:
                 break
             }
-            line3Label.text = "￥\((modelOrder?.price)!)"
+            if modelOrder?.order_type == 0{
+                line3Label.text = "￥\((modelOrder?.price)!)"
+            }else{
+                line3Label.text = "\((modelOrder?.pay_integral)!) 积分"
+            }
+            
         }
     }
     

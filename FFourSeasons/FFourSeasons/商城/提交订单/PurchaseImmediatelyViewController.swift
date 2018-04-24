@@ -16,6 +16,7 @@ enum CouponType:Int {
 
 class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,AddressViewControllerDelegate,CouponViewControllerDelegate,UITextFieldDelegate {
    
+    @IBOutlet weak var couponBackView: UIView!
     @IBOutlet weak var couponTitleHeightLC: NSLayoutConstraint!
     @IBOutlet weak var couponCountLabel: UILabel!
     @IBOutlet weak var couponTitleLabel: UILabel!
@@ -143,12 +144,17 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
             couponTitleHeightLC.constant = 11
             couponCountLabel.text = ""
         }
-        
     }
+    
+    //MARK:获取优惠券
     @IBAction func selectCouponAction(_ sender: UIButton) {
+        if dataScoure == nil {
+            return
+        }
         let vc = Bundle.main.loadNibNamed("CouponViewController", owner: nil, options: nil)?.first as! CouponViewController
         vc.delegate = self
-        vc.isCanSelect = true
+        vc.isOrderNeed = true
+        vc.loadList(orderIds: orderString)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -183,7 +189,16 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
             dataScoure = array
             tableView.reloadData()
             totalFreightLabel.text =  String.init(format: "￥%@",(model?.totalFreight)!)
-            payMoneyLabel.text = String.init(format: "￥%@", (model?.payMoney)!)
+            if (dataScoure?.count)! > 0{
+                let item = dataScoure![0];
+                if item.goods_type == 0{
+                    payMoneyLabel.text = String.init(format: "￥%@", (model?.payMoney)!)
+                }else{
+                    couponBackView.isHidden = true
+                    payMoneyLabel.text = String.init(format: "%@ 积分", (item.price)!)
+                }
+            }
+            
             self.totalPrice = model!.payMoney!
             if let str = model?.couponMoney{
                 setCoupon(count: str)

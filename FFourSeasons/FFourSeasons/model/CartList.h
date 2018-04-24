@@ -16,6 +16,7 @@
 @property (nonatomic, assign) long gid;
 @property (nonatomic, assign) long _id;
 @property (nonatomic, assign) long item_id; //单品ID
+@property (nonatomic, assign) long itemId; //单品ID
 @property (nonatomic, retain) NSString * item_url;
 @property (nonatomic, retain) NSString * price;
 @property (nonatomic, assign) long u_id;

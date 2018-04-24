@@ -33,6 +33,7 @@ class GetNewCouponViewController: UIViewController,UITextFieldDelegate {
             if !isError{
                 if let model = Model_user_information.yy_model(withJSON: object){
                     if LGYAFNetworking.isNetWorkSuccess(str: model.code){
+                        CouponViewControllerNeedLoad = true
                         self.navigationController?.popViewController(animated: true)
                         LGYToastView.show(message: "恭喜您，兑换成功！")
                     }else{

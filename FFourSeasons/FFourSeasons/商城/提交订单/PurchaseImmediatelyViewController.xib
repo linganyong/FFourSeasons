@@ -16,6 +16,7 @@
                 <outlet property="contactAddressLabel" destination="pQ0-16-keV" id="8X4-9N-Qhs"/>
                 <outlet property="contactNameLabel" destination="IUH-mv-Bz1" id="FK5-gM-ctM"/>
                 <outlet property="contactPhonelabel" destination="Wo3-S9-Gb2" id="IVe-dK-SXk"/>
+                <outlet property="couponBackView" destination="68h-5T-2t0" id="oDu-aO-Vzi"/>
                 <outlet property="couponCountLabel" destination="i5e-G5-2Ub" id="Eht-yH-ij8"/>
                 <outlet property="couponTitleHeightLC" destination="xYV-OF-mOI" id="WkY-Ok-xj4"/>
                 <outlet property="couponTitleLabel" destination="dnp-zc-0DB" id="Yzq-xv-xNK"/>

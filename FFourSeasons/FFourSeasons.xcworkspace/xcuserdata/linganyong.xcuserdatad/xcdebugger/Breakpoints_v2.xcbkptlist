@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FFourSeasons/AppDelegate.swift"
-            timestampString = "546104764.075827"
+            timestampString = "546253853.202715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "144"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FFourSeasons/AppDelegate.swift"
-            timestampString = "546104764.075914"
+            timestampString = "546253853.204123"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "161"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FFourSeasons/AppDelegate.swift"
-            timestampString = "546104764.0759749"
+            timestampString = "546253853.205868"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
@@ -94,13 +94,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FFourSeasons/&#x5546;&#x57ce;/&#x8d2d;&#x7269;&#x8f66;/ShopCarViewController.swift"
-            timestampString = "545943829.210452"
+            filePath = "FFourSeasons/&#x6211;&#x7684;/&#x4fee;&#x6539;&#x5934;&#x50cf;/LGYImageSelectViewController.swift"
+            timestampString = "546185729.050874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "emptyView()"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "clipViewController(_:finishClipImage:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FFourSeasons/&#x9996;&#x9875;/&#x5e84;&#x56ed;/MyHarvestTableViewCell.swift"
+            timestampString = "546253853.211342"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "setModelOrder(item:delegate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

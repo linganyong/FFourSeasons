@@ -30,6 +30,7 @@
 @property (nonatomic, retain) NSString * spec_json;
 @property (nonatomic, assign) long state;
 @property (nonatomic, assign) long status;
+@property (nonatomic, assign) long goods_state;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * remark;
 @property (nonatomic, retain) NSString * real_scale;

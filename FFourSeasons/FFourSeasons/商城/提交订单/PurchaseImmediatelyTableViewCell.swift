@@ -28,6 +28,7 @@ class PurchaseImmediatelyTableViewCell: UITableViewCell {
     
     func setDataScoure(name:String,priceStr:String,countStr:String,imageUrl:String?) -> Void {
         productNameLabel.text = name
+        
         productPriceLabel.text = priceStr
         productCountLabel.text = countStr
         if imageUrl != nil{

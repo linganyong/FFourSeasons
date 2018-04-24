@@ -236,9 +236,14 @@ class APIAddress: NSObject {
     static let api_exchangeCoupon = String(format: "%@/api/exchangeCoupon", arguments: [api_domainName()])
     
     /*
-     优惠券
+     用户的优惠券
      */
     static let api_couponList = String(format: "%@/api/couponList", arguments: [api_domainName()])
+    
+    /*
+     下单的优惠券
+     */
+    static let api_addOrderCouponList = String(format: "%@/api/addOrderCouponList", arguments: [api_domainName()])
     
     /*
      兑换优惠券

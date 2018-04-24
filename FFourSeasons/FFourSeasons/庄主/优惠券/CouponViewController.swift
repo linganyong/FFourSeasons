@@ -12,13 +12,15 @@ protocol CouponViewControllerDelegate {
     func couponViewController(selectItem:CouponDetail)->Void
 }
 
+var CouponViewControllerNeedLoad = true
 class CouponViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-     var rightBarItem:UIBarButtonItem!
-    var isCanSelect = false
+    var rightBarItem:UIBarButtonItem!
     var delegate:CouponViewControllerDelegate?
     var dataScoure = Array<CouponDetail>()
     var selectItem:CouponDetail?
+    var isOrderNeed = false
+    var orderItemIds:String?
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -26,13 +28,11 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.title = "优惠券"
         setTableView()
         navigationItemBack(title: "      ")
-        
         setBackgroundColor()
-        
     }
     
     @objc func rightBarAction() -> Void {
-        if isCanSelect {
+        if isOrderNeed {
               self.navigationController?.popViewController(animated: true)
             delegate?.couponViewController(selectItem: selectItem!)
             
@@ -52,7 +52,7 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
         tableView.register(UINib.init(nibName: "CouponTableViewCell", bundle: nil), forCellReuseIdentifier: "CouponTableViewCell")
         weak var weakSelf = self
         tableView.mj_footer = MJRefreshBackNormalFooter.init(refreshingBlock:{
-             weakSelf?.loadCouponList()
+             weakSelf?.loadList(orderIds: weakSelf?.orderItemIds)
         })
         
     }
@@ -66,13 +66,23 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CouponTableViewCell", for: indexPath) as! CouponTableViewCell
         cell.selectionStyle = .none
-        cell.isCanSelect = isCanSelect
+        cell.isCanSelect = isOrderNeed
         cell.setItem(item: dataScoure[indexPath.row])
         return cell
         
     }
     
-    //MARK:加载优惠券
+    //MARK:加载我的优惠券
+    func loadList(orderIds:String?) -> Void{
+        if isOrderNeed{
+            orderItemIds = orderIds
+            loadaddOrderCouponList(itemIds: orderItemIds!)
+        }else{
+            loadCouponList()
+        }
+    }
+    
+    //MARK:加载我的优惠券
     func loadCouponList() -> Void {
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_couponList, parameters: ["token":Model_user_information.getToken()], progress: nil){  [weak self](object, isError) in
             if !isError{
@@ -88,8 +98,25 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
     }
     
+    //MARK:加载下单优惠券
+    func loadaddOrderCouponList(itemIds:String) -> Void {
+        LGYAFNetworking.lgyPost(urlString: APIAddress.api_addOrderCouponList, parameters: ["token":Model_user_information.getToken(),"itemIds":itemIds], progress: nil){  [weak self](object, isError) in
+            if !isError{
+                if let model = Model_api_couponList.yy_model(withJSON: object as Any) {
+                    if LGYAFNetworking.isNetWorkSuccess(str: model.code){
+                        if let weakSelf = self,let array = model.data{
+                            weakSelf.dataScoure = array;
+                            weakSelf.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isCanSelect{
+        if isOrderNeed{
             selectItem = dataScoure[indexPath.row]
              rightBarItem = navigationBarAddRightItem(_imageName: "黑色确定", target: self, action: #selector(rightBarAction))
         }
@@ -98,8 +125,11 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
          setNavigationBarStyle(type:.Default)
-        loadCouponList()
-        if !isCanSelect {
+        if !isOrderNeed {
+            if CouponViewControllerNeedLoad{
+                CouponViewControllerNeedLoad = false
+                loadCouponList()
+            }
             rightBarItem = navigationBarAddRightItem(title: "兑换新券", target: self, action: #selector(rightBarAction),textSize:15)
         }else if selectItem != nil{
             rightBarItem = navigationBarAddRightItem(_imageName: "黑色确定", target: self, action: #selector(rightBarAction))

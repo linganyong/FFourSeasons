@@ -74,18 +74,21 @@ class LGYAlertViewPayment: UIView,UITextFieldDelegate,LGYTextFieldDelegate {
         
     }
     
-    
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField1 == textField {
+            textField2.keyboardType = textField1.keyboardType
             textField2.becomeFirstResponder()
         }else if textField2 == textField {
+            textField3.keyboardType = textField2.keyboardType
             textField3.becomeFirstResponder()
         }else if textField3 == textField {
+            textField4.keyboardType = textField3.keyboardType
             textField4.becomeFirstResponder()
         }else if textField4 == textField {
+            textField5.keyboardType = textField4.keyboardType
             textField5.becomeFirstResponder()
         }else if textField5 == textField {
+            textField5.keyboardType = textField5.keyboardType
             textField6.becomeFirstResponder()
         }
 

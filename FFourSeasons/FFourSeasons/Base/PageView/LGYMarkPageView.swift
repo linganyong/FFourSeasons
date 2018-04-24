@@ -41,13 +41,12 @@ class LGYMarkPageView: UIView,UIScrollViewDelegate {
         _headerView.addSubview(_headerLineView)
         self.addSubview(_headerView)
         self.addSubview(_contentView)
-      
-            _headerView.isHidden = false
-            _headerView.frame = CGRect(x: 0, y: 4, width: self.bounds.size.width-_headerHeight-16-4, height: _headerHeight)
+        _headerView.isHidden = false
+        _headerView.frame = CGRect(x: 0, y: 4, width: self.bounds.size.width-_headerHeight-16-4, height: _headerHeight)
         _headerView.showsVerticalScrollIndicator = false
         _headerView.showsHorizontalScrollIndicator = false
-            headerButtonAdd()
-            _contentView.frame = CGRect(x: 0, y:_headerView.frame.size.height+20+4, width: self.bounds.size.width, height: self.frame.size.height - _headerView.frame.size.height+_headerView.frame.origin.y - 24);
+        headerButtonAdd()
+        _contentView.frame = CGRect(x: 0, y:_headerView.frame.size.height+20+4, width: self.bounds.size.width, height: self.frame.size.height - _headerView.frame.size.height+_headerView.frame.origin.y - 24);
         allClassButton.frame = CGRect(x: self.bounds.size.width-_headerHeight-16, y: 4, width: _headerHeight, height: _headerHeight+16)
         allClassImageView.frame = CGRect(x:0, y: 0, width: _headerHeight, height: _headerHeight)
         allClassButton.contentMode = .scaleAspectFit
@@ -62,9 +61,11 @@ class LGYMarkPageView: UIView,UIScrollViewDelegate {
     //MARK:添加内容
     func addContent(titleArray:Array<String>,height:CGFloat,maginLeft:CGFloat) -> Void {
         //去除多余的
-        for i in _count...titleArray.count {
-            _contentView.viewWithTag(2000+i)?.removeFromSuperview()
-            _headerView.viewWithTag(1000+i)?.removeFromSuperview()
+        if _count < titleArray.count{
+            for i in _count...titleArray.count {
+                _contentView.viewWithTag(2000+i)?.removeFromSuperview()
+                _headerView.viewWithTag(1000+i)?.removeFromSuperview()
+            }
         }
         //设置内容
         _titleArray = titleArray;

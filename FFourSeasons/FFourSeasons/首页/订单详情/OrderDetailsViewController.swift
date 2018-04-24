@@ -61,7 +61,6 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         setProductTableView()
         setTitleTableView()
         setText()
-        
     }
     
     func getImage(button:UIButton){
@@ -392,7 +391,12 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         if headerImageUrl == nil{
             headerImageUrl = model.small_icon
         }
-        cell.setDataScoure(name: model.title!, priceStr:  "￥\(model.price!)", countStr: "x\( model.count)", imageUrl: model.small_icon)
+        if orderDetail?.order_type == 0{
+            cell.setDataScoure(name: model.title!, priceStr:  "￥\(model.price!)", countStr: "x\( model.count)", imageUrl: model.small_icon)
+        }else{
+            cell.setDataScoure(name:model.title!, priceStr: "\(model.price!) 积分", countStr: "\(model.count)", imageUrl: model.small_icon)
+        }
+        
         return cell
     }
     

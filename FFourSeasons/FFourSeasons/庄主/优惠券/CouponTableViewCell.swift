@@ -38,7 +38,15 @@ class CouponTableViewCell: UITableViewCell {
         if ruleView == nil{
            ruleView = CouponRuleView.defaultView()
         }
-        ruleView?.setText(title: "提示", text: "这是一段文字")
+        var title = model?.name;
+        if title == nil{
+            title = ""
+        }
+        var text = model?.rule;
+        if text == nil{
+            text = "无规则"
+        }
+        ruleView?.setText(title: title!, text: text!)
         ruleView?.show()
     }
     
@@ -49,7 +57,7 @@ class CouponTableViewCell: UITableViewCell {
             countLabel.text = model?.price
         }else{
             unitLabel.text = ""
-            countLabel.text = "%.1lf\(model!.discount/10.0)折"
+            countLabel.text = "\(model!.discount/10.0)折"
 //            limitLabel.text = "限\(model!.total_price!)元用"
         }
 //        countLabel.text = "\(100.000/10.00)折"
