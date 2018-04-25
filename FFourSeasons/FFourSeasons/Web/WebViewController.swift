@@ -117,7 +117,10 @@ class WebViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.view.layoutIfNeeded()
+        webView.frame = self.view.bounds
         setNavigationBarStyle(type: .White)
+         self.tabBarController?.tabBar.isHidden = false
     }
     
     override func didReceiveMemoryWarning() {

@@ -15,4 +15,5 @@
 @property (nonatomic, assign) long error;
 @property (nonatomic, retain) NSString * msg;
 @property (nonatomic, retain) NSArray<Shufflings *> *shufflings;
+@property (nonatomic, assign) long speed;
 @end

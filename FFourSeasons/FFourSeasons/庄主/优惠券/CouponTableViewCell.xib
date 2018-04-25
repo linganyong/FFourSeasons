@@ -24,10 +24,10 @@
                         <rect key="frame" x="12" y="10" width="325" height="108.5"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6EE-4s-Om0">
-                        <rect key="frame" x="32" y="53.5" width="18.5" height="4"/>
+                        <rect key="frame" x="32" y="45.5" width="18.5" height="21.5"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" id="4rj-nP-7nJ"/>
-                            <constraint firstAttribute="height" constant="4" id="GUa-PE-2hD"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="4" id="GUa-PE-2hD"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
@@ -80,7 +80,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="COa-6I-7QA" secondAttribute="trailing" constant="19" id="9IJ-nn-uhA"/>
-                    <constraint firstItem="Yuf-hP-Paa" firstAttribute="top" secondItem="6EE-4s-Om0" secondAttribute="top" constant="-4" id="EEw-Bm-Odv"/>
+                    <constraint firstItem="Yuf-hP-Paa" firstAttribute="top" secondItem="6EE-4s-Om0" secondAttribute="top" constant="4" id="EEw-Bm-Odv"/>
                     <constraint firstItem="I55-w5-aYQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Ffy-vO-zfv"/>
                     <constraint firstItem="Yuf-hP-Paa" firstAttribute="centerY" secondItem="I55-w5-aYQ" secondAttribute="centerY" id="Fzq-JC-eki"/>
                     <constraint firstItem="COa-6I-7QA" firstAttribute="centerY" secondItem="ca2-iE-9GI" secondAttribute="centerY" id="IE2-Ep-YSw"/>

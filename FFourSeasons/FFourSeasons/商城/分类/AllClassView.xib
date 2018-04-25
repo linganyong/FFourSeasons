@@ -120,6 +120,7 @@
             <connections>
                 <outlet property="allClassCollectionView" destination="bqB-rE-6Xp" id="gkK-bU-mmf"/>
                 <outlet property="allClassCollectionViewLC" destination="iHI-4x-8bA" id="VqI-Dg-ceD"/>
+                <outlet property="backView" destination="yNJ-Yi-6f7" id="i2k-Pi-I1X"/>
                 <outlet property="cancleButton" destination="eMp-6s-AyU" id="mh3-L4-ixg"/>
             </connections>
             <point key="canvasLocation" x="60.5" y="59.5"/>

@@ -24,7 +24,7 @@ var MyOrderViewControllerisNeedLoad = true
 
 class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MyHarvestTableViewCellDelegate{
     let pageView = LGYPageView()
-    let titleArray = ["全部","待发货","待收货","待评价","售后"]
+    let titleArray = ["全部","待发货","待收货","售后","已完成"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,10 +68,10 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     tb?.lgyTypeKey = orderWaitReceipt //待收货
                     break
                 case 3: //
-                    tb?.lgyTypeKey = orderWaitEvaluate //待评价
+                    tb?.lgyTypeKey = orderCustomerService //售后
                     break
                 case 4: //
-                    tb?.lgyTypeKey = orderCustomerService //售后
+                     tb?.lgyTypeKey = orderComplete //已完成
                     break
                 case 6: //
                     tb?.lgyTypeKey = orderCancle //取消订单
@@ -127,7 +127,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
             cell.buttonTitle(leftStr: "申请售后", rightStr: "确定收货")
             break
         case orderWaitEvaluate: //待评价
-            cell.buttonTitle(leftStr: "申请售后", rightStr: "评价")
+            cell.buttonTitle(leftStr: nil, rightStr: nil)
             break
         case orderCustomerService: //售后申请
             cell.buttonTitle(leftStr: nil, rightStr: "取消售后")

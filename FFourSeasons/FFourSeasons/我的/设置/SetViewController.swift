@@ -50,8 +50,9 @@ class SetViewController: UIViewController {
         case "4"?:
             let ss = "ashf4lasjd%&fhasdh9sdih"
             //设置原来密码为空
-             let passwordItem = KeychainConfiguration.get(forKey: ss)
-            KeychainConfiguration.save(userName: (passwordItem?.account)!, passwork: "", forKey: ss)
+            if let passwordItem = KeychainConfiguration.get(forKey: ss){
+                KeychainConfiguration.save(userName: passwordItem.account, passwork: "", forKey: ss)
+            }
             let vc = Bundle.main.loadNibNamed("RegisterOrLaunchViewController", owner: nil, options: nil)?.first as! RegisterOrLaunchViewController
             vc.isNeedRootPage = false
             let na = UINavigationController(rootViewController: vc);

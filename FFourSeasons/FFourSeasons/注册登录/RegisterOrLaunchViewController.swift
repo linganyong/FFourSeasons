@@ -298,6 +298,7 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     //MARK:登录成功，界面跳转
     func pushViewController(userName:String?,passwork:String?) ->Void{
         if passwork != nil && passwork != "" && userName != nil {
+            KeychainConfiguration.save(userName: userName!, passwork: passwork!, forKey: userDefaultsKey)
             let tb = LinTabBarController()
             tb.initChildView()
             self.present(tb, animated: true) {

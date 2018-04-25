@@ -139,7 +139,6 @@ class FarmerViewController: UIViewController {
         case "2"?://积分商店
             let vc = Bundle.main.loadNibNamed("IntegralShopViewController", owner: nil, options: nil)?.first as! IntegralShopViewController
             self.navigationController?.pushViewController(vc, animated: true)
-            
             break
         case "3"?: //优惠券
             let vc = Bundle.main.loadNibNamed("CouponViewController", owner: nil, options: nil)?.first as! CouponViewController

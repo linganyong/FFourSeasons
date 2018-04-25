@@ -12,6 +12,8 @@ protocol LGYMarkPageViewDelegate {
      func markPageView(pageView:LGYMarkPageView,showIndex:NSInteger) ->Void
 }
 
+let itemButtonTage = 10000
+
 class LGYMarkPageView: UIView,UIScrollViewDelegate {
     
     private let _headerView = UIScrollView()
@@ -41,7 +43,7 @@ class LGYMarkPageView: UIView,UIScrollViewDelegate {
         _headerView.addSubview(_headerLineView)
         self.addSubview(_headerView)
         self.addSubview(_contentView)
-        _headerView.isHidden = false
+//        _headerView.isHidden = false
         _headerView.frame = CGRect(x: 0, y: 4, width: self.bounds.size.width-_headerHeight-16-4, height: _headerHeight)
         _headerView.showsVerticalScrollIndicator = false
         _headerView.showsHorizontalScrollIndicator = false
@@ -64,7 +66,7 @@ class LGYMarkPageView: UIView,UIScrollViewDelegate {
         if _count < titleArray.count{
             for i in _count...titleArray.count {
                 _contentView.viewWithTag(2000+i)?.removeFromSuperview()
-                _headerView.viewWithTag(1000+i)?.removeFromSuperview()
+                _headerView.viewWithTag(itemButtonTage+i)?.removeFromSuperview()
             }
         }
         //设置内容
@@ -98,10 +100,10 @@ class LGYMarkPageView: UIView,UIScrollViewDelegate {
             return;
         }
         for i in 0..._count-1 {
-            var item = self.viewWithTag(1000+i) as? UIButton
+            var item = self.viewWithTag(itemButtonTage+i) as? UIButton
             if item == nil {
                 item = UIButton()
-                item?.tag = 1000+i
+                item?.tag = itemButtonTage+i
                 item?.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
                 item?.LGyCornerRadius = 10
                 _headerView.addSubview(item!)
@@ -174,7 +176,7 @@ class LGYMarkPageView: UIView,UIScrollViewDelegate {
     
     //MARK:菜单点击响应
     @objc private func buttonAction(sender:UIButton) -> Void {
-        select(index: sender.tag - 1000)
+        select(index: sender.tag - itemButtonTage)
     }
     
     
@@ -185,7 +187,7 @@ class LGYMarkPageView: UIView,UIScrollViewDelegate {
     
     //MARK:返回index位置的Button
     func pageViewButton(index:Int) -> UIButton?{
-        return _headerView.viewWithTag(1000+index) as? UIButton
+        return _headerView.viewWithTag(itemButtonTage+index) as? UIButton
     }
     
 }

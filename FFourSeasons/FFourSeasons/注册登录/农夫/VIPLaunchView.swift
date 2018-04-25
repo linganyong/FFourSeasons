@@ -45,13 +45,12 @@ class VIPLaunchView: UIView,UITextFieldDelegate {
     }
     
     @IBAction func registerAction(_ sender: UIButton) {
-//        let vc = Bundle.main.loadNibNamed("RegisterOrLaunchViewController", owner: nil, options: nil)?.first as! RegisterOrLaunchViewController
-//        vc.showViewType = .Reginster
-//        vc.isNeedRootPage = false
-//        viewController?.present(vc, animated: true) {
-//            self.removeFromSuperview()
-//        }
-        
+        let vc = Bundle.main.loadNibNamed("RegisterOrLaunchViewController", owner: nil, options: nil)?.first as! RegisterOrLaunchViewController
+        vc.isNeedRootPage = false
+        viewController?.present(vc, animated: true) {
+            self.removeFromSuperview()
+        }
+        vc.changeLaunchOrRegister()
     }
     
     @IBAction func forgetAction(_ sender: UIButton) {

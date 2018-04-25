@@ -93,7 +93,7 @@ class MyHarvestTableViewCell: UITableViewCell {
                 line2Label.text = "待收货"
                 break
             case orderWaitEvaluate: //待评价
-                line2Label.text = "待评价"
+                line2Label.text = "交易完成"
                 break
             case orderCustomerService: //售后
                 line2Label.text = "申请售后中"

@@ -258,7 +258,7 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
     
     //MARK:设置头部滚动
     func setHeaderView(array:Array<String>) -> Void {
-        headerScollerView.setup(array: array as NSArray)
+        headerScollerView.setup(array: array as NSArray,time: 3)
         headerScollerView.pageColor(defaultColor: UIColor.init(red: 187/255.0, green: 187/255.0, blue: 187/255.0, alpha: 1), selectColor: UIColor.white)
         headerScollerView.pageControlBackView.backgroundColor = UIColor.init(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.3)
         backScrollView.delegate = self

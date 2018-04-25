@@ -139,6 +139,7 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
         setNavigationBarStyle(type: .White)
     }
     
+    //MARK:点击弹出分类菜单
     func addView() -> Void {
         allClassView = AllClassView.initAllClassView(titleArray: titleDataScoure, imageArray: imageDataScoure)
         allClassView?.frame = CGRect(x: 0, y: -self.view.bounds.size.height, width: self.view.bounds.size.width, height: self.view.bounds.size.height)
@@ -147,11 +148,10 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
         allClassView?.selectIndexBlock = {
             view,index ->Void in
             view.cancle()
-            vc?.setNavigationBarStyle(type: .Default)
             if index >= 0{
                 vc?.pageView.select(index: index)
             }
-            
+            vc?.setNavigationBarStyle(type: .Default)
         }
     }
     
@@ -217,7 +217,7 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
    
-    
+    //代理回调
     func markProductTableViewCell(cell: MarkProductTableViewCell) {
         
     }

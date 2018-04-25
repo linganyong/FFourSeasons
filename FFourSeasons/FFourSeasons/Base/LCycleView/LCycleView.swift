@@ -27,10 +27,11 @@ class LCycleView: UIView, UICollectionViewDelegate, UICollectionViewDataSource,U
     let pageControlBackView = UIView.init()
     var delegate:LCycleViewDelegate?
     var isAutoScroller = true
+    var timeInterval = 0.5
     
-    func setup(array:NSArray) {
+    func setup(array:NSArray,time:Double) {
         getDataScoure(array:array)
-        
+        timeInterval = time
         //设置flowLayout属性
         if collectionView == nil{
             let flowLayout = UICollectionViewFlowLayout()
@@ -163,7 +164,7 @@ class LCycleView: UIView, UICollectionViewDelegate, UICollectionViewDataSource,U
     private func addTimer() {
         timer?.invalidate()
         timer = nil
-        timer = Timer(timeInterval: 4, target: self, selector: #selector(nextImage), userInfo: nil, repeats: true)
+        timer = Timer(timeInterval: timeInterval, target: self, selector: #selector(nextImage), userInfo: nil, repeats: true)
         RunLoop.current.add(timer!, forMode: .commonModes)
     }
     

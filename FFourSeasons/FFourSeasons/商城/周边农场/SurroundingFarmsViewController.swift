@@ -12,7 +12,7 @@ import UIKit
 class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttributedLabelDelegate,CLLocationManagerDelegate,DetailsViewDelegate,LGYMAAnnotationViewDelegate {
     
     @IBOutlet weak var myLocationBtn: UIButton!
-    var mapZoomLevel = CGFloat(12.5)
+    var mapZoomLevel = CGFloat(17)
     ///初始化地图
     let mapView = MAMapView()
     let locationManager = CLLocationManager()

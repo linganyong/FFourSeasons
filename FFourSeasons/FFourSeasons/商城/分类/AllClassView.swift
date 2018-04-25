@@ -15,6 +15,7 @@ class AllClassView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     @IBOutlet weak var allClassCollectionView: UICollectionView!
     @IBOutlet weak var allClassCollectionViewLC: NSLayoutConstraint!
     
+    @IBOutlet weak var backView: UIView!
     private var collectionViewHeight:CGFloat!
     private var dataTitleScoure:Array<String>!
     private var dataImageScoure:Array<String>!
@@ -25,7 +26,7 @@ class AllClassView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         let view = Bundle.main.loadNibNamed("AllClassView", owner: nil, options: nil)?.first as! AllClassView
         view.setCollectionView(titleArray: titleArray, imageArray: imageArray)
         view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.35);
-        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(cancleAction(_:))))
+        view.backView.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(cancleAction(_:))))
         return view
     }
     
@@ -89,6 +90,8 @@ class AllClassView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataTitleScoure.count
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllClassCollectionViewCell", for: indexPath) as! AllClassCollectionViewCell

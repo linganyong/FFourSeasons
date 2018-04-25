@@ -117,8 +117,8 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
             serviceView.isHidden = true
             break
         case .WaitForEvaluation: //待评价 4
-            button1.setTitle("评价", for: .normal)
-            button2.setTitle("申请售后", for: .normal)
+            button1.setTitle(nil, for: .normal)
+            button2.setTitle(nil, for: .normal)
             button3.setTitle("查看物流", for: .normal)
             buttonMaginTopLC.constant = 16
             serviceView.isHidden = true

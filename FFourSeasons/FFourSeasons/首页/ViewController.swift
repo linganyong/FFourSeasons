@@ -339,7 +339,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 cycledataScoure.append(item as! Shufflings)
                 array.add(ss as Any)
             }
-            headerView.setup(array: array)
+            headerView.setup(array: array,time: Double(model.speed/1000))
         }
         
         tableView.lgyDataScoure.removeAll();
@@ -387,11 +387,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_exchangeCoupon, parameters: ["token":Model_user_information.getToken(),"uuid":code], progress: nil) { (object, isError) in
             if !isError{
                 if let model = Model_user_information.yy_model(withJSON: object){
-                    if LGYAFNetworking.isNetWorkSuccess(str: model.code){
-                        LGYToastView.show(message: "恭喜您，兑换成功！")
-                    }else{
+                    if let model = Model_user_information.yy_model(withJSON: object){
                         if let msg = model.msg{
-                            LGYToastView.show(message: msg)
+                            _ = LGYAlertViewSimple.show(title: msg, buttonStr: "确定")
                         }
                     }
                 }
@@ -403,12 +401,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_bindInvite, parameters: ["token":Model_user_information.getToken(),"code":code], progress: nil) { (object, isError) in
             if !isError{
                 if let model = Model_user_information.yy_model(withJSON: object){
-                    if LGYAFNetworking.isNetWorkSuccess(str: model.code){
-                        LGYToastView.show(message: "恭喜您，绑定好友成功！")
-                    }else{
-                        if let msg = model.msg{
-                            LGYToastView.show(message: msg)
-                        }
+                    if let msg = model.msg{
+                         _ = LGYAlertViewSimple.show(title: msg, buttonStr: "确定")
                     }
                 }
             }
