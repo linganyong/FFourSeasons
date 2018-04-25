@@ -23,11 +23,13 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.frame = self.view.bounds
+//        extendedLayout()
+        webView.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: self.view.bounds.size.height)
         webView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         view.addSubview(webView)
     }
 
+    
     //MARK:加载url
     func loadAuthPage(urlString:String){
         let url = NSURL(string:urlString)
@@ -120,7 +122,7 @@ class WebViewController: UIViewController {
         self.view.layoutIfNeeded()
         webView.frame = self.view.bounds
         setNavigationBarStyle(type: .White)
-         self.tabBarController?.tabBar.isHidden = false
+         self.tabBarController?.tabBar.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {

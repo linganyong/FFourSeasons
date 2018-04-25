@@ -46,6 +46,8 @@ class LGYPageView: UIView,UIScrollViewDelegate {
             _contentView.showsHorizontalScrollIndicator = false
         }
         contentViewAdd()
+        self.layoutIfNeeded()
+        _headerView.contentOffset = CGPoint(x: 0, y: 0)
 //        self.addObserver(self, forKeyPath: "frame", options: .new, context: nil)
     }
 //

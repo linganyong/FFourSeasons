@@ -27,7 +27,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
     let titleArray = ["全部","待发货","待收货","售后","已完成"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        extendedLayout()
         setPageView()
         self.view.backgroundColor = UIColor.init(red: 247/255.0, green: 248/255.0, blue: 249/255.0, alpha: 1)
         self.title = "我的订单"
@@ -36,7 +36,7 @@ class MyOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func setPageView() -> Void {
-        pageView.frame = CGRect(x: 0, y: 64, width: self.view.frame.width, height: self.view.frame.height-64)
+        pageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         self.view .addSubview(pageView)
         pageView.addContent(titleArray:titleArray , height: 30, isHiddenHeader: false)
         pageView.headerBtnStyle(defaultTextColor: UIColor.init(red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1), selectTextColor: UIColor.init(red: 42/255.0, green: 201/255.0, blue: 140/255.0, alpha: 1), headerBtnWidth: self.view.frame.size.width/CGFloat(titleArray.count), headerLineHeight: 1,textFront: 12)

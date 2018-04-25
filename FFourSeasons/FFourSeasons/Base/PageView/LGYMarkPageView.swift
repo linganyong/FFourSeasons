@@ -45,6 +45,7 @@ class LGYMarkPageView: UIView,UIScrollViewDelegate {
         self.addSubview(_contentView)
 //        _headerView.isHidden = false
         _headerView.frame = CGRect(x: 0, y: 4, width: self.bounds.size.width-_headerHeight-16-4, height: _headerHeight)
+//        _headerView.bounces = false
         _headerView.showsVerticalScrollIndicator = false
         _headerView.showsHorizontalScrollIndicator = false
         headerButtonAdd()
@@ -56,6 +57,8 @@ class LGYMarkPageView: UIView,UIScrollViewDelegate {
         allClassButton.addSubview(allClassImageView)
         self.addSubview(allClassButton)
         contentViewAdd()
+        self.layoutIfNeeded()
+        _headerView.contentOffset = CGPoint(x: 0, y: 0)
     }
     
     
@@ -162,7 +165,6 @@ class LGYMarkPageView: UIView,UIScrollViewDelegate {
                 pageViewButton(index: _selectIndex)?.setTitleColor(_selectTextColor, for: .normal)
                 pageViewButton(index: _selectIndex)?.backgroundColor = _selectBackgroundColor
                 _oldSelectIndex = _selectIndex
-                
                 delegate?.markPageView(pageView: self, showIndex:  _selectIndex)
             }
            
