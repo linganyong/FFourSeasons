@@ -115,10 +115,13 @@ class FarmerViewController: UIViewController {
         }
         //支付码
         if (sender.LGYLabelKey?.elementsEqual("2"))!{
-             _ = LGYAlertViewSimple.show(title: "功能即将上线！", buttonStr: "确定")
+//             _ = LGYAlertViewSimple.show(title: "功能即将上线！", buttonStr: "确定")
 //            let vc = Bundle.main.loadNibNamed("PaymentCodeViewController", owner: nil, options: nil)?.first as! PaymentCodeViewController
 //            self.navigationController?.pushViewController(vc, animated: true)
-//            self.tabBarController?.tabBar.isHidden = true
+            
+            let vc = Bundle.main.loadNibNamed("IntegralShopViewController", owner: nil, options: nil)?.first as! IntegralShopViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            self.tabBarController?.tabBar.isHidden = true
         }
         //周边农场
         if (sender.LGYLabelKey?.elementsEqual("3"))!{

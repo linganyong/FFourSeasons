@@ -72,7 +72,7 @@ class ShopCarTableViewCell: UITableViewCell,CAAnimationDelegate,UITextFieldDeleg
     func tapIsSelect(){
         isImageSelected = !isImageSelected
         if isImageSelected {
-            isSelectImageView.image = UIImage.init(named: "空心圆.png")
+            isSelectImageView.image = UIImage.init(named: "首页卡片左上角圆")
         }else{
             isSelectImageView.image = nil
         }

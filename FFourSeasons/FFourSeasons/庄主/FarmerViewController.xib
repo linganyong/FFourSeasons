@@ -32,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBk-cI-Ajg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="559.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Fk-qA-jja">
                                         <rect key="frame" x="18.5" y="30" width="337.5" height="180.5"/>
@@ -146,8 +146,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pKf-Ri-B9z">
                                                 <rect key="frame" x="22" y="9" width="90.5" height="50"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="私人客服3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="BEc-x1-iBR">
-                                                        <rect key="frame" x="33" y="0.0" width="25" height="25"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="私人客服" translatesAutoresizingMaskIntoConstraints="NO" id="BEc-x1-iBR">
+                                                        <rect key="frame" x="33.5" y="0.0" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="cQC-Cv-NOc"/>
                                                             <constraint firstAttribute="width" constant="25" id="hO7-YA-Ncf"/>
@@ -192,14 +192,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gos-7w-f3H">
                                                 <rect key="frame" x="134.5" y="9" width="57" height="50"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="支付码3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bt1-BI-Hzb">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="积分商城3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bt1-BI-Hzb">
                                                         <rect key="frame" x="16" y="0.0" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="fPh-bw-waX"/>
                                                             <constraint firstAttribute="width" constant="25" id="x7b-hK-JtI"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分付码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKB-dp-8TB">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分商城" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKB-dp-8TB">
                                                         <rect key="frame" x="0.0" y="28" width="57" height="14"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -237,7 +237,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ol0-mT-EQS">
                                                 <rect key="frame" x="213.5" y="9" width="90" height="50"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="分店查找3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="iIV-I4-VdB">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="周边农场" translatesAutoresizingMaskIntoConstraints="NO" id="iIV-I4-VdB">
                                                         <rect key="frame" x="35" y="0.0" width="20" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="MeQ-Zu-MWy"/>
@@ -250,7 +250,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGl-Zm-JEK">
+                                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGl-Zm-JEK">
                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
@@ -355,7 +355,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xk0-zJ-vdm">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xk0-zJ-vdm">
                                         <rect key="frame" x="24.5" y="367.5" width="325.5" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="积分商城3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="3bJ-20-JPo">
@@ -412,7 +412,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aE-CO-g2n">
-                                        <rect key="frame" x="24.5" y="423.5" width="325.5" height="40"/>
+                                        <rect key="frame" x="24.5" y="367.5" width="325.5" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="优惠券3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="8YD-rG-xx6">
                                                 <rect key="frame" x="20" y="10" width="20" height="20"/>
@@ -467,8 +467,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwp-Rb-ll0">
-                                        <rect key="frame" x="24.5" y="479.5" width="325.5" height="40"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwp-Rb-ll0">
+                                        <rect key="frame" x="24.5" y="423.5" width="325.5" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="每月尝鲜3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="9aN-wZ-GHW">
                                                 <rect key="frame" x="20" y="10" width="20" height="20"/>
@@ -524,7 +524,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEs-2c-IeQ">
-                                        <rect key="frame" x="24.5" y="535.5" width="325.5" height="40"/>
+                                        <rect key="frame" x="24.5" y="423.5" width="325.5" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="生日特权3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="BBJ-cR-Z9u">
                                                 <rect key="frame" x="20" y="10" width="20" height="20"/>
@@ -580,7 +580,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OiT-lk-5kS">
-                                        <rect key="frame" x="24.5" y="591.5" width="325.5" height="40"/>
+                                        <rect key="frame" x="24.5" y="479.5" width="325.5" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更多特权即将上线…" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="La5-qQ-umE">
                                                 <rect key="frame" x="20" y="6" width="214.5" height="28"/>
@@ -632,13 +632,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="OiT-lk-5kS" firstAttribute="trailing" secondItem="2cx-At-zuZ" secondAttribute="trailing" id="1j9-ZG-5rK"/>
-                                    <constraint firstItem="OEs-2c-IeQ" firstAttribute="top" secondItem="gwp-Rb-ll0" secondAttribute="bottom" constant="16" id="35Q-Bz-Pme"/>
-                                    <constraint firstItem="3aE-CO-g2n" firstAttribute="top" secondItem="xk0-zJ-vdm" secondAttribute="bottom" constant="16" id="5vn-Uj-gBK"/>
+                                    <constraint firstItem="OEs-2c-IeQ" firstAttribute="top" secondItem="gwp-Rb-ll0" secondAttribute="bottom" constant="-40" id="35Q-Bz-Pme"/>
+                                    <constraint firstItem="3aE-CO-g2n" firstAttribute="top" secondItem="xk0-zJ-vdm" secondAttribute="bottom" constant="-40" id="5vn-Uj-gBK"/>
                                     <constraint firstItem="5hZ-C5-qV5" firstAttribute="trailing" secondItem="8Fk-qA-jja" secondAttribute="trailing" constant="-6" id="9Gr-kl-Qdf"/>
                                     <constraint firstItem="xk0-zJ-vdm" firstAttribute="trailing" secondItem="2cx-At-zuZ" secondAttribute="trailing" id="BTK-PL-nn6"/>
                                     <constraint firstItem="2cx-At-zuZ" firstAttribute="top" secondItem="5hZ-C5-qV5" secondAttribute="bottom" constant="22" id="EcG-je-5RM"/>
                                     <constraint firstItem="8Fk-qA-jja" firstAttribute="top" secondItem="TBk-cI-Ajg" secondAttribute="top" constant="30" id="HTS-Sb-LPN"/>
                                     <constraint firstItem="3aE-CO-g2n" firstAttribute="leading" secondItem="2cx-At-zuZ" secondAttribute="leading" id="HZo-s5-pHo"/>
+                                    <constraint firstAttribute="bottom" secondItem="OiT-lk-5kS" secondAttribute="bottom" constant="40" id="JqI-Y4-eXY"/>
                                     <constraint firstItem="2cx-At-zuZ" firstAttribute="leading" secondItem="5hZ-C5-qV5" secondAttribute="leading" id="Q0M-Bs-C4m"/>
                                     <constraint firstItem="5hZ-C5-qV5" firstAttribute="top" secondItem="8Fk-qA-jja" secondAttribute="bottom" constant="20" id="T9a-xu-i0c"/>
                                     <constraint firstItem="OEs-2c-IeQ" firstAttribute="trailing" secondItem="2cx-At-zuZ" secondAttribute="trailing" id="b6c-Mv-y79"/>
@@ -646,7 +647,6 @@
                                     <constraint firstItem="xk0-zJ-vdm" firstAttribute="top" secondItem="2cx-At-zuZ" secondAttribute="bottom" constant="16" id="cat-Lg-8iT"/>
                                     <constraint firstItem="gwp-Rb-ll0" firstAttribute="trailing" secondItem="2cx-At-zuZ" secondAttribute="trailing" id="dB4-46-rFi"/>
                                     <constraint firstItem="OiT-lk-5kS" firstAttribute="top" secondItem="OEs-2c-IeQ" secondAttribute="bottom" constant="16" id="j6f-2r-OXi"/>
-                                    <constraint firstAttribute="height" constant="667" id="l8f-Ta-Pz0"/>
                                     <constraint firstItem="gwp-Rb-ll0" firstAttribute="leading" secondItem="2cx-At-zuZ" secondAttribute="leading" id="mIH-mO-gJS"/>
                                     <constraint firstItem="2cx-At-zuZ" firstAttribute="trailing" secondItem="5hZ-C5-qV5" secondAttribute="trailing" id="n9p-9H-841"/>
                                     <constraint firstItem="8Fk-qA-jja" firstAttribute="centerX" secondItem="TBk-cI-Ajg" secondAttribute="centerX" id="niZ-co-luG"/>
@@ -662,8 +662,8 @@
                         <constraints>
                             <constraint firstItem="TBk-cI-Ajg" firstAttribute="leading" secondItem="bae-MI-YBi" secondAttribute="leading" id="521-fg-eps"/>
                             <constraint firstItem="8Fk-qA-jja" firstAttribute="width" secondItem="bae-MI-YBi" secondAttribute="width" multiplier="9:10" id="I2X-zj-3Kn"/>
-                            <constraint firstAttribute="bottom" secondItem="TBk-cI-Ajg" secondAttribute="bottom" id="Onz-2i-YXx"/>
                             <constraint firstAttribute="trailing" secondItem="TBk-cI-Ajg" secondAttribute="trailing" id="ZAc-uc-vpk"/>
+                            <constraint firstAttribute="bottom" secondItem="TBk-cI-Ajg" secondAttribute="bottom" id="rta-Z3-2Kw"/>
                             <constraint firstItem="TBk-cI-Ajg" firstAttribute="top" secondItem="bae-MI-YBi" secondAttribute="top" id="slI-vW-zNd"/>
                         </constraints>
                     </scrollView>
@@ -697,13 +697,12 @@
     </objects>
     <resources>
         <image name="优惠券3x.png" width="45" height="45"/>
-        <image name="分店查找3x.png" width="57" height="75"/>
         <image name="卡板3x.png" width="879" height="489"/>
         <image name="右箭头3x.png" width="23" height="46"/>
-        <image name="支付码3x.png" width="75" height="75"/>
+        <image name="周边农场" width="22" height="30"/>
         <image name="每月尝鲜3x.png" width="45" height="45"/>
         <image name="生日特权3x.png" width="47" height="45"/>
-        <image name="私人客服3x.png" width="75" height="75"/>
+        <image name="私人客服" width="25" height="25"/>
         <image name="积分商城3x.png" width="45" height="45"/>
         <image name="签到赢积分3x.png" width="78" height="90"/>
         <image name="背景3x.png" width="1125" height="300"/>

@@ -340,6 +340,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 array.add(ss as Any)
             }
             headerView.setup(array: array,time: Double(model.speed/1000))
+            headerView.pageControlBackView.isHidden = true
         }
         
         tableView.lgyDataScoure.removeAll();

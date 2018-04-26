@@ -23,8 +23,12 @@ class MainPageMenuView: UIView {
             viewController?.isTolaunch()
             return
         }
-        let vc = Bundle.main.loadNibNamed("HundredFarmingGardenViewController", owner: nil, options: nil)?.first as! HundredFarmingGardenViewController
-        viewController?.navigationController?.pushViewController(vc, animated: true)
+        //本来是庄园
+//        let vc = Bundle.main.loadNibNamed("HundredFarmingGardenViewController", owner: nil, options: nil)?.first as! HundredFarmingGardenViewController
+//        viewController?.navigationController?.pushViewController(vc, animated: true)
+        //第一版上架改为优惠券
+        let vc = Bundle.main.loadNibNamed("CouponViewController", owner: nil, options: nil)?.first as! CouponViewController
+            viewController?.navigationController?.pushViewController(vc, animated: true)
          viewController?.tabBarController?.tabBar.isHidden = true
     }
     

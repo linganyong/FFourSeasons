@@ -16,7 +16,7 @@ protocol LCycleViewDelegate {
 class LCycleView: UIView, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     private var collectionView: UICollectionView!
-    private var pageControl:UIPageControl!
+    var pageControl:UIPageControl!
     private var timer: Timer?
     private var imageNameUrl:NSArray?
     private var picArr = NSMutableArray(capacity: 100)

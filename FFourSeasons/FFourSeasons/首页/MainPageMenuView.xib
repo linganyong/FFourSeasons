@@ -23,14 +23,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pb9-B6-WK5">
                             <rect key="frame" x="0.0" y="0.0" width="90" height="651"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="百耕园3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="gij-aw-thc">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页优惠券" translatesAutoresizingMaskIntoConstraints="NO" id="gij-aw-thc">
                                     <rect key="frame" x="30" y="4" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="6A9-ee-8QB"/>
                                         <constraint firstAttribute="width" secondItem="gij-aw-thc" secondAttribute="height" id="Dmf-LG-GBh"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="庄园" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRe-N4-Fzc">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="优惠券" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRe-N4-Fzc">
                                     <rect key="frame" x="8" y="36" width="74" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="zbS-oO-1iA"/>
@@ -62,7 +62,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cce-HD-efb">
                             <rect key="frame" x="90" y="0.0" width="89.5" height="651"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="签到赢积分3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="ovb-Qy-vog">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页签到" translatesAutoresizingMaskIntoConstraints="NO" id="ovb-Qy-vog">
                                     <rect key="frame" x="29.5" y="4" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="0nA-N5-veR"/>
@@ -101,7 +101,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zl4-If-pBq">
                             <rect key="frame" x="179.5" y="0.0" width="90" height="651"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="周边3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="chg-ul-Iyt">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="周边农场" translatesAutoresizingMaskIntoConstraints="NO" id="chg-ul-Iyt">
                                     <rect key="frame" x="34" y="4" width="22" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="chg-ul-Iyt" secondAttribute="height" multiplier="3:4" id="Ka0-No-YK9"/>
@@ -140,7 +140,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHm-Ko-U5U">
                             <rect key="frame" x="269.5" y="0.0" width="89.5" height="651"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="订单3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="45N-Y4-nem">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页订单" translatesAutoresizingMaskIntoConstraints="NO" id="45N-Y4-nem">
                                     <rect key="frame" x="33" y="4" width="22.5" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="45N-Y4-nem" secondAttribute="height" multiplier="3:4" id="Tqx-v8-MHK"/>
@@ -195,9 +195,9 @@
         </view>
     </objects>
     <resources>
-        <image name="周边3x.png" width="68" height="91"/>
-        <image name="百耕园3x.png" width="90" height="90"/>
-        <image name="签到赢积分3x.png" width="41" height="46"/>
-        <image name="订单3x.png" width="74" height="91"/>
+        <image name="周边农场" width="22" height="30"/>
+        <image name="首页优惠券" width="30" height="30"/>
+        <image name="首页签到" width="26" height="30"/>
+        <image name="首页订单" width="24" height="30"/>
     </resources>
 </document>
