@@ -20,11 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         LBuyly.buglyGo()  //腾讯buyly开启异常收集
         launchScreen() //跟视图
-        setNavigationBarStyle() //导航栏设置
+//        setNavigationBarStyle() //导航栏设置
         LGYAFNetworking.lgyReachabilityStatus() //网络提示
         AMapServices.shared().apiKey = "32551cbf411055ca9114325c28655c3a" //高德地图 正式
         WXApi.registerApp(wxApi_id)//微信接入 正式
-        
+        //友盟
+//        //设置打开日志
+//        UMConfigure.setLogEnabled(true)
+//        UMConfigure.initWithAppkey("sss", channel: nil)
         NSSetUncaughtExceptionHandler { exception in
             let ex =  NSException.init(name: NSExceptionName(rawValue: "全局异常捕获：\(exception.name)"), reason: exception.reason, userInfo: exception.userInfo)
             LBuyly.lBuglyNSException(exception: ex)
@@ -49,16 +52,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
         window?.makeKeyAndVisible()
     }
     
-    //MARK:设置导航栏
-    func setNavigationBarStyle() ->Void{
-        let bgImage = UIImage(named: "导航矩形3x.png")?.resizableImage(withCapInsets:  UIEdgeInsets(), resizingMode: .stretch)
-        UINavigationBar.appearance().setBackgroundImage(bgImage, for: .default)
-        //设置navigationbar 压缩图片后出现横线,通过此方法消除横线阴影
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().barTintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white] //设置title颜色
-    }
+//    //MARK:设置导航栏
+//    func setNavigationBarStyle() ->Void{
+//        let bgImage = UIImage(named: "导航矩形3x.png")?.resizableImage(withCapInsets:  UIEdgeInsets(), resizingMode: .stretch)
+//        UINavigationBar.appearance().setBackgroundImage(bgImage, for: .default)
+//        //设置navigationbar 压缩图片后出现横线,通过此方法消除横线阴影
+//        UINavigationBar.appearance().shadowImage = UIImage()
+//        UINavigationBar.appearance().tintColor = UIColor.white
+//        UINavigationBar.appearance().barTintColor = UIColor.white
+//        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white] //设置title颜色
+//    }
 
    
     //MARK:微信、QQ分享，重写方法

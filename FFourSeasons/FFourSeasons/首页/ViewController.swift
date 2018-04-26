@@ -210,6 +210,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         case 1: //网页跳转
             let vc = WebViewController()
             vc.loadAuthPage(urlString: item.url)
+            vc.title = "人人庄园"
             self.navigationController?.pushViewController(vc, animated: true)
              self.tabBarController?.tabBar.isHidden = true
             break
@@ -366,7 +367,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //MARK：左边导航
     func leftLocationButton(_imageName:String,_title:String,target:Any?, action: Selector?) -> Void {
         let leftLocationView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 120, height: 44))
-        self.leftLocationButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+        self.leftLocationButton = UIButton(frame: CGRect(x: 20, y: 0, width: 100, height: 44))
          self.leftLocationButton?.isUserInteractionEnabled = false
         let locationImageView = UIImageView.init(frame: CGRect(x:0, y: (self.leftLocationButton!.frame.size.height - 15)/2, width: 15, height: 15))
         locationImageView.image = UIImage.init(named: _imageName)
@@ -375,7 +376,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         self.leftLocationButton!.setTitle(_title, for: .normal)
         self.leftLocationButton!.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        
+        self.leftLocationButton!.contentHorizontalAlignment = .left
         leftLocationView.addSubview(self.leftLocationButton!)
         leftLocationView.addSubview(locationImageView)
         

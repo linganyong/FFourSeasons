@@ -55,7 +55,7 @@ class BindingPhoneViewController: UIViewController,UITextFieldDelegate {
                 LGYTool.cornerAdd(view: textField, text: "手机号码不正确",textColor: UIColor.red)
                 
             }else{
-                LGYTool.cornerAdd(view: textField, text: "手机号码正确",textColor: UIColor.red)
+                LGYTool.cornerAdd(view: textField, text: "",textColor: UIColor.red)
             }
         }
         return true

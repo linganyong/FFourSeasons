@@ -17,7 +17,7 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
     @IBOutlet weak var vipCountLabel: UILabel!
     @IBOutlet weak var vipNumberLabel: UILabel!
     @IBOutlet weak var telLabel: UILabel!
-    var dataScoure = [["庄园":"智慧农场3x.png"],["我的订单":"订单3x.png"],["邀请码":"邀请码3x.png"],["收货地址":"收货地址3x.png"],["设置":"设置3x.png"],["关于我们":"关于我们3x.png"]]
+    var dataScoure = [["我的订单":"订单3x.png"],["邀请码":"邀请码3x.png"],["收货地址":"收货地址3x.png"],["设置":"设置3x.png"],["关于我们":"关于我们3x.png"]]
 
     @IBOutlet weak var vipLabel: UILabel!
     @IBOutlet weak var personView: UIView!
@@ -98,29 +98,29 @@ class PersonViewController: UIViewController,UICollectionViewDataSource,UICollec
             return
         }
         switch indexPath.row {
-        case 0: //庄园
+        case -1: //庄园
             
             let vc = Bundle.main.loadNibNamed("HundredFarmingGardenViewController", owner: nil, options: nil)?.first as! UIViewController
             self.navigationController?.pushViewController(vc, animated: true)
             break
-        case 1: //我的订单
+        case 0: //我的订单
             let vc = MyOrderViewController()
             self.navigationController?.pushViewController(vc, animated: true)
             break
-        case 2: //邀请码
+        case 1: //邀请码
             let vc = Bundle.main.loadNibNamed("QCodeViewController", owner: nil, options: nil)?.first as! QCodeViewController
             self.navigationController?.pushViewController(vc, animated: true)
             break
-        case 3: //收货地址
+        case 2: //收货地址
             let vc = Bundle.main.loadNibNamed("AddressViewController", owner: nil, options: nil)?.first as! AddressViewController
             self.navigationController?.pushViewController(vc, animated: true)
            
             break
-        case 4: //设置
+        case 3: //设置
             let vc = Bundle.main.loadNibNamed("SetViewController", owner: nil, options: nil)?.first as! SetViewController
             self.navigationController?.pushViewController(vc, animated: true)
             break
-        case 5: //关于我们
+        case 4: //关于我们
             let vc = Bundle.main.loadNibNamed("AboutUsViewController", owner: nil, options: nil)?.first as! AboutUsViewController
             self.navigationController?.pushViewController(vc, animated: true)
             break

@@ -18,4 +18,8 @@ pod "SDWebImage"
 pod 'HMQRCodeScanner'
 pod 'JSONModel'
 pod 'YYModel'
+#友盟统计
+#pod 'UMCCommon'
+#pod 'UMCSecurityPlugins'
+#pod 'UMCAnalytics'
 end

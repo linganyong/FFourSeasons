@@ -190,6 +190,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
                     if let list = model?.goodsList.list{
                         let view =  DetailsView.show(array: list, superView: weakSelf.view, delegate: weakSelf)
                         view.descriptionLabel.text = description
+                        view.descriptionLabel.setlineSpace(lineSpace: 4)
                         view.titleLabel.text = title
                     }
                 }

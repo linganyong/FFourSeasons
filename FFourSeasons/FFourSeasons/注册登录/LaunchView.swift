@@ -82,7 +82,7 @@ class LaunchView: UIView,UITextFieldDelegate {
         }
         var label = view?.viewWithTag(100) as? UILabel
         if label == nil {
-            label = UILabel.init(frame: CGRect(x: 0, y: (view?.frame.size.height)!-10, width: (view?.frame.size.width)!-20 , height: 20))
+            label = UILabel.init(frame: CGRect(x: 0, y:0, width: (view?.frame.size.width)!-8 , height: (view?.frame.size.height)!))
             label?.tag = 100
             view?.addSubview(label!)
         }

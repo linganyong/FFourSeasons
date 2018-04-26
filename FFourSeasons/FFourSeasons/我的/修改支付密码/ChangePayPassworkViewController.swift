@@ -119,9 +119,9 @@ class ChangePayPassworkViewController: UIViewController,UITextFieldDelegate {
             //验证码是否一致
             if (passworkTF.text?.count)! > 0 {
                 if !(passworkTF.text?.elementsEqual(str))! {
-                    cornerAdd(view: textField, text: "输入密码不一致",textColor: UIColor.red)
+                    LGYTool.cornerAdd(view: textField, text: "输入密码不一致",textColor: UIColor.red)
                 }else{
-                    cornerAdd(view: textField, text: "",textColor: UIColor.red)
+                    LGYTool.cornerAdd(view: textField, text: "",textColor: UIColor.red)
                 }
             }
         }

@@ -92,7 +92,7 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
     //MARK:设置pageView
     func setPageView() ->Void{
         self.view.layoutIfNeeded()
-        pageView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: self.view.bounds.size.height)
+        pageView.frame = CGRect(x: 0, y: 6, width: UIScreen.main.bounds.size.width, height: self.view.bounds.size.height)
         pageView.addContent(titleArray: titleDataScoure, height: 26, maginLeft: 10)
        pageView.setBackgroundColor(defaultBackgroundColor: UIColor.clear, selectBackgroundColor: UIColor.init(red: 42/255.0, green: 201/255.0, blue: 140/255.0, alpha: 1))
         pageView.headerBtnStyle(defaultTextColor: UIColor.black, selectTextColor: UIColor.white, headerBtnMagin: 20, headerLineHeight: 0, textFront: 15)

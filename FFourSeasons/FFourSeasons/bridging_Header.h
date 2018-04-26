@@ -27,6 +27,7 @@
 #import <CommonCrypto/CommonDigest.h> //md5加密
 #import <AlipaySDK/AlipaySDK.h>
 @import MJRefresh;
+//#import <UMCommon/UMCommon.h>
 
 //import model
 #import "Model_sms_verificationCode.h"

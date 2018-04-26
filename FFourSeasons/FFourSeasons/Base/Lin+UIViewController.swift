@@ -150,9 +150,9 @@ extension UIViewController {
         var tintColor = UIColor.black;
         switch type {
         case .Default:
-            backgroundImage = UIImage(named: "导航矩形3x.png")?.resizableImage(withCapInsets:  UIEdgeInsets(), resizingMode: .stretch);
+            backgroundImage = UIImage(named: "导航矩形3x.png")?.resizableImage(withCapInsets:  UIEdgeInsets.init(top: 0, left: 0, bottom: -4, right: 0), resizingMode: .tile);
              tintColor = UIColor.white;
-//            setNaviagtionShadowOffset(color: UIColor.clear)
+            setNaviagtionShadowOffset(color: UIColor.clear)
             UIApplication.shared.statusBarStyle = .lightContent
             break
         case .Clear:
@@ -197,6 +197,7 @@ extension UIViewController {
         if aBounds != nil {
             navigationController?.navigationBar.layer.shadowPath = UIBezierPath(rect: aBounds!).cgPath
         }
+        UINavigationBar.appearance().shadowImage = UIImage()
     }
     
     //MARK:快速弹出框

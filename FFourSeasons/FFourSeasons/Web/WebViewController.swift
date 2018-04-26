@@ -24,9 +24,15 @@ class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        extendedLayout()
-        webView.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: self.view.bounds.size.height)
+        
         webView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         view.addSubview(webView)
+        webView.snp.makeConstraints { (make) in
+            make.top.equalTo(view.snp.top)
+            make.bottom.equalTo(view.snp.bottom)
+            make.left.equalTo(view.snp.left)
+            make.right.equalTo(view.snp.right)
+        }
     }
 
     
