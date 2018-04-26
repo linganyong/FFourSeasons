@@ -70,21 +70,24 @@ class ChangePayPassworkViewController: UIViewController,UITextFieldDelegate {
         return true
     }
     
-    @IBAction func codeAction(_ sender: Any) {
-        if !LGYTool.isMobileNumber(mobileNum: phoneTF.text!){
-            //            viewController?.alertView(_title: "提示", _message: "请输入正确的手机号码!", _bText: "确定")
-            LGYToastView.show(message: "请输入正确的手机号码!")
-            return
-        }
-        var codeType = "1"
-        if type == .PayPasswork{
-            codeType = "2"
-        }
-        LGYAFNetworking.lgyPost(urlString: APIAddress.sms_verificationCode, parameters: ["phone":phoneTF.text!,"verifyType":codeType], progress: nil) { (object,isError) in
-            if !isError{
-                let model = Model_sms_verificationCode.yy_model(withJSON: object)
-                if let msg = model?.msg {
-                    LGYToastView.show(message: msg)
+    @IBAction func codeAction(_ sender:VerificationCodeCountdownButton) {
+        if let phone = PersonViewController.infornation?.phone{
+            if !LGYTool.isMobileNumber(mobileNum:phone ){
+                //            viewController?.alertView(_title: "提示", _message: "请输入正确的手机号码!", _bText: "确定")
+                LGYToastView.show(message: "请输入正确的手机号码!")
+                return
+            }
+            sender.setRun(count: 60, time: 1)
+            var codeType = "1"
+            if type == .PayPasswork{
+                codeType = "2"
+            }
+            LGYAFNetworking.lgyPost(urlString: APIAddress.sms_verificationCode, parameters: ["phone":phone,"verifyType":codeType], progress: nil) { (object,isError) in
+                if !isError{
+                    let model = Model_sms_verificationCode.yy_model(withJSON: object as Any)
+                    if let msg = model?.msg {
+                        LGYToastView.show(message: msg)
+                    }
                 }
             }
         }

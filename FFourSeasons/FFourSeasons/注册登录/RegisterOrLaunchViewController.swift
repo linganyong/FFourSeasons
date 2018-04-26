@@ -308,8 +308,9 @@ class RegisterOrLaunchViewController: UIViewController,UITextFieldDelegate{
     }
     
     //MARK:获取验证码
-    @IBAction func verificationCodeAction(_ sender: Any) {
+    @IBAction func verificationCodeAction(_ sender:VerificationCodeCountdownButton) {
         if registerView.isCanGetVercifitionCode(){
+            sender.setRun(count: 60, time: 1)
             LGYAFNetworking.lgyPost(urlString: APIAddress.sms_verificationCode, parameters: ["phone":registerView.phoneNumberTextField.text!], progress: nil) { (object,isError) in
                 //                let model = Model_user_information.yy_model(withJSON: any)
                 if !isError{

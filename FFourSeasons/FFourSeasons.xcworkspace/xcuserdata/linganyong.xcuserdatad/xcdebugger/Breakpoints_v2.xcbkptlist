@@ -78,24 +78,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FFourSeasons/&#x6211;&#x7684;/&#x4fee;&#x6539;&#x5934;&#x50cf;/LGYImageSelectViewController.swift"
-            timestampString = "546185729.050874"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
-            landmarkName = "clipViewController(_:finishClipImage:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "FFourSeasons/Base/PageView/LGYMarkPageView.swift"
-            timestampString = "546410210.456409"
+            timestampString = "546414057.923342"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "156"

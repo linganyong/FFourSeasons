@@ -85,7 +85,7 @@ class BindingPhoneViewController: UIViewController,UITextFieldDelegate {
         
     }
     
-    @IBAction func codeAction(_ sender: UIButton) {
+    @IBAction func codeAction(_ sender:VerificationCodeCountdownButton) {
         if phoneTextField.text == nil || phoneTextField.text?.count == 0{
             LGYTool.cornerAdd(view: phoneTextField, text: "手机号码不正确",textColor: UIColor.red)
             return
@@ -95,6 +95,7 @@ class BindingPhoneViewController: UIViewController,UITextFieldDelegate {
             LGYTool.cornerAdd(view: phoneTextField, text: "手机号码不正确",textColor: UIColor.red)
             return
         }
+        sender.setRun(count: 60, time: 1)
         LGYAFNetworking.lgyPost(urlString: APIAddress.sms_verificationCode, parameters: ["phone":phoneTextField.text!], progress: nil) { (object,isError) in
             if !isError{
                 let model = Model_sms_verificationCode.yy_model(withJSON: object as Any)

@@ -299,6 +299,7 @@
 		9C9616D720562ACF00D0EB7D /* APIAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9616D620562ACF00D0EB7D /* APIAddress.swift */; };
 		9C9616DC2056676500D0EB7D /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9616DB2056676500D0EB7D /* KeychainPasswordItem.swift */; };
 		9C9616DE20566C7100D0EB7D /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9616DD20566C7100D0EB7D /* KeychainConfiguration.swift */; };
+		9C9C1FF020919466008A3AFF /* VerificationCodeCountdownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9C1FEF20919466008A3AFF /* VerificationCodeCountdownButton.swift */; };
 		9CA32D322046AC3000FD5DFC /* BindingPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA32D302046AC3000FD5DFC /* BindingPhoneViewController.swift */; };
 		9CA32D332046AC3000FD5DFC /* BindingPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA32D312046AC3000FD5DFC /* BindingPhoneViewController.xib */; };
 		9CA32D362046B16400FD5DFC /* LGYToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA32D352046B16400FD5DFC /* LGYToastView.swift */; };
@@ -825,6 +826,7 @@
 		9C9616D620562ACF00D0EB7D /* APIAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAddress.swift; sourceTree = "<group>"; };
 		9C9616DB2056676500D0EB7D /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		9C9616DD20566C7100D0EB7D /* KeychainConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
+		9C9C1FEF20919466008A3AFF /* VerificationCodeCountdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeCountdownButton.swift; sourceTree = "<group>"; };
 		9CA32D302046AC3000FD5DFC /* BindingPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingPhoneViewController.swift; sourceTree = "<group>"; };
 		9CA32D312046AC3000FD5DFC /* BindingPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BindingPhoneViewController.xib; sourceTree = "<group>"; };
 		9CA32D352046B16400FD5DFC /* LGYToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYToastView.swift; sourceTree = "<group>"; };
@@ -1594,6 +1596,7 @@
 			children = (
 				9C77C40E2027F96D008B49E2 /* Lin+UIButton.swift */,
 				9C77C4052027F96D008B49E2 /* LGYFloatButton.swift */,
+				9C9C1FEF20919466008A3AFF /* VerificationCodeCountdownButton.swift */,
 			);
 			path = LGYButton;
 			sourceTree = "<group>";
@@ -2961,6 +2964,7 @@
 				9C77C4262027F96D008B49E2 /* Lin+String.swift in Sources */,
 				9CA32D392046C2A700FD5DFC /* LGYLineSelectView.swift in Sources */,
 				9CFC619F208B479600888D9A /* CouponRuleView.swift in Sources */,
+				9C9C1FF020919466008A3AFF /* VerificationCodeCountdownButton.swift in Sources */,
 				9C46BA272045625600646A81 /* MyOrderViewController.swift in Sources */,
 				9C10BD792044F164004AAFE3 /* PurchaseImmediatelyViewController.swift in Sources */,
 				9978F22C207698850031CAE3 /* OrderPay.m in Sources */,

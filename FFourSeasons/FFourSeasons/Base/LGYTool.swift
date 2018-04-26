@@ -378,7 +378,7 @@ class LGYTool: NSObject {
         
         button.setTitle(title, for: .normal)
     }
-    
    
+
     
 }
