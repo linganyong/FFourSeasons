@@ -179,11 +179,11 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
         searchTextField.becomeFirstResponder()
         searchView.frame =  CGRect(x:self.view.frame.size.width - 80, y: 9, width: 0, height: 26)
         self.navigationController?.navigationBar.addSubview(searchView)
-        searchAhpdView.frame = CGRect(x: UIScreen.main.bounds.size.width, y: pageView.frame.origin.y, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height-pageView.frame.origin.y)
+        searchAhpdView.frame = CGRect(x: UIScreen.main.bounds.size.width, y: -12, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         self.view.addSubview(searchAhpdView)
         UIView.animate(withDuration: 0.25) {
             self.searchView.frame =  CGRect(x:80, y: self.searchView.frame.origin.y, width: self.view.frame.size.width - 80*2, height: self.searchView.frame.height)
-            self.searchAhpdView.frame = CGRect(x: 0, y: 60, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height-self.pageView.frame.origin.y)
+            self.searchAhpdView.frame = CGRect(x: 0, y: -12, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         }
     }
     
@@ -192,7 +192,7 @@ class MarketViewController: UIViewController,UITableViewDelegate,UITableViewData
         searchTextField.resignFirstResponder()
         UIView.animate(withDuration: 0.25) {
             self.searchView.frame =  CGRect(x:80, y: self.searchView.frame.origin.y, width: 0, height: self.searchView.frame.height)
-            self.searchAhpdView.frame = CGRect(x: UIScreen.main.bounds.size.width, y: 60, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height-self.pageView.frame.origin.y)
+            self.searchAhpdView.frame = CGRect(x: UIScreen.main.bounds.size.width, y: -12, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         }
     }
     

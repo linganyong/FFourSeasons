@@ -152,7 +152,7 @@ extension UIViewController {
         case .Default:
             backgroundImage = UIImage(named: "导航矩形3x.png")?.resizableImage(withCapInsets:  UIEdgeInsets(), resizingMode: .stretch);
              tintColor = UIColor.white;
-            setNaviagtionShadowOffset(color: UIColor.clear)
+//            setNaviagtionShadowOffset(color: UIColor.clear)
             UIApplication.shared.statusBarStyle = .lightContent
             break
         case .Clear:

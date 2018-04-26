@@ -60,10 +60,12 @@ class AllClassView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     }
     
     func show() {
+        
         //MARK:设置导航栏取消按钮
         UIView.animate(withDuration: 0.25, animations: {
             self.frame = CGRect(x: 0, y: 22, width: self.frame.size.width, height: self.frame.size.height)
             self.allClassCollectionView.reloadData()
+            self.layoutIfNeeded()
         }) { (finish) in
             
         }
@@ -74,7 +76,7 @@ class AllClassView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         //MARK:设置导航栏取消按钮
         UIView.animate(withDuration: 0.25, animations: {
             self.frame = CGRect(x: 0, y: -UIScreen.main.bounds.size.height, width: self.frame.size.width, height: self.frame.size.height)
-            
+            self.layoutIfNeeded()
         }) { (finish) in
             
         }

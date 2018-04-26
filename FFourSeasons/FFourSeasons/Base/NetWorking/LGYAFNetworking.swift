@@ -13,6 +13,8 @@ import AFNetworking
  统一第三方类库，方便后期修改类库
  */
 
+var netWorkStatus:AFNetworkReachabilityStatus? = nil
+
 typealias  LGYAFNetworkingBlock = ()->Void
 
 class LGYAFNetworking: NSObject {
@@ -85,19 +87,25 @@ class LGYAFNetworking: NSObject {
     
     //MARK:POST网络请求入口
     class func lgyPost(urlString: String, parameters: [String:Any]?,progress:UIProgressView?,cacheName:String?,responseBlock:((_ responseObject:Any?,_ isError:Bool)->Void)?) ->Void{
-        let network = LGYAFNetworking()
-        network.addLoadingView()
+       
         if cacheName != nil{
             let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-            if !appDelegate.isExistCacheNameUse(cacheName: cacheName!){
+            if !appDelegate.isExistCacheNameUse(cacheName: cacheName!) || netWorkStatus == .notReachable{
                 let data = readNetWorkCahe(key: cacheName)
                 if data != nil {
                     let JSONString = NSString(data:data!,encoding: String.Encoding.utf8.rawValue)
                     responseBlock?(JSONString, false)
-                    network.removeLoadingView()
                 }
             }
         }
+        if netWorkStatus != nil && netWorkStatus == .notReachable{
+            _ = LGYAlertViewSimple.show(title: "网络连接已断开！", buttonStr: "确定")
+            responseBlock?("网络连接已断开！", false)
+            return
+        }
+        
+        let network = LGYAFNetworking()
+        network.addLoadingView()
         
         let manager = AFHTTPSessionManager();
         //申明请求的数据是json类型
@@ -212,6 +220,7 @@ class LGYAFNetworking: NSObject {
     //MARK:网络状态检查
     class func lgyReachabilityStatus() ->Void {
         AFNetworkReachabilityManager.shared().setReachabilityStatusChange { (status) in
+            netWorkStatus = status
             switch status {
             case .unknown :
                 break
