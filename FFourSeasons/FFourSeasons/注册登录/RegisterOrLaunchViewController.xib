@@ -72,7 +72,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YME-Tg-fcF">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YME-Tg-fcF">
                                 <rect key="frame" x="170" y="108.5" width="62" height="83"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="62" id="ggc-UT-juo"/>
@@ -167,15 +167,15 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SkI-tt-fMP">
-                                <rect key="frame" x="8" y="137" width="204" height="25"/>
+                                <rect key="frame" x="8" y="137" width="176" height="25"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHO-mx-xbu" customClass="VerificationCodeCountdownButton" customModule="FFourSeasons" customModuleProvider="target">
-                                <rect key="frame" x="220" y="137" width="72" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHO-mx-xbu" customClass="VerificationCodeCountdownButton" customModule="FFourSeasons" customModuleProvider="target">
+                                <rect key="frame" x="192" y="137" width="100" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="72" id="CmH-ts-vJb"/>
+                                    <constraint firstAttribute="width" constant="100" id="CmH-ts-vJb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="获取验证码">

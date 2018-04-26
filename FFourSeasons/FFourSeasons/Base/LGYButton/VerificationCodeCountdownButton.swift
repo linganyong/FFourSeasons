@@ -24,10 +24,10 @@ class VerificationCodeCountdownButton: UIButton {
     
     func setRun(count:Int,time:Double)->Void{
         allCount = count
-        countLabel.text = "\(allCount)s"
+        countLabel.text = "获取验证码（\(allCount)s）"
         countLabel.frame = self.bounds
-        countLabel.textColor = UIColor.blue
-        countLabel.font = UIFont.systemFont(ofSize: 17)
+        countLabel.textColor = self.titleLabel?.textColor
+        countLabel.font = UIFont.systemFont(ofSize: 11)
         countLabel.textAlignment = .center
         countLabel.backgroundColor = UIColor.clear
         self.addSubview(countLabel)
@@ -40,7 +40,7 @@ class VerificationCodeCountdownButton: UIButton {
     
     @objc func changeCountLabelText()->Void{
         allCount -= 1
-        countLabel.text = "\(allCount)s"
+        countLabel.text = "获取验证码（\(allCount)s）"
         if allCount <= 0{
             timer?.invalidate()
             timer = nil
