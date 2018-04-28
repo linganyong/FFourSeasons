@@ -21,4 +21,5 @@
 @property (nonatomic, retain) NSString * rule;// = safasd;
 @property (nonatomic, retain) NSString * start_time ;//" = "2018-04-16 08:00:00";
 @property (nonatomic, retain) NSString * total_price ;//" = "1000.00";
+@property (nonatomic, retain) NSString *code_id;
 @end

@@ -75,10 +75,6 @@ class FarmerViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = false
-    }
-    
     //MARK:会员特权说明
     @IBAction func MemberPrivilegesDetailAction(_ sender: Any) {
         let vc = WebViewController()

@@ -36,6 +36,7 @@ class IntegralShopViewController: UIViewController,UITableViewDataSource,UITable
             vc?.loadIntegralShop(tableView: tb!)
         })
         tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+            tb?.mj_footer.alpha = 1
             tb?.lgyPageIndex = 1 + (tb?.lgyPageIndex)!
             vc?.loadIntegralShop(tableView: tb!)
         })
@@ -80,6 +81,9 @@ class IntegralShopViewController: UIViewController,UITableViewDataSource,UITable
         weak var tb = tableView
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_integralShop, parameters: ["pageNumber":String.init(format: "%D", (tb?.lgyPageIndex)!)
             ,"token":Model_user_information.getToken()], progress: nil) { (object, isError) in
+                tb?.mj_header?.endRefreshing()
+                tb?.mj_footer?.endRefreshing()
+                tb?.mj_footer.alpha = 0
                 if !isError {
                     if isError{
                         return
@@ -96,9 +100,7 @@ class IntegralShopViewController: UIViewController,UITableViewDataSource,UITable
                         }
                     }
                     tb?.reloadData();
-                    tb?.mj_header?.endRefreshing()
-                    tb?.mj_footer?.endRefreshing()
-                    
+                   
                 }
         }
     }

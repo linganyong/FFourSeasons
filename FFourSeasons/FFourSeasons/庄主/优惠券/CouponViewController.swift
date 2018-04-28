@@ -15,6 +15,7 @@ protocol CouponViewControllerDelegate {
 var CouponViewControllerNeedLoad = true
 class CouponViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
+    @IBOutlet weak var outTimeCouponBtnBottomLC: NSLayoutConstraint!
     var rightBarItem:UIBarButtonItem!
     var delegate:CouponViewControllerDelegate?
     var dataScoure = Array<CouponDetail>()
@@ -51,8 +52,8 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
         tableView.tableFooterView = UIView()
         tableView.register(UINib.init(nibName: "CouponTableViewCell", bundle: nil), forCellReuseIdentifier: "CouponTableViewCell")
         weak var weakSelf = self
-        tableView.mj_footer = MJRefreshBackNormalFooter.init(refreshingBlock:{
-             weakSelf?.loadList(orderIds: weakSelf?.orderItemIds)
+        tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            weakSelf?.loadList(orderIds: weakSelf?.orderItemIds)
         })
         
     }
@@ -68,6 +69,7 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
         cell.selectionStyle = .none
         cell.isCanSelect = isOrderNeed
         cell.setItem(item: dataScoure[indexPath.row])
+        cell.hiddenOutTime()
         return cell
         
     }
@@ -85,6 +87,9 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
     //MARK:加载我的优惠券
     func loadCouponList() -> Void {
         LGYAFNetworking.lgyPost(urlString: APIAddress.api_couponList, parameters: ["token":Model_user_information.getToken()], progress: nil){  [weak self](object, isError) in
+            if let tb = self?.tableView {
+                tb.mj_header.endRefreshing()
+            }
             if !isError{
                 if let model = Model_api_couponList.yy_model(withJSON: object as Any) {
                     if LGYAFNetworking.isNetWorkSuccess(str: model.code){
@@ -131,6 +136,7 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
                 loadCouponList()
             }
             rightBarItem = navigationBarAddRightItem(title: "兑换新券", target: self, action: #selector(rightBarAction),textSize:15)
+            
         }else if selectItem != nil{
             rightBarItem = navigationBarAddRightItem(_imageName: "黑色确定", target: self, action: #selector(rightBarAction))
         }else{
@@ -138,10 +144,22 @@ class CouponViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
     }
     
+    //MARK:查看过期优惠券
+    @IBAction func lookOutTimeCouponAction(_ sender: UIButton) {
+        if let vc = Bundle.main.loadNibNamed("CouponOutTimeViewController", owner: nil, options: nil)?.first as? CouponOutTimeViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
          setNavigationBarStyle(type:.Default)
-        
+        //如果是选择下单优惠券，隐藏过期按钮
+        if isOrderNeed{
+            outTimeCouponBtnBottomLC.constant = -44
+            self.view.layoutIfNeeded()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

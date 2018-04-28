@@ -23,11 +23,13 @@ class SignAddIntegralViewController: UIViewController,UITableViewDelegate,UITabl
     @IBOutlet weak var menuBackView: UIView!
     let dataScoure = ["全部","支出","收入"]
     @IBOutlet weak var pageView: LGYPageView!
+    var isFirst = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "每日签到"
-        setPageView()
+        self.automaticallyAdjustsScrollViewInsets = true
+        
         navigationItemBack(title: "      ")
         LGYTool.viewLayerShadow(view: menuBackView)
         setAnimationButtonView()
@@ -124,6 +126,7 @@ class SignAddIntegralViewController: UIViewController,UITableViewDelegate,UITabl
     
     //MARK:设置pageView
     func setPageView() ->Void{
+        self.view.layoutIfNeeded()
         LGYTool.viewLayerShadow(view: pageView)
         pageView.addContent(titleArray: dataScoure, height: 30, isHiddenHeader: false)
         pageView.headerBtnStyle(defaultTextColor: UIColor.init(red: 187/255.0, green: 187/255.0, blue: 187/255.0, alpha: 1), selectTextColor: UIColor.init(red: 42/255.0, green: 201/255.0, blue: 140/255.0, alpha: 1), headerBtnWidth: (self.view.frame.size.width-24)/CGFloat(dataScoure.count), headerLineHeight: 1,textFront: 12)
@@ -240,6 +243,11 @@ class SignAddIntegralViewController: UIViewController,UITableViewDelegate,UITabl
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setNavigationBarStyle(type: .Clear)
+        if isFirst{
+            isFirst = false
+            setPageView()
+        }
+        
         self.view.layoutIfNeeded()
     }
     

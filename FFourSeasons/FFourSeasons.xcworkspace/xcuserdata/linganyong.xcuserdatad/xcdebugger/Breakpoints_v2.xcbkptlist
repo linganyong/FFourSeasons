@@ -26,28 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FFourSeasons/AppDelegate.swift"
-            timestampString = "546437152.105857"
+            timestampString = "546599010.498907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "application(_:handleOpen:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FFourSeasons/AppDelegate.swift"
-            timestampString = "546437152.107314"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "application(_:open:options:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -78,13 +62,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FFourSeasons/Base/PageView/LGYMarkPageView.swift"
-            timestampString = "546414813.971429"
+            filePath = "FFourSeasons/&#x9996;&#x9875;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;/OrderDetailsViewController.swift"
+            timestampString = "546601188.665593"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "scrollViewDidScroll(_:)"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "setOrderType(orderType:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

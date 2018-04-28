@@ -11,6 +11,7 @@ import UIKit
 class CouponTableViewCell: UITableViewCell {
     var ruleView:CouponRuleView?
     
+    @IBOutlet weak var outTimeImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var limitLabel: UILabel!
     @IBOutlet weak var unitLabel: UILabel!
@@ -27,6 +28,9 @@ class CouponTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        if !isCanSelect{
+           return
+        }
         if selected {
             backImageView.image = UIImage.init(named: "选中优惠券背景3x.png")
         }else{
@@ -65,6 +69,10 @@ class CouponTableViewCell: UITableViewCell {
         if let str = model?.end_time {
             dateLabel.text = "有效期到：\(str.replacingCharacters(in: str.lgyRange(nsRange: NSRange.init(location: 10, length: str.count - 10))!, with: ""))"
         }
+    }
+    
+    func hiddenOutTime(){
+        outTimeImageView.isHidden = true
     }
     
 }

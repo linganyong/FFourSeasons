@@ -14,7 +14,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     @IBOutlet weak var myLocationBtn: UIButton!
     var mapZoomLevel = CGFloat(17)
     ///初始化地图
-    let mapView = MAMapView()
+    @IBOutlet weak var mapView: MAMapView!
     let locationManager = CLLocationManager()
     var userAnnotation = MAPointAnnotation()
     let tool = LGYMapMangerTool() //启动导航
@@ -38,9 +38,6 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     
     //MARK:设置地图
     func addMapView() ->Void{
-        mapView.frame = CGRect(x: 0, y: 60, width: view.bounds.size.width, height: view.bounds.size.height - 60)
-        //        mapView.setZoomLevel(mapZoomLevel, animated: true)
-        view.insertSubview(mapView, at: 0)
         mapView.delegate = self
         AMapServices.shared().enableHTTPS = true
         mapView.setZoomLevel(mapZoomLevel, animated: true)
@@ -52,10 +49,11 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     //MARK:设置地图上面的View
     func setTextViewText() ->Void{
         let backViewWidth = view.frame.width - 32
-        backView.frame = CGRect(x: 16, y: 0, width: backViewWidth, height: 30)
+        backView.frame = CGRect(x: 16, y: 8, width: backViewWidth, height: 30)
         backView.backgroundColor = UIColor.white
         backView.LGyCornerRadius = 10
         LGYTool.viewLayerShadow(view: backView)
+        backView.isHidden = true
         self.view.addSubview(backView)
         
         textLabel.delegate = self
@@ -66,6 +64,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     
     //MARK:设置地图上面浮动文字
     func setTextLabelText(text:String) -> Void {
+        backView.isHidden = false
         let backViewWidth = view.frame.width - 32
         let text = "\(text)<立即前往>"
         textLabel.text = text
@@ -161,9 +160,6 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         let cl = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         userAnnotation.coordinate = location.coordinate
         clGeoCoder.reverseGeocodeLocation(cl) { (placemarks, error) in
-            //            for placeMark: CLPlacemark in placemarks! {
-            //
-            //            }
         }
         
         mapView.addAnnotation(self.userAnnotation)
@@ -214,7 +210,7 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
     //插入大图标
     func setData(model:Model_api_farm?)->Void{
         if LGYAFNetworking.isNetWorkSuccess(str: model?.code){
-            backView.isHidden = false
+            
             if let farm = model?.farm{
                 firstFarm = farm
                 setTextLabelText(text: farm.recommendation!)
@@ -284,6 +280,10 @@ class SurroundingFarmsViewController: UIViewController,MAMapViewDelegate,TYAttri
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationBarStyle(type: .Default)
+    }
     
 }
 

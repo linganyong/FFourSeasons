@@ -42,6 +42,7 @@ class OrderPaymentViewController: UIViewController{
     var totalPrice : String = ""
     //优惠券id
     var cId : String = "0"
+    var codeId = "0"
     
     //支付类型，默认为积分支付
     var payType : PayType = PayType.Point
@@ -60,7 +61,7 @@ class OrderPaymentViewController: UIViewController{
             if flag {
                 let vc = Bundle.main.loadNibNamed("OrderDetailsViewController", owner: nil, options: nil)?.first as! OrderDetailsViewController
                 vc.orderDetail = orderDetails
-                vc.setOrderType(orderType:.WaitForHarvest)
+                vc.setOrderType(orderType:.WaitForSend)
                 vc.loadOrderDetails()
                 vc.setText()
                 self.navigationController?.pushViewController(vc, animated: true)
@@ -127,6 +128,7 @@ class OrderPaymentViewController: UIViewController{
              "itemIds":self.orderString,
              "addressId":self.addressID,
              "cId":cId,
+             "codeId":codeId,
              "msg":self.liuyan], progress: nil) { [weak self] (object, isError) in
             if let weakSelf = self {
                 if !isError {

@@ -32,7 +32,7 @@ class LCycleCell: UICollectionViewCell {
         
         if self.viewWithTag(1000) == nil{
             imgView.tag = 1000
-            imgView.contentMode = .scaleAspectFill
+            imgView.contentMode = .scaleToFill
             addSubview(imgView)
             //设置collectionView和pageControl的约束
             imgView.snp.makeConstraints { (make) in

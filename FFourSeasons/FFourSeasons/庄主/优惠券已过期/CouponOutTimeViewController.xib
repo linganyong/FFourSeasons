@@ -12,43 +12,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="B33-k9-nyN" customClass="CouponViewController" customModule="FFourSeasons" customModuleProvider="target">
+        <viewController id="B33-k9-nyN" customClass="CouponOutTimeViewController" customModule="FFourSeasons" customModuleProvider="target">
             <view key="view" contentMode="scaleToFill" id="eQp-Kn-YlS">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7tF-aC-SFW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tableView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7j-OF-997">
-                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="44" id="TFy-F5-zNI"/>
-                        </constraints>
-                        <state key="normal" title="查看过期优惠券">
-                            <color key="titleColor" red="0.52544218300000001" green="0.52552098039999995" blue="0.52542495730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
-                        <connections>
-                            <action selector="lookOutTimeCouponAction:" destination="B33-k9-nyN" eventType="touchUpInside" id="dXx-eX-pff"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="wxf-kn-NDt" firstAttribute="bottom" secondItem="m7j-OF-997" secondAttribute="bottom" id="DGL-JC-lTA"/>
-                    <constraint firstItem="m7j-OF-997" firstAttribute="leading" secondItem="wxf-kn-NDt" secondAttribute="leading" id="Js1-3V-d5k"/>
+                    <constraint firstItem="wxf-kn-NDt" firstAttribute="bottom" secondItem="7tF-aC-SFW" secondAttribute="bottom" id="6VM-4X-9Aw"/>
                     <constraint firstItem="7tF-aC-SFW" firstAttribute="leading" secondItem="wxf-kn-NDt" secondAttribute="leading" id="Sqf-Ea-AVd"/>
                     <constraint firstItem="7tF-aC-SFW" firstAttribute="top" secondItem="eQp-Kn-YlS" secondAttribute="top" id="YlW-Uc-zrX"/>
-                    <constraint firstItem="m7j-OF-997" firstAttribute="trailing" secondItem="wxf-kn-NDt" secondAttribute="trailing" id="gMI-Zo-6Be"/>
-                    <constraint firstItem="m7j-OF-997" firstAttribute="top" secondItem="7tF-aC-SFW" secondAttribute="bottom" id="o8n-RD-qzz"/>
                     <constraint firstItem="7tF-aC-SFW" firstAttribute="trailing" secondItem="wxf-kn-NDt" secondAttribute="trailing" id="rhQ-Ov-leU"/>
                 </constraints>
                 <viewLayoutGuide key="safeArea" id="wxf-kn-NDt"/>
             </view>
             <connections>
-                <outlet property="outTimeCouponBtnBottomLC" destination="DGL-JC-lTA" id="haj-yv-OW8"/>
                 <outlet property="tableView" destination="7tF-aC-SFW" id="o9Y-D5-1w3"/>
             </connections>
             <point key="canvasLocation" x="-97.5" y="12.5"/>

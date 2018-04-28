@@ -67,7 +67,8 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         super.viewDidLoad()
         view.layoutIfNeeded()
         viewShadowColor()
-        extendedLayout()
+        self.navigationController?.navigationBar.isTranslucent = true;
+        self.automaticallyAdjustsScrollViewInsets = true
        setComment()
         addViewTapGestureRecognizerAction()
         viewStyle()
@@ -475,16 +476,6 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        NSLog("%lf", scrollView.contentOffset.y)
-//        if scrollView.contentOffset.y <= 150.0 && scrollView.contentOffset.y >= -64{
-//            let alpha = (scrollView.contentOffset.y+64)/150.0; self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(color: UIColor.init(red: 255/255.0, green: 255/255.0, blue:255/255.0, alpha: alpha)), for: .default)
-//            self.view.layoutIfNeeded()
-//        }
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -493,7 +484,6 @@ class ProductSaleDetailsViewController: UIViewController,UIScrollViewDelegate,UI
         super.viewWillAppear(animated)
         setNavigationBarStyle(type: .Default)
         //要下面两句才能使scrollview展示正确
-        backScrollView.setContentOffset(CGPoint.init(x: 0, y: -64), animated: true)
         self.view.layoutIfNeeded()
         if productInformation?.status == 1{
             self.navigationItem.rightBarButtonItems = [rightBarItem]

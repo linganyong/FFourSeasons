@@ -124,11 +124,12 @@ class PurchaseImmediatelyViewController: UIViewController,UITableViewDelegate,UI
         }
         vc.liuyan = liuyan
         vc.totalPrice = totalPrice
-        var cId = "0"
         if let _id = selectCouponItem?._id{
-            cId = "\(_id)"
+            vc.cId = "\(_id)"
         }
-        vc.cId = cId
+        if let codeID = selectCouponItem?.code_id{
+            vc.codeId = "\(codeID)"
+        }
         vc.getOrderAction()
         self.navigationController?.pushViewController(vc, animated: true)
     }

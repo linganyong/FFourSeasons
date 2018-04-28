@@ -300,6 +300,8 @@
 		9C9616DC2056676500D0EB7D /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9616DB2056676500D0EB7D /* KeychainPasswordItem.swift */; };
 		9C9616DE20566C7100D0EB7D /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9616DD20566C7100D0EB7D /* KeychainConfiguration.swift */; };
 		9C9C1FF020919466008A3AFF /* VerificationCodeCountdownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9C1FEF20919466008A3AFF /* VerificationCodeCountdownButton.swift */; };
+		9C9C1FF4209300D2008A3AFF /* CouponOutTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C9C1FF2209300D2008A3AFF /* CouponOutTimeViewController.xib */; };
+		9C9C1FF5209300D2008A3AFF /* CouponOutTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9C1FF3209300D2008A3AFF /* CouponOutTimeViewController.swift */; };
 		9CA32D322046AC3000FD5DFC /* BindingPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA32D302046AC3000FD5DFC /* BindingPhoneViewController.swift */; };
 		9CA32D332046AC3000FD5DFC /* BindingPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA32D312046AC3000FD5DFC /* BindingPhoneViewController.xib */; };
 		9CA32D362046B16400FD5DFC /* LGYToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA32D352046B16400FD5DFC /* LGYToastView.swift */; };
@@ -450,6 +452,8 @@
 		9CFC61B8208CD0A100888D9A /* EvaluateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC61B6208CD0A100888D9A /* EvaluateTableViewCell.xib */; };
 		9CFC61C0208E607500888D9A /* LGYMAAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC61BF208E607500888D9A /* LGYMAAnnotationView.swift */; };
 		9CFC61C2208E617B00888D9A /* LGYMAPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC61C1208E617B00888D9A /* LGYMAPointAnnotation.swift */; };
+		9CFC876820941CEF00F0337A /* CouponAndIntegarShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC876720941CEF00F0337A /* CouponAndIntegarShowView.swift */; };
+		9CFC876A20941D1000F0337A /* CouponAndIntegarShowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFC876920941D1000F0337A /* CouponAndIntegarShowView.xib */; };
 		9CFCDD06207630F700ECBA48 /* Farm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCDD05207630F700ECBA48 /* Farm.m */; };
 		9CFCDD092076317400ECBA48 /* Model_api_farm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCDD082076317400ECBA48 /* Model_api_farm.m */; };
 		9CFD551F206E617F0028B1A4 /* 智慧农场3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD551E206E617E0028B1A4 /* 智慧农场3x.png */; };
@@ -827,6 +831,8 @@
 		9C9616DB2056676500D0EB7D /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		9C9616DD20566C7100D0EB7D /* KeychainConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
 		9C9C1FEF20919466008A3AFF /* VerificationCodeCountdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeCountdownButton.swift; sourceTree = "<group>"; };
+		9C9C1FF2209300D2008A3AFF /* CouponOutTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponOutTimeViewController.xib; sourceTree = "<group>"; };
+		9C9C1FF3209300D2008A3AFF /* CouponOutTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponOutTimeViewController.swift; sourceTree = "<group>"; };
 		9CA32D302046AC3000FD5DFC /* BindingPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingPhoneViewController.swift; sourceTree = "<group>"; };
 		9CA32D312046AC3000FD5DFC /* BindingPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BindingPhoneViewController.xib; sourceTree = "<group>"; };
 		9CA32D352046B16400FD5DFC /* LGYToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYToastView.swift; sourceTree = "<group>"; };
@@ -995,6 +1001,8 @@
 		9CFC61B6208CD0A100888D9A /* EvaluateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluateTableViewCell.xib; sourceTree = "<group>"; };
 		9CFC61BF208E607500888D9A /* LGYMAAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYMAAnnotationView.swift; sourceTree = "<group>"; };
 		9CFC61C1208E617B00888D9A /* LGYMAPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGYMAPointAnnotation.swift; sourceTree = "<group>"; };
+		9CFC876720941CEF00F0337A /* CouponAndIntegarShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponAndIntegarShowView.swift; sourceTree = "<group>"; };
+		9CFC876920941D1000F0337A /* CouponAndIntegarShowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponAndIntegarShowView.xib; sourceTree = "<group>"; };
 		9CFCDD04207630F700ECBA48 /* Farm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Farm.h; sourceTree = "<group>"; };
 		9CFCDD05207630F700ECBA48 /* Farm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Farm.m; sourceTree = "<group>"; };
 		9CFCDD072076317400ECBA48 /* Model_api_farm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_api_farm.h; sourceTree = "<group>"; };
@@ -1630,6 +1638,7 @@
 		9C77C4312027FDE0008B49E2 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				9CFC876620941C8700F0337A /* 优惠券积分提示 */,
 				9CFC61AA208C868E00888D9A /* 物流 */,
 				9C9616BC205129EA00D0EB7D /* 订单跳转支付 */,
 				9C58AAD420510A4E00594011 /* 订单详情 */,
@@ -1673,6 +1682,7 @@
 		9C77C4332027FDF2008B49E2 /* 庄主 */ = {
 			isa = PBXGroup;
 			children = (
+				9C9C1FF120930084008A3AFF /* 优惠券已过期 */,
 				9C58AACF2050EA5100594011 /* 兑换新券 */,
 				9CD6212A204F9503003CD6C4 /* 会员登录 */,
 				9CA32D722047FA1200FD5DFC /* 优惠券 */,
@@ -2030,6 +2040,15 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		9C9C1FF120930084008A3AFF /* 优惠券已过期 */ = {
+			isa = PBXGroup;
+			children = (
+				9C9C1FF3209300D2008A3AFF /* CouponOutTimeViewController.swift */,
+				9C9C1FF2209300D2008A3AFF /* CouponOutTimeViewController.xib */,
+			);
+			path = "优惠券已过期";
+			sourceTree = "<group>";
+		};
 		9CA32D2F2046ABCB00FD5DFC /* 绑定手机 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2377,6 +2396,15 @@
 			path = "物流";
 			sourceTree = "<group>";
 		};
+		9CFC876620941C8700F0337A /* 优惠券积分提示 */ = {
+			isa = PBXGroup;
+			children = (
+				9CFC876720941CEF00F0337A /* CouponAndIntegarShowView.swift */,
+				9CFC876920941D1000F0337A /* CouponAndIntegarShowView.xib */,
+			);
+			path = "优惠券积分提示";
+			sourceTree = "<group>";
+		};
 		F490176539CA62D9B536CD16 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2555,6 +2583,7 @@
 				9C77C5112027FEC1008B49E2 /* c70833b982692a9b074a79353ba5585d9b25d4565867d-FxqhJp.jpg in Resources */,
 				9CBB50B8204953A60018A43B /* 选中.png in Resources */,
 				9C58AADF20511B8200594011 /* CustomerServiceApplyResultViewController.xib in Resources */,
+				9CFC876A20941D1000F0337A /* CouponAndIntegarShowView.xib in Resources */,
 				9C04BB7B207CA63D006EA205 /* sharpF.png in Resources */,
 				9C10BD7C2044FA09004AAFE3 /* 定位3x.png in Resources */,
 				9C941145205A2820002A29F9 /* SurroundingFarmsViewController.xib in Resources */,
@@ -2688,6 +2717,7 @@
 				9C77C4FC2027FEC1008B49E2 /* 01474d58f84d01a8012049efb7a609.png in Resources */,
 				9CBB5084204929B00018A43B /* 收货地址3x.png in Resources */,
 				9CBB50722048FCBE0018A43B /* ChangePayPassworkViewController.xib in Resources */,
+				9C9C1FF4209300D2008A3AFF /* CouponOutTimeViewController.xib in Resources */,
 				9CA32D762047FA7200FD5DFC /* CouponViewController.xib in Resources */,
 				9C77C4D02027FEC1008B49E2 /* 我3x.png in Resources */,
 				9CD62127204F83BD003CD6C4 /* 相机.jpg in Resources */,
@@ -2945,6 +2975,7 @@
 				9CFD55452070D7C80028B1A4 /* Model_api_addOrder.m in Sources */,
 				9CA32D462046D5AF00FD5DFC /* LGYAlertView.swift in Sources */,
 				9C0DB9C2206BA0F100F9085D /* Goods.m in Sources */,
+				9CFC876820941CEF00F0337A /* CouponAndIntegarShowView.swift in Sources */,
 				9CA32D8020480DEA00FD5DFC /* MemberAnalysisViewController.swift in Sources */,
 				9C0DB9D8206DE2DD00F9085D /* CartList.m in Sources */,
 				9CA32D3C2046CB2B00FD5DFC /* LGYLineSelectViewTableViewCell.swift in Sources */,
@@ -3046,6 +3077,7 @@
 				9CFC61A9208B686F00888D9A /* Model_api_couponList.m in Sources */,
 				9C813A97207F4D1A00FE19EC /* ApplyCustomerServiceImageCollectionViewCell.swift in Sources */,
 				9C31298F2060FBF4006E6102 /* PurchaseImmediatelyTableViewCell.swift in Sources */,
+				9C9C1FF5209300D2008A3AFF /* CouponOutTimeViewController.swift in Sources */,
 				9C77C4282027F96D008B49E2 /* BaseHeader.swift in Sources */,
 				9C77C57E20286F3A008B49E2 /* ImageHelper.swift in Sources */,
 				9C941144205A2820002A29F9 /* SurroundingFarmsViewController.swift in Sources */,
@@ -3152,7 +3184,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -3204,7 +3236,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

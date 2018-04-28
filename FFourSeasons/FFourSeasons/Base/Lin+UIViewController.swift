@@ -146,13 +146,14 @@ extension UIViewController {
     
     //MARK:设置导航栏颜色
     func setNavigationBarStyle(type:NavigationBarStyle) -> Void {
+        navigationController?.navigationBar.isHidden = false
         var backgroundImage = UIImage(color: UIColor.white)
         var tintColor = UIColor.black;
         switch type {
         case .Default:
-            backgroundImage = UIImage(named: "导航矩形3x.png")?.resizableImage(withCapInsets:  UIEdgeInsets.init(top: 0, left: 0, bottom: -4, right: 0), resizingMode: .tile);
+            backgroundImage = UIImage(named: "背景");
              tintColor = UIColor.white;
-            setNaviagtionShadowOffset(color: UIColor.clear)
+            setNaviagtionShadowOffset(color: UIColor.black)
             UIApplication.shared.statusBarStyle = .lightContent
             break
         case .Clear:
@@ -197,7 +198,7 @@ extension UIViewController {
         if aBounds != nil {
             navigationController?.navigationBar.layer.shadowPath = UIBezierPath(rect: aBounds!).cgPath
         }
-        UINavigationBar.appearance().shadowImage = UIImage()
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     //MARK:快速弹出框

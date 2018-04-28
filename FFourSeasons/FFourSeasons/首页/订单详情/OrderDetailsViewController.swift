@@ -53,7 +53,8 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.automaticallyAdjustsScrollViewInsets = false
         setProductTableView()
         setTitleTableView()
         self.title = "订单详情"
@@ -165,9 +166,13 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
         couponTitleLabel.text = nil;
         couponTitleLabelHeightLC.constant = 11;
         if orderDetail != nil{
-            nameLabel.text = "姓名:\(orderDetail!.receive_name!)"
+            nameLabel.text = "收货人:\(orderDetail!.receive_name!)"
             telLabel.text = "电话:\(orderDetail!.receive_phone!)"
-            addressLabel.text = "地址:\(orderDetail!.receive_address!)"
+            var adddress = ""
+            if let locate = orderDetail?.receive_located{
+                adddress = locate.replacingOccurrences(of: "/", with: "")
+            }
+            addressLabel.text = "收货地址:\(adddress)\(orderDetail!.receive_address!)"
             yunFeiLabel.text = "￥\(orderDetail!.freight!)"
             priceLabel.text = "￥\(orderDetail!.price!)"
             if let msg = orderDetail?.coupon_msg{
@@ -424,6 +429,7 @@ class OrderDetailsViewController: UIViewController,UITextViewDelegate,UITableVie
     func setProductDataScoure(list:Array<OrderDetails>)->Void{
         productDataScoure = list;
         productTableView.reloadData()
+        setText()
     }
     
     func setTitleDataScoure(item:OrderList)->Void{

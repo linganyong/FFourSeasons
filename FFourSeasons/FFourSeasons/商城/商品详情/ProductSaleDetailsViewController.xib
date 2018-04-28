@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="-64" width="375" height="228"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="h0X-PS-h80" secondAttribute="height" multiplier="750:456" id="BLP-Dm-ia9"/>
+                                    <constraint firstAttribute="width" secondItem="h0X-PS-h80" secondAttribute="height" multiplier="800:450" id="BLP-Dm-ia9"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukp-t6-bdR">
@@ -344,7 +344,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="h0X-PS-h80" firstAttribute="leading" secondItem="oAQ-am-fyc" secondAttribute="leading" id="0K7-uZ-4ua"/>
-                            <constraint firstItem="h0X-PS-h80" firstAttribute="top" secondItem="oAQ-am-fyc" secondAttribute="top" constant="-64" id="56A-Eo-qMc"/>
+                            <constraint firstItem="h0X-PS-h80" firstAttribute="top" secondItem="oAQ-am-fyc" secondAttribute="top" id="56A-Eo-qMc"/>
                             <constraint firstAttribute="trailing" secondItem="vsc-aQ-4HQ" secondAttribute="trailing" constant="16" id="9mx-dx-0nf"/>
                             <constraint firstAttribute="trailing" secondItem="J8W-td-1Zd" secondAttribute="trailing" constant="16" id="DWB-KR-3dR"/>
                             <constraint firstAttribute="bottom" secondItem="iaQ-eo-eme" secondAttribute="bottom" constant="20" id="Dkh-Nz-jpL"/>

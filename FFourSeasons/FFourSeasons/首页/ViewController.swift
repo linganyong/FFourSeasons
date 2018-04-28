@@ -144,7 +144,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.row == 0 {
-            return self.view.frame.size.width/750*272
+            return self.view.frame.size.width*330.0/950.0
         }
         
         if indexPath.row == 1{
@@ -157,7 +157,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainPageProductTableViewCell", for: indexPath) as! MainPageProductTableViewCell
         cell.selectionStyle = .none
         if indexPath.row == 0{ //滚动图片
-            let height1 = self.view.frame.size.width/750*272
+            let height1 = self.view.frame.size.width*330.0/950.0
             headerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: height1)
             headerView.pageControlBackView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
             headerView.tag = 10001

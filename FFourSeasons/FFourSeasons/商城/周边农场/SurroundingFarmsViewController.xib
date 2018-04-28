@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,6 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOo-or-zjx" customClass="MAMapView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8t-vn-ere">
                         <rect key="frame" x="16" y="587" width="50" height="50"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,14 +63,19 @@
                     <constraint firstItem="W9W-YW-6iI" firstAttribute="bottom" secondItem="q8t-vn-ere" secondAttribute="bottom" constant="30" id="JsE-OP-0yb"/>
                     <constraint firstItem="4Va-d8-sf9" firstAttribute="leading" secondItem="7eB-eR-QJN" secondAttribute="leading" id="Nvn-Dx-2wR"/>
                     <constraint firstItem="q8t-vn-ere" firstAttribute="leading" secondItem="W9W-YW-6iI" secondAttribute="leading" constant="16" id="UNp-fr-YYd"/>
+                    <constraint firstItem="eOo-or-zjx" firstAttribute="trailing" secondItem="W9W-YW-6iI" secondAttribute="trailing" id="WWF-HU-eQS"/>
+                    <constraint firstItem="eOo-or-zjx" firstAttribute="top" secondItem="gau-jr-x5J" secondAttribute="top" id="br7-3j-Y8A"/>
                     <constraint firstItem="W9W-YW-6iI" firstAttribute="trailing" secondItem="4Va-d8-sf9" secondAttribute="trailing" constant="8" id="lLh-f5-qPP"/>
                     <constraint firstItem="W9W-YW-6iI" firstAttribute="bottom" secondItem="4Va-d8-sf9" secondAttribute="bottom" constant="8" id="lqz-Dj-R4T"/>
                     <constraint firstItem="4Va-d8-sf9" firstAttribute="top" secondItem="7eB-eR-QJN" secondAttribute="bottom" constant="0.5" id="mHK-ce-PQk"/>
                     <constraint firstItem="4Va-d8-sf9" firstAttribute="width" secondItem="7eB-eR-QJN" secondAttribute="width" id="sCc-dL-dKc"/>
+                    <constraint firstItem="eOo-or-zjx" firstAttribute="bottom" secondItem="W9W-YW-6iI" secondAttribute="bottom" id="zXf-r5-Fdk"/>
+                    <constraint firstItem="eOo-or-zjx" firstAttribute="leading" secondItem="W9W-YW-6iI" secondAttribute="leading" id="zxt-6X-9zb"/>
                 </constraints>
                 <viewLayoutGuide key="safeArea" id="W9W-YW-6iI"/>
             </view>
             <connections>
+                <outlet property="mapView" destination="eOo-or-zjx" id="m5B-pG-iuI"/>
                 <outlet property="myLocationBtn" destination="q8t-vn-ere" id="kgI-gi-fKs"/>
             </connections>
             <point key="canvasLocation" x="-53.5" y="-139.5"/>
@@ -75,6 +84,6 @@
     <resources>
         <image name="+3x.png" width="114" height="114"/>
         <image name="-3x.png" width="114" height="114"/>
-        <image name="展示自身定位" width="16" height="16"/>
+        <image name="展示自身定位" width="24" height="24"/>
     </resources>
 </document>

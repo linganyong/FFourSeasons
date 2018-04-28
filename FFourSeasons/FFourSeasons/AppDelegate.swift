@@ -110,9 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     //MARK:代理方法（QQ、微信一样）
     func on(_ resp: BaseResp?) {
         
-     
     }
-
     
     //MARK:判断缓存是否被使用，判断的用时也在使用（判断数组是否存在和添加到数组）
      func isExistCacheNameUse(cacheName:String) -> Bool {

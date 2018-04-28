@@ -34,7 +34,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="luM-lN-Fn2">
-                    <rect key="frame" x="0.0" y="60" width="375" height="62"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="定位3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="uyh-bv-vND">
                             <rect key="frame" x="12" y="16" width="22" height="30"/>
@@ -154,7 +154,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-mb-Nuu">
-                    <rect key="frame" x="0.0" y="142" width="375" height="238"/>
+                    <rect key="frame" x="0.0" y="82" width="375" height="238"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="配送方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RC-r9-RbF">
                             <rect key="frame" x="21" y="109" width="100" height="21"/>
@@ -244,7 +244,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5e-G5-2Ub">
                             <rect key="frame" x="312" y="140" width="42" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="42" id="JUU-2Q-HcM"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="JUU-2Q-HcM"/>
                                 <constraint firstAttribute="height" constant="21" id="UHE-sV-EdW"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -280,7 +280,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68h-5T-2t0">
-                    <rect key="frame" x="0.0" y="400" width="375" height="40"/>
+                    <rect key="frame" x="0.0" y="340" width="375" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看可用优惠券" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZq-S3-7Ag">
                             <rect key="frame" x="21" y="6" width="313.5" height="29"/>
@@ -331,7 +331,7 @@
             <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="9ml-mb-Nuu" firstAttribute="top" secondItem="luM-lN-Fn2" secondAttribute="bottom" constant="20" id="76I-ic-VQ7"/>
-                <constraint firstItem="luM-lN-Fn2" firstAttribute="top" secondItem="mnJ-mj-kGy" secondAttribute="top" constant="60" id="A6R-rs-G2S"/>
+                <constraint firstItem="luM-lN-Fn2" firstAttribute="top" secondItem="mnJ-mj-kGy" secondAttribute="top" id="A6R-rs-G2S"/>
                 <constraint firstItem="luM-lN-Fn2" firstAttribute="trailing" secondItem="i4L-sd-tEH" secondAttribute="trailing" id="CMW-yR-gvZ"/>
                 <constraint firstItem="9ml-mb-Nuu" firstAttribute="trailing" secondItem="i4L-sd-tEH" secondAttribute="trailing" id="HF1-h3-HIf"/>
                 <constraint firstItem="RoL-h0-JdO" firstAttribute="leading" secondItem="i4L-sd-tEH" secondAttribute="leading" id="HKe-bh-VgX"/>
